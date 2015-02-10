@@ -1,0 +1,149 @@
+// Basic font hacks
+h1, h2 {
+  font-weight: 600;
+}
+h3, h4, h5 {
+  font-weight: 500;
+}
+dl {
+  dt {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+}
+dl.compact dd {
+  margin-bottom: 0;
+}
+
+body {
+  background-color: $black;
+}
+
+// top bar colour hack - just for Jim
+.top-bar-section li.active a {
+  font-weight: 500;
+}
+
+// right hand panel hack to Jim
+.large-4 .panel h4 {
+  color: $primary-color;
+}
+
+// Cloudy page header
+.page-header {
+  background-image: url(../images/clouds.png);
+  background-color: $secondary-color;
+  background-size: cover;
+  padding: {
+    top: 30px;
+    bottom: 30px;
+  };
+  border-bottom: 30px solid $white;
+  h1 {
+    color: $white;
+  }
+}
+
+// pretty boxes
+.box {
+  border:1px solid $primary-color;
+  margin: 20px 0 40px;
+  background-color: $white;
+  .heading {
+    background-color: $primary-color;
+    border-bottom:1px solid $grey;
+    min-height: 71px;
+    color: $white;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 0;
+  }
+  .content {
+    padding: 10px 15px 0;
+    min-height: 235px;
+  }
+}
+.round-icon {
+  @include border-radius(50%);
+  display: block;
+  background-color: $grey;
+  height: 85px;
+  width: 85px;
+  margin: 20px auto 10px;
+
+  svg {
+    margin-top: 18px;
+  }
+  .svg-path {
+    fill: $primary-color;
+  }
+}
+
+// security banner
+.security-banner {
+  background-color: $black;
+  color: $white;
+  padding: 10px 0;
+
+  svg {
+    height: 16px;
+    width: 16px;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+    float: left;
+    .svg-path {
+      fill: $white;
+    }
+  }
+  h1 {
+    color: $white;
+    margin: 1px 10px 0 0;
+    font-size: rem-calc(16);
+    float: left;
+  }
+  p {
+    float: left;
+    margin: 4px 10px 0 0;
+    font-size: rem-calc(12);
+  }
+  a {
+    color: $secondary-color;
+    &:hover {
+      color: $white;
+    }
+  }
+  .close-link {
+    float: right;
+    font-size: rem-calc(12);
+  }
+}
+
+// color helpers
+.bg-primary {
+  background-color: $primary-color;
+}
+.bg-secondary {
+  background-color: $secondary-color;
+}
+.bg-black {
+  background-color: $black;
+}
+.bg-white {
+  background-color: $white;
+}
+.bg-lightGrey {
+  background-color: $light-grey;
+}
+.color-primary {
+  color: $primary-color;
+}
+.color-white {
+  color: $white;
+}
+.color-grey {
+  color: $grey;
+}
+.color-lightGrey {
+  color: $light-grey;
+}
