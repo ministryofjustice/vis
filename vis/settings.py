@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'police',
     'info',
     'django_markdown',
+    'rules.apps.AutodiscoverRulesConfig',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +63,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'rules.permissions.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 TEMPLATE_DIRS = (
