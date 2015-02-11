@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 
 class PCC(models.Model):
@@ -10,6 +11,9 @@ class PCC(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('pcc_detail', kwargs={'slug': self.slug})
 
     def natural_key(self):
         return self.slug

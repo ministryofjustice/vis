@@ -6,8 +6,9 @@
         <h1>{% block title %}{% endblock %}</h1>
     </div>
     <div class="medium-4 columns">
-        <form action="search-results.html" class="inline-search">
-            <input id="q" placeholder="Search services near you" type="text" />
+        <form action="/police/search/" class="inline-search" method="POST">
+            {% csrf_token %}
+            <input name="q" id="q" placeholder="Search services near you" type="text" />
             <input class="button radius" type="submit" value="Search" />
         </form>
     </div>

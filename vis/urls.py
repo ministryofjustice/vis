@@ -9,6 +9,7 @@ flatpages.register()
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='homepage.html')),
+    url(r'^police/', include('police.urls')),
     url(r'^glossary/', include('info.urls')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^admin/', include(admin.site.urls)),

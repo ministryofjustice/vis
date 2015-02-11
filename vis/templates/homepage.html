@@ -6,12 +6,13 @@
         <br />
         <h1 class="color-white text-center">Victims' Information Service</h1>
         <br />
-        <form action="search-results.html" class="row text-center">
+        <form action="/police/search/" class="row text-center" method="POST">
+            {% csrf_token %}
             <label for="q">
                 <h4 class="color-white">Find help and support near you</h4>
             </label>
             <div class="small-6 columns small-offset-3">
-                <input class="text-center" id="q" placeholder="Enter your home post code or local police authority" type="text" />
+                <input name="q" class="text-center" id="q" placeholder="Enter your home post code or local police authority" type="text" />
                 <div class="row collapse">
                     <div class="small-4 columns small-offset-4">
                         <input class="button small radius" type="submit" value="Search" />

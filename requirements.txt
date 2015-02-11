@@ -5,3 +5,4 @@ django-pipeline==1.4.5
 django-pipeline-compass-rubygem==0.1.8
 psycopg2==2.6
 rules==0.3
+requests==2.5.1
