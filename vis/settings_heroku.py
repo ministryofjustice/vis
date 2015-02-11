@@ -8,7 +8,12 @@ if DJ_DATABASE_URL:
     }
 
 PIPELINE_COMPILERS = ()
+PIPELINE_ENABLED = TRUE
 
 DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
+
+STATICFILES_DIRS += (
+    os.path.join(PROJECT_DIR, 'static'),
+)
