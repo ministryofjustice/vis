@@ -46,12 +46,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    
     'markdown_deux',
     'pipeline',
-    'police',
-    'info',
     'django_markdown',
     'rules.apps.AutodiscoverRulesConfig',
+
+    'police',
+    'info',
 )
 
 MIDDLEWARE_CLASSES = (
