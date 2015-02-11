@@ -1,1 +1,1 @@
-web: ./manage.py runserver "0.0.0.0:$PORT" --settings=vis.settings_heroku --noreload
+web: DJANGO_SETTINGS_MODULE=vis.settings_heroku gunicorn vis.wsgi --log-file -
