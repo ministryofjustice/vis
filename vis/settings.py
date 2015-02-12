@@ -76,6 +76,13 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
 
+TEMPLATE_LOADERS = (
+    ('pyjade.ext.django.Loader',(
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    )),
+)
+
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 STATICFILES_DIRS = (
