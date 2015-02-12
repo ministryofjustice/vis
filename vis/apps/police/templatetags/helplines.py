@@ -5,7 +5,7 @@ from info.models import Helpline
 register = template.Library()
 
 
-@register.inclusion_tag('templatetags/helpline/box.html')
+@register.inclusion_tag('templatetags/helpline/box.jade')
 def helpline_box(num_items=3):
     items = Helpline.objects.order_by('?')
     try:

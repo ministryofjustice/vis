@@ -1,0 +1,10 @@
+.panel
+  h4 Additional national helplines
+  dl
+    - for item in items
+      h5= item.name
+      dl.compact
+        dd= item.phone
+        dd
+          a(href=item.url)= item.url
+          

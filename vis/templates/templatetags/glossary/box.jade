@@ -1,0 +1,8 @@
+.panel
+  h4 Glossary
+  dl
+    - for item in items
+      dt
+        a(name=item.slug)= item.name
+      dd= item.description
+  a(href="/glossary/") See the full glossary

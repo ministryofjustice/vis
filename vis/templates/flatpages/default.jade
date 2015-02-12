@@ -1,0 +1,11 @@
+- extends 'article.html'
+- load markdown_deux_tags glossary
+
+block title
+  = flatpage.title
+
+block content
+  .bg-white
+    .row
+      .large-8.columns= flatpage.content|markdown
+      .large-4.columns= glossary_box
