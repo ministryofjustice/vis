@@ -119,8 +119,7 @@ Bower frontend components and Django fixtures require setup on the **first run o
 
 ```
 $ fig run django bower install --allow-root
-$ fig run django python manage.py loaddata vis/fixtures/pages 
-$ vis/fixtures/test_users glossary helplines police
+$ fig run django python manage.py loaddata vis/fixtures/pages vis/fixtures/test_users glossary helplines police
 ```
 
 Start it up:
