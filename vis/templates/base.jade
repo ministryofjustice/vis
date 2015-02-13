@@ -5,8 +5,10 @@ html(lang="en")
     meta(charset="utf-8")
     title Victims' Information Service
     meta(content="width=device-width", name="viewport")
+    - stylesheet "main"
   body
     - include "includes/_security-banner.jade"
-    - include "includes/_page-header.jade"
+    - include "includes/_main-nav.jade"
     block content
     - include "includes/_footer.jade"
+    - javascript "main"
