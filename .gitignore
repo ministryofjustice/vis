@@ -1,5 +1,21 @@
 .sass-cache
 bower_components
 *.pyc
-vis/static/*
-node_modules
+
+# collect static output directory
+vis/assets/
+vis/static/
+
+.DS_Store
+
+# node
+node_modules/
+npm-debug.log
+
+# bower packages
+vis/assets-src/vendor/
+.sass-cache/
+generated/
+
+# gulp temp folder
+.gulptmp
