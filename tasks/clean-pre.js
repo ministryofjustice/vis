@@ -6,7 +6,10 @@
   var del = require('del');
 
   // clean out assets folder
-  gulp.task('clean-pre', function() {
-    del([paths.dest, paths.tmp]);
+  gulp.task('clean:pre', function (cb) {
+    del([
+      paths.dest,
+      paths.tmp
+    ], cb);
   });
 })();
