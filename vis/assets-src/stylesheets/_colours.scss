@@ -1,0 +1,13 @@
+$black: #242424;
+$white: #ffffff;
+
+$primary-color: #445878;
+$secondary-color: #92CDCF;
+
+$text-colour: $black;
+
+// links
+$link-colour: $primary-color;
+$link-visited-colour: lighten($primary-color, 10%);
+$link-hover-colour: $secondary-color;
+$link-active-colour: $secondary-color;
