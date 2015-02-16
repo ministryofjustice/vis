@@ -4,7 +4,7 @@ header.page-header
       h1
         block content_title
     .medium-4.columns
-      form.inline-search(action="/ploice/search/", method="post")
+      form.inline-search(action="/police/search/", method="post")
         - csrf_token
         input(name="q", id="q", placeholder="Search services near you", type="text")
         input.button.radius(type="submit", value="Search")
