@@ -1,15 +1,91 @@
-.SiteHeader {
+%burger-line {
+  @include border-radius(5px);
+  // @include transition(all, 0, ease-in-out);
+  height: 5px;
+  width: 35px;
+  background: $secondary-color;
+  position: absolute;
+  display: block;
+  content: '';
+}
 
+.SiteHeader {
+  background-color: $primary-color;
 }
 .SiteHeader-inner {
   @extend %site-width-container;
+  @extend %contain-floats;
+}
+.SiteHeader-title {
+  @include bold-24;
+  padding: 15px 0;
+  margin: 0;
+  color: $white;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+a.SiteHeader-menuToggle {
+  color: $secondary-color;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  padding-bottom: 15px;
+
+  span{
+    @extend %burger-line;
+    position: absolute;
+    top: 9px;
+    left: 0;
+
+    &:before,
+    &:after {
+      @extend %burger-line;
+    }
+
+    &:before {
+      top: -10px;
+    }
+    &:after {
+      bottom: -10px;
+    }
+  }
+
+  // active state
+  &--active span {
+    background-color: transparent;
+
+    &:before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    &:after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
 }
 .SiteHeader-menu {
+  @extend %outdent-to-full-width;
+  background-color: $black;
 
+  .js-enabled & {
+    display: none;
+  }
 }
 .SiteHeader-menuList {
-
+  @extend %site-width-container;
+  padding: 12px 0;
 }
 .SiteHeader-menuItem {
+  padding: 1px 0;
 
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+    display: block;
+  }
 }
