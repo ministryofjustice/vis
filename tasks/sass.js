@@ -10,7 +10,7 @@
         lineNumbers: true,
         compass: true,
         style: 'compact',
-        loadPath: 'vis/assets-src/vendor/'
+        loadPath: ['vis/assets-src/vendor/', 'node_modules/']
       })
       .on('error', function (err) { console.log(err.message); })
       .pipe(gulp.dest(paths.dest + 'stylesheets/'));

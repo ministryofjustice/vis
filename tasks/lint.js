@@ -7,7 +7,8 @@
   var stylish = require('jshint-stylish');
   var filesToLint = paths.scripts.concat([
     'gulpfile.js',
-    'tasks/**/*.js'
+    'tasks/**/*.js',
+    '!' + paths.vendor + '**/*.js'
   ]);
 
   // lint js code

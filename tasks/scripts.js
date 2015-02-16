@@ -8,6 +8,6 @@
   gulp.task('scripts', function() {
     gulp.src(paths.scripts)
       .pipe(concat('script.js'))
-      .pipe(gulp.dest(paths.dest + 'javascripts/'))
+      .pipe(gulp.dest(paths.dest + 'javascripts/'));
   });
 })();
