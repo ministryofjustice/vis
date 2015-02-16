@@ -1,2 +1,2 @@
-$(document).foundation();
+// $(document).foundation();
 $(vis.init);

@@ -1,6 +1,6 @@
 %burger-line {
   @include border-radius(5px);
-  // @include transition(all, 0, ease-in-out);
+  @include transition(all, 200ms, ease-in-out);
   height: 5px;
   width: 35px;
   background: $secondary-color;
@@ -55,8 +55,9 @@ a.SiteHeader-menuToggle {
   }
 
   // active state
-  &--active span {
+  &.is-open span {
     background-color: transparent;
+    transform: rotate(360deg);
 
     &:before {
       top: 0;
@@ -74,6 +75,9 @@ a.SiteHeader-menuToggle {
 
   .js-enabled & {
     display: none;
+  }
+  &.is-open {
+    display: block;
   }
 }
 .SiteHeader-menuList {
