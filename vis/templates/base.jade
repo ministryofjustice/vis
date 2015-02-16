@@ -1,0 +1,15 @@
+- load pipeline staticfiles
+!!! 5
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title Victims' Information Service
+    meta(content="width=device-width", name="viewport")
+    link(href="{% static 'stylesheets/styles.css' %}", media="all", rel="stylesheet", type="text/css")
+  body
+    - include "includes/_security-banner.jade"
+    - include "includes/_site-header.jade"
+    main.Content(role="main")
+      block content
+    - include "includes/_footer.jade"
+    script(src="{% static 'javascripts/script.js' %}")

@@ -8,7 +8,7 @@ flatpages.register()
 
 urlpatterns = patterns(
     '',
-    url(r'^$', TemplateView.as_view(template_name='homepage.html')),
+    url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^police/', include('police.urls')),
     url(r'^glossary/', include('info.urls')),
@@ -16,6 +16,6 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
 )
 
-urlpatterns += patterns('django.contrib.flatpages.views',
+urlpatterns += patterns('vis_flatpages.views',
     (r'^(?P<url>.*/)$', 'flatpage'),
 )
