@@ -1,9 +1,14 @@
 from django.db import models
+
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel
+from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page, Orderable
+
 from modelcluster.fields import ParentalKey
+
+from info.models import GlossaryItem
 
 
 class JadePageMixin(object):
@@ -62,9 +67,20 @@ class HomePagePanels(Orderable, Panel):
     page = ParentalKey('core.HomePage', related_name='panels')
 
 
+class SimplePageGlosseryItems(Orderable, models.Model):
+    page = ParentalKey('core.SimplePage', related_name='glossary_items')
+    glossary_item = models.ForeignKey(GlossaryItem, related_name='+')
+
+    panels = [
+        SnippetChooserPanel('glossary_item', GlossaryItem)
+    ]
+
+
 SimplePage.content_panels = [
     FieldPanel('title', classname="full title"),
     FieldPanel('content', classname="full"),
+
+    InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
 ]
 
 

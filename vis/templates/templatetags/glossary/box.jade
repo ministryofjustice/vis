@@ -1,8 +1,9 @@
 .panel
   h4 Glossary
   dl
-    - for item in items
-      dt
-        a(name=item.slug)= item.name
-      dd= item.description
+    - for data in items
+      - with data.glossary_item as item
+        dt
+          a(name=item.slug)= item.name
+        dd= item.description
   a(href="/glossary/") See the full glossary
