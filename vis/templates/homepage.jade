@@ -1,22 +1,15 @@
 - extends "base.jade"
 
-block page_header
-  .row
-    .medium-12.columns
-      br
-      h1.color-white.text-center Victims' Information Service
-      br
-      form.row.text-center(action="/police/search/", method="post")
-        - csrf_token
-        label(for="q")
-          h4.color-white Find help and support near you
-          .small-6.columns.small-offset-3
-            input.text-center(name="q", id="q", placeholder="Enter your home post code or local police authority" type="text")
-            .row.collapse
-              .small-4.columns.small-offset-4
-                input.button.small.radius(type="submit", value="Search")
 block content
   main(role="main")
+    section.LeadHeader
+      .Content
+        h1.LeadHeader-title Victims' Information Service
+        form.SearchForm(action="/police/search/", method="post")
+          label.SearchForm-label(for="q")
+            .SearchForm-labelText Find help and support near you
+            input.SearchForm-query(name="q", id="q", placeholder="Enter your home post code or local police authority", type="text")
+          input.Button.SearchForm-submit(type="submit", value="Find support")
     .Content
       section.Panel-row
         - include "includes/panels/_icon.jade"

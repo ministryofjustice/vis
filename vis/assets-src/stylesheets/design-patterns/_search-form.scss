@@ -1,0 +1,70 @@
+.SearchForm {
+  @extend %contain-floats;
+  padding: 1.250em 0;
+  position: relative;
+
+  @include media(desktop) {
+    padding: 0 0 3.125em;
+    margin: 0 auto;
+    width: 55%;
+  }
+}
+.SearchForm-label {
+  display: block;
+  float: left;
+  width: 77%;
+  @include calc('width', '100% - 60px');
+
+  @include media(desktop) {
+    @include core-24;
+    font-weight: 500;
+    color: $white;
+    float: none;
+    width: auto;
+  }
+}
+.SearchForm-labelText {
+  display: none;
+
+  @include media(desktop) {
+    display: inline;
+  }
+}
+.SearchForm-query {
+  @include core-16;
+  display: block;
+  border: 1px solid $dark-grey;
+  padding: 1.143em 5px;
+  margin: 0;
+  width: 95%;
+  @include calc('width', '100% - 12px');
+
+  @include media(desktop) {
+    text-align: center;
+    margin: 1.25em 0;
+  }
+}
+.SearchForm-submit {
+  @include bold-16;
+  @include border-radius(3px);
+  background: url(../images/icons/search-small.svg) no-repeat center center $primary-colour;
+  text-indent: -1000px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  height: 3.571em;
+  width: 3.571em;
+  margin: 0;
+  padding: 0;
+  float: right;
+
+  @include media(desktop) {
+    background-image: none;
+    text-indent: 0;
+    float: none;
+    height: auto;
+    width: auto;
+    color: $white;
+    padding: 0.75em 1.25em;
+  }
+}

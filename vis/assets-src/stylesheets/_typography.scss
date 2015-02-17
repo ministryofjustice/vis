@@ -49,6 +49,13 @@ $is-print: false !default;
   @include _core-font-generator($font-size, $font-size-640, $font-size-print, $line-height, $line-height-640, $tabular-numbers, $font-weight);
 }
 
+@mixin core-60($line-height: (60 / 60), $line-height-640: (50 / 48), $tabular-numbers: false, $font-weight: 400) {
+  $font-size: 60px;
+  $font-size-640: 48px;
+  $font-size-print: 22pt;
+  @include _core-font-generator($font-size, $font-size-640, $font-size-print, $line-height, $line-height-640, $tabular-numbers, $font-weight);
+}
+
 @mixin core-48($line-height: (50 / 48), $line-height-640: (35 / 32), $tabular-numbers: false, $font-weight: 400) {
   $font-size: 48px;
   $font-size-640: 32px;
@@ -107,6 +114,10 @@ $is-print: false !default;
 
 @mixin bold-80($line-height: (80 / 80), $line-height-640: (55 / 53), $tabular-numbers: false) {
   @include core-80($line-height, $line-height-640, $tabular-numbers: $tabular-numbers, $font-weight: 700);
+}
+
+@mixin bold-60($line-height: (60 / 60), $line-height-640: (50 / 48), $tabular-numbers: false) {
+  @include core-60($line-height, $line-height-640, $tabular-numbers: $tabular-numbers, $font-weight: 700);
 }
 
 @mixin bold-48($line-height: (50 / 48), $line-height-640: (35 / 32), $tabular-numbers: false) {
