@@ -11,7 +11,6 @@ html(lang="en")
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
     - include "includes/_security-banner.jade"
     - include "includes/_site-header.jade"
-    main.Content(role="main")
-      block content
+    block content
     - include "includes/_footer.jade"
     script(src="{% static 'javascripts/script.js' %}")

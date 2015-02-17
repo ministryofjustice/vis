@@ -16,11 +16,20 @@ block page_header
               .small-4.columns.small-offset-4
                 input.button.small.radius(type="submit", value="Search")
 block content
-  section
-    - include "includes/panels/_icon.jade"
-    - include "includes/panels/_icon.jade"
-    - include "includes/panels/_icon.jade"
-  section
-    - include "includes/panels/_text.jade"
-    - include "includes/panels/_text.jade"
-    - include "includes/panels/_text.jade"
+  main(role="main")
+    .Content
+      section.Panel-row
+        - include "includes/panels/_icon.jade"
+        - include "includes/panels/_icon.jade"
+        - include "includes/panels/_icon.jade"
+    .ColourRow--grey
+      section.Content
+        h1.Panel-rowHeading I am a victim: some common cases
+        .Panel-row
+          - include "includes/panels/_text.jade"
+          - include "includes/panels/_text.jade"
+          - include "includes/panels/_text.jade"
+        .Panel-row
+          - include "includes/panels/_text.jade"
+          - include "includes/panels/_text.jade"
+          - include "includes/panels/_text.jade"
