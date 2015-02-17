@@ -3,14 +3,14 @@
   // @include transition(all, 200ms, ease-in-out);
   height: 5px;
   width: 35px;
-  background: $secondary-color;
+  background: $secondary-colour;
   position: absolute;
   display: block;
   content: '';
 }
 
 .SiteHeader {
-  background-color: $primary-color;
+  background-color: $primary-colour;
   padding-top: 15px;
 }
 .SiteHeader-inner {
@@ -33,7 +33,7 @@
   }
 }
 a.SiteHeader-menuToggle {
-  color: $secondary-color;
+  color: $secondary-colour;
   text-decoration: none;
   display: block;
   position: relative;
@@ -124,7 +124,7 @@ a.SiteHeader-menuToggle {
   }
 
   a {
-    color: $secondary-color;
+    color: $secondary-colour;
     text-decoration: none;
     display: block;
 
