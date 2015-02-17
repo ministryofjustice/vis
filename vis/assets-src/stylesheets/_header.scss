@@ -1,6 +1,6 @@
 %burger-line {
   @include border-radius(5px);
-  @include transition(all, 200ms, ease-in-out);
+  // @include transition(all, 200ms, ease-in-out);
   height: 5px;
   width: 35px;
   background: $secondary-color;
@@ -11,6 +11,7 @@
 
 .SiteHeader {
   background-color: $primary-color;
+  padding-top: 15px;
 }
 .SiteHeader-inner {
   @extend %site-width-container;
@@ -18,9 +19,13 @@
 }
 .SiteHeader-title {
   @include bold-24;
-  padding: 15px 0;
+  padding: 0 0 15px;
   margin: 0;
   color: $white;
+
+  @include media(desktop) {
+    float: left;
+  }
 
   a {
     color: $white;
@@ -34,6 +39,10 @@ a.SiteHeader-menuToggle {
   position: relative;
   padding-left: 45px;
   padding-bottom: 15px;
+
+  @include media(desktop) {
+    display: none;
+  }
 
   span{
     @extend %burger-line;
@@ -57,7 +66,7 @@ a.SiteHeader-menuToggle {
   // active state
   &.is-open span {
     background-color: transparent;
-    transform: rotate(360deg);
+    // transform: rotate(360deg);
 
     &:before {
       top: 0;
@@ -73,23 +82,59 @@ a.SiteHeader-menuToggle {
   @extend %outdent-to-full-width;
   background-color: $black;
 
+  @include media(desktop) {
+    background-color: transparent;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .js-enabled & {
     display: none;
+
+    @include media(desktop) {
+      display: block;
+    }
   }
   &.is-open {
     display: block;
   }
+
 }
 .SiteHeader-menuList {
+  @extend %contain-floats;
   @extend %site-width-container;
   padding: 12px 0;
+  list-style: none;
+  font-weight: 500;
+
+  @include media(desktop) {
+    @include core-14;
+    font-weight: 500;
+    padding: 7px 0;
+  }
 }
 .SiteHeader-menuItem {
   padding: 1px 0;
+  display: block;
+
+  @include media(desktop) {
+    float: left;
+    padding: 0;
+  }
 
   a {
     color: $secondary-color;
     text-decoration: none;
     display: block;
+
+    @include media(desktop) {
+      // padding: 0 0 0 15px;
+      margin: 0 0 0 20px;
+    }
+
+    &:hover {
+      color: $white;
+    }
   }
 }
