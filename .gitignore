@@ -19,3 +19,16 @@ generated/
 
 # gulp temp folder
 .gulptmp
+
+# intellij
+vis.iws
+vis.ipr
+vis.ids
+vis.iml
+
+# virtualenvs
+venv/
+env/
+
+vis/apps/*/images/
+vis/apps/*/original_images/

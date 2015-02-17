@@ -46,14 +46,31 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    
+
     'markdown_deux',
     'pipeline',
     'django_markdown',
     'rules.apps.AutodiscoverRulesConfig',
 
+    'taggit',
+    'modelcluster',
+    'compressor',
+    'wagtail.wagtailcore',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailforms',
+
     'police',
     'info',
+    'core',
+    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,6 +82,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
+
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -94,7 +115,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
+    'compressor.finders.CompressorFinder',
 )
+
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
@@ -134,6 +162,13 @@ PIPELINE_COMPILERS = (
 ROOT_URLCONF = 'vis.urls'
 
 WSGI_APPLICATION = 'vis.wsgi.application'
+
+
+from django.conf import global_settings
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+)
 
 
 # Database
@@ -186,3 +221,8 @@ if DJ_DATABASE_URL:
     TEMPLATE_DEBUG = DEBUG
 
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
+LOGIN_URL = 'wagtailadmin_login'
+LOGIN_REDIRECT_URL = 'wagtailadmin_home'
+WAGTAIL_SITE_NAME = 'VIS'

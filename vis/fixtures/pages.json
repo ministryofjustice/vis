@@ -3,7 +3,7 @@
     "fields": {
         "registration_required": false,
         "title": "The Justice Process",
-        "url": "/justice-process/",
+        "url_path": "/justice-process/",
         "template_name": "",
         "sites": [
             1
@@ -18,7 +18,7 @@
     "fields": {
         "registration_required": false,
         "title": "About",
-        "url": "/about/",
+        "url_path": "/about/",
         "template_name": "",
         "sites": [
             1
@@ -33,7 +33,7 @@
     "fields": {
         "registration_required": false,
         "title": "Antisocial Behaviour",
-        "url": "/antisocial-behaviour/",
+        "url_path": "/antisocial-behaviour/",
         "template_name": "",
         "sites": [
             1
@@ -48,7 +48,7 @@
     "fields": {
         "registration_required": false,
         "title": "Attacked",
-        "url": "/attacked/",
+        "url_path": "/attacked/",
         "template_name": "",
         "sites": [
             1
@@ -63,7 +63,7 @@
     "fields": {
         "registration_required": false,
         "title": "Complaining",
-        "url": "/complaining/",
+        "url_path": "/complaining/",
         "template_name": "",
         "sites": [
             1
@@ -78,7 +78,7 @@
     "fields": {
         "registration_required": false,
         "title": "Crime Abroad",
-        "url": "/crime-abroad/",
+        "url_path": "/crime-abroad/",
         "template_name": "",
         "sites": [
             1
@@ -93,7 +93,7 @@
     "fields": {
         "registration_required": false,
         "title": "Fraud",
-        "url": "/fraud/",
+        "url_path": "/fraud/",
         "template_name": "",
         "sites": [
             1
@@ -108,7 +108,7 @@
     "fields": {
         "registration_required": false,
         "title": "Getting Compensation",
-        "url": "/getting-compensation/",
+        "url_path": "/getting-compensation/",
         "template_name": "",
         "sites": [
             1
@@ -123,7 +123,7 @@
     "fields": {
         "registration_required": false,
         "title": "Hate Crime",
-        "url": "/hate-crime/",
+        "url_path": "/hate-crime/",
         "template_name": "",
         "sites": [
             1
@@ -138,7 +138,7 @@
     "fields": {
         "registration_required": false,
         "title": "Justice Article",
-        "url": "/justice-article/",
+        "url_path": "/justice-article/",
         "template_name": "",
         "sites": [
             1
@@ -153,7 +153,7 @@
     "fields": {
         "registration_required": false,
         "title": "Online Safety",
-        "url": "/online-safety/",
+        "url_path": "/online-safety/",
         "template_name": "",
         "sites": [
             1
@@ -168,7 +168,7 @@
     "fields": {
         "registration_required": false,
         "title": "Organisations",
-        "url": "/organisations/",
+        "url_path": "/organisations/",
         "template_name": "",
         "sites": [
             1
@@ -183,7 +183,7 @@
     "fields": {
         "registration_required": false,
         "title": "Special Measures",
-        "url": "/special-measures/",
+        "url_path": "/special-measures/",
         "template_name": "",
         "sites": [
             1
@@ -198,7 +198,7 @@
     "fields": {
         "registration_required": false,
         "title": "Stalking",
-        "url": "/stalking/",
+        "url_path": "/stalking/",
         "template_name": "",
         "sites": [
             1
@@ -213,7 +213,7 @@
     "fields": {
         "registration_required": false,
         "title": "Your Rights",
-        "url": "/your-rights/",
+        "url_path": "/your-rights/",
         "template_name": "",
         "sites": [
             1
