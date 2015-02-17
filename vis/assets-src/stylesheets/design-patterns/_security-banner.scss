@@ -2,10 +2,10 @@
   @extend %contain-floats;
   background-color: $black;
   color: $white;
-  padding: 10px 0;
+  padding: 15px 0;
 
   a {
-    color: $secondary-color;
+    color: $secondary-colour;
     &:hover {
       color: $white;
     }
@@ -15,27 +15,36 @@
   @extend %site-width-container;
 }
 .SecurityBanner-title {
-  @include bold-16;
+  @include bold-27;
   color: $white;
 
   @include media(desktop) {
-    float: left;
+
   }
 }
 .SecurityBanner-content {
-  @include core-12;
+  @include core-19;
+  font-size: 18px;
   margin: 2px 0 0;
 
   @include media(desktop) {
     float: left;
-    margin-left: 8px;
+    width: 70%;
   }
 }
-.SecurityBanner-close {
-  @include core-12;
-  margin: 2px 0 0;
+.SecurityBanner-options {
+  @include bold-19;
+  margin: 15px -5px 10px;
 
   @include media(desktop) {
     float: right;
+    margin-top: 0;
+  }
+
+  .Button {
+    margin: {
+      left: 5px;
+      right: 5px;
+    };
   }
 }
