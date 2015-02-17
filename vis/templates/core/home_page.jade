@@ -17,10 +17,8 @@ block page_header
                 input.button.small.radius(type="submit", value="Search")
 block content
   section
-    - include "includes/panels/_icon.jade"
-    - include "includes/panels/_icon.jade"
-    - include "includes/panels/_icon.jade"
+    - for panel in self.promo_panels.all
+      - include "includes/panels/_icon.jade"
   section
-    - include "includes/panels/_text.jade"
-    - include "includes/panels/_text.jade"
-    - include "includes/panels/_text.jade"
+    - for panel in self.panels.all
+      - include "includes/panels/_text.jade"
