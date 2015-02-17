@@ -1,0 +1,19 @@
+.LeadHeader {
+  text-align: center;
+  background-color: $secondary-colour;
+
+  @include media(desktop) {
+    background-image: url(../images/clouds.png);
+    background-size: cover;
+  }
+}
+.LeadHeader-title {
+  display: none;
+
+  @include media(desktop) {
+    @include bold-60;
+    display: block;
+    color: $white;
+    padding: 0.833em 0;
+  }
+}
