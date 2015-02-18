@@ -8,11 +8,12 @@
   }
 }
 .LeadHeader-title {
-  display: none;
+  @extend %hidden;
 
   @include media(desktop) {
     @include bold-60;
-    display: block;
+    position: inherit;
+    left: auto;
     color: $white;
     padding: 0.833em 0;
   }
