@@ -105,6 +105,7 @@ a.SiteHeader-menuToggle {
   @extend %contain-floats;
   @extend %site-width-container;
   padding: 12px 0;
+  margin: 0;
   list-style: none;
   font-weight: 500;
 
@@ -115,23 +116,22 @@ a.SiteHeader-menuToggle {
   }
 }
 .SiteHeader-menuItem {
-  padding: 1px 0;
+  padding: 1px 0 0;
   display: block;
 
   @include media(desktop) {
     float: left;
-    padding: 0;
+    padding: 0 0 0 30px;
+
+    &:first-child {
+      padding-left: 0;
+    }
   }
 
   a {
     color: $secondary-colour;
     text-decoration: none;
     display: block;
-
-    @include media(desktop) {
-      // padding: 0 0 0 15px;
-      margin: 0 0 0 20px;
-    }
 
     &:hover {
       color: $white;
