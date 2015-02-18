@@ -15,6 +15,10 @@
   width: 77%;
   @include calc('width', '100% - 60px');
 
+  @include media(tablet) {
+    @include calc('width', '100% - 70px');
+  }
+
   @include media(desktop) {
     @include core-24;
     font-weight: 500;
@@ -31,10 +35,10 @@
   }
 }
 .SearchForm-query {
-  @include core-16;
+  @include core-19;
   display: block;
   border: 1px solid $dark-grey;
-  padding: 1.143em 5px;
+  padding: 0.875em 5px;
   margin: 0;
   width: 95%;
   @include calc('width', '100% - 12px');
@@ -45,20 +49,26 @@
   }
 }
 .SearchForm-submit {
-  @include bold-16;
   @include border-radius(3px);
   background: url(../images/icons/search-small.svg) no-repeat center center $primary-colour;
   text-indent: -1000px;
+  font-size: 16px;
   overflow: hidden;
   cursor: pointer;
   border: 0;
-  height: 3.571em;
-  width: 3.571em;
+  height: 3.125em;
+  width: 3.125em;
   margin: 0;
   padding: 0;
   float: right;
 
+  @include media(tablet) {
+    height: 3.750em;
+    width: 3.750em;
+  }
+
   @include media(desktop) {
+    @include bold-19;
     background-image: none;
     text-indent: 0;
     float: none;
