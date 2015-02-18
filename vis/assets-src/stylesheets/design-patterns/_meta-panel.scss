@@ -1,0 +1,10 @@
+.MetaPanel {
+  background-color: $grey;
+  padding: 0.938em;
+  margin-bottom: 1.250em;
+}
+.MetaPanel-title {
+  @include core-27;
+  font-weight: 500;
+  color: $primary-colour;
+}

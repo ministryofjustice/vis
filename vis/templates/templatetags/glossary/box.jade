@@ -1,8 +1,9 @@
-.panel
-  h4 Glossary
-  dl
+.MetaPanel
+  h1.MetaPanel-title Glossary
+  dl.DefinitionList
     - for item in items
       dt
-        a(name=item.slug)= item.name
+        a(name=item.slug)
+        #{item.name}
       dd= item.description
   a(href="/glossary/") See the full glossary
