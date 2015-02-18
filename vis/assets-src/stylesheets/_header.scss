@@ -116,7 +116,7 @@ a.SiteHeader-menuToggle {
   }
 }
 .SiteHeader-menuItem {
-  padding: 1px 0 0;
+  padding: 1px 0;
   display: block;
 
   @include media(desktop) {
