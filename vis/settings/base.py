@@ -15,8 +15,8 @@ import dj_database_url
 
 # PATH vars
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(BASE_DIR, 'vis')
-sys.path.insert(0, os.path.join(PROJECT_DIR, 'apps'))
+PROJECT_DIR = os.path.join(BASE_DIR, '../')
+sys.path.insert(0, os.path.join(PROJECT_DIR, 'vis/apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -68,7 +68,6 @@ INSTALLED_APPS = (
     'police',
     'info',
     'core',
-    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,7 +90,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates'),
+    os.path.join(PROJECT_DIR, 'vis/templates'),
 )
 
 TEMPLATE_LOADERS = (
@@ -105,7 +104,7 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'bower_components'),
-    os.path.join(PROJECT_DIR, 'assets'),
+    os.path.join(PROJECT_DIR, 'vis/assets'),
 )
 
 STATICFILES_FINDERS = (
@@ -121,7 +120,7 @@ COMPRESS_PRECOMPILERS = (
 )
 
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'vis/static')
 
 PIPELINE_SASS_BINARY = '/usr/local/bin/sass'
 
@@ -223,3 +222,8 @@ WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 WAGTAIL_SITE_NAME = 'VIS'
+
+try:
+    from .local import *
+except ImportError:
+    pass

@@ -1,4 +1,4 @@
-from .settings import *
+from .base import *
 import dj_database_url
 
 DJ_DATABASE_URL = os.environ.get('DATABASE_URL')
