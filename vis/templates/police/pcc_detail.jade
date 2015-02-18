@@ -1,31 +1,19 @@
 - extends "article.jade"
 - load markdown_deux_tags helplines
 
-block content_title
-  Search Results
+block article_title
+  | Search Results
 
 block article_content
-  .bg-white
-    .row
-      .medium-12.columns
-        .lead= object.name
-        hr
-    .row
-      .medium-8.columns
-        .row
-          .medium-2.columns
-            .round-icon.round-icon--small
-          .medium-10.columns
-            h2.text-medium National helplines for the most serious crimes
-            p
-              | National Homicide Service - call if your case involves a murder
-              br
-              strong.color-primary.text-lead 0808 1689 111
-        hr
-        .row
-          .medium-2.columns
-            .round-icon.round-icon--small
-          .medium-10.columns
-            {{ object.content|markdown }}
-      .medium-4.columns
-        - helpline_box
+  .lead= object.name
+  hr
+  h2 National helplines for the most serious crimes
+  p
+    | National Homicide Service - call if your case involves a murder
+    br
+    strong 0808 1689 111
+  hr
+  #{ object.content|markdown }
+
+block article_aside
+  - helpline_box
