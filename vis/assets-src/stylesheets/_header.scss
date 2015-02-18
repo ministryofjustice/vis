@@ -105,7 +105,6 @@ a.SiteHeader-menuToggle {
   @extend %contain-floats;
   @extend %site-width-container;
   padding: 12px 0;
-  margin: 0;
   list-style: none;
   font-weight: 500;
 
@@ -113,6 +112,7 @@ a.SiteHeader-menuToggle {
     @include core-14;
     font-weight: 500;
     padding: 7px 0;
+    margin: 0;
   }
 }
 .SiteHeader-menuItem {
