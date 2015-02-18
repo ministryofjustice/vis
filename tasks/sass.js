@@ -2,8 +2,9 @@
   'use strict';
 
   var gulp = require('gulp');
-  var sass = require('gulp-ruby-sass');
   var paths = require('./_paths');
+  var sass = require('gulp-ruby-sass');
+  var browserSync = require('browser-sync');
 
   gulp.task('sass', function() {
     return sass(paths.src + 'stylesheets/', {
@@ -13,6 +14,7 @@
         loadPath: ['vis/assets-src/vendor/', 'node_modules/']
       })
       .on('error', function (err) { console.log(err.message); })
-      .pipe(gulp.dest(paths.dest + 'stylesheets/'));
+      .pipe(gulp.dest(paths.dest + 'stylesheets/'))
+      .pipe(browserSync.reload({stream:true}));
   });
 })();
