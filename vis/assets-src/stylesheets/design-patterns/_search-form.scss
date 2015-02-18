@@ -1,12 +1,24 @@
 .SearchForm {
   @extend %contain-floats;
-  padding: 1.250em 0;
+  @include grid-column(1/3, $full-width: desktop, $float: right);
   position: relative;
+  padding: {
+    top: 1.250em;
+    bottom: 1.250em;
+  }
 
   @include media(desktop) {
-    padding: 0 0 3.125em;
-    margin: 0 auto;
-    width: 55%;
+    padding: {
+      top: 2.813em;
+      bottom: 0;
+    }
+
+    &.SearchForm--block {
+      padding: 0 0 3.125em;
+      margin: 0 auto;
+      width: 55%;
+      float: none;
+    }
   }
 }
 .SearchForm-label {
@@ -15,56 +27,90 @@
   width: 77%;
   @include calc('width', '100% - 60px');
 
+  @include media(tablet) {
+    @include calc('width', '100% - 70px');
+  }
+
   @include media(desktop) {
-    @include core-24;
-    font-weight: 500;
-    color: $white;
-    float: none;
-    width: auto;
+    float: left;
+    width: 77%;
+    @include calc('width', '100% - 40px');
+
+    .SearchForm--block & {
+      @include core-24;
+      font-weight: 500;
+      color: $white;
+      float: none;
+      width: auto;
+    }
   }
 }
 .SearchForm-labelText {
-  display: none;
+  @extend %hidden;
 
   @include media(desktop) {
-    display: inline;
+    .SearchForm--block & {
+      position: inherit;
+      left: auto;
+    }
   }
 }
 .SearchForm-query {
-  @include core-16;
+  @include core-19;
   display: block;
   border: 1px solid $dark-grey;
-  padding: 1.143em 5px;
+  padding: 0.875em 5px;
   margin: 0;
   width: 95%;
   @include calc('width', '100% - 12px');
 
   @include media(desktop) {
-    text-align: center;
-    margin: 1.25em 0;
+    @include core-16;
+    padding-top: 0.250em;
+    padding-bottom: 0.250em;
+    margin: 0;
+
+    .SearchForm--block & {
+      @include core-19;
+      text-align: center;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      margin: 1.25em 0;
+    }
   }
 }
 .SearchForm-submit {
-  @include bold-16;
   @include border-radius(3px);
   background: url(../images/icons/search-small.svg) no-repeat center center $primary-colour;
   text-indent: -1000px;
+  font-size: 16px;
   overflow: hidden;
   cursor: pointer;
   border: 0;
-  height: 3.571em;
-  width: 3.571em;
+  height: 3.125em;
+  width: 3.125em;
   margin: 0;
   padding: 0;
   float: right;
 
+  @include media(tablet) {
+    height: 3.750em;
+    width: 3.750em;
+  }
+
   @include media(desktop) {
-    background-image: none;
-    text-indent: 0;
-    float: none;
-    height: auto;
-    width: auto;
-    color: $white;
-    padding: 0.75em 1.25em;
+    width: 1.875em;
+    height: 1.875em;
+
+    .SearchForm--block & {
+      @include bold-19;
+      background-image: none;
+      text-indent: 0;
+      float: none;
+      height: auto;
+      width: auto;
+      color: $white;
+      padding: 0.75em 1.25em;
+    }
   }
 }

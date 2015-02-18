@@ -1,10 +1,10 @@
-.panel
-  h4 Additional national helplines
-  dl
+.MetaPanel
+  h1.MetaPanel-title Additional national helplines
+  dl.DefinitionList
     - for item in items
-      h5= item.name
-      dl.compact
-        dd= item.phone
-        dd
-          a(href=item.url)= item.url
-          
+      dt= item.name
+      dd
+        #{item.phone}
+        br
+        a(href=item.url)= item.url
+

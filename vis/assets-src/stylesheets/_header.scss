@@ -112,6 +112,7 @@ a.SiteHeader-menuToggle {
     @include core-14;
     font-weight: 500;
     padding: 7px 0;
+    margin: 0;
   }
 }
 .SiteHeader-menuItem {
@@ -120,18 +121,17 @@ a.SiteHeader-menuToggle {
 
   @include media(desktop) {
     float: left;
-    padding: 0;
+    padding: 0 0 0 30px;
+
+    &:first-child {
+      padding-left: 0;
+    }
   }
 
   a {
     color: $secondary-colour;
     text-decoration: none;
     display: block;
-
-    @include media(desktop) {
-      // padding: 0 0 0 15px;
-      margin: 0 0 0 20px;
-    }
 
     &:hover {
       color: $white;

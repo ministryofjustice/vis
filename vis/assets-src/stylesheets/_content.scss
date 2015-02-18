@@ -4,3 +4,14 @@
 .ColourRow--grey {
   background-color: $grey;
 }
+
+.Article {
+  @extend %grid-row;
+  padding-top: 50px;
+}
+.Article-content {
+  @include grid-column( 2/3 );
+}
+.Article-meta {
+  @include grid-column( 1/3 );
+}
