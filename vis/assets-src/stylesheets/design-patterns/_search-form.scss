@@ -4,9 +4,16 @@
   position: relative;
 
   @include media(desktop) {
-    padding: 0 0 3.125em;
-    margin: 0 auto;
-    width: 55%;
+    float: right;
+    width: 30%;
+    padding: 2.813em 0 0;
+
+    &.SearchForm--block {
+      padding: 0 0 3.125em;
+      margin: 0 auto;
+      width: 55%;
+      float: none;
+    }
   }
 }
 .SearchForm-label {
@@ -20,18 +27,27 @@
   }
 
   @include media(desktop) {
-    @include core-24;
-    font-weight: 500;
-    color: $white;
-    float: none;
-    width: auto;
+    float: left;
+    width: 77%;
+    @include calc('width', '100% - 40px');
+
+    .SearchForm--block & {
+      @include core-24;
+      font-weight: 500;
+      color: $white;
+      float: none;
+      width: auto;
+    }
   }
 }
 .SearchForm-labelText {
-  display: none;
+  @extend %hidden;
 
   @include media(desktop) {
-    display: inline;
+    .SearchForm--block & {
+      position: inherit;
+      left: auto;
+    }
   }
 }
 .SearchForm-query {
@@ -44,8 +60,18 @@
   @include calc('width', '100% - 12px');
 
   @include media(desktop) {
-    text-align: center;
-    margin: 1.25em 0;
+    @include core-16;
+    padding-top: 0.250em;
+    padding-bottom: 0.250em;
+    margin: 0;
+
+    .SearchForm--block & {
+      @include core-19;
+      text-align: center;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      margin: 1.25em 0;
+    }
   }
 }
 .SearchForm-submit {
@@ -68,13 +94,18 @@
   }
 
   @include media(desktop) {
-    @include bold-19;
-    background-image: none;
-    text-indent: 0;
-    float: none;
-    height: auto;
-    width: auto;
-    color: $white;
-    padding: 0.75em 1.25em;
+    width: 1.875em;
+    height: 1.875em;
+
+    .SearchForm--block & {
+      @include bold-19;
+      background-image: none;
+      text-indent: 0;
+      float: none;
+      height: auto;
+      width: auto;
+      color: $white;
+      padding: 0.75em 1.25em;
+    }
   }
 }

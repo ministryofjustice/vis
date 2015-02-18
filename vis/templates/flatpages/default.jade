@@ -1,13 +1,11 @@
 - extends 'article.jade'
 - load markdown_deux_tags glossary
 
-block title
-  = flatpage.title
+block article_title
+  #{flatpage.title}
 
 block article_content
-  h1= flatpage.title
-  .bg-white
-    .row
-      .large-8.columns #{flatpage.content|markdown}
-      .large-4.columns
-        - glossary_box
+  #{flatpage.content|markdown}
+
+block article_aside
+  - glossary_box

@@ -1,0 +1,21 @@
+.PageHeader {
+  @extend %contain-floats;
+  background-color: $secondary-colour;
+
+  @include media(desktop) {
+    background-image: url(../images/clouds.png);
+    background-size: cover;
+  }
+}
+.PageHeader-title {
+  @include bold-60;
+  display: block;
+  color: $white;
+  padding: 0 0 0.5em;
+
+  @include media(desktop) {
+    float: left;
+    width: 67%;
+    padding-top: 0.5em;
+  }
+}
