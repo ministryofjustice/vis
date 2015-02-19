@@ -16,7 +16,28 @@
 
   &.Panel--icon {
     margin-top: 1.250em;
+    margin-bottom: 2.500em;
     text-align: center;
+
+    &.Icon--empty:before {
+      content: "";
+    }
+
+    &:before {
+      @include border-radius(50%);
+      background-color: $grey;
+      color: $primary-colour;
+      font-size: 44px;
+      display: block;
+      line-height: 1.705em;
+      height: 1.705em;
+      width: 1.705em;
+      margin: 0 auto 0.455em;
+
+      @include media(desktop) {
+        font-size: 50px;
+      }
+    }
   }
 }
 .Panel-heading {

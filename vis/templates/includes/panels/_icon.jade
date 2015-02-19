@@ -1,6 +1,14 @@
-article.Panel.Panel--icon
+mixin contents
   h1.Panel-heading Icon panel heading
   .Panel-content
     p Panel content
     p
       a(href="") Panel link
+
+if icon
+  article(class="Panel Panel--icon Icon Icon--#{icon}")
+    +contents
+else
+  article.Panel.Panel--icon.Icon.Icon--empty
+    +contents
+
