@@ -43,12 +43,21 @@ Create the database inside postgres. Type `psql` to enter postgres, then enter:
 CREATE DATABASE vis WITH ENCODING 'UTF-8';
 \c vis
 createuser postgres
-create extension pgcrypto;
 ```
 
 Sync and migrate the database:
 ```
 ./manage.py migrate
+```
+
+Load test fixtures
+```
+./manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
+```
+
+Create superuser
+```
+./manage.py createsuperuser
 ```
 
 Install Frontend dependencies libraries:
@@ -119,7 +128,7 @@ Bower frontend components and Django fixtures require setup on the **first run o
 
 ```
 $ fig run django bower install --allow-root
-$ fig run django python manage.py loaddata vis/fixtures/pages vis/fixtures/test_users glossary helplines police
+$ fig run django python manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
 ```
 
 Start it up:
