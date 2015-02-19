@@ -10,8 +10,9 @@ if DJ_DATABASE_URL:
 PIPELINE_COMPILERS = ()
 PIPELINE_ENABLED = True
 
-DEBUG = False
+ALLOWED_HOSTS = ['*']
 
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
