@@ -20,6 +20,9 @@ generated/
 # gulp temp folder
 .gulptmp
 
+# auto generated icon font
+vis/assets-src/stylesheets/_icons.scss
+
 # intellij
 vis.iws
 vis.ipr

@@ -1,13 +1,17 @@
-$black: #242424;
+$black: #002F2F;
+$grey: #EEEFF7;
+$dark-grey: #979797;
 $white: #ffffff;
 
-$primary-color: #445878;
-$secondary-color: #92CDCF;
+$primary-colour: #445878;
+$secondary-colour: #92CDCF;
 
 $text-colour: $black;
 
+$button-colour: $primary-colour;
+
 // links
-$link-colour: $primary-color;
-$link-visited-colour: lighten($primary-color, 10%);
-$link-hover-colour: $secondary-color;
-$link-active-colour: $secondary-color;
+$link-colour: $primary-colour;
+$link-visited-colour: lighten($primary-colour, 10%);
+$link-hover-colour: $secondary-colour;
+$link-active-colour: $secondary-colour;

@@ -1,24 +1,17 @@
 - extends "base.jade"
 
-block page_header
-  .row
-    .medium-12.columns
-      br
-      h1.color-white.text-center Victims' Information Service
-      br
-      form.row.text-center(action="/police/search/", method="post")
-        - csrf_token
-        label(for="q")
-          h4.color-white Find help and support near you
-          .small-6.columns.small-offset-3
-            input.text-center(name="q", id="q", placeholder="Enter your home post code or local police authority" type="text")
-            .row.collapse
-              .small-4.columns.small-offset-4
-                input.button.small.radius(type="submit", value="Search")
 block content
-  section
-    - for panel in self.promo_panels.all
-      - include "includes/panels/_icon.jade"
-  section
-    - for panel in self.panels.all
-      - include "includes/panels/_text.jade"
+  section.LeadHeader
+    .Content
+      h1.LeadHeader-title Victims' Information Service
+      - include "includes/_local-search.jade" with modifier="block"
+  .Content
+    section.Panel-row
+      - for panel in self.promo_panels.all
+        - include "includes/panels/_icon.jade"
+  .ColourRow--grey
+    section.Content
+      h1.Panel-rowHeading I am a victim: some common cases
+      .Panel-row
+        - for panel in self.panels.all
+          - include "includes/panels/_text.jade"

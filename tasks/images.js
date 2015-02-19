@@ -7,10 +7,9 @@
 
   // optimise images
   gulp.task('images', function() {
-    return gulp;
-    // return gulp
-    //   .src(paths.images)
-    //   .pipe(imagemin())
-    //   .pipe(gulp.dest(paths.dest + 'images'));
+    return gulp
+      .src(paths.images)
+      .pipe(imagemin())
+      .pipe(gulp.dest(paths.dest + 'images'));
   });
 })();

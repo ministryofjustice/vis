@@ -13,13 +13,24 @@
 @import 'govuk_frontend_toolkit/stylesheets/device-pixels';
 @import 'govuk_frontend_toolkit/stylesheets/grid_layout';
 
+// site specific toolkit
+@import 'toolkit/design-patterns/buttons';
+
 @import 'colours';
 @import 'font-stack';
 @import 'typography';
+@import 'icons';
 
 @import 'basic';
 @import 'header';
 @import 'content';
 @import 'footer';
 
+@import 'design-patterns/buttons';
 @import 'design-patterns/security-banner';
+@import 'design-patterns/lead-header';
+@import 'design-patterns/page-header';
+@import 'design-patterns/search-form';
+@import 'design-patterns/panel';
+@import 'design-patterns/meta-panel';
+@import 'design-patterns/definition-list';

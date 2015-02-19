@@ -1,0 +1,11 @@
+- extends 'article.jade'
+- load markdown_deux_tags glossary
+
+block article_title
+  #{flatpage.title}
+
+block article_content
+  #{flatpage.content|markdown}
+
+block article_aside
+  - glossary_box

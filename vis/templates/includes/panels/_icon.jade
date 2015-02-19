@@ -1,6 +1,14 @@
-article(class='Panel Panel--icon #{panel.icon_classname}')
+mixin contents
   h1.Panel-heading=panel.title
-  p=panel.content
-  - if panel.link_page
-    p
-      a(href="#{panel.link_page.url}")#{panel.link_text|default:panel.link_page}
+  .Panel-content
+    p=panel.content
+    - if panel.link_page
+      p
+        a(href="#{panel.link_page.url}") #{panel.link_text|default:panel.link_page}
+
+if panel.icon_classname
+  article(class="Panel Panel--icon Icon Icon--#{panel.icon_classname}")
+    +contents
+else
+  article.Panel.Panel--icon.Icon.Icon--empty
+    +contents
