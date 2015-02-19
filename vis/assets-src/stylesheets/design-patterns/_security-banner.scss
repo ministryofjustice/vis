@@ -1,5 +1,4 @@
 .SecurityBanner {
-  @extend %contain-floats;
   background-color: $black;
   color: $white;
   padding: 15px 0;
@@ -11,16 +10,35 @@
     }
   }
 }
-.SecurityBanner-inner {
+.SecurityBanner-container {
   @extend %site-width-container;
+}
+.SecurityBanner-icon {
+  @extend %contain-floats;
+  @extend .Icon;
+  @extend .Icon--lock;
+  position: relative;
+  padding-left: 30px;
+
+  &:before {
+    margin-right: 0;
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    color: $secondary-colour;
+  }
+
+  @include media(desktop) {
+    padding-left: 60px;
+
+    &:before {
+      font-size: 50px;
+    }
+  }
 }
 .SecurityBanner-title {
   @include bold-27;
   color: $white;
-
-  @include media(desktop) {
-
-  }
 }
 .SecurityBanner-content {
   @include core-19;

@@ -2,8 +2,7 @@
   'use strict';
 
   vis.Modules.securityNotice = {
-    selector: '.security-banner',
-    closeSelector: '.close-link',
+    selector: '.js-SecurityExit',
     storageKey: 'securityDisabled',
 
     init: function () {
@@ -13,20 +12,19 @@
     },
 
     cacheEls: function () {
-      this.$el = $(this.selector);
-      this.$body = $('body');
-      this.$close = this.$el.find(this.closeSelector);
+      this.$btn = $(this.selector);
+      this.$banner = $(this.$btn.data('banner'));
     },
 
     bindEvents: function () {
-      this.$close.on('click', this.closeClick);
+      this.$btn.on('click', this.closeClick);
       vis.Events.on('render', this.render);
     },
 
     closeClick: function (evt) {
       evt.preventDefault();
       localStorage.setItem(this.storageKey, true);
-      this.$el.remove();
+      this.$banner.remove();
     },
 
     isDisabled: function () {
@@ -39,7 +37,7 @@
 
     render: function () {
       if (this.isDisabled()) {
-        this.$el.remove();
+        this.$banner.remove();
       }
     }
   };
