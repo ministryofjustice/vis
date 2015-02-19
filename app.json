@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "postdeploy": "./manage.py migrate  --no-input"
+    "postdeploy": "./manage.py migrate  --noinput"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
