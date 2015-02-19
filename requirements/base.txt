@@ -12,3 +12,4 @@ gunicorn==19.2.1
 pyjade==3.0.0
 wagtail==0.8.4
 django-autoslug==1.7.2
+waitress==0.8.9

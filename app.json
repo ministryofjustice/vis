@@ -1,0 +1,21 @@
+{
+  "name": "Victims' Information Service",
+  "description": "The UK's VIS website",
+  "repository": "https://github.com/ministryofjustice/vis",
+  "success_url": "/admin/",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git",
+    "DJANGO_SETTINGS_MODULE": {
+      "required": true,
+      "description": "the settings file you'd like to use. In most cases just set this to vis.settings.heroku",
+      "value": "vis.settings.heroku"
+    }
+  },
+  "scripts": {
+    "postdeploy": "./manage.py migrate  --no-input"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "keywords": ["uk", "ministryofjustice", "legalaid", "python", "angularjs"]
+}
