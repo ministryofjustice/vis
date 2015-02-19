@@ -2,7 +2,7 @@
   h1.MetaPanel-title Glossary
   dl.DefinitionList
     - for item in items
-      - with data.glossary_item as item
+      - with item.glossary_item as item
         dt
           a(name=item.slug)
           #{item.name}
