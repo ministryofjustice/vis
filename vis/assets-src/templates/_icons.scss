@@ -18,7 +18,6 @@
   text-transform: none;
   speak: none;
   font-size: 16px;
-  line-height: 1;
   text-decoration: inherit;
   vertical-align: middle;
   /* Better Font Rendering =========== */
@@ -31,12 +30,29 @@ $icons: (
 );
 
 .<%= className %> {
-  @extend %icon-base-styles;
+  &:before {
+    @extend %icon-base-styles;
+    margin-right: 10px;
+  }
+}
+.<%= className %>Rtl {
+  &:after {
+    @extend %icon-base-styles;
+    margin-left: 10px;
+  }
 }
 
 @each $name, $icon in $icons {
   .<%= className %>--#{$name}{
-    &:before { content: $icon; }
-    &.<%= className %>--right:after { content: $icon; }
+    &.Icon {
+      &:before {
+        content: $icon;
+      }
+    }
+    &.IconRtl {
+      &:after {
+        content: $icon;
+      }
+    }
   }
 }
