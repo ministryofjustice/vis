@@ -9,7 +9,8 @@
   gulp.task('clean:pre', function (cb) {
     del([
       paths.dest,
-      paths.tmp
+      paths.tmp,
+      paths.src + 'stylesheets/_icons.scss' // generated icon font
     ], cb);
   });
 })();

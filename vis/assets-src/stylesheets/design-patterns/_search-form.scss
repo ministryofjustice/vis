@@ -7,6 +7,13 @@
     bottom: 1.250em;
   }
 
+  &.SearchForm--block {
+    padding: {
+      left: 0;
+      right: 0;
+    }
+  }
+
   @include media(desktop) {
     padding: {
       top: 2.813em;

@@ -16,7 +16,7 @@
   // styles
   paths.styles.push(paths.src + 'stylesheets/**/*.scss');
   // icons
-  paths.icons.push(paths.src + 'fonts/svg-icons/*.svg');
+  paths.icons.push(paths.src + 'fonts/svg-src/*.svg');
   // fonts
   paths.fonts.push(paths.src + 'fonts/*.{eot,svg,ttf,woff}');
   // images
