@@ -129,3 +129,7 @@ $ fig up
 ```
 
 The site should now be viewable in your browser at [http://192.168.59.103:8000/](http://192.168.59.103:8000/) (or [http://boot2docker:8000/](http://boot2docker:8000/) if you've added an `/etc/hosts` entry).
+
+### Deploy to Heroku
+Just press the button:
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
