@@ -103,7 +103,7 @@ TEMPLATE_LOADERS = (
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'bower_components'),
+    os.path.join(BASE_DIR, 'assets-src/vendor'),
     os.path.join(PROJECT_DIR, 'vis/assets'),
 )
 
@@ -120,7 +120,7 @@ COMPRESS_PRECOMPILERS = (
 )
 
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'vis/static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 PIPELINE_SASS_BINARY = '/usr/local/bin/sass'
 
@@ -216,7 +216,7 @@ if DJ_DATABASE_URL:
 
     TEMPLATE_DEBUG = DEBUG
 
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+PIPELINE_YUGLIFY_BINARY = os.path.join(PROJECT_DIR, 'node_modules/.bin/yuglify')
 
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
 LOGIN_URL = 'wagtailadmin_login'

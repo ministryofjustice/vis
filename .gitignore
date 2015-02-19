@@ -34,3 +34,5 @@ vis/apps/*/images/
 vis/apps/*/original_images/
 
 vis/settings/local.py
+
+static

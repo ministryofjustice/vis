@@ -7,8 +7,6 @@ psycopg2==2.6
 rules==0.3
 requests==2.5.1
 dj-database-url==0.3.0
-whitenoise==1.0.6
-gunicorn==19.2.1
 pyjade==3.0.0
 wagtail==0.8.4
 django-autoslug==1.7.2
