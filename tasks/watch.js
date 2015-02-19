@@ -21,5 +21,6 @@
     gulp.watch(paths.images, ['images', browserSync.reload]);
     gulp.watch(paths.icons, ['sass', browserSync.reload]);
     gulp.watch(paths.src + 'templates/**/*', ['sass', browserSync.reload]);
+    gulp.watch('vis/templates/**/*', browserSync.reload); // django templates
   });
 })();
