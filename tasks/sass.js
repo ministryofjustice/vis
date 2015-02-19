@@ -6,7 +6,7 @@
   var sass = require('gulp-ruby-sass');
   var browserSync = require('browser-sync');
 
-  gulp.task('sass', function() {
+  gulp.task('sass', ['iconfont'], function() {
     return sass(paths.src + 'stylesheets/', {
         lineNumbers: true,
         compass: true,

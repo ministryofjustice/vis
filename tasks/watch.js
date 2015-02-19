@@ -19,5 +19,6 @@
     gulp.watch(paths.styles, ['sass']);
     gulp.watch(paths.scripts, ['scripts', browserSync.reload]);
     gulp.watch(paths.images, ['images', browserSync.reload]);
+    gulp.watch(paths.icons, ['sass', browserSync.reload]);
   });
 })();
