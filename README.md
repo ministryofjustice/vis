@@ -50,14 +50,14 @@ Sync and migrate the database:
 ./manage.py migrate
 ```
 
-Load test fixtures
-```
-./manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
-```
-
 Create superuser
 ```
 ./manage.py createsuperuser
+```
+
+Load test fixtures
+```
+./manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
 ```
 
 Install Frontend dependencies libraries:
