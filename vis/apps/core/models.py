@@ -1,10 +1,11 @@
 from django.db import models
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
-    PageChooserPanel
+    PageChooserPanel, MultiFieldPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page, Orderable
+from django.utils.translation import ugettext_lazy
 
 from modelcluster.fields import ParentalKey
 
@@ -24,6 +25,7 @@ class HomePage(JadePageMixin, Page):
 
 class SimplePage(JadePageMixin, Page):
     content = RichTextField()
+    menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
 
 
 class Panel(models.Model):
@@ -81,6 +83,16 @@ SimplePage.content_panels = [
     FieldPanel('content', classname="full"),
 
     InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
+]
+
+SimplePage.promote_panels = [
+    MultiFieldPanel([
+        FieldPanel('slug'),
+        FieldPanel('seo_title'),
+        FieldPanel('show_in_menus'),
+        FieldPanel('menu_title'),
+        FieldPanel('search_description'),
+    ], ugettext_lazy('Common page configuration')),
 ]
 
 
