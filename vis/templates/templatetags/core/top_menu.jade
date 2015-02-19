@@ -1,0 +1,3 @@
+- for menuitem in menuitems
+  li(class='SiteHeader-menuItem{% if menuitem.active %} active{% endif %}')
+    a(href='#{menuitem.url}')= menuitem.title

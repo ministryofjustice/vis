@@ -1,0 +1,36 @@
+.sass-cache
+bower_components
+*.pyc
+
+# collect static output directory
+vis/assets/
+vis/static/
+
+.DS_Store
+
+# node
+node_modules/
+npm-debug.log
+
+# bower packages
+vis/assets-src/vendor/
+.sass-cache/
+generated/
+
+# gulp temp folder
+.gulptmp
+
+# intellij
+vis.iws
+vis.ipr
+vis.ids
+vis.iml
+
+# virtualenvs
+venv/
+env/
+
+vis/apps/*/images/
+vis/apps/*/original_images/
+
+vis/settings/local.py

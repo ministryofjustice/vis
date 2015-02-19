@@ -1,0 +1,9 @@
+.panel
+  h4 Glossary
+  dl
+    - for data in items
+      - with data.glossary_item as item
+        dt
+          a(name=item.slug)= item.name
+        dd= item.description
+  a(href="{% url 'glossary' %}") See the full glossary
