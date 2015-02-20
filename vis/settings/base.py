@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -43,7 +42,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
 
     'markdown_deux',
     'pipeline',
@@ -67,6 +65,7 @@ INSTALLED_APPS = (
     'police',
     'info',
     'core',
+    'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,8 +98,6 @@ TEMPLATE_LOADERS = (
     )),
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets-src/vendor'),
     os.path.join(PROJECT_DIR, 'vis/assets'),
@@ -109,7 +106,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'pipeline.finders.PipelineFinder',
     'compressor.finders.CompressorFinder',
 )
 
@@ -121,38 +117,6 @@ COMPRESS_PRECOMPILERS = (
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
-PIPELINE_SASS_BINARY = '/usr/local/bin/sass'
-
-PIPELINE_CSS = {
-    'main': {
-        'source_filenames': (
-            'fira/fira.css',
-            'stylesheets/styles.scss',
-        ),
-        'output_filename': 'css/styles.css',
-        'extra_context': {
-            'media': 'screen',
-        }
-    },
-}
-
-PIPELINE_JS = {
-    'main': {
-        'source_filenames': (
-            'lodash/lodash.min.js',
-            'jquery/dist/jquery.min.js',
-            'foundation/js/foundation.js',
-            'javascripts/vis.js',
-            'javascripts/modules/security-notice.js',
-            'javascripts/app.js',
-        ),
-        'output_filename': 'js/app.js',
-    },
-}
-
-PIPELINE_COMPILERS = (
-  'pipeline_compass.compass.CompassCompiler',
-)
 
 ROOT_URLCONF = 'vis.urls'
 
