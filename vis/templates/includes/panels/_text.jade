@@ -1,6 +1,7 @@
 article.Panel.Panel--text
-  h1.Panel-heading Text panel heading
+  h1.Panel-heading=panel.title
   .Panel-content
-    p Panel content
-    p
-      a(href="") Panel link
+    p=panel.content
+    - if panel.link_page
+      p
+        a(href="#{panel.link_page.url}")#{panel.link_text|default:panel.link_page}

@@ -4,7 +4,6 @@
   var gulp = require('gulp');
   var paths = require('./_paths');
   var iconfont = require('gulp-iconfont');
-  var iconfontCss = require('gulp-iconfont-css');
   var consolidate = require('gulp-consolidate');
   var rename = require('gulp-rename');
 

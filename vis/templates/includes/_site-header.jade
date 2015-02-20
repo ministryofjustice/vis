@@ -1,12 +1,10 @@
+- load core_tags
+- get_site_root as site_root
+
 header.SiteHeader(role="banner")
   .SiteHeader-inner
     h1.SiteHeader-title
       a(href='/') Victims' Information Service
     a.SiteHeader-menuToggle.js-mobileMenuToggle(href="#", data-target=".SiteHeader-menu") Menu
       span
-    nav.SiteHeader-menu
-      ul.SiteHeader-menuList
-        li.SiteHeader-menuItem.SiteHeader-menuItem--active
-          a(href='/justice-process/') Understanding the process
-        li.SiteHeader-menuItem
-          a(href='/your-rights/') Getting the right support
+    - top_menu parent=site_root calling_page=self

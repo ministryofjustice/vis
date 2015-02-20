@@ -1,0 +1,17 @@
+- extends "base.jade"
+
+block content
+  section.LeadHeader
+    .Content
+      h1.LeadHeader-title Victims' Information Service
+      - include "includes/_local-search.jade" with modifier="block"
+  .Content
+    section.Panel-row
+      - for panel in self.promo_panels.all
+        - include "includes/panels/_icon.jade"
+  .ColourRow--grey
+    section.Content
+      h1.Panel-rowHeading I am a victim: some common cases
+      .Panel-row
+        - for panel in self.panels.all
+          - include "includes/panels/_text.jade"

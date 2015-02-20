@@ -1,0 +1,5 @@
+nav.SiteHeader-menu
+  ul.SiteHeader-menuList
+    - for menuitem in menuitems
+      li(class='SiteHeader-menuItem{% if menuitem.active %} SiteHeader-menuItem--active{% endif %}')
+        a(href='#{menuitem.url}')= menuitem.simplepage.menu_title|default:menuitem.title

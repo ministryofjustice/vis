@@ -15,8 +15,8 @@ import dj_database_url
 
 # PATH vars
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(BASE_DIR, 'vis')
-sys.path.insert(0, os.path.join(PROJECT_DIR, 'apps'))
+PROJECT_DIR = os.path.join(BASE_DIR, '../')
+sys.path.insert(0, os.path.join(PROJECT_DIR, 'vis/apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,16 +44,29 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.flatpages',
-    
+
     'markdown_deux',
     'pipeline',
-    'django_markdown',
     'rules.apps.AutodiscoverRulesConfig',
+
+    'taggit',
+    'modelcluster',
+    'compressor',
+    'wagtail.wagtailcore',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailforms',
 
     'police',
     'info',
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,8 +76,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
+
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -73,7 +89,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates'),
+    os.path.join(PROJECT_DIR, 'vis/templates'),
 )
 
 TEMPLATE_LOADERS = (
@@ -86,15 +102,22 @@ TEMPLATE_LOADERS = (
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'bower_components'),
-    os.path.join(PROJECT_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'assets-src/vendor'),
+    os.path.join(PROJECT_DIR, 'vis/assets'),
 )
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
+    'compressor.finders.CompressorFinder',
 )
+
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
@@ -134,6 +157,13 @@ PIPELINE_COMPILERS = (
 ROOT_URLCONF = 'vis.urls'
 
 WSGI_APPLICATION = 'vis.wsgi.application'
+
+
+from django.conf import global_settings
+
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+)
 
 
 # Database
@@ -185,4 +215,14 @@ if DJ_DATABASE_URL:
 
     TEMPLATE_DEBUG = DEBUG
 
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+PIPELINE_YUGLIFY_BINARY = os.path.join(PROJECT_DIR, 'node_modules/.bin/yuglify')
+
+WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
+LOGIN_URL = 'wagtailadmin_login'
+LOGIN_REDIRECT_URL = 'wagtailadmin_home'
+WAGTAIL_SITE_NAME = 'VIS'
+
+try:
+    from .local import *
+except ImportError:
+    pass

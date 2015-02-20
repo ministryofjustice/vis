@@ -2,8 +2,9 @@
   h1.MetaPanel-title Glossary
   dl.DefinitionList
     - for item in items
-      dt
-        a(name=item.slug)
-        #{item.name}
-      dd= item.description
-  a(href="/glossary/") See the full glossary
+      - with item.glossary_item as item
+        dt
+          a(name=item.slug)
+          #{item.name}
+        dd= item.description
+  a(href="{% url 'glossary' %}") See the full glossary

@@ -22,3 +22,20 @@ generated/
 
 # auto generated icon font
 vis/assets-src/stylesheets/_icons.scss
+
+# intellij
+vis.iws
+vis.ipr
+vis.ids
+vis.iml
+
+# virtualenvs
+venv/
+env/
+
+vis/apps/*/images/
+vis/apps/*/original_images/
+
+vis/settings/local.py
+
+static

@@ -1,14 +1,14 @@
 mixin contents
-  h1.Panel-heading Icon panel heading
+  h1.Panel-heading=panel.title
   .Panel-content
-    p Panel content
-    p
-      a(href="") Panel link
+    p=panel.content
+    - if panel.link_page
+      p
+        a(href="#{panel.link_page.url}") #{panel.link_text|default:panel.link_page}
 
-if icon
-  article(class="Panel Panel--icon Icon Icon--#{icon}")
+if panel.icon_classname
+  article(class="Panel Panel--icon Icon Icon--#{panel.icon_classname}")
     +contents
 else
   article.Panel.Panel--icon.Icon.Icon--empty
     +contents
-

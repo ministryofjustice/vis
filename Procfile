@@ -1,1 +1,1 @@
-web: gunicorn vis.wsgi --log-file -
+web: waitress-serve --port=$PORT vis.wsgi:application
