@@ -1,0 +1,21 @@
+.SubNavigation {
+  @extend %grid-row;
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid $grey;
+}
+.SubNavigation-menu {
+  @extend %contain-floats;
+  padding: 0 0 0 25px;
+  margin: 0;
+}
+
+.SubNavigation-menuItem {
+  @include grid-column( 1/2 );
+}
+
+.SubNavigation-itemLink {
+  .SubNavigation-menuItem--active & {
+    color: $secondary-colour;
+  }
+}
