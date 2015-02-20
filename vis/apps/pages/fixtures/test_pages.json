@@ -512,7 +512,7 @@
 },
 {
     "fields": {
-        "link_page": null,
+        "link_page": 10,
         "title": "Glossary",
         "link_text": "See the full glossary",
         "content": "A guide to legal language.",

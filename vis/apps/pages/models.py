@@ -42,7 +42,7 @@ class Panel(models.Model):
     title = models.CharField(max_length=255, help_text="Panel Title")
     content = models.TextField(help_text="Panel Body")
     link_page = models.ForeignKey(
-        'pages.SimplePage',
+        'wagtailcore.page',
         null=True,
         blank=True,
         related_name='+'
