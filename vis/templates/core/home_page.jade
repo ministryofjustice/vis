@@ -12,7 +12,7 @@ block content
           </div><div class="Panel-row">
         - include "includes/panels/_icon.jade"
   section.ColourRow--grey
-    .Content
+    .Content.js-RowReveal(data-row-selector=".Panel-row")
       h1.Panel-rowHeading I am a victim: some common cases
       .Panel-row
         - for panel in self.panels.all
