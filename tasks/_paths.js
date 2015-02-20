@@ -24,7 +24,6 @@
   // scripts
   paths.scripts.push(paths.vendor + 'lodash/lodash.js');
   paths.scripts.push(paths.vendor + 'jquery/dist/jquery.js');
-  paths.scripts.push(paths.vendor + 'foundation/js/foundation.js');
   paths.scripts.push(paths.src + 'javascripts/vis.js');
   paths.scripts.push(paths.src + 'javascripts/modules/**.*js');
   paths.scripts.push(paths.src + 'javascripts/app.js');
