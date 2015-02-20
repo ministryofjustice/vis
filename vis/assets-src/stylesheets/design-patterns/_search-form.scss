@@ -53,7 +53,7 @@
   }
 }
 .SearchForm-labelText {
-  @extend %hidden;
+  @extend .visuallyhidden;
 
   @include media(desktop) {
     .SearchForm--block & {
