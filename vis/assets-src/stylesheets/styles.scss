@@ -15,13 +15,15 @@
 
 // site specific toolkit
 @import 'toolkit/design-patterns/buttons';
+@import 'toolkit/colours';
 
-@import 'colours';
 @import 'font-stack';
 @import 'typography';
 @import 'icons';
 
 @import 'basic';
+@import 'accessibility';
+@import 'utilities';
 @import 'header';
 @import 'content';
 @import 'footer';
@@ -30,6 +32,7 @@
 @import 'design-patterns/security-banner';
 @import 'design-patterns/lead-header';
 @import 'design-patterns/page-header';
+@import 'design-patterns/sub-navigation';
 @import 'design-patterns/search-form';
 @import 'design-patterns/panel';
 @import 'design-patterns/meta-panel';

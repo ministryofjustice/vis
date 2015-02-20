@@ -1,15 +1,13 @@
 - extends "article.jade"
 - load glossary
 
-block content_title
-  Glossary
+block article_title
+  | Glossary
 
 block article_content
-  .bg-white
-    .row
-      .large-8.columns
-        dl
-          - for item in object_list
-            dt
-              a(name=item.slug)= item.name
-            dd= item.description
+  dl.DefinitionList
+    - for item in object_list
+      dt
+        a(name=item.slug)
+        #{item.name}
+      dd= item.description

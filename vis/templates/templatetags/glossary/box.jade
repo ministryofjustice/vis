@@ -4,7 +4,6 @@
     - for item in items
       - with item.glossary_item as item
         dt
-          a(name=item.slug)
-          #{item.name}
+          a(href="{% url 'glossary' %}{{ '#'|add:item.slug }}")= item.name
         dd= item.description
   a(href="{% url 'glossary' %}") See the full glossary

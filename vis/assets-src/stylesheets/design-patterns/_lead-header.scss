@@ -8,7 +8,7 @@
   }
 }
 .LeadHeader-title {
-  @extend %hidden;
+  @extend .visuallyhidden;
 
   @include media(desktop) {
     @include bold-60;
