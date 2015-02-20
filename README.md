@@ -80,6 +80,23 @@ In the main tab, start the runserver:
 ./manage.py runserver 8000
 ```
 
+## Frontend Development
+
+Frontend assets are located in the `vis/assets-src/` folder and are compiled using [gulp](http://gulpjs.com/).
+
+Gulp tasks are split into individual task files in `tasks/`.
+
+To watch assets and rebuild them after every change use this command:
+
+```
+gulp watch
+```
+
+It will automatically run `gulp build` and then create a [browsersync](http://www.browsersync.io/) server which will run at [http://localhost:3000](http://localhost:3000). By default it will proxy the django app from [http://localhost:8000](http://localhost:8000). To change the port add a `port` argument to the `watch` command, eg:
+```
+gulp watch --port=8001
+```
+
 ## Docker Installation
 
 ### Install
