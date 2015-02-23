@@ -52,7 +52,7 @@ Sync and migrate the database:
 
 Create superuser
 ```
-./manage.py createsuperuser
+./manage.py createsuperuser --username=admin
 ```
 
 Load test fixtures

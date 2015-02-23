@@ -2,7 +2,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 2,
+        "author": ["admin"],
         "name": "Avon and Somerset Constabulary",
         "slug": "avon-and-somerset"
     },
@@ -12,7 +12,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 3,
+        "author": ["admin"],
         "name": "Bedfordshire Police",
         "slug": "bedfordshire"
     },
@@ -22,7 +22,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 4,
+        "author": ["admin"],
         "name": "Cambridgeshire Constabulary",
         "slug": "cambridgeshire"
     },
@@ -32,7 +32,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 5,
+        "author": ["admin"],
         "name": "Cheshire Constabulary",
         "slug": "cheshire"
     },
@@ -42,7 +42,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 6,
+        "author": ["admin"],
         "name": "City of London Police",
         "slug": "city-of-london"
     },
@@ -52,7 +52,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 7,
+        "author": ["admin"],
         "name": "Cleveland Police",
         "slug": "cleveland"
     },
@@ -62,7 +62,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 8,
+        "author": ["admin"],
         "name": "Cumbria Constabulary",
         "slug": "cumbria"
     },
@@ -72,7 +72,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 9,
+        "author": ["admin"],
         "name": "Derbyshire Constabulary",
         "slug": "derbyshire"
     },
@@ -82,7 +82,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 10,
+        "author": ["admin"],
         "name": "Devon & Cornwall Police",
         "slug": "devon-and-cornwall"
     },
@@ -92,7 +92,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 11,
+        "author": ["admin"],
         "name": "Dorset Police",
         "slug": "dorset"
     },
@@ -102,7 +102,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 12,
+        "author": ["admin"],
         "name": "Durham Constabulary",
         "slug": "durham"
     },
@@ -112,7 +112,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 13,
+        "author": ["admin"],
         "name": "Dyfed-Powys Police",
         "slug": "dyfed-powys"
     },
@@ -122,7 +122,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 14,
+        "author": ["admin"],
         "name": "Essex Police",
         "slug": "essex"
     },
@@ -132,7 +132,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 15,
+        "author": ["admin"],
         "name": "Gloucestershire Constabulary",
         "slug": "gloucestershire"
     },
@@ -142,7 +142,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 16,
+        "author": ["admin"],
         "name": "Greater Manchester Police",
         "slug": "greater-manchester"
     },
@@ -152,7 +152,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 17,
+        "author": ["admin"],
         "name": "Gwent Police",
         "slug": "gwent"
     },
@@ -162,7 +162,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 18,
+        "author": ["admin"],
         "name": "Hampshire Constabulary",
         "slug": "hampshire"
     },
@@ -172,7 +172,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 19,
+        "author": ["admin"],
         "name": "Hertfordshire Constabulary",
         "slug": "hertfordshire"
     },
@@ -182,7 +182,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 20,
+        "author": ["admin"],
         "name": "Humberside Police",
         "slug": "humberside"
     },
@@ -192,7 +192,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 21,
+        "author": ["admin"],
         "name": "Kent Police",
         "slug": "kent"
     },
@@ -202,7 +202,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 22,
+        "author": ["admin"],
         "name": "Lancashire Constabulary",
         "slug": "lancashire"
     },
@@ -212,7 +212,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 23,
+        "author": ["admin"],
         "name": "Leicestershire Police",
         "slug": "leicestershire"
     },
@@ -222,7 +222,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 24,
+        "author": ["admin"],
         "name": "Lincolnshire Police",
         "slug": "lincolnshire"
     },
@@ -232,7 +232,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 25,
+        "author": ["admin"],
         "name": "Merseyside Police",
         "slug": "merseyside"
     },
@@ -242,7 +242,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 26,
+        "author": ["admin"],
         "name": "Metropolitan Police Service",
         "slug": "metropolitan"
     },
@@ -252,7 +252,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 27,
+        "author": ["admin"],
         "name": "Norfolk Constabulary",
         "slug": "norfolk"
     },
@@ -262,7 +262,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 28,
+        "author": ["admin"],
         "name": "North Wales Police",
         "slug": "north-wales"
     },
@@ -272,7 +272,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 29,
+        "author": ["admin"],
         "name": "North Yorkshire Police",
         "slug": "north-yorkshire"
     },
@@ -282,7 +282,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 30,
+        "author": ["admin"],
         "name": "Northamptonshire Police",
         "slug": "northamptonshire"
     },
@@ -292,7 +292,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 31,
+        "author": ["admin"],
         "name": "Northumbria Police",
         "slug": "northumbria"
     },
@@ -302,7 +302,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 32,
+        "author": ["admin"],
         "name": "Nottinghamshire Police",
         "slug": "nottinghamshire"
     },
@@ -312,7 +312,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 33,
+        "author": ["admin"],
         "name": "South Wales Police",
         "slug": "south-wales"
     },
@@ -322,7 +322,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 34,
+        "author": ["admin"],
         "name": "South Yorkshire Police",
         "slug": "south-yorkshire"
     },
@@ -332,7 +332,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 35,
+        "author": ["admin"],
         "name": "Staffordshire Police",
         "slug": "staffordshire"
     },
@@ -342,7 +342,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 36,
+        "author": ["admin"],
         "name": "Suffolk Constabulary",
         "slug": "suffolk"
     },
@@ -352,7 +352,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 37,
+        "author": ["admin"],
         "name": "Surrey Police",
         "slug": "surrey"
     },
@@ -362,7 +362,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 38,
+        "author": ["admin"],
         "name": "Sussex Police",
         "slug": "sussex"
     },
@@ -372,7 +372,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 39,
+        "author": ["admin"],
         "name": "Thames Valley Police",
         "slug": "thames-valley"
     },
@@ -382,7 +382,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 40,
+        "author": ["admin"],
         "name": "Warwickshire Police",
         "slug": "warwickshire"
     },
@@ -392,7 +392,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 41,
+        "author": ["admin"],
         "name": "West Mercia Police",
         "slug": "west-mercia"
     },
@@ -402,7 +402,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 42,
+        "author": ["admin"],
         "name": "West Midlands Police",
         "slug": "west-midlands"
     },
@@ -412,7 +412,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 43,
+        "author": ["admin"],
         "name": "West Yorkshire Police",
         "slug": "west-yorkshire"
     },
@@ -422,7 +422,7 @@
 {
     "fields": {
         "content": "Lorem ipsum",
-        "author": 44,
+        "author": ["admin"],
         "name": "Wiltshire Police",
         "slug": "wiltshire"
     },
