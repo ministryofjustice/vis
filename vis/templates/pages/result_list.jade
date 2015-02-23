@@ -1,0 +1,10 @@
+- extends "article.jade"
+
+block article_title
+  | Search Result for #{q}
+
+block article_content
+  - if error
+    p=error
+  - else
+    a(href=result.url)=result
