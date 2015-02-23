@@ -57,7 +57,7 @@ Create superuser
 
 Load test fixtures
 ```
-./manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
+./manage.py loaddata glossary helplines police test_pages
 ```
 
 Install Frontend dependencies libraries:
