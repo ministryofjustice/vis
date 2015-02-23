@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'police',
     'info',
     'core',
+    'pages',
     'django.contrib.staticfiles',
 )
 
