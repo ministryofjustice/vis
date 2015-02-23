@@ -1,16 +1,6 @@
 [
 {
     "fields": {
-        "root_page": 3,
-        "hostname": "localhost",
-        "port": 80,
-        "is_default_site": true
-    },
-    "model": "wagtailcore.site",
-    "pk": 2
-},
-{
-    "fields": {
         "locked": false,
         "title": "Root",
         "numchild": 1,
@@ -61,7 +51,7 @@
         "go_live_at": null
     },
     "model": "wagtailcore.page",
-    "pk": 3
+    "pk": 2
 },
 {
     "fields": {
@@ -359,7 +349,7 @@
         "user": [
             "kerin"
         ],
-        "page": 3
+        "page": 2
     },
     "model": "wagtailcore.pagerevision",
     "pk": 7
@@ -373,7 +363,7 @@
         "user": [
             "kerin"
         ],
-        "page": 3
+        "page": 2
     },
     "model": "wagtailcore.pagerevision",
     "pk": 8
@@ -447,7 +437,7 @@
 {
     "fields": {},
     "model": "pages.homepage",
-    "pk": 3
+    "pk": 2
 },
 {
     "fields": {
@@ -504,8 +494,8 @@
         "link_text": "About the justice process",
         "content": "What you should expect to happen from reporting a crime until after a trial.",
         "sort_order": 0,
-        "icon_classname": "justice",
-        "page": 3
+        "icon_classname": "bank",
+        "page": 2
     },
     "model": "pages.homepagepromopanels",
     "pk": 4
@@ -517,8 +507,8 @@
         "link_text": "See the full glossary",
         "content": "A guide to legal language.",
         "sort_order": 1,
-        "icon_classname": "glossary",
-        "page": 3
+        "icon_classname": "book",
+        "page": 2
     },
     "model": "pages.homepagepromopanels",
     "pk": 5
@@ -530,8 +520,8 @@
         "link_text": "Find out how to get compensation",
         "content": "From insurance claims to the government's own compensation fund.",
         "sort_order": 2,
-        "icon_classname": "compensation",
-        "page": 3
+        "icon_classname": "bank",
+        "page": 2
     },
     "model": "pages.homepagepromopanels",
     "pk": 6
@@ -543,7 +533,7 @@
         "link_text": "",
         "content": "The Victims' Code says under 18s should get special support for giving evidence. This might mean giving evidence by a video link to the court, or special helplines to give you support after the crime.",
         "sort_order": 0,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 1
@@ -555,7 +545,7 @@
         "link_text": "",
         "content": "The Victims' Code outlines the support you should get so you can give evidence in court without intimidation. Your Victim's Personal Statement may affect sentencing or parole. There are also national and local helplines.",
         "sort_order": 1,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 2
@@ -567,7 +557,7 @@
         "link_text": "",
         "content": "This can be very distressing, but getting a crime number so you can make an insurance claim is the first step in recovery. If the crime has affected your ability to work, a Victim's Personal Statement may influence sentencing",
         "sort_order": 2,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 3
@@ -579,7 +569,7 @@
         "link_text": "",
         "content": "The Victims' Code says that you are still entitled to support if you have been affected by the death of a close relative in a violent crime.",
         "sort_order": 3,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 4
@@ -591,7 +581,7 @@
         "link_text": "",
         "content": "The Victims' Code outlines the support you should get so you can give evidence in court without intimidation. Your Victim's Personal Statement may affect sentencing or parole. There are also national and local helplines.\r\n",
         "sort_order": 4,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 5
@@ -603,7 +593,7 @@
         "link_text": "",
         "content": "If you have been physically assaulted, either in a physical attack or with a weapon, then this can cause a lot of shock and distress. Even if you're not ready to report the crime, you are still able to get emotional support to deal with it. Search above to get to the local helpline which can work out which help is best for you.",
         "sort_order": 5,
-        "page": 3
+        "page": 2
     },
     "model": "pages.homepagepanels",
     "pk": 6
