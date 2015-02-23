@@ -2,17 +2,9 @@
 - load wagtailcore_tags helplines
 
 block article_title
-  | Search Results
+  =self.title
 
 block article_content
-  .lead= self.title
-  hr
-  h2 National helplines for the most serious crimes
-  p
-    | National Homicide Service - call if your case involves a murder
-    br
-    strong 0808 1689 111
-  hr
   #{ self.content|richtext }
 
 block article_aside
