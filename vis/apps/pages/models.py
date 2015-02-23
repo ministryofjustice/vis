@@ -25,14 +25,28 @@ class SimplePage(JadePageMixin, Page):
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
 
 
-class GlossaryPage(JadePageMixin, Page):
+class ObjectListMixin(object):
+    object_class = None
+
     def get_context(self, request, *args, **kwargs):
-        context = super(GlossaryPage, self).get_context(
+        context = super(ObjectListMixin, self).get_context(
             request, *args, **kwargs
         )
 
-        context['object_list'] = GlossaryItem.objects.order_by('name')
+        context['object_list'] = self.object_class.objects.all()
         return context
+
+
+class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
+    object_class = GlossaryItem
+
+
+class PCCPage(JadePageMixin, Page):
+    content = RichTextField()
+
+
+class PCCListPage(ObjectListMixin, JadePageMixin, Page):
+    object_class = PCCPage
 
 
 # #### PAGE COMPONENTS
@@ -113,4 +127,9 @@ HomePage.content_panels = [
     FieldPanel('title', classname="full title"),
     InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
     InlinePanel(HomePage, 'panels', label="Panels"),
+]
+
+PCCPage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('content', classname="full")
 ]

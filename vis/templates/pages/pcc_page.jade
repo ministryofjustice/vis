@@ -1,11 +1,11 @@
 - extends "article.jade"
-- load markdown_deux_tags helplines
+- load wagtailcore_tags helplines
 
 block article_title
   | Search Results
 
 block article_content
-  .lead= object.name
+  .lead= self.title
   hr
   h2 National helplines for the most serious crimes
   p
@@ -13,7 +13,7 @@ block article_content
     br
     strong 0808 1689 111
   hr
-  #{ object.content|markdown }
+  #{ self.content|richtext }
 
 block article_aside
   - helpline_box

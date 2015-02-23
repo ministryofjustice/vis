@@ -15,12 +15,12 @@ urlpatterns = patterns(
     '',
     # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
-    url(r'^police/', include('police.urls')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^search/', include(wagtailsearch_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'', include('pages.urls')),
     url(r'', include(wagtail_urls)),
     )
 

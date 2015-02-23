@@ -1,23 +1,6 @@
 [
 {
     "fields": {
-        "username": "kerin",
-        "first_name": "",
-        "last_name": "",
-        "is_active": true,
-        "is_superuser": true,
-        "is_staff": true,
-        "last_login": "2015-02-10T15:26:25.297Z",
-        "groups": [],
-        "user_permissions": [],
-        "password": "pbkdf2_sha256$15000$Ns4chSkEzVQ6$sGuSOi9mTixieQkTrYsZF/9bmPkk9vAInFf6jHy1mOQ=",
-        "email": "cosford@gmail.com",
-        "date_joined": "2015-02-10T15:25:07.563Z"
-    },
-    "model": "auth.user"
-},
-{
-    "fields": {
         "username": "test-avon-and-somerset",
         "first_name": "",
         "last_name": "",

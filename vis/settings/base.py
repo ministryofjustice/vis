@@ -62,7 +62,6 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
 
-    'police',
     'info',
     'core',
     'pages',

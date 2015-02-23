@@ -3,6 +3,7 @@
     "fields": {
         "url": "",
         "phone": "0808 2000 247",
+        "ordering": 1,
         "name": "Women's Aid/Refuge National Domestic Violence Helpline",
         "slug": "womens-aidrefuge-national-domestic-violence-helpline"
     },
@@ -12,6 +13,7 @@
 {
     "fields": {
         "url": "http://www.stophateuk.org/report-learning-disability-hate-crime/",
+        "ordering": 2,
         "phone": "0808 802 1155",
         "name": "Stop Learning Disability Hate Crime Helpline",
         "slug": "stop-learning-disability-hate-crime-helpline"
@@ -22,6 +24,7 @@
 {
     "fields": {
         "url": "http://www.mensadviceline.org.uk/mens_advice.php.html",
+        "ordering": 3,
         "phone": "0808 801 0327",
         "name": "Respect Men's Advice Line",
         "slug": "respect-mens-advice-line"
@@ -32,6 +35,7 @@
 {
     "fields": {
         "url": "http://www.suzylamplugh.org/",
+        "ordering": 4,
         "phone": "0207 091 0014",
         "name": "Suzy Lamplugh Trust National Stalking Helpline",
         "slug": "suzy-lamplugh-trust-national-stalking-helpline"
@@ -42,6 +46,7 @@
 {
     "fields": {
         "url": "http://respect.uk.net/",
+        "ordering": 5,
         "phone": "0808 802 4040",
         "name": "Respect Perpetrators Helpline",
         "slug": "respect-perpetrators-helpline"
@@ -52,6 +57,7 @@
 {
     "fields": {
         "url": "http://www.brokenrainbow.org.uk/",
+        "ordering": 6,
         "phone": "0300 999 5428",
         "name": "Broken Rainbow National LGBT DV Helpline",
         "slug": "broken-rainbow-national-lgbt-dv-helpline"

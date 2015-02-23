@@ -6,8 +6,8 @@ register = template.Library()
 
 
 @register.inclusion_tag('templatetags/helpline/box.jade')
-def helpline_box(num_items=3):
-    items = Helpline.objects.order_by('?')
+def helpline_box(num_items=None):
+    items = Helpline.objects.all()
     try:
         items = items[:num_items]
     except IndexError:

@@ -25,10 +25,12 @@ class GlossaryItem(models.Model):
     ]
 
 
+@register_snippet
 class Helpline(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=255, unique=True)
+    slug = AutoSlugField(populate_from='name', unique=True, editable=False)
     phone = models.CharField(max_length=18)
+    ordering = models.PositiveSmallIntegerField(default=1000)
     url = models.URLField()
 
     def __unicode__(self):
@@ -36,3 +38,13 @@ class Helpline(models.Model):
 
     def natural_key(self):
         return self.name
+
+    panels = [
+        FieldPanel('name', classname="full title"),
+        FieldPanel('phone', classname="full"),
+        FieldPanel('ordering', classname="full"),
+        FieldPanel('url', classname="full"),
+    ]
+
+    class Meta:
+        ordering = ['ordering']
