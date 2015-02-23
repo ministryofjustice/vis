@@ -20,7 +20,10 @@
         "latest_revision_created_at": null,
         "depth": 1,
         "search_description": "",
-        "content_type": 1,
+        "content_type": [
+            "wagtailcore",
+            "page"
+        ],
         "has_unpublished_changes": false,
         "owner": null,
         "path": "0001",
@@ -44,7 +47,10 @@
         "latest_revision_created_at": "2015-02-19T11:50:22.136Z",
         "depth": 2,
         "search_description": "",
-        "content_type": 2,
+        "content_type": [
+            "pages",
+            "homepage"
+        ],
         "has_unpublished_changes": false,
         "owner": null,
         "path": "00010001",
@@ -68,9 +74,14 @@
         "latest_revision_created_at": "2015-02-19T11:41:42.922Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010001",
         "url_path": "/home/justice-process/",
         "expired": false,
@@ -92,9 +103,14 @@
         "latest_revision_created_at": "2015-02-19T11:43:43.448Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010002",
         "url_path": "/home/your-rights/",
         "expired": false,
@@ -116,9 +132,14 @@
         "latest_revision_created_at": "2015-02-19T11:44:38.170Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010003",
         "url_path": "/home/support/",
         "expired": false,
@@ -140,9 +161,14 @@
         "latest_revision_created_at": "2015-02-19T11:45:37.228Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010004",
         "url_path": "/home/getting-compensation/",
         "expired": false,
@@ -164,9 +190,14 @@
         "latest_revision_created_at": "2015-02-19T11:46:24.722Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010005",
         "url_path": "/home/complaining/",
         "expired": false,
@@ -188,9 +219,14 @@
         "latest_revision_created_at": "2015-02-19T11:47:39.654Z",
         "depth": 3,
         "search_description": "",
-        "content_type": 31,
+        "content_type": [
+            "pages",
+            "simplepage"
+        ],
         "has_unpublished_changes": false,
-        "owner": 1,
+        "owner": [
+            "kerin"
+        ],
         "path": "000100010006",
         "url_path": "/home/what-victims-information-service/",
         "expired": false,
@@ -203,11 +239,42 @@
 },
 {
     "fields": {
+        "locked": false,
+        "title": "Glossary",
+        "numchild": 0,
+        "show_in_menus": false,
+        "live": true,
+        "seo_title": "",
+        "latest_revision_created_at": "2015-02-20T15:08:59.457Z",
+        "depth": 3,
+        "search_description": "",
+        "content_type": [
+            "pages",
+            "glossarypage"
+        ],
+        "has_unpublished_changes": false,
+        "owner": [
+            "kerin"
+        ],
+        "path": "000100010007",
+        "url_path": "/home/glossary/",
+        "expired": false,
+        "slug": "glossary",
+        "expire_at": null,
+        "go_live_at": null
+    },
+    "model": "wagtailcore.page",
+    "pk": 10
+},
+{
+    "fields": {
         "approved_go_live_at": null,
         "created_at": "2015-02-19T11:41:42.922Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Justice process\", \"seo_title\": \"\", \"slug\": \"justice-process\", \"content\": \"<p>The information here is a summary of the full\\u00a0<a href=\\\"https://www.gov.uk/government/publications/the-code-of-practice-for-victims-of-crime\\\">Code of Practice for Victims of Crime</a>\\u00a0(The Victims' Code).</p><p>The Victims' Code explains what should happen from when you tell the police about a crime until after the trial.</p><p>Support is available at every stage of the justice process so you understand what is happening and can get answers to your questions.</p><p>The Victims' Code explains:</p><ul><li>victims' support services</li><li>who can get support</li><li><a href=\\\"http://localhost:8000/your-rights/\\\">your rights</a>: what support victims must get</li><li>support\\u00a0<a href=\\\"http://localhost:8000/justice-article/#police-investigation\\\">while the police are investigating a crime</a></li><li>support\\u00a0<a href=\\\"http://localhost:8000/justice-article/#before-trial\\\">before the trial</a></li><li>support\\u00a0<a href=\\\"http://localhost:8000/justice-article/#during-trial\\\">during the trial</a></li><li>support\\u00a0<a href=\\\"http://localhost:8000/justice-article/#after-trial\\\">after the trial</a></li></ul><p>There is also\\u00a0<a href=\\\"http://localhost:8000/special-measures/\\\">extra support</a>\\u00a0for victims of more serious crimes such as:</p><ul><li>rape and other sex offences</li><li>domestic abuse: being abused by someone you live with</li><li>human trafficking: being brought to this or another country against your will</li><li>terrorism, attempted murder or grevious bodily harm</li></ul><p>You can read a full list of\\u00a0<a href=\\\"http://localhost:8000/organisations/\\\">organisations that are part of The Victims' Code</a>.</p>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010001\", \"url_path\": \"/home/justice-process/\", \"expired\": false, \"pk\": 4, \"menu_title\": \"justice process\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 1, \"sort_order\": 0, \"page\": 4, \"glossary_item\": 24}, {\"pk\": 2, \"sort_order\": 1, \"page\": 4, \"glossary_item\": 4}, {\"pk\": 3, \"sort_order\": 2, \"page\": 4, \"glossary_item\": 2}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 4
     },
     "model": "wagtailcore.pagerevision",
@@ -219,7 +286,9 @@
         "created_at": "2015-02-19T11:43:43.448Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Your rights\", \"seo_title\": \"\", \"slug\": \"your-rights\", \"content\": \"<h2>Overview</h2><p>All victims of crime have a right to information and support from organisations like the police and the courts.</p><p>If you are a victim of crime, you are entitled to:</p><ul><li>an assessment to find out what support you need</li><li>get information about what to expect</li><li>make a\\u00a0<a href=\\\"http://localhost:8000/admin/pages/27/edit/#vps\\\">Victim Personal Statement</a>\\u00a0about the crime</li><li><a href=\\\"http://localhost:8000/special-measures/\\\">extra support</a>\\u00a0if you are a victim of a serious crime, are being threatened, or vulnerable in another way</li><li>information about\\u00a0<a href=\\\"http://localhost:8000/glossary/#restorative-justice\\\">restorative justice</a></li><li>have your details passed to other organisations that help and support victims of crime in your area</li><li>get information about what the police are doing</li><li>be told what is happening with the trial and sentence</li><li>get help or support for going to court to give evidence</li><li>know if the person found guilty makes an appeal asking a different court to look at their case again</li><li>ask the Crown Prosecution Service (<a href=\\\"http://localhost:8000/organisations/#cps\\\">CPS</a>) to look at things again if you are not happy with what they decide</li><li>apply for\\u00a0<a href=\\\"http://localhost:8000/getting-compensation/\\\">compensation</a></li><li><a href=\\\"http://localhost:8000/complaining/\\\">complain</a>\\u00a0if you do not get the right information and support</li></ul><h2><a></a>Extra support</h2><p>For victims of more serious crimes, extra support is available if you are:</p><ul><li>vulnerable or being threatened</li><li>a victim of lots of crimes, for example, stalking</li><li>a victim of rape or other sex offences</li><li>being abused by someone you live with</li><li>a victim of human trafficking</li></ul><p>Find out more about\\u00a0<a href=\\\"http://localhost:8000/special-measures/\\\">the extra help you can get</a>.</p>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010002\", \"url_path\": \"/home/your-rights/\", \"expired\": false, \"pk\": 5, \"menu_title\": \"Your rights\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 4, \"sort_order\": 0, \"page\": 5, \"glossary_item\": 5}, {\"pk\": 5, \"sort_order\": 1, \"page\": 5, \"glossary_item\": 36}, {\"pk\": 6, \"sort_order\": 2, \"page\": 5, \"glossary_item\": 30}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 5
     },
     "model": "wagtailcore.pagerevision",
@@ -231,7 +300,9 @@
         "created_at": "2015-02-19T11:44:38.170Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Support after the crime and getting through the justice process\", \"seo_title\": \"\", \"slug\": \"support\", \"content\": \"<p>From April 2015, your local Police and Crime Commissioner is responsible for arranging the support you need if you've been a victim of crime. Rather than lots of national helplines, support is organised based on the needs of your community.</p><p>If you speak to the police, they should conduct a\\u00a0<a href=\\\"http://localhost:8000/glossary/#needs-assessment\\\">needs assessment</a>\\u00a0to work out what help you will need to recover from the crime. If your case goes to a trial, they will also make sure that the courts know about any\\u00a0<a href=\\\"http://localhost:8000/special-measures/\\\">special help</a>\\u00a0you might need.</p><p>Your local police have also made arrangements for you to get support if you haven't gone to the police or change your mind later. Many have set up telephone helplines which can work out which charities can help you, and lots have websites that can help too.</p><p>Search for your local victim support service by entering your home postcode in the search box at the top of the page, and you'll get the contact details. We also provide details for a few national helplines for very specific types of crimes. If you're not sure whether these apply to you, contact your local service and they can refer you onwards.</p>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010003\", \"url_path\": \"/home/support/\", \"expired\": false, \"pk\": 6, \"menu_title\": \"Support\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 7, \"sort_order\": 0, \"page\": 6, \"glossary_item\": 7}, {\"pk\": 8, \"sort_order\": 1, \"page\": 6, \"glossary_item\": 7}, {\"pk\": 9, \"sort_order\": 2, \"page\": 6, \"glossary_item\": 21}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 6
     },
     "model": "wagtailcore.pagerevision",
@@ -243,7 +314,9 @@
         "created_at": "2015-02-19T11:45:37.228Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Getting compensation\", \"seo_title\": \"\", \"slug\": \"getting-compensation\", \"content\": \"<p>You may be eligible for compensation if you are a:</p><ul><li>victim of the crime</li><li>close relative of someone who died because of a crime</li><li>witness of a serious crime</li></ul><p>The first place to look for compensation is normally insurance policies. These may be your own insurance policies - particularly if you were victim of a property crime such as theft or vandalism. If you know the person who committed the crime you may be able to make a claim against their insurance policies.</p><p>You can ask your employer about damages or insurance entitlements if this is appropriate.</p><p>There may also be\\u00a0<a href=\\\"https://www.gov.uk/browse/benefits/disability\\\">benefits</a>\\u00a0which you can now get if you have serious injuries from which you can't recover quickly. If a relative has died, there may be other\\u00a0<a href=\\\"https://www.gov.uk/browse/benefits/bereavement\\\">bereavement benefits</a>\\u00a0you can claim.</p><p>As a last resort you can apply to the\\u00a0<a href=\\\"https://www.gov.uk/criminal-injuries-compensation-a-guide\\\">Criminal Injuries Compensation Authority (CICA)</a>. This is a government fund for victims of crime where you don't know who injured you or they don't have any way to pay. You must apply within two years and you must have cooperated with any police investigation if you want CICA to help.</p><p>This process may take a long time. You do not need to have someone represent you.</p><p>If you disagree with the CICA decision, you can apply to the\\u00a0<a href=\\\"https://www.gov.uk/criminal-injuries-compensation-tribunal/overview\\\">First-tier Tribunal (Criminal Injuries Compensation)</a>.</p>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010004\", \"url_path\": \"/home/getting-compensation/\", \"expired\": false, \"pk\": 7, \"menu_title\": \"Compensation\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 10, \"sort_order\": 0, \"page\": 7, \"glossary_item\": 7}, {\"pk\": 11, \"sort_order\": 1, \"page\": 7, \"glossary_item\": 1}, {\"pk\": 12, \"sort_order\": 2, \"page\": 7, \"glossary_item\": 3}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 7
     },
     "model": "wagtailcore.pagerevision",
@@ -255,7 +328,9 @@
         "created_at": "2015-02-19T11:46:24.722Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Complaining\", \"seo_title\": \"\", \"slug\": \"complaining\", \"content\": \"<p>If your problem is with:</p><ul><li><a href=\\\"http://localhost:8000/admin/pages/14/edit/#signatories\\\">an organisation that has signed up to The Victims Code</a></li><li><a href=\\\"http://localhost:8000/admin/pages/14/edit/#local\\\">a charity or helpline that your local police or victims' contact centre have sent you to</a></li><li><a href=\\\"http://localhost:8000/admin/pages/14/edit/#website\\\">the content or function of this digital service</a></li></ul><h2><a></a>Problems with Government Services</h2><p>Under the Victims' Code, you're entitled to be treated by\\u00a0<a href=\\\"http://localhost:8000/organisations/\\\">any of its service organisations</a>\\u00a0(e.g. the police, courts) in a respectful, sensitive and professional manner without discrimination of any kind.</p><p>If this doesn't happen, or they don't live up to their other promises under the code, then you're entitled to make a complaint. You can also expect that complaint to be swiftly and fully addressed.</p><ul><li>If you feel comfortable doing so, you should discuss your complaint with the person you've been dealing with.</li><li>If you don't feel comfortable doing so, or aren't happy with how they deal with their complaint, all of the organisations have a complaints procedure and The Victims' Code says you must be given details of who to contact and the process if you request it.</li><li>If you raise the complaint with the wrong organisation, The Victims' Code says they will send the complaint to the right person and tell you they've done it.</li></ul><p>You should expect to receive an acknowledgement within ten days of your complaint being received. This will say when you can expect a response. Some organisations will be able to provide a response within the ten days.</p><p>The response should also be in a format and language you can understand.</p><p>If still not satisfied, you can ask your Member of Parliament to pass your complaint to the\\u00a0<a href=\\\"http://www.ombudsman.org.uk/make-a-complaint\\\">Parliamentary and Health Service Ombudsman</a>.</p><h2><a></a>Problems with local services</h2><p>Not all of the local services you can be sent to have signed up to The Victims' Code. If a local organisation hasn't delivered the service you'd expect, you should raise these with the local victims helpline. You can search for this by entering your postcode on the homepage.</p><p>Your local police, and your local Police and Crime Commissioner who arranged these services, have signed up to The Victims Code. You can therefore expect your complaint to be taken just as seriously.</p><h2><a></a>Problems with this website</h2><p>If you have an issue with the content of this website or the way that it works, please contact the phone number on the homepage and they will log the issue for you. Alternatively send an email to\\u00a0<a href=\\\"mailto:viswebsite@ministryofjustice.zendesk.com\\\">viswebsite@ministryofjustice.zendesk.com</a>\\u00a0but please don't include any confidential information.</p>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010005\", \"url_path\": \"/home/complaining/\", \"expired\": false, \"pk\": 8, \"menu_title\": \"Complains\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 13, \"sort_order\": 0, \"page\": 8, \"glossary_item\": 6}, {\"pk\": 14, \"sort_order\": 1, \"page\": 8, \"glossary_item\": 8}, {\"pk\": 15, \"sort_order\": 2, \"page\": 8, \"glossary_item\": 15}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 8
     },
     "model": "wagtailcore.pagerevision",
@@ -267,7 +342,9 @@
         "created_at": "2015-02-19T11:47:39.654Z",
         "submitted_for_moderation": false,
         "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"What is the Victims' Information Service?\", \"seo_title\": \"\", \"slug\": \"what-victims-information-service\", \"content\": \"<p>The Victims' Information Service (VIS) helps you find:</p><h2>Support</h2><p>The\\u00a0<a href=\\\"http://localhost:8000/admin/pages/4/edit/index.html\\\">postcode search</a>\\u00a0on the homepage connects you with the support services for victims of crime in your area.</p><h2>Information</h2><p>VIS provides easy-to-understand guides about:</p><ul><li>the\\u00a0<a href=\\\"http://localhost:8000/justice-process/\\\">justice process</a></li><li>the\\u00a0<a href=\\\"http://localhost:8000/organisations/\\\">organisations</a>\\u00a0involved in the justice process</li><li><a href=\\\"http://localhost:8000/your-rights/\\\">your rights</a>\\u00a0as outlined in The Victims' Code</li><li><a href=\\\"http://localhost:8000/compensation/\\\">compensation</a>\\u00a0claims after a crime</li><li><a href=\\\"http://localhost:8000/complaining/\\\">where to complain</a>\\u00a0if something goes wrong</li></ul>\", \"live\": true, \"has_unpublished_changes\": false, \"numchild\": 0, \"content_type\": 31, \"show_in_menus\": true, \"path\": \"000100010006\", \"url_path\": \"/home/what-victims-information-service/\", \"expired\": false, \"pk\": 9, \"menu_title\": \"About\", \"locked\": false, \"depth\": 3, \"glossary_items\": [{\"pk\": 16, \"sort_order\": 0, \"page\": 9, \"glossary_item\": 8}, {\"pk\": 17, \"sort_order\": 1, \"page\": 9, \"glossary_item\": 16}, {\"pk\": 18, \"sort_order\": 2, \"page\": 9, \"glossary_item\": 19}], \"expire_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 9
     },
     "model": "wagtailcore.pagerevision",
@@ -279,7 +356,9 @@
         "created_at": "2015-02-19T11:49:15.092Z",
         "submitted_for_moderation": false,
         "content_json": "{\"panels\": [], \"locked\": false, \"title\": \"Homepage\", \"numchild\": 6, \"show_in_menus\": false, \"live\": true, \"promo_panels\": [{\"link_page\": 4, \"title\": \"The justice process\", \"link_text\": \"About the justice process\", \"content\": \"What you should expect to happen from reporting a crime until after a trial.\", \"sort_order\": 0, \"icon_classname\": \"justice\", \"pk\": null, \"page\": 3}, {\"link_page\": null, \"title\": \"Glossary\", \"link_text\": \"See the full glossary\", \"content\": \"A guide to legal language.\", \"sort_order\": 1, \"icon_classname\": \"glossary\", \"pk\": null, \"page\": 3}, {\"link_page\": 7, \"title\": \"Compensation\", \"link_text\": \"Find out how to get compensation\", \"content\": \"From insurance claims to the government's own compensation fund.\", \"sort_order\": 2, \"icon_classname\": \"compensation\", \"pk\": null, \"page\": 3}], \"seo_title\": \"\", \"search_description\": \"\", \"depth\": 2, \"latest_revision_created_at\": null, \"has_unpublished_changes\": false, \"content_type\": 2, \"path\": \"00010001\", \"owner\": null, \"pk\": 3, \"url_path\": \"/home/\", \"expired\": false, \"slug\": \"home\", \"expire_at\": null, \"go_live_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 3
     },
     "model": "wagtailcore.pagerevision",
@@ -291,7 +370,9 @@
         "created_at": "2015-02-19T11:50:22.136Z",
         "submitted_for_moderation": false,
         "content_json": "{\"panels\": [{\"link_page\": null, \"title\": \"I am under 18 and a victim\", \"link_text\": \"\", \"content\": \"The Victims' Code says under 18s should get special support for giving evidence. This might mean giving evidence by a video link to the court, or special helplines to give you support after the crime.\", \"sort_order\": 0, \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"I am a victim of domestic violence\", \"link_text\": \"\", \"content\": \"The Victims' Code outlines the support you should get so you can give evidence in court without intimidation. Your Victim's Personal Statement may affect sentencing or parole. There are also national and local helplines.\", \"sort_order\": 1, \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"I have been burgled or robbed\", \"link_text\": \"\", \"content\": \"This can be very distressing, but getting a crime number so you can make an insurance claim is the first step in recovery. If the crime has affected your ability to work, a Victim's Personal Statement may influence sentencing\", \"sort_order\": 2, \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"A close relative was killed in a crime\", \"link_text\": \"\", \"content\": \"The Victims' Code says that you are still entitled to support if you have been affected by the death of a close relative in a violent crime.\", \"sort_order\": 3, \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"I am being stalked or harrassed\", \"link_text\": \"\", \"content\": \"The Victims' Code outlines the support you should get so you can give evidence in court without intimidation. Your Victim's Personal Statement may affect sentencing or parole. There are also national and local helplines.\\r\\n\", \"sort_order\": 4, \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"I was attacked\", \"link_text\": \"\", \"content\": \"If you have been physically assaulted, either in a physical attack or with a weapon, then this can cause a lot of shock and distress. Even if you're not ready to report the crime, you are still able to get emotional support to deal with it. Search above to get to the local helpline which can work out which help is best for you.\", \"sort_order\": 5, \"pk\": null, \"page\": null}], \"locked\": false, \"title\": \"Homepage\", \"numchild\": 6, \"show_in_menus\": false, \"live\": true, \"promo_panels\": [{\"link_page\": 4, \"title\": \"The justice process\", \"link_text\": \"About the justice process\", \"content\": \"What you should expect to happen from reporting a crime until after a trial.\", \"sort_order\": 0, \"icon_classname\": \"justice\", \"pk\": null, \"page\": null}, {\"link_page\": null, \"title\": \"Glossary\", \"link_text\": \"See the full glossary\", \"content\": \"A guide to legal language.\", \"sort_order\": 1, \"icon_classname\": \"glossary\", \"pk\": null, \"page\": null}, {\"link_page\": 7, \"title\": \"Compensation\", \"link_text\": \"Find out how to get compensation\", \"content\": \"From insurance claims to the government's own compensation fund.\", \"sort_order\": 2, \"icon_classname\": \"compensation\", \"pk\": null, \"page\": null}], \"seo_title\": \"\", \"search_description\": \"\", \"depth\": 2, \"latest_revision_created_at\": \"2015-02-19T11:49:15.092Z\", \"has_unpublished_changes\": false, \"content_type\": 2, \"path\": \"00010001\", \"owner\": null, \"pk\": 3, \"url_path\": \"/home/\", \"expired\": false, \"slug\": \"home\", \"expire_at\": null, \"go_live_at\": null}",
-        "user": 1,
+        "user": [
+            "kerin"
+        ],
         "page": 3
     },
     "model": "wagtailcore.pagerevision",
@@ -299,7 +380,9 @@
 },
 {
     "fields": {
-        "group": 1,
+        "group": [
+            "Moderators"
+        ],
         "page": 1,
         "permission_type": "add"
     },
@@ -308,7 +391,9 @@
 },
 {
     "fields": {
-        "group": 1,
+        "group": [
+            "Moderators"
+        ],
         "page": 1,
         "permission_type": "edit"
     },
@@ -317,7 +402,9 @@
 },
 {
     "fields": {
-        "group": 1,
+        "group": [
+            "Moderators"
+        ],
         "page": 1,
         "permission_type": "publish"
     },
@@ -326,7 +413,9 @@
 },
 {
     "fields": {
-        "group": 2,
+        "group": [
+            "Editors"
+        ],
         "page": 1,
         "permission_type": "add"
     },
@@ -335,7 +424,9 @@
 },
 {
     "fields": {
-        "group": 2,
+        "group": [
+            "Editors"
+        ],
         "page": 1,
         "permission_type": "edit"
     },
@@ -344,7 +435,9 @@
 },
 {
     "fields": {
-        "group": 1,
+        "group": [
+            "Moderators"
+        ],
         "page": 1,
         "permission_type": "lock"
     },
@@ -353,7 +446,7 @@
 },
 {
     "fields": {},
-    "model": "core.homepage",
+    "model": "pages.homepage",
     "pk": 3
 },
 {
@@ -361,7 +454,7 @@
         "content": "<p>The information here is a summary of the full\u00a0<a href=\"https://www.gov.uk/government/publications/the-code-of-practice-for-victims-of-crime\">Code of Practice for Victims of Crime</a>\u00a0(The Victims' Code).</p><p>The Victims' Code explains what should happen from when you tell the police about a crime until after the trial.</p><p>Support is available at every stage of the justice process so you understand what is happening and can get answers to your questions.</p><p>The Victims' Code explains:</p><ul><li>victims' support services</li><li>who can get support</li><li><a href=\"http://localhost:8000/your-rights/\">your rights</a>: what support victims must get</li><li>support\u00a0<a href=\"http://localhost:8000/justice-article/#police-investigation\">while the police are investigating a crime</a></li><li>support\u00a0<a href=\"http://localhost:8000/justice-article/#before-trial\">before the trial</a></li><li>support\u00a0<a href=\"http://localhost:8000/justice-article/#during-trial\">during the trial</a></li><li>support\u00a0<a href=\"http://localhost:8000/justice-article/#after-trial\">after the trial</a></li></ul><p>There is also\u00a0<a href=\"http://localhost:8000/special-measures/\">extra support</a>\u00a0for victims of more serious crimes such as:</p><ul><li>rape and other sex offences</li><li>domestic abuse: being abused by someone you live with</li><li>human trafficking: being brought to this or another country against your will</li><li>terrorism, attempted murder or grevious bodily harm</li></ul><p>You can read a full list of\u00a0<a href=\"http://localhost:8000/organisations/\">organisations that are part of The Victims' Code</a>.</p>",
         "menu_title": "justice process"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 4
 },
 {
@@ -369,7 +462,7 @@
         "content": "<h2>Overview</h2><p>All victims of crime have a right to information and support from organisations like the police and the courts.</p><p>If you are a victim of crime, you are entitled to:</p><ul><li>an assessment to find out what support you need</li><li>get information about what to expect</li><li>make a\u00a0<a href=\"http://localhost:8000/admin/pages/27/edit/#vps\">Victim Personal Statement</a>\u00a0about the crime</li><li><a href=\"http://localhost:8000/special-measures/\">extra support</a>\u00a0if you are a victim of a serious crime, are being threatened, or vulnerable in another way</li><li>information about\u00a0<a href=\"http://localhost:8000/glossary/#restorative-justice\">restorative justice</a></li><li>have your details passed to other organisations that help and support victims of crime in your area</li><li>get information about what the police are doing</li><li>be told what is happening with the trial and sentence</li><li>get help or support for going to court to give evidence</li><li>know if the person found guilty makes an appeal asking a different court to look at their case again</li><li>ask the Crown Prosecution Service (<a href=\"http://localhost:8000/organisations/#cps\">CPS</a>) to look at things again if you are not happy with what they decide</li><li>apply for\u00a0<a href=\"http://localhost:8000/getting-compensation/\">compensation</a></li><li><a href=\"http://localhost:8000/complaining/\">complain</a>\u00a0if you do not get the right information and support</li></ul><h2><a></a>Extra support</h2><p>For victims of more serious crimes, extra support is available if you are:</p><ul><li>vulnerable or being threatened</li><li>a victim of lots of crimes, for example, stalking</li><li>a victim of rape or other sex offences</li><li>being abused by someone you live with</li><li>a victim of human trafficking</li></ul><p>Find out more about\u00a0<a href=\"http://localhost:8000/special-measures/\">the extra help you can get</a>.</p>",
         "menu_title": "Your rights"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 5
 },
 {
@@ -377,7 +470,7 @@
         "content": "<p>From April 2015, your local Police and Crime Commissioner is responsible for arranging the support you need if you've been a victim of crime. Rather than lots of national helplines, support is organised based on the needs of your community.</p><p>If you speak to the police, they should conduct a\u00a0<a href=\"http://localhost:8000/glossary/#needs-assessment\">needs assessment</a>\u00a0to work out what help you will need to recover from the crime. If your case goes to a trial, they will also make sure that the courts know about any\u00a0<a href=\"http://localhost:8000/special-measures/\">special help</a>\u00a0you might need.</p><p>Your local police have also made arrangements for you to get support if you haven't gone to the police or change your mind later. Many have set up telephone helplines which can work out which charities can help you, and lots have websites that can help too.</p><p>Search for your local victim support service by entering your home postcode in the search box at the top of the page, and you'll get the contact details. We also provide details for a few national helplines for very specific types of crimes. If you're not sure whether these apply to you, contact your local service and they can refer you onwards.</p>",
         "menu_title": "Support"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 6
 },
 {
@@ -385,7 +478,7 @@
         "content": "<p>You may be eligible for compensation if you are a:</p><ul><li>victim of the crime</li><li>close relative of someone who died because of a crime</li><li>witness of a serious crime</li></ul><p>The first place to look for compensation is normally insurance policies. These may be your own insurance policies - particularly if you were victim of a property crime such as theft or vandalism. If you know the person who committed the crime you may be able to make a claim against their insurance policies.</p><p>You can ask your employer about damages or insurance entitlements if this is appropriate.</p><p>There may also be\u00a0<a href=\"https://www.gov.uk/browse/benefits/disability\">benefits</a>\u00a0which you can now get if you have serious injuries from which you can't recover quickly. If a relative has died, there may be other\u00a0<a href=\"https://www.gov.uk/browse/benefits/bereavement\">bereavement benefits</a>\u00a0you can claim.</p><p>As a last resort you can apply to the\u00a0<a href=\"https://www.gov.uk/criminal-injuries-compensation-a-guide\">Criminal Injuries Compensation Authority (CICA)</a>. This is a government fund for victims of crime where you don't know who injured you or they don't have any way to pay. You must apply within two years and you must have cooperated with any police investigation if you want CICA to help.</p><p>This process may take a long time. You do not need to have someone represent you.</p><p>If you disagree with the CICA decision, you can apply to the\u00a0<a href=\"https://www.gov.uk/criminal-injuries-compensation-tribunal/overview\">First-tier Tribunal (Criminal Injuries Compensation)</a>.</p>",
         "menu_title": "Compensation"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 7
 },
 {
@@ -393,7 +486,7 @@
         "content": "<p>If your problem is with:</p><ul><li><a href=\"http://localhost:8000/admin/pages/14/edit/#signatories\">an organisation that has signed up to The Victims Code</a></li><li><a href=\"http://localhost:8000/admin/pages/14/edit/#local\">a charity or helpline that your local police or victims' contact centre have sent you to</a></li><li><a href=\"http://localhost:8000/admin/pages/14/edit/#website\">the content or function of this digital service</a></li></ul><h2><a></a>Problems with Government Services</h2><p>Under the Victims' Code, you're entitled to be treated by\u00a0<a href=\"http://localhost:8000/organisations/\">any of its service organisations</a>\u00a0(e.g. the police, courts) in a respectful, sensitive and professional manner without discrimination of any kind.</p><p>If this doesn't happen, or they don't live up to their other promises under the code, then you're entitled to make a complaint. You can also expect that complaint to be swiftly and fully addressed.</p><ul><li>If you feel comfortable doing so, you should discuss your complaint with the person you've been dealing with.</li><li>If you don't feel comfortable doing so, or aren't happy with how they deal with their complaint, all of the organisations have a complaints procedure and The Victims' Code says you must be given details of who to contact and the process if you request it.</li><li>If you raise the complaint with the wrong organisation, The Victims' Code says they will send the complaint to the right person and tell you they've done it.</li></ul><p>You should expect to receive an acknowledgement within ten days of your complaint being received. This will say when you can expect a response. Some organisations will be able to provide a response within the ten days.</p><p>The response should also be in a format and language you can understand.</p><p>If still not satisfied, you can ask your Member of Parliament to pass your complaint to the\u00a0<a href=\"http://www.ombudsman.org.uk/make-a-complaint\">Parliamentary and Health Service Ombudsman</a>.</p><h2><a></a>Problems with local services</h2><p>Not all of the local services you can be sent to have signed up to The Victims' Code. If a local organisation hasn't delivered the service you'd expect, you should raise these with the local victims helpline. You can search for this by entering your postcode on the homepage.</p><p>Your local police, and your local Police and Crime Commissioner who arranged these services, have signed up to The Victims Code. You can therefore expect your complaint to be taken just as seriously.</p><h2><a></a>Problems with this website</h2><p>If you have an issue with the content of this website or the way that it works, please contact the phone number on the homepage and they will log the issue for you. Alternatively send an email to\u00a0<a href=\"mailto:viswebsite@ministryofjustice.zendesk.com\">viswebsite@ministryofjustice.zendesk.com</a>\u00a0but please don't include any confidential information.</p>",
         "menu_title": "Complains"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 8
 },
 {
@@ -401,7 +494,7 @@
         "content": "<p>The Victims' Information Service (VIS) helps you find:</p><h2>Support</h2><p>The\u00a0<a href=\"http://localhost:8000/admin/pages/4/edit/index.html\">postcode search</a>\u00a0on the homepage connects you with the support services for victims of crime in your area.</p><h2>Information</h2><p>VIS provides easy-to-understand guides about:</p><ul><li>the\u00a0<a href=\"http://localhost:8000/justice-process/\">justice process</a></li><li>the\u00a0<a href=\"http://localhost:8000/organisations/\">organisations</a>\u00a0involved in the justice process</li><li><a href=\"http://localhost:8000/your-rights/\">your rights</a>\u00a0as outlined in The Victims' Code</li><li><a href=\"http://localhost:8000/compensation/\">compensation</a>\u00a0claims after a crime</li><li><a href=\"http://localhost:8000/complaining/\">where to complain</a>\u00a0if something goes wrong</li></ul>",
         "menu_title": "About"
     },
-    "model": "core.simplepage",
+    "model": "pages.simplepage",
     "pk": 9
 },
 {
@@ -414,12 +507,12 @@
         "icon_classname": "justice",
         "page": 3
     },
-    "model": "core.homepagepromopanels",
+    "model": "pages.homepagepromopanels",
     "pk": 4
 },
 {
     "fields": {
-        "link_page": null,
+        "link_page": 10,
         "title": "Glossary",
         "link_text": "See the full glossary",
         "content": "A guide to legal language.",
@@ -427,7 +520,7 @@
         "icon_classname": "glossary",
         "page": 3
     },
-    "model": "core.homepagepromopanels",
+    "model": "pages.homepagepromopanels",
     "pk": 5
 },
 {
@@ -440,7 +533,7 @@
         "icon_classname": "compensation",
         "page": 3
     },
-    "model": "core.homepagepromopanels",
+    "model": "pages.homepagepromopanels",
     "pk": 6
 },
 {
@@ -452,7 +545,7 @@
         "sort_order": 0,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 1
 },
 {
@@ -464,7 +557,7 @@
         "sort_order": 1,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 2
 },
 {
@@ -476,7 +569,7 @@
         "sort_order": 2,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 3
 },
 {
@@ -488,7 +581,7 @@
         "sort_order": 3,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 4
 },
 {
@@ -500,7 +593,7 @@
         "sort_order": 4,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 5
 },
 {
@@ -512,7 +605,7 @@
         "sort_order": 5,
         "page": 3
     },
-    "model": "core.homepagepanels",
+    "model": "pages.homepagepanels",
     "pk": 6
 },
 {
@@ -521,7 +614,7 @@
         "page": 4,
         "glossary_item": 24
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 1
 },
 {
@@ -530,7 +623,7 @@
         "page": 4,
         "glossary_item": 4
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 2
 },
 {
@@ -539,7 +632,7 @@
         "page": 4,
         "glossary_item": 2
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 3
 },
 {
@@ -548,7 +641,7 @@
         "page": 5,
         "glossary_item": 5
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 4
 },
 {
@@ -557,7 +650,7 @@
         "page": 5,
         "glossary_item": 36
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 5
 },
 {
@@ -566,7 +659,7 @@
         "page": 5,
         "glossary_item": 30
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 6
 },
 {
@@ -575,7 +668,7 @@
         "page": 6,
         "glossary_item": 7
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 7
 },
 {
@@ -584,7 +677,7 @@
         "page": 6,
         "glossary_item": 7
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 8
 },
 {
@@ -593,7 +686,7 @@
         "page": 6,
         "glossary_item": 21
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 9
 },
 {
@@ -602,7 +695,7 @@
         "page": 7,
         "glossary_item": 7
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 10
 },
 {
@@ -611,7 +704,7 @@
         "page": 7,
         "glossary_item": 1
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 11
 },
 {
@@ -620,7 +713,7 @@
         "page": 7,
         "glossary_item": 3
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 12
 },
 {
@@ -629,7 +722,7 @@
         "page": 8,
         "glossary_item": 6
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 13
 },
 {
@@ -638,7 +731,7 @@
         "page": 8,
         "glossary_item": 8
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 14
 },
 {
@@ -647,7 +740,7 @@
         "page": 8,
         "glossary_item": 15
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 15
 },
 {
@@ -656,7 +749,7 @@
         "page": 9,
         "glossary_item": 8
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 16
 },
 {
@@ -665,7 +758,7 @@
         "page": 9,
         "glossary_item": 16
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 17
 },
 {
@@ -674,7 +767,12 @@
         "page": 9,
         "glossary_item": 19
     },
-    "model": "core.simplepageglosseryitems",
+    "model": "pages.simplepageglosseryitems",
     "pk": 18
+},
+{
+    "fields": {},
+    "model": "pages.glossarypage",
+    "pk": 10
 }
 ]

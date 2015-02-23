@@ -7,20 +7,20 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0005_homepagepromopanels'),
+        ('pages', '0002_glossarypage'),
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='homepagepanels',
-            name='link_text',
-            field=models.CharField(help_text=b'Link Text', max_length=255, blank=True),
+            name='link_page',
+            field=models.ForeignKey(related_name='+', blank=True, to='wagtailcore.Page', null=True),
             preserve_default=True,
         ),
-        migrations.AddField(
+        migrations.AlterField(
             model_name='homepagepromopanels',
-            name='link_text',
-            field=models.CharField(help_text=b'Link Text', max_length=255, blank=True),
+            name='link_page',
+            field=models.ForeignKey(related_name='+', blank=True, to='wagtailcore.Page', null=True),
             preserve_default=True,
         ),
     ]
