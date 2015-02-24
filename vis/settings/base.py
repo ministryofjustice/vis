@@ -185,6 +185,12 @@ LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 WAGTAIL_SITE_NAME = 'VIS'
 
+
+ADDRESSFINDER_API_HOST = os.environ.get('ADDRESSFINDER_API_HOST',
+    'http://127.0.0.1:8003')
+ADDRESSFINDER_API_TOKEN = os.environ.get('ADDRESSFINDER_API_TOKEN', '')
+
+
 try:
     from .local import *
 except ImportError:

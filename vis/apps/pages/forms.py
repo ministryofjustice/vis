@@ -1,14 +1,12 @@
 import requests
 
 from django import forms
+from django.conf import settings
 
 from pages.models import PCCPage
 
 
-GEOCODE_URL = (
-    'http://nominatim.openstreetmap.org/search'
-    '?format=json&countrycodes=gb&q=%s'
-)
+GEOCODE_URL = settings.ADDRESSFINDER_API_HOST + '/postcodes/%s'
 POLICE_URL = (
     'http://data.police.uk/api/locate-neighbourhood'
     '?q=%s,%s'
@@ -28,49 +26,74 @@ class SearchForm(forms.Form):
             'required': 'Please enter your postcode'
         }
     )
+    lat = forms.CharField(required=False)
+    lng = forms.CharField(required=False)
 
-    def get_geo(self, q):
-        geo_resp = requests.get(GEOCODE_URL % q, timeout=REQUEST_TIMEOUT)
-        if not geo_resp.ok:
-            raise UnexpectedException()
+    def _clean_geo(self):
+        lat = self.cleaned_data.get('lat')
+        lng = self.cleaned_data.get('lng')
 
-        geo = geo_resp.json()
-        if not geo:
-            raise forms.ValidationError('No results found for %s' % q)
+        if not lat or not lng:
+            q = self.cleaned_data.get('q')
+            geo_resp = requests.get(
+                GEOCODE_URL % q,
+                headers={
+                    'Authorization': 'Token %s' % settings.ADDRESSFINDER_API_TOKEN
+                },
+                timeout=REQUEST_TIMEOUT
+            )
 
-        return (geo[0]['lat'], geo[0]['lon'])
+            if geo_resp.status_code == 404:
+                raise forms.ValidationError("Invalid postcode")
 
-    def get_police_force(self, q):
-        lat, lng = self.get_geo(q)
+            if not geo_resp.ok:
+                raise UnexpectedException()
 
+            geo = geo_resp.json()
+            lat, lng = reversed(geo['coordinates'])
+
+            self.cleaned_data['lat'] = lat
+            self.cleaned_data['lng'] = lng
+
+        return (lat, lng)
+
+    def _get_police_force(self, lat, lng):
         police_resp = requests.get(
             POLICE_URL % (lat, lng), timeout=REQUEST_TIMEOUT
         )
 
+        if police_resp.status_code == 404:
+            raise forms.ValidationError("No results")
+
         if not police_resp.ok:
-            if police_resp.status_code == 404:
-                raise forms.ValidationError(
-                    "%s isn't a valid postcode in England or Wales" % q
-                )
-            else:
-                raise UnexpectedException()
+            raise UnexpectedException()
+
         police = police_resp.json()
         return police['force']
 
-    def get_pcc(self, q):
-        police_force = self.get_police_force(q)
+    def get_pcc(self):
+        lat, lng = self._clean_geo()
+        police_force = self._get_police_force(lat, lng)
 
         try:
             return PCCPage.objects.get(slug=police_force)
         except PCCPage.DoesNotExist:
             pass
-        return None
+
+        raise forms.ValidationError("No results")
 
     def clean(self):
-        q = self.cleaned_data.get('q')
+        # if errors => skip
+        if self.errors:
+            return
+
         try:
-            self.cleaned_data['pcc'] = self.get_pcc(q)
-        except (UnexpectedException, requests.exceptions.Timeout):
+            self.cleaned_data['pcc'] = self.get_pcc()
+        except (
+            UnexpectedException,
+            requests.exceptions.Timeout,
+            requests.exceptions.ConnectionError
+        ):
             raise forms.ValidationError(
                 "There was an error with your request, please try again."
             )
