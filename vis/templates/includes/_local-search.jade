@@ -1,6 +1,9 @@
 form(action="/police/search/", method="post", class="SearchForm SearchForm--#{modifier}")
   - csrf_token
+  input(type="hidden", name="lat")
+  input(type="hidden", name="lng")
+
   label.SearchForm-label(for="q")
     .SearchForm-labelText Find help and support near you
-    input.SearchForm-query(name="q", id="q", placeholder="Enter your post code or local police authority", type="text")
+    input.SearchForm-query(name="q", id="q", placeholder="Enter your post code", type="text")
   input.Button.SearchForm-submit(type="submit", value="Find support")

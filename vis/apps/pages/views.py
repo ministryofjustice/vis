@@ -1,28 +1,25 @@
-from django.shortcuts import get_object_or_404, redirect
+import itertools
 
-from pages.models import PCCPage
+from django.shortcuts import render, redirect
 
-import requests
-
-
-GEOCODE_URL = ('http://nominatim.openstreetmap.org/search'
-               '?format=json&countrycodes=gb&q=%s')
-POLICE_URL = ('http://data.police.uk/api/locate-neighbourhood'
-              '?q=%s,%s')
+from .forms import SearchForm
 
 
 def pcc_search(request):
+    q = request.POST.get('q')
+    errors = None
     if request.method == 'POST':
-        try:
-            q = request.POST.get('q')
-
-            geo = requests.get(GEOCODE_URL % q).json()
-            police = requests.get(POLICE_URL % (geo[0]['lat'],
-                                                geo[0]['lon'])).json()
-
-            pcc = get_object_or_404(PCCPage, slug=police['force'])
-
+        form = SearchForm(data=request.POST)
+        if form.is_valid():
+            pcc = form.cleaned_data['pcc']
             return redirect(pcc.url)
-        except (KeyError, ValueError):
-            pass
-    return redirect('/')
+        else:
+            errors = list(itertools.chain.from_iterable(form.errors.values()))
+    else:
+        return redirect('/')
+
+    return render(request, 'pages/result_list.jade', {
+            'q': q,
+            'errors': errors
+        }
+    )
