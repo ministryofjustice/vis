@@ -45,7 +45,6 @@ INSTALLED_APPS = (
 
     'markdown_deux',
     'pipeline',
-    'rules.apps.AutodiscoverRulesConfig',
 
     'taggit',
     'modelcluster',
@@ -84,7 +83,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 

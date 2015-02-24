@@ -35,7 +35,7 @@ pip install -U pip
 
 Install python dependencies:
 ```
-pip install -r requirements/local.txt
+pip install -r requirements/dev.txt
 ```
 
 Create the database inside postgres. Type `psql` to enter postgres, then enter:
