@@ -9,10 +9,14 @@
       "required": true,
       "description": "the settings file you'd like to use. In most cases just set this to vis.settings.heroku",
       "value": "vis.settings.heroku"
+    },
+    "SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
     }
   },
   "scripts": {
-    "postdeploy": "./manage.py migrate  --noinput"
+    "postdeploy": "./manage.py migrate  --noinput && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin','', 'changeme')\" | ./manage.py shell && ./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json && ./manage.py fixpccpermissions"
   },
   "addons": [
     "heroku-postgresql:hobby-dev"

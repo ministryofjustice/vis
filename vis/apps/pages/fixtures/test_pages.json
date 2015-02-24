@@ -258,7 +258,7 @@
 },
 {
     "fields": {
-        "locked": false,
+        "locked": true,
         "title": "Police",
         "numchild": 43,
         "show_in_menus": false,

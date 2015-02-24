@@ -7,6 +7,8 @@ if DJ_DATABASE_URL:
         'default': dj_database_url.parse(DJ_DATABASE_URL)
     }
 
+SECRET_KEY = os.environ['SECRET_KEY']
+
 PIPELINE_COMPILERS = ()
 PIPELINE_ENABLED = True
 

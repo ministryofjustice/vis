@@ -43,10 +43,11 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
 
 class PCCPage(JadePageMixin, Page):
     content = RichTextField()
-
+    subpage_types = []
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
+    subpage_types = []
 
 
 # #### PAGE COMPONENTS
