@@ -57,7 +57,12 @@ Create superuser
 
 Load test fixtures
 ```
-./manage.py loaddata glossary helplines police test_pages
+./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json
+```
+
+Fix PCC Page Permissions such that each PPC Page is owned by the corresponding user:
+```
+./manage.py fixpccpermissions
 ```
 
 Install Frontend dependencies libraries:
@@ -145,7 +150,7 @@ Bower frontend components and Django fixtures require setup on the **first run o
 
 ```
 $ fig run django bower install --allow-root
-$ fig run django python manage.py loaddata vis/fixtures/test_users glossary helplines police vis/fixtures/test_pages
+$ fig run django python manage.py loaddata vis/fixtures/test_users glossary helplines police test_pages vis/fixtures/test_users
 ```
 
 Start it up:
