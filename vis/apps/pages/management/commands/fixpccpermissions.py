@@ -10,7 +10,7 @@ class Command(NoArgsCommand):
             if page.owner.username != page.slug:
                 try:
                     u = User.objects.get(username=page.slug)
-                    page.onwer = u
+                    page.owner = u
                     print 'Setting owner of %s to %s' % (page.url, u.username)
                     page.save()
                 except User.DoesNotExist:
