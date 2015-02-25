@@ -11,3 +11,5 @@ wagtail==0.8.4
 django-autoslug==1.7.2
 waitress==0.8.9
 whitenoise==1.0.6
+django-redis-cache==0.13.0
+redis==2.10.3

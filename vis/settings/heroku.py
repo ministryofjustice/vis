@@ -1,4 +1,6 @@
 from .base import *
+import os
+import urlparse
 import dj_database_url
 
 DJ_DATABASE_URL = os.environ.get('DATABASE_URL')
@@ -22,6 +24,23 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
+
+# REDIS
+redis_url = urlparse.urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
+
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+        'OPTIONS': {
+            'DB': 0,
+            'PASSWORD': redis_url.password,
+        }
+    }
+}
+
+
+# LOGGING
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
