@@ -11,6 +11,8 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.contrib.wagtailsitemaps.views import sitemap
 
+from pages.views import Handler500
+
 admin.autodiscover()
 
 urlpatterns = patterns(
@@ -26,6 +28,10 @@ urlpatterns = patterns(
     url(r'', include(wagtail_urls)),
     url('^sitemap\.xml$', sitemap),
     )
+
+# 500 page handler
+handler500 = Handler500.as_error_view()
+
 
 if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
