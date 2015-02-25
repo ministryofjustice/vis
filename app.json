@@ -13,6 +13,12 @@
     "SECRET_KEY": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
+    },
+    "ADDRESSFINDER_API_URL": {
+      "description": "Addressfinder API URL."
+    },
+    "ADDRESSFINDER_API_TOKEN": {
+      "description": "Addressfinder API TOKEN."
     }
   },
   "scripts": {

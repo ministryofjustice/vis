@@ -10,7 +10,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 @register_snippet
 class GlossaryItem(models.Model):
     name = models.CharField(max_length=255)
-    slug = AutoSlugField(populate_from='name', unique=True, editable=False)
+    slug = AutoSlugField(populate_from='name', unique=True, editable=False, max_length=255)
     description = RichTextField()
 
     def __unicode__(self):
@@ -28,7 +28,7 @@ class GlossaryItem(models.Model):
 @register_snippet
 class Helpline(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    slug = AutoSlugField(populate_from='name', unique=True, editable=False)
+    slug = AutoSlugField(populate_from='name', unique=True, editable=False, max_length=255)
     phone = models.CharField(max_length=18)
     ordering = models.PositiveSmallIntegerField(default=1000)
     url = models.URLField()
