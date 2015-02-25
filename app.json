@@ -19,6 +19,9 @@
     },
     "ADDRESSFINDER_API_TOKEN": {
       "description": "Addressfinder API TOKEN."
+    },
+    "STATIC_URL": {
+      "description": "Django STATIC_URL (default '/static/')"
     }
   },
   "scripts": {
