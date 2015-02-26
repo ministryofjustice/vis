@@ -28,18 +28,19 @@ STATIC_URL = os.environ.get(STATIC_URL, '/static/')
 
 
 # REDIS
-redis_url = urlparse.urlparse(os.environ.get('REDISTOGO_URL', 'redis://localhost:6959'))
+if 'REDISTOGO_URL' in os.environ:
+    redis_url = urlparse.urlparse(os.environ['REDISTOGO_URL'])
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
-        'OPTIONS': {
-            'DB': 0,
-            'PASSWORD': redis_url.password,
+    CACHES = {
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+            'OPTIONS': {
+                'DB': 0,
+                'PASSWORD': redis_url.password,
+            }
         }
     }
-}
 
 
 # LOGGING
