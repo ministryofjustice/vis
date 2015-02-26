@@ -134,3 +134,16 @@ PCCPage.content_panels = [
     FieldPanel('title', classname="full title"),
     FieldPanel('content', classname="full")
 ]
+
+
+# HOOKS
+
+from wagtail.wagtailcore import hooks
+
+
+@hooks.register('after_edit_page')
+def do_after_page_create(request, page):
+    is_submitting = bool(request.POST.get('action-submit'))
+    if is_submitting and isinstance(page, PCCPage):
+        page.get_latest_revision().publish()
+    return None
