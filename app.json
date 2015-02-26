@@ -29,7 +29,8 @@
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
-    "redistogo:nano"
+    "redistogo:nano",
+    "newrelic:stark"
   ],
   "keywords": ["uk", "ministryofjustice", "legalaid", "python", "angularjs"]
 }
