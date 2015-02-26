@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'taggit',
     'modelcluster',
     'compressor',
-    'overextends',
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtailsnippets',
