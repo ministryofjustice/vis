@@ -28,7 +28,8 @@
     "postdeploy": "./manage.py migrate  --noinput && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin','', 'changeme')\" | ./manage.py shell && ./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json && ./manage.py fixpccpermissions"
   },
   "addons": [
-    "heroku-postgresql:hobby-dev"
+    "heroku-postgresql:hobby-dev",
+    "redistogo:nano"
   ],
   "keywords": ["uk", "ministryofjustice", "legalaid", "python", "angularjs"]
 }
