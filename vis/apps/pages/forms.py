@@ -6,7 +6,7 @@ from django.conf import settings
 from pages.models import PCCPage
 
 
-GEOCODE_URL = settings.ADDRESSFINDER_API_HOST + '/addresses/%s'
+GEOCODE_URL = settings.ADDRESSFINDER_API_HOST + '/postcodes/%s'
 POLICE_URL = (
     'http://data.police.uk/api/locate-neighbourhood'
     '?q=%s,%s'
