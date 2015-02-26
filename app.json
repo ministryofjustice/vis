@@ -22,6 +22,18 @@
     },
     "STATIC_URL": {
       "description": "Django STATIC_URL (default '/static/')"
+    },
+    "EMAIL_HOST": {
+      "value": "email-smtp.eu-west-1.amazonaws.com",
+      "description": "Email host"
+    },
+    "EMAIL_HOST_USER": {
+      "required": false,
+      "description": "Email host user"
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "required": false,
+      "description": "Email host password"
     }
   },
   "scripts": {
