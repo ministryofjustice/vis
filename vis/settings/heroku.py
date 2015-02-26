@@ -24,7 +24,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-STATIC_URL = os.environ.get(STATIC_URL, '/static/')
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
 
 # REDIS
