@@ -14,8 +14,8 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "ADDRESSFINDER_API_URL": {
-      "description": "Addressfinder API URL."
+    "ADDRESSFINDER_API_HOST": {
+      "description": "Addressfinder API HOST."
     },
     "ADDRESSFINDER_API_TOKEN": {
       "description": "Addressfinder API TOKEN."
