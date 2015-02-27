@@ -1,6 +1,6 @@
-- if self.get_children
+- if show_siblings
   nav.SubNavigation
     ol.SubNavigation-menu
-      - for page in self.get_children
+      - for page in self.get_siblings
         li(class="SubNavigation-menuItem{% if page.active %} SubNavigation-menuItem--active{% endif %}")
           a.SubNavigation-itemLink(href="#{page.url}")= page.simplepage.menu_title|default:page.title

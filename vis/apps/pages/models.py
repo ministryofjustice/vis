@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, MultiFieldPanel
@@ -23,10 +24,18 @@ class HomePage(JadePageMixin, Page):
 class SimplePage(JadePageMixin, Page):
     content = RichTextField()
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
+    subpage_types = []
 
+    def get_context(self, request, *args, **kwargs):
+        context = super(SimplePage, self).get_context(request, *args, **kwargs)
+        parent = self.get_parent()
+        if parent.specific_class == MultiPagePage:
+            context['show_siblings'] = True
+        return context
 
 class ObjectListMixin(object):
     object_class = None
+    subpage_types = []
 
     def get_context(self, request, *args, **kwargs):
         context = super(ObjectListMixin, self).get_context(
@@ -49,6 +58,16 @@ class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
     subpage_types = []
 
+
+class MultiPagePage(JadePageMixin, Page):
+    menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
+    subpage_types = ['pages.SimplePage']
+
+    def serve(self, request, *args, **kwargs):
+        children = self.get_descendants()
+        if len(children):
+            return redirect(children[0].url)
+        return super(MultiPagePage, self).serve(request, *args, **kwargs)
 
 # #### PAGE COMPONENTS
 
@@ -135,6 +154,10 @@ PCCPage.content_panels = [
     FieldPanel('content', classname="full")
 ]
 
+
+MultiPagePage.promote_panels = Panel.panels + [
+    FieldPanel('menu_title'),
+]
 
 # HOOKS
 
