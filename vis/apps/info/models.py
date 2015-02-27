@@ -24,6 +24,9 @@ class GlossaryItem(models.Model):
         FieldPanel('description', classname="full"),
     ]
 
+    class Meta:
+        ordering = ['name']
+
 
 @register_snippet
 class Helpline(models.Model):

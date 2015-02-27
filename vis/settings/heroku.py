@@ -43,6 +43,17 @@ if 'REDISTOGO_URL' in os.environ:
     }
 
 
+# EMAILS
+if 'EMAIL_HOST_USER' in os.environ and 'EMAIL_HOST_PASSWORD' in os.environ:
+    EMAIL_SUBJECT_PREFIX = '[VIS]'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_SSL = True
+    EMAIL_HOST = os.environ['EMAIL_HOST']
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+
 # LOGGING
 LOGGING = {
     'version': 1,

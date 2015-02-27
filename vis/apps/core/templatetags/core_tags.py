@@ -1,5 +1,10 @@
 from django import template
 
+from wagtail.wagtailcore.models import Site
+
+from pages.models import PCCPage
+
+
 register = template.Library()
 
 
@@ -34,3 +39,18 @@ def top_menu(context, parent, calling_page=None):
         # required by the pageurl tag that we want to use within this template
         'request': request,
     }
+
+
+@register.assignment_tag
+def get_base_url():
+    try:
+        _id, root_path, root_url = Site.get_site_root_paths()[0]
+        return root_url
+    except IndexError:
+        pass
+    return None
+
+
+@register.filter
+def is_pcc_page(page):
+    return isinstance(page.specific, PCCPage)

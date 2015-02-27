@@ -1,0 +1,1 @@
+{% extends 'wagtailadmin/notifications/base_notification.html' %}{% load core_tags %}{% block notification %}{% if revision.page|is_pcc_page %}{% include "wagtailadmin/notifications/includes/submitted_pcc.html" %}{% else %}{% include "wagtailadmin/notifications/includes/submitted_default.html" %}{% endif %}{% endblock %}

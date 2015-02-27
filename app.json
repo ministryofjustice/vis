@@ -14,14 +14,26 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "ADDRESSFINDER_API_URL": {
-      "description": "Addressfinder API URL."
+    "ADDRESSFINDER_API_HOST": {
+      "description": "Addressfinder API HOST."
     },
     "ADDRESSFINDER_API_TOKEN": {
       "description": "Addressfinder API TOKEN."
     },
     "STATIC_URL": {
       "description": "Django STATIC_URL (default '/static/')"
+    },
+    "EMAIL_HOST": {
+      "value": "email-smtp.eu-west-1.amazonaws.com",
+      "description": "Email host"
+    },
+    "EMAIL_HOST_USER": {
+      "required": false,
+      "description": "Email host user"
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "required": false,
+      "description": "Email host password"
     }
   },
   "scripts": {

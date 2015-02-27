@@ -7,7 +7,7 @@ psycopg2==2.6
 requests==2.5.1
 dj-database-url==0.3.0
 pyjade==3.0.0
-wagtail==0.8.4
+wagtail==0.8.5
 django-autoslug==1.7.2
 waitress==0.8.9
 whitenoise==1.0.6
