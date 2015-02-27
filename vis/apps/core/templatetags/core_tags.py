@@ -2,6 +2,9 @@ from django import template
 
 from wagtail.wagtailcore.models import Site
 
+from pages.models import PCCPage
+
+
 register = template.Library()
 
 
@@ -46,3 +49,8 @@ def get_base_url():
     except IndexError:
         pass
     return None
+
+
+@register.filter
+def is_pcc_page(page):
+    return isinstance(page.specific, PCCPage)

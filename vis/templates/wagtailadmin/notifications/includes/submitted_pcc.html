@@ -1,0 +1,5 @@
+{% load i18n %}{% blocktrans with page=revision.page|safe %}The page "{{ page }}" has been changed{% endblocktrans %}
+{% blocktrans with page=revision.page|safe %}The page "{{ page }}" has been changed.{% endblocktrans %}
+
+{% trans "We have published the page for you but we invite you to review and edit it if necessary: " %}
+{% trans "You can edit the page here:" %} {{ BASE_URL }}{% url 'wagtailadmin_pages_edit' revision.page.id %}
