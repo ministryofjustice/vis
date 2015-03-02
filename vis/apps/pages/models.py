@@ -125,15 +125,7 @@ class SimplePageGlosseryItems(Orderable, models.Model):
 
 # #### PAGE ADMIN
 
-SimplePage.content_panels = [
-    FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full"),
-
-    InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
-]
-
-
-SimplePage.promote_panels = [
+COMMON_PROMOTE_PANELS = [
     MultiFieldPanel([
         FieldPanel('slug'),
         FieldPanel('seo_title'),
@@ -142,6 +134,17 @@ SimplePage.promote_panels = [
         FieldPanel('search_description'),
     ], ugettext_lazy('Common page configuration')),
 ]
+
+
+SimplePage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('content', classname="full"),
+
+    InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
+]
+
+
+SimplePage.promote_panels = COMMON_PROMOTE_PANELS
 
 
 HomePage.content_panels = [
@@ -156,9 +159,7 @@ PCCPage.content_panels = [
 ]
 
 
-MultiPagePage.promote_panels = Panel.panels + [
-    FieldPanel('menu_title'),
-]
+MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS
 
 # HOOKS
 
