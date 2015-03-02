@@ -1,0 +1,12 @@
+- extends 'article.jade'
+- load glossary wagtailcore_tags
+
+block article_title
+  = self.title
+
+block article_content
+  #{self.content|richtext}
+
+block article_aside
+  - with self.glossary_items.all as items
+    - include "templatetags/glossary/box.jade"

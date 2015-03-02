@@ -1,0 +1,18 @@
+- extends "base.jade"
+
+block content
+  main(role="main")
+    article
+      header.PageHeader
+        .Content
+          .PageHeader-row
+            - include "includes/_local-search.jade" with modifier="inline"
+            h1.PageHeader-title
+              block article_title
+      .Content
+        .Article
+          section.Article-content
+            - include "includes/_sub-navigation.jade"
+            block article_content
+          aside.Article-meta
+            block article_aside

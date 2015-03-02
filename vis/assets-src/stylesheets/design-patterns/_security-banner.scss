@@ -1,0 +1,68 @@
+.SecurityBanner {
+  background-color: $black;
+  color: $white;
+  padding: 15px 0;
+
+  a {
+    color: $secondary-colour;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+.SecurityBanner-container {
+  @extend %site-width-container;
+}
+.SecurityBanner-icon {
+  @extend %contain-floats;
+  @extend .Icon;
+  @extend .Icon--lock;
+  position: relative;
+  padding-left: 30px;
+
+  &:before {
+    margin-right: 0;
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    color: $secondary-colour;
+  }
+
+  @include media(desktop) {
+    padding-left: 60px;
+
+    &:before {
+      font-size: 50px;
+    }
+  }
+}
+.SecurityBanner-title {
+  @include bold-27;
+  color: $white;
+}
+.SecurityBanner-content {
+  @include core-19;
+  font-size: 18px;
+  margin: 2px 0 0;
+
+  @include media(desktop) {
+    float: left;
+    width: 70%;
+  }
+}
+.SecurityBanner-options {
+  @include bold-19;
+  margin: 15px -5px 10px;
+
+  @include media(desktop) {
+    float: right;
+    margin-top: 0;
+  }
+
+  .Button {
+    margin: {
+      left: 5px;
+      right: 5px;
+    };
+  }
+}

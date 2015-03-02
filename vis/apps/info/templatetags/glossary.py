@@ -5,7 +5,7 @@ from info.models import GlossaryItem
 register = template.Library()
 
 
-@register.inclusion_tag('templatetags/glossary/box.html')
+@register.inclusion_tag('templatetags/glossary/box.jade')
 def glossary_box(num_items=3):
     items = GlossaryItem.objects.order_by('?')
     try:

@@ -1,0 +1,12 @@
+- extends "article.jade"
+
+block article_title
+  = self.title
+
+block article_content
+  dl.DefinitionList
+    - for item in object_list
+      dt
+        a(name=item.slug)
+        #{item.name}
+      dd= item.description

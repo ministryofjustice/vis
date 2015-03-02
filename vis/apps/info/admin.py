@@ -6,7 +6,7 @@ from .models import Helpline
 
 class GlossaryItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'description')
-    list_editable = ('name', 'slug', 'description')
+    list_editable = ('name', 'description')
 
 
 class HelplineAdmin(admin.ModelAdmin):

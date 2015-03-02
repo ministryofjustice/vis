@@ -1,0 +1,10 @@
+.MetaPanel
+  h1.MetaPanel-title National helplines
+  dl.DefinitionList
+    - for item in items
+      dt= item.name
+      dd
+        #{item.phone}
+        br
+        a(href=item.url)= item.url
+

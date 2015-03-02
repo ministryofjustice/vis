@@ -1,0 +1,15 @@
+{% load i18n %}
+<section class="panel summary nice-padding">
+    <h2 class="visuallyhidden">{% trans "Site summary" %}</h2>
+    <ul class="stats">
+        <li class="icon icon-doc-empty-inverse">
+            <a href="{% url 'wagtailadmin_explore_root' %}">
+            {% blocktrans count counter=total_pages %}
+                <span>{{ total_pages }}</span> Page
+            {% plural %}
+                <span>{{ total_pages }}</span> Pages
+            {% endblocktrans %}
+            </a>
+        </li>
+    </ul>
+</section>

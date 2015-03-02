@@ -1,0 +1,16 @@
+Django==1.7.4
+django-markdown==0.8.4
+django-markdown-deux==1.0.5
+django-pipeline==1.4.5
+django-pipeline-compass-rubygem==0.1.8
+psycopg2==2.6
+requests==2.5.1
+dj-database-url==0.3.0
+pyjade==3.0.0
+wagtail==0.8.5
+django-autoslug==1.7.2
+waitress==0.8.9
+whitenoise==1.0.6
+django-redis-cache==0.13.0
+redis==2.10.3
+newrelic==2.44.0.36

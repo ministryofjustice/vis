@@ -1,0 +1,48 @@
+{
+  "name": "Victims' Information Service",
+  "description": "The UK's VIS website",
+  "repository": "https://github.com/ministryofjustice/vis",
+  "success_url": "/admin/",
+  "env": {
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git",
+    "DJANGO_SETTINGS_MODULE": {
+      "required": true,
+      "description": "the settings file you'd like to use. In most cases just set this to vis.settings.heroku",
+      "value": "vis.settings.heroku"
+    },
+    "SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "ADDRESSFINDER_API_HOST": {
+      "description": "Addressfinder API HOST."
+    },
+    "ADDRESSFINDER_API_TOKEN": {
+      "description": "Addressfinder API TOKEN."
+    },
+    "STATIC_URL": {
+      "description": "Django STATIC_URL (default '/static/')"
+    },
+    "EMAIL_HOST": {
+      "value": "email-smtp.eu-west-1.amazonaws.com",
+      "description": "Email host"
+    },
+    "EMAIL_HOST_USER": {
+      "required": false,
+      "description": "Email host user"
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "required": false,
+      "description": "Email host password"
+    }
+  },
+  "scripts": {
+    "postdeploy": "./manage.py migrate  --noinput && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin','', 'changeme')\" | ./manage.py shell && ./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json && ./manage.py fixpccpermissions"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "redistogo:nano",
+    "newrelic:stark"
+  ],
+  "keywords": ["uk", "ministryofjustice", "legalaid", "python", "angularjs"]
+}

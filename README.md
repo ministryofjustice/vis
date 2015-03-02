@@ -35,7 +35,7 @@ pip install -U pip
 
 Install python dependencies:
 ```
-pip install -r requirements/local.txt
+pip install -r requirements/dev.txt
 ```
 
 Create the database inside postgres. Type `psql` to enter postgres, then enter:
@@ -43,12 +43,26 @@ Create the database inside postgres. Type `psql` to enter postgres, then enter:
 CREATE DATABASE vis WITH ENCODING 'UTF-8';
 \c vis
 createuser postgres
-create extension pgcrypto;
 ```
 
 Sync and migrate the database:
 ```
 ./manage.py migrate
+```
+
+Create superuser
+```
+./manage.py createsuperuser --username=admin
+```
+
+Load test fixtures
+```
+./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json
+```
+
+Fix PCC Page Permissions such that each PPC Page is owned by the corresponding user:
+```
+./manage.py fixpccpermissions
 ```
 
 Install Frontend dependencies libraries:
@@ -69,6 +83,23 @@ gulp build
 In the main tab, start the runserver:
 ```
 ./manage.py runserver 8000
+```
+
+## Frontend Development
+
+Frontend assets are located in the `vis/assets-src/` folder and are compiled using [gulp](http://gulpjs.com/).
+
+Gulp tasks are split into individual task files in `tasks/`.
+
+To watch assets and rebuild them after every change use this command:
+
+```
+gulp watch
+```
+
+It will automatically run `gulp build` and then create a [browsersync](http://www.browsersync.io/) server which will run at [http://localhost:3000](http://localhost:3000). By default it will proxy the django app from [http://localhost:8000](http://localhost:8000). To change the port add a `port` argument to the `watch` command, eg:
+```
+gulp watch --port=8001
 ```
 
 ## Docker Installation
@@ -119,8 +150,7 @@ Bower frontend components and Django fixtures require setup on the **first run o
 
 ```
 $ fig run django bower install --allow-root
-$ fig run django python manage.py loaddata vis/fixtures/pages 
-$ vis/fixtures/test_users glossary helplines police
+$ fig run django python manage.py loaddata vis/fixtures/test_users glossary helplines police test_pages vis/fixtures/test_users
 ```
 
 Start it up:
@@ -130,3 +160,7 @@ $ fig up
 ```
 
 The site should now be viewable in your browser at [http://192.168.59.103:8000/](http://192.168.59.103:8000/) (or [http://boot2docker:8000/](http://boot2docker:8000/) if you've added an `/etc/hosts` entry).
+
+### Deploy to Heroku
+Just press the button:
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)

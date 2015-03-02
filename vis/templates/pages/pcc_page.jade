@@ -1,0 +1,11 @@
+- extends "article.jade"
+- load wagtailcore_tags helplines
+
+block article_title
+  =self.title
+
+block article_content
+  #{ self.content|richtext }
+
+block article_aside
+  - helpline_box

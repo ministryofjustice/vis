@@ -1,21 +1,40 @@
+import os
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
-from django_markdown import flatpages
-
+from django.conf import settings
 from django.contrib import admin
+
+from wagtail.wagtailadmin import urls as wagtailadmin_urls
+from wagtail.wagtailsearch import urls as wagtailsearch_urls
+from wagtail.wagtaildocs import urls as wagtaildocs_urls
+from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.contrib.wagtailsitemaps.views import sitemap
+
+from pages.views import Handler500
+
 admin.autodiscover()
-flatpages.register()
 
 urlpatterns = patterns(
     '',
-    url(r'^$', TemplateView.as_view(template_name='homepage.html')),
+    # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
-    url(r'^police/', include('police.urls')),
-    url(r'^glossary/', include('info.urls')),
     url(r'^markdown/', include('django_markdown.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-)
+    url(r'^django-admin/', include(admin.site.urls)),
+    url(r'^admin/', include(wagtailadmin_urls)),
+    url(r'^search/', include(wagtailsearch_urls)),
+    url(r'^documents/', include(wagtaildocs_urls)),
+    url(r'', include('pages.urls')),
+    url(r'', include(wagtail_urls)),
+    url('^sitemap\.xml$', sitemap),
+    )
 
-urlpatterns += patterns('django.contrib.flatpages.views',
-    (r'^(?P<url>.*/)$', 'flatpage'),
-)
+# 500 page handler
+handler500 = Handler500.as_error_view()
+
+
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
