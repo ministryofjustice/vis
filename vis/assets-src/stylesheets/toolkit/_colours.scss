@@ -4,7 +4,7 @@ $dark-grey: #979797;
 $white: #ffffff;
 
 $primary-colour: #445878;
-$secondary-colour: #92CDCF;
+$secondary-colour: #BCDBDC;
 
 $text-colour: $black;
 
@@ -12,7 +12,7 @@ $button-colour: $primary-colour;
 
 // links
 $link-colour: $primary-colour;
-$link-visited-colour: lighten($primary-colour, 10%);
-$link-hover-colour: $secondary-colour;
-$link-active-colour: $secondary-colour;
+$link-visited-colour: #6C74A9;
+$link-hover-colour: #8AA8D8;
+$link-active-colour: $black;
 $focus-colour: #ffbf47;
