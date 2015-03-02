@@ -49,8 +49,17 @@ a {
 }
 
 a:focus {
-  background-color: $focus-colour;
+  // background-color: $focus-colour;
   outline: 3px solid $focus-colour;
+  position: relative;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 3px solid $focus-colour;
+  position: relative;
 }
 
 /* Make skiplinks visible when they are tabbed to */
@@ -77,24 +86,5 @@ a:focus {
   .skiplink {
     @include inline-block;
     margin: 0.75em 0 0 30px;
-  }
-}
-
-input:focus,
-textarea:focus,
-select:focus,
-button:focus,
-#global-header input:focus {
-  outline: 3px solid $focus-colour;
-}
-
-#global-header {
-  h1 a:focus {
-    background-color: transparent;
-    outline: none;
-  }
-
-  a:focus {
-    color: $black;
   }
 }
