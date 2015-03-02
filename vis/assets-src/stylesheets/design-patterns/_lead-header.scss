@@ -1,11 +1,6 @@
 .LeadHeader {
   text-align: center;
   background-color: $secondary-colour;
-
-  @include media(desktop) {
-    background-image: url(../images/clouds.png);
-    background-size: cover;
-  }
 }
 .LeadHeader-title {
   @extend .visuallyhidden;

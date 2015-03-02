@@ -23,7 +23,7 @@
     &.SearchForm--block {
       padding: 0 0 3.125em;
       margin: 0 auto;
-      width: 55%;
+      width: auto;
       float: none;
     }
   }
@@ -82,7 +82,8 @@
       text-align: center;
       padding-top: 0.5em;
       padding-bottom: 0.5em;
-      margin: 1.25em 0;
+      margin: 1.25em auto;
+      width: 200px;
     }
   }
 }
@@ -117,7 +118,7 @@
       height: auto;
       width: auto;
       color: $white;
-      padding: 0.75em 1.25em;
+      padding: 0.65em 1em;
     }
   }
 }

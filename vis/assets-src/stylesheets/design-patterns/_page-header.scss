@@ -1,11 +1,6 @@
 .PageHeader {
   @extend %contain-floats;
   background-color: $secondary-colour;
-
-  @include media(desktop) {
-    background-image: url(../images/clouds.png);
-    background-size: cover;
-  }
 }
 .PageHeader-row {
   @extend %grid-row;
