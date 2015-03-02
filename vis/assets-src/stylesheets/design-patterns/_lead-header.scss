@@ -1,6 +1,14 @@
 .LeadHeader {
   text-align: center;
   background-color: $secondary-colour;
+
+  @include media(desktop) {
+    background: {
+      repeat: no-repeat;
+      position: center bottom;
+      image: url(../images/header--people.png);
+    }
+  }
 }
 .LeadHeader-title {
   @extend .visuallyhidden;
