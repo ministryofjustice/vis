@@ -52,18 +52,19 @@
     background-color: $secondary-colour;
     color: $primary-colour;
     padding: 0.370em 0.741em;
+    text-align: center;
   }
 }
 .Panel-content {
   background-color: $white;
 
   p {
-    margin: 0 0 1em;
+    margin: 0;
+    padding: 0.5em 0;
   }
 
   .Panel--text & {
-    border: 1px solid $secondary-colour;
     color: $primary-colour;
-    padding: 0.625em 0.938em 0;
+    padding: 0.25em 0.938em;
   }
 }
