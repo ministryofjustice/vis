@@ -64,6 +64,7 @@
 }
 .SearchForm-query {
   @include core-19;
+  text-transform: uppercase;
   display: block;
   border: 1px solid $dark-grey;
   padding: 0.875em 5px;
@@ -73,18 +74,33 @@
 
   @include media(desktop) {
     @include core-16;
+    text-transform: uppercase;
     padding-top: 0.250em;
     padding-bottom: 0.250em;
     margin: 0;
 
     .SearchForm--block & {
       @include core-19;
+      text-transform: uppercase;
       text-align: center;
       padding-top: 0.5em;
       padding-bottom: 0.5em;
       margin: 1.25em auto;
       width: 200px;
     }
+  }
+
+  &::-webkit-input-placeholder {
+    text-transform: none;
+  }
+  &:-moz-placeholder {
+    text-transform: none;
+  }
+  &::-moz-placeholder {
+    text-transform: none;
+  }
+  &:-ms-input-placeholder {
+    text-transform: none;
   }
 }
 .SearchForm-submit {
