@@ -21,9 +21,6 @@
   @include grid-column(2/3, desktop);
   font-weight: 500;
   color: $primary-colour;
-
-  @include media(tablet) {
-    margin-top: -0.5em;
-    margin-bottom: 0.833em;
-  }
+  margin-top: -0.5em;
+  padding-bottom: 0.833em;
 }
