@@ -5,17 +5,14 @@ block content
     .Content
       h1.LeadHeader-title Victims' Information Service
       - include "includes/_local-search.jade" with modifier="block"
-  .Content
-    article.Panel.Panel--icon
-      h1.Panel-heading Understanding the process
-      .Panel-content.Icon.Icon--x
-        p Some content
-  .ColourRow--grey
-    .Content
-      article.Panel.Panel--icon
-        h1.Panel-heading The support you'll get
-        .Panel-content.Icon.Icon--x
-          p Some content
+  - for panel in self.lead_panels.all
+    - if forloop.counter|divisibleby:2
+      .ColourRow--grey
+        .Content
+          - include "includes/panels/_icon--fullWidth.jade"
+    - else
+      .Content
+        - include "includes/panels/_icon--fullWidth.jade"
   section
     .Content.js-RowReveal(data-row-selector=".Panel-row")
       h1.Panel-rowHeading What's happened to you?
