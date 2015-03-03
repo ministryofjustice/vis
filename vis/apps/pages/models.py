@@ -34,6 +34,7 @@ class SimplePage(JadePageMixin, Page):
             context['show_siblings'] = True
         return context
 
+
 class ObjectListMixin(object):
     object_class = None
     subpage_types = []
@@ -54,6 +55,7 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
 class PCCPage(JadePageMixin, Page):
     content = RichTextField()
     subpage_types = []
+
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
