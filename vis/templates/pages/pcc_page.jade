@@ -1,11 +1,36 @@
-- extends "article.jade"
-- load wagtailcore_tags helplines
+- extends "base.jade"
+- load wagtailcore_tags helplines staticfiles
 
-block article_title
-  =self.title
-
-block article_content
-  #{ self.content|richtext }
-
-block article_aside
-  - helpline_box
+block content
+  main(role="main")
+    article
+      header.PageHeader
+        .Content
+          .PageHeader-row
+            - include "includes/_local-search.jade" with modifier="inline"
+            h1.PageHeader-title= self.title
+            h2.PageHeader-subTitle Support services
+      .Content
+        .Article
+          .Article-intro
+            #{ self.content|richtext }
+          .Article-content
+            h2 Lighthouse Victim and Witness
+            h3 Phone
+            p 0800 564 9987
+            p
+              | Opening hours:
+              br
+              | 09:00 - 17:00 Mon-Fri
+            h3 Website
+            p
+              a(href="") www.actionfraud.police.uk
+            p Lighthouse Victims Care gives access to over 40 local organisations to browse at your convenience.
+          .Article-meta
+            img.u-border(src="{% static 'images/pcc-maps/metropolitan.png' %}")
+            img.u-border(src="{% static 'images/pcc-screens/metropolitan.png' %}")
+          .Article-intro
+            h2 Court and Witness Information
+            p Lorem ipsum dolor sit amet, te iudico suscipiantur duo, sit cu regione eleifend. Vix no illum delicatissimi, oratio quodsi nusquam eu sed. Liber feugiat accusam eos no.
+            p
+              a(href="", rel="external") Court finder

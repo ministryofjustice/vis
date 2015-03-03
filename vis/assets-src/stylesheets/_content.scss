@@ -14,9 +14,17 @@
   @extend %grid-row;
   padding-top: 50px;
 }
+.Article-intro {
+  @include grid-column( 1/1 );
+}
 .Article-content {
   @include grid-column( 2/3 );
 }
 .Article-meta {
   @include grid-column( 1/3 );
+
+  img {
+    display: block;
+    margin: 2em 0;
+  }
 }
