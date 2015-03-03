@@ -21,6 +21,7 @@ from .mixins import JadePageMixin
 class HomePage(JadePageMixin, Page):
     pass
 
+
 class SimplePage(JadePageMixin, Page):
     content = RichTextField()
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
@@ -107,8 +108,17 @@ class PromoPanel(Panel):
         abstract = True
 
 
+class LeadPanel(PromoPanel):
+    class Meta:
+        abstract = True
+
+
 class HomePagePromoPanels(Orderable, PromoPanel):
     page = ParentalKey('pages.HomePage', related_name='promo_panels')
+
+
+class HomePageLeadPanels(Orderable, LeadPanel):
+    page = ParentalKey('pages.HomePage', related_name='lead_panels')
 
 
 class HomePagePanels(Orderable, Panel):
@@ -150,9 +160,9 @@ SimplePage.promote_panels = COMMON_PROMOTE_PANELS
 
 HomePage.content_panels = [
     FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full"),
-    InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
+    InlinePanel(HomePage, 'lead_panels', label="Lead Panels"),
     InlinePanel(HomePage, 'panels', label="Panels"),
+    InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
 ]
 
 PCCPage.content_panels = [
