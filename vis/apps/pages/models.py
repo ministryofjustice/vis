@@ -19,7 +19,7 @@ from .mixins import JadePageMixin
 # #### PAGES
 
 class HomePage(JadePageMixin, Page):
-    pass
+    content = RichTextField()
 
 
 class SimplePage(JadePageMixin, Page):
@@ -151,6 +151,7 @@ SimplePage.promote_panels = COMMON_PROMOTE_PANELS
 
 HomePage.content_panels = [
     FieldPanel('title', classname="full title"),
+    FieldPanel('content', classname="full"),
     InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
     InlinePanel(HomePage, 'panels', label="Panels"),
 ]

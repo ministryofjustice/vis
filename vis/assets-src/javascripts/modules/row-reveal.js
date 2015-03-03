@@ -3,7 +3,7 @@
 
   vis.Modules.rowReveal = {
     selector: '.js-RowReveal',
-    template: '<p class="u-center"><a class="Button u-center js-RowReveal-expand">See all cases</a></p>',
+    template: '<p class="u-center"><a class="Button u-center js-RowReveal-expand">See all cases where you might be a victim</a></p>',
 
     init: function () {
       _.bindAll(this, 'render', 'expandClick');
