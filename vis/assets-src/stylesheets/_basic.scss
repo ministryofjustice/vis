@@ -132,6 +132,8 @@ strong {
 
 img {
   border: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 @include ie-lte(7) {
