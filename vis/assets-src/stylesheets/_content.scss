@@ -3,13 +3,11 @@
 }
 .ColourRow--grey {
   background-color: $grey;
-  padding-bottom: 40px;
-  border-top: 1px solid transparent;
-}
-.ColourRow--secondary {
-  background-color: $secondary-colour;
-  padding-bottom: 40px;
-  border-top: 1px solid transparent;
+  border: {
+    style: solid;
+    color: transparent;
+    width: 1px 0;
+  }
 }
 
 .Article {

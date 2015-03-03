@@ -10,7 +10,8 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 @register_snippet
 class GlossaryItem(models.Model):
     name = models.CharField(max_length=255)
-    slug = AutoSlugField(populate_from='name', unique=True, editable=False, max_length=255)
+    slug = AutoSlugField(
+        populate_from='name', unique=True, editable=False, max_length=255)
     description = RichTextField()
 
     def __unicode__(self):
@@ -31,7 +32,8 @@ class GlossaryItem(models.Model):
 @register_snippet
 class Helpline(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    slug = AutoSlugField(populate_from='name', unique=True, editable=False, max_length=255)
+    slug = AutoSlugField(
+        populate_from='name', unique=True, editable=False, max_length=255)
     phone = models.CharField(max_length=18)
     ordering = models.PositiveSmallIntegerField(default=1000)
     url = models.URLField()
@@ -51,3 +53,22 @@ class Helpline(models.Model):
 
     class Meta:
         ordering = ['ordering']
+
+
+@register_snippet
+class DynamicContent(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    slug = AutoSlugField(
+        populate_from='name', unique=True, editable=False, max_length=255)
+    content = models.TextField()
+
+    panels = [
+        FieldPanel('name', classname="full title"),
+        FieldPanel('content', classname="full"),
+    ]
+
+    def natural_key(self):
+        return self.slug
+
+    def __unicode__(self):
+        return self.slug

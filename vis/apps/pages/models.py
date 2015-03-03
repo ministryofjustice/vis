@@ -19,7 +19,7 @@ from .mixins import JadePageMixin
 # #### PAGES
 
 class HomePage(JadePageMixin, Page):
-    content = RichTextField()
+    pass
 
 
 class SimplePage(JadePageMixin, Page):
@@ -33,6 +33,7 @@ class SimplePage(JadePageMixin, Page):
         if parent.specific_class == MultiPagePage:
             context['show_siblings'] = True
         return context
+
 
 class ObjectListMixin(object):
     object_class = None
@@ -54,6 +55,7 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
 class PCCPage(JadePageMixin, Page):
     content = RichTextField()
     subpage_types = []
+
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
@@ -106,8 +108,17 @@ class PromoPanel(Panel):
         abstract = True
 
 
+class LeadPanel(PromoPanel):
+    class Meta:
+        abstract = True
+
+
 class HomePagePromoPanels(Orderable, PromoPanel):
     page = ParentalKey('pages.HomePage', related_name='promo_panels')
+
+
+class HomePageLeadPanels(Orderable, LeadPanel):
+    page = ParentalKey('pages.HomePage', related_name='lead_panels')
 
 
 class HomePagePanels(Orderable, Panel):
@@ -149,9 +160,9 @@ SimplePage.promote_panels = COMMON_PROMOTE_PANELS
 
 HomePage.content_panels = [
     FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full"),
-    InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
+    InlinePanel(HomePage, 'lead_panels', label="Lead Panels"),
     InlinePanel(HomePage, 'panels', label="Panels"),
+    InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
 ]
 
 PCCPage.content_panels = [

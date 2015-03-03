@@ -5,21 +5,26 @@ block content
     .Content
       h1.LeadHeader-title Victims' Information Service
       - include "includes/_local-search.jade" with modifier="block"
-  section.Content
-    .Panel-row
-      - for panel in self.promo_panels.all
-        - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
-          </div><div class="Panel-row">
-        - include "includes/panels/_icon.jade"
-  section.ColourRow--grey
+  - for panel in self.lead_panels.all
+    - if forloop.counter|divisibleby:2
+      .ColourRow--grey
+        .Content
+          - include "includes/panels/_icon--fullWidth.jade"
+    - else
+      .Content
+        - include "includes/panels/_icon--fullWidth.jade"
+  section
     .Content.js-RowReveal(data-row-selector=".Panel-row")
-      h1.Panel-rowHeading I am a victim: some common cases
+      h1.Panel-rowHeading What's happened to you?
       .Panel-row
         - for panel in self.panels.all
           - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
             </div><div class="Panel-row">
           - include "includes/panels/_text.jade"
-  section.ColourRow--secondary
+  section.ColourRow--grey
     .Content
-      h1.Panel-rowHeading About Victim's Information Service
-      p= self.content
+      .Panel-row
+        - for panel in self.promo_panels.all
+          - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
+            </div><div class="Panel-row">
+          - include "includes/panels/_icon.jade"

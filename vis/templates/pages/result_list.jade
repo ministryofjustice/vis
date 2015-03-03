@@ -1,4 +1,5 @@
 - extends "article.jade"
+- load pages_tags
 
 block article_title
   | Search Result
@@ -6,5 +7,9 @@ block article_title
     | for #{q}
 
 block article_content
+  - get_pcc_list as object_list
   - for error in errors
     div=error
+
+  p Please search again to be connected to your local victims hub, where they can give you support relevant to the crime that's happened to you. Alternatively, choose your local police area from the list below:
+  - include "includes/_pcc-list.jade"

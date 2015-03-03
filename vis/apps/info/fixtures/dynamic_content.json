@@ -1,0 +1,11 @@
+[
+{
+  "fields": {
+    "content": "This nationwide service is here to help you find local help and support after a crime takes place. It brings together information on what will happen after reporting a crime, the people you might meet, the help you should get and what to do if something goes wrong.",
+    "name": "about",
+    "slug": "about"
+  },
+  "model": "info.dynamiccontent",
+  "pk": 1
+}
+]
