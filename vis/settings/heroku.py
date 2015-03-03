@@ -14,7 +14,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '<not-used>')
 PIPELINE_COMPILERS = ()
 PIPELINE_ENABLED = True
 
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE_UGLIFYJS_BINARY = os.path.join(PROJECT_DIR, 'node_modules/.bin/uglifyjs')
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.uglifyjs.UglifyJSCompressor'
 
 PIPELINE_JS = {
     'main': {
@@ -30,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
