@@ -1,3 +1,4 @@
+- load filter
 footer.SiteFooter(role="contentinfo")
   .SiteFooter-container
     .SiteFooter-row
@@ -10,7 +11,7 @@ footer.SiteFooter(role="contentinfo")
           | , except where otherwise stated
       .SiteFooter-content
         h2 About Victims' Information Service
-        p This nationwide service is here to help you find local help and support after a crime takes place. It brings together information on what will happen after reporting a crime, the people you might meet, the help you should get and what to do if something goes wrong.
+        p='about'|dynamic_content
         nav
           ul.SiteFooter-nav
             li.SiteFooter-navItem

@@ -19,8 +19,7 @@ from .mixins import JadePageMixin
 # #### PAGES
 
 class HomePage(JadePageMixin, Page):
-    content = RichTextField()
-
+    pass
 
 class SimplePage(JadePageMixin, Page):
     content = RichTextField()
