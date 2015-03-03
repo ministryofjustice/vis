@@ -14,6 +14,17 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '<not-used>')
 PIPELINE_COMPILERS = ()
 PIPELINE_ENABLED = True
 
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+
+PIPELINE_JS = {
+    'main': {
+        'source_filenames': (
+          'javascripts/script.js',
+        ),
+        'output_filename': 'javascripts/main.js',
+    }
+}
+
 ALLOWED_HOSTS = ['*']
 
 DEBUG = False
