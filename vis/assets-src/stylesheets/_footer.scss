@@ -34,7 +34,11 @@
 .SiteFooter-ogl {
   background: url(../images/open-government-licence.png) left top no-repeat;
   padding: 45px 0 0;
-  margin: 0;
+  margin: 0 0 40px;
+
+  @include media(tablet) {
+    margin-bottom: 0;
+  }
 
   @include device-pixel-ratio() {
     background-image: url(../images/open-government-licence@2x.png);
