@@ -1,11 +1,54 @@
 .SiteFooter {
   background-color: $black;
   color: $white;
-  padding: 10px 0;
+  padding: 40px 0;
+
+  a {
+    color: $white;
+  }
 }
-.SiteFooter-inner {
+.SiteFooter-container {
   @extend %site-width-container;
 }
-.SiteFooter-content {
+.SiteFooter-row {
+  @extend %grid-row;
+}
+.SiteFooter-aside {
+  @include grid-column( 1/3 );
+}
+.SiteFooter-copyright {
+  margin: 0 0 40px;
+
+  a {
+    background: url(../images/govuk-crest.png) left top no-repeat;
+    padding: 140px 0 0;
+    display: block;
+    text-decoration: none;
+
+    @include device-pixel-ratio() {
+      background-image: url(../images/govuk-crest@2x.png);
+      background-size: 145px 119px;
+    }
+  }
+}
+.SiteFooter-ogl {
+  background: url(../images/open-government-licence.png) left top no-repeat;
+  padding: 45px 0 0;
   margin: 0;
+
+  @include device-pixel-ratio() {
+    background-image: url(../images/open-government-licence@2x.png);
+    background-size: 60px 25px;
+  }
+}
+.SiteFooter-content {
+  @include grid-column( 2/3 );
+}
+.SiteFooter-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.SiteFooter-navItem {
+  margin: 0 0 5px;
 }
