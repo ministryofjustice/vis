@@ -3,9 +3,11 @@
 }
 .ColourRow--grey {
   background-color: $grey;
-  margin-top: 2.5em;
-  padding-top: 3.125em;
-  padding-bottom: 1.875em;
+  border: {
+    style: solid;
+    color: transparent;
+    width: 1px 0;
+  }
 }
 
 .Article {
