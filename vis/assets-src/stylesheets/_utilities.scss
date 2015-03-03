@@ -1,4 +1,11 @@
 .u-center {
   text-align: center;
-  margin: 0 auto;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+.u-unstyledList {
+  list-style: none;
+  padding-left: 0;
 }

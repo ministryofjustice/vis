@@ -1,4 +1,4 @@
-- load filter
+- load filter wagtailcore_tags
 footer.SiteFooter(role="contentinfo")
   .SiteFooter-container
     .SiteFooter-row
@@ -15,7 +15,7 @@ footer.SiteFooter(role="contentinfo")
         nav
           ul.SiteFooter-nav
             li.SiteFooter-navItem
-              a(href="") Find the meaning of a legal term
+              a(href="{% slugurl 'glossary' %}") Find the meaning of a legal term
             li.SiteFooter-navItem
               a(href="") Download the Victim's Code
             li.SiteFooter-navItem
