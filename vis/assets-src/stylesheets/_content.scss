@@ -4,6 +4,12 @@
 .ColourRow--grey {
   background-color: $grey;
   padding-bottom: 40px;
+  border-top: 1px solid transparent;
+}
+.ColourRow--secondary {
+  background-color: $secondary-colour;
+  padding-bottom: 40px;
+  border-top: 1px solid transparent;
 }
 
 .Article {

@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, MultiFieldPanel
+from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page, Orderable
@@ -18,7 +19,7 @@ from .mixins import JadePageMixin
 # #### PAGES
 
 class HomePage(JadePageMixin, Page):
-    pass
+    content = RichTextField()
 
 
 class SimplePage(JadePageMixin, Page):
@@ -124,15 +125,7 @@ class SimplePageGlosseryItems(Orderable, models.Model):
 
 # #### PAGE ADMIN
 
-SimplePage.content_panels = [
-    FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full"),
-
-    InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
-]
-
-
-SimplePage.promote_panels = [
+COMMON_PROMOTE_PANELS = [
     MultiFieldPanel([
         FieldPanel('slug'),
         FieldPanel('seo_title'),
@@ -143,8 +136,20 @@ SimplePage.promote_panels = [
 ]
 
 
+SimplePage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('content', classname="full"),
+
+    InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
+]
+
+
+SimplePage.promote_panels = COMMON_PROMOTE_PANELS
+
+
 HomePage.content_panels = [
     FieldPanel('title', classname="full title"),
+    FieldPanel('content', classname="full"),
     InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
     InlinePanel(HomePage, 'panels', label="Panels"),
 ]
@@ -155,9 +160,7 @@ PCCPage.content_panels = [
 ]
 
 
-MultiPagePage.promote_panels = Panel.panels + [
-    FieldPanel('menu_title'),
-]
+MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS
 
 # HOOKS
 
@@ -170,3 +173,10 @@ def do_after_page_create(request, page):
     if is_submitting and isinstance(page, PCCPage):
         page.get_latest_revision().publish()
     return None
+
+
+@hooks.register('construct_homepage_panels')
+def construct_homepage_panels(request, panels):
+    for index, panel in enumerate(panels):
+        if isinstance(panel, SiteSummaryPanel):
+            del panels[index]

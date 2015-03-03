@@ -23,7 +23,7 @@
     &.SearchForm--block {
       padding: 0 0 3.125em;
       margin: 0 auto;
-      width: 55%;
+      width: auto;
       float: none;
     }
   }
@@ -46,7 +46,7 @@
     .SearchForm--block & {
       @include core-24;
       font-weight: 500;
-      color: $white;
+      color: $primary-colour;
       float: none;
       width: auto;
     }
@@ -64,6 +64,7 @@
 }
 .SearchForm-query {
   @include core-19;
+  text-transform: uppercase;
   display: block;
   border: 1px solid $dark-grey;
   padding: 0.875em 5px;
@@ -73,17 +74,33 @@
 
   @include media(desktop) {
     @include core-16;
+    text-transform: uppercase;
     padding-top: 0.250em;
     padding-bottom: 0.250em;
     margin: 0;
 
     .SearchForm--block & {
       @include core-19;
+      text-transform: uppercase;
       text-align: center;
       padding-top: 0.5em;
       padding-bottom: 0.5em;
-      margin: 1.25em 0;
+      margin: 1.25em auto;
+      width: 200px;
     }
+  }
+
+  &::-webkit-input-placeholder {
+    text-transform: none;
+  }
+  &:-moz-placeholder {
+    text-transform: none;
+  }
+  &::-moz-placeholder {
+    text-transform: none;
+  }
+  &:-ms-input-placeholder {
+    text-transform: none;
   }
 }
 .SearchForm-submit {
@@ -117,7 +134,7 @@
       height: auto;
       width: auto;
       color: $white;
-      padding: 0.75em 1.25em;
+      padding: 0.65em 1em;
     }
   }
 }

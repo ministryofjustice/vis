@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtailsnippets',
+    'wagtail.wagtailembeds',
     'wagtail.wagtailusers',
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
