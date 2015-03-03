@@ -15,6 +15,9 @@ root = true
 [*.js]
     indent_size = 2
 
+[*.jade]
+    indent_size = 2
+
 [*.scss]
     indent_size = 2
 
