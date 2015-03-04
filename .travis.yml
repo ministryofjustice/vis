@@ -21,22 +21,19 @@ before_deploy:
   - rm -rf vis/assets/
   - rm -rf docker/
   - rm -rf conf/
-
 env:
   global:
   - DJANGO_SETTINGS_MODULE=vis.settings.heroku
-
 branches:
   only:
-    - master
-    - develop
-
+  - master
+  - develop
 deploy:
   provider: heroku
   skip_cleanup: true
   buildpack: python
   api_key:
-    secure: YZHD+amai4pfUyzPbUEzFr6+UbEeqINuNVVyV80b8xmW7CMaybulIeklYFQnw6PwLp2OhQ539gVKJtX/1h71fIcGBrVY3SoNKGBiAfczoeTEKuLolNJlPGJ6Tb4ZA3OU8ACCCQ8lIfaDWrPEqZuawyZAsTi+SjxzxoCNYWNEUmA=
+    secure: AJbj995sfvDFW2cJl3sXSWphtTYITMg2XlNjF68Q7zbZ5+jSFvByj2qDYngwl7ZTk7NWp8smgSA6yi/Lc92DUeAA5KWaSLGIRYpeoRT0cFSRt8RFkbELwWWN1dDkX8a7SgGTQZ5AQA4mKloh4ePiqwRy8v2zzZb5TnakoEjRUFk=
   app:
     develop: vis-staging
   run: python manage.py migrate --noinput
