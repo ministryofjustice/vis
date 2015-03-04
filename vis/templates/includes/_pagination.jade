@@ -1,12 +1,13 @@
-- with prev=self.get_prev_sibling next=self.get_next_sibling
-  - if prev or next
-    nav.Pagination
-      ul.Pagination-menu
-        - if prev
-          li.Pagination-menuItem.Pagination-menuItem--prev
-            a.Icon.Icon--arrowLeft(href="#{prev.url}")
-              span= prev.simplepage.menu_title|default:prev.title
-        - if next
-          li.Pagination-menuItem.Pagination-menuItem--next
-            a.IconRtl.Icon--arrowRight(href="#{next.url}")
-              span= next.simplepage.menu_title|default:next.title
+- if show_siblings
+  - with prev=self.get_prev_sibling next=self.get_next_sibling
+    - if prev or next
+      nav.Pagination
+        ul.Pagination-menu
+          - if prev
+            li.Pagination-menuItem.Pagination-menuItem--prev
+              a.Icon.Icon--arrowLeft(href="#{prev.url}")
+                span= prev.simplepage.menu_title|default:prev.title
+          - if next
+            li.Pagination-menuItem.Pagination-menuItem--next
+              a.IconRtl.Icon--arrowRight(href="#{next.url}")
+                span= next.simplepage.menu_title|default:next.title
