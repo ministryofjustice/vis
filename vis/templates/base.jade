@@ -1,6 +1,6 @@
 - load pipeline staticfiles
 !!! 5
-html(lang="en")
+html(lang="en", class="{% block html_class %}{% endblock %}")
   head
     meta(charset="utf-8")
     title

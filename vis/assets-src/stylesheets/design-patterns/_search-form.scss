@@ -75,16 +75,16 @@
   @include media(desktop) {
     @include core-16;
     text-transform: uppercase;
-    padding-top: 0.250em;
-    padding-bottom: 0.250em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     margin: 0;
 
     .SearchForm--block & {
       @include core-19;
       text-transform: uppercase;
       text-align: center;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding-top: 0.605em;
+      padding-bottom: 0.605em;
       margin: 1.25em auto;
       width: 200px;
     }
@@ -134,7 +134,7 @@
       height: auto;
       width: auto;
       color: $white;
-      padding: 0.65em 1em;
+      padding: 0.658em 1em;
     }
   }
 }

@@ -3,7 +3,7 @@
     ol.SubNavigation-menu
       - for sibling in self.get_siblings
         - with sibling.simplepage.menu_title|default:sibling.title as title
-          li(class="SubNavigation-menuItem")
+          li.SubNavigation-menuItem
             - if sibling.specific == self
               = title
             - else
