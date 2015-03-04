@@ -104,25 +104,27 @@
   }
 }
 .SearchForm-submit {
+  @extend .IconRtl;
+  @extend .Icon--search;
+  @extend .Icon--compact;
   @include border-radius(3px);
-  background: url(../images/icons/search-small.svg) no-repeat center center $primary-colour;
-  text-indent: -1000px;
-  font-size: 16px;
-  overflow: hidden;
+  @include core-24;
   cursor: pointer;
   border: 0;
-  height: 3.125em;
-  width: 3.125em;
+  height: 2.778em;
+  width: 2.778em;
   margin: 0;
   padding: 0;
   float: right;
+  text-align: center;
 
   @include media(tablet) {
-    height: 3.750em;
-    width: 3.750em;
+    height: 2.5em;
+    width: 2.5em;
   }
 
   @include media(desktop) {
+    @include core-16;
     width: 1.875em;
     height: 1.875em;
 
@@ -135,6 +137,20 @@
       width: auto;
       color: $white;
       padding: 0.658em 1em;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+.SearchForm-submitText {
+  @extend .visuallyhidden;
+
+  @include media(desktop) {
+    .SearchForm--block & {
+      position: relative;
+      left: auto;
     }
   }
 }
