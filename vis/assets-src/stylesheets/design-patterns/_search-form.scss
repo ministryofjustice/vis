@@ -83,10 +83,9 @@
       @include core-19;
       text-transform: uppercase;
       text-align: center;
-      padding-top: 0.605em;
-      padding-bottom: 0.605em;
+      padding: 0.605em 0;
       margin: 1.25em auto;
-      width: 200px;
+      width: 258px;
     }
   }
 
@@ -134,7 +133,7 @@
       text-indent: 0;
       float: none;
       height: auto;
-      width: auto;
+      width: 260px;
       color: $white;
       padding: 0.658em 1em;
 
