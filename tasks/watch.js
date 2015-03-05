@@ -6,7 +6,7 @@
   var browserSync = require('browser-sync');
   var argv = require('yargs').argv;
 
-  gulp.task('watch', ['build'], function() {
+  gulp.task('watch', ['build:dev'], function() {
     var host = argv.host || argv.h || 'localhost';
     var port = argv.port || argv.p || 8000;
 
