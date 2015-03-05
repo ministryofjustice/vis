@@ -57,7 +57,7 @@
 
   @include media(desktop) {
     .SearchForm--block & {
-      position: inherit;
+      position: relative;
       left: auto;
     }
   }
@@ -151,6 +151,7 @@
     .SearchForm--block & {
       position: relative;
       left: auto;
+      display: block;
     }
   }
 }
