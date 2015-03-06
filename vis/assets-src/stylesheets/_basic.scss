@@ -85,14 +85,20 @@ a:active {
   color: $link-active-colour;
 }
 
-a[rel="external"] {
-  @include external-link-default;
-  @include external-link-16;
-}
-
+a[rel="external"],
 .external-link {
-  @include external-link-12-no-hover;
-  @include external-link-heading;
+  @extend .IconRtl;
+  @extend .Icon--external;
+  position: relative;
+  padding-right: 17px;
+
+  &:after {
+    text-decoration: none;
+    position: absolute;
+    font-size: 12px;
+    right: 0;
+    top: 1px;
+  }
 }
 
 // adjustments to normalize.css
