@@ -12,7 +12,6 @@ script:
   - python manage.py test --traceback
 before_script:
   - node_modules/.bin/gulp build:prod
-  - python manage.py compress
   - python manage.py collectstatic --noinput
 before_deploy:
   - echo "cleaning up"
@@ -39,4 +38,4 @@ deploy:
   app:
     develop: vis-staging
     master: vis-prod
-  run: python manage.py migrate --noinput
+  run: python manage.py migrate --noinput && python manage.py compress
