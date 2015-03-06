@@ -2,6 +2,6 @@
   details
     summary Is there anything wrong with this page?
     form.Feedback-form(action="", method="post")
-      label.Feedback-label(for="") Did you have a problem with this page? Tell us why.
-      textarea.Feedback-textarea(cols="10", rows="3")
+      label.Feedback-label(for="comment") Did you have a problem with this page? Tell us why.
+      textarea.Feedback-textarea(cols="10", rows="3", id="comment", name="comment", required)
       button.Button.Feedback-submit(type="submit") Send feedback

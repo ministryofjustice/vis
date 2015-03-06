@@ -7,9 +7,6 @@
     padding-top: 1em;
   }
 }
-.Feedback-form {
-
-}
 .Feedback-label {
   @include core-16;
   display: block;
@@ -22,9 +19,6 @@
   display: block;
   width: 100%;
   padding: 0.25em;
-}
-.Feedback-actions {
-
 }
 .Feedback-submit {
   @include core-16;
