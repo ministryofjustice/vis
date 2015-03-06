@@ -21,7 +21,6 @@ before_deploy:
   - rm -rf vis/assets/
   - rm -rf docker/
   - rm -rf conf/
-  - cat static/CACHE/manifest.json
 env:
   global:
   - DJANGO_SETTINGS_MODULE=vis.settings.heroku
