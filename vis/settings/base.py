@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'taggit',
     'modelcluster',
     'compressor',
+    'django.contrib.staticfiles',
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtailsnippets',
@@ -62,7 +63,6 @@ INSTALLED_APPS = (
     'info',
     'core',
     'pages',
-    'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES = (
