@@ -37,4 +37,4 @@ deploy:
   app:
     develop: vis-staging
     master: vis-prod
-  run: python manage.py migrate --noinput && cat static/CACHE/manifest.json
+  run: python manage.py migrate --noinput
