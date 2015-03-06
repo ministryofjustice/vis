@@ -23,16 +23,34 @@
 
     closeClick: function (evt) {
       evt.preventDefault();
-      localStorage.setItem(this.storageKey, true);
+      if (this.hasLocalStorage()) {
+        localStorage.setItem(this.storageKey, true);
+      }
       this.$banner.remove();
     },
 
+    hasLocalStorage: function () {
+      var test = 'test';
+      try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    },
+
     isDisabled: function () {
-      return localStorage.getItem(this.storageKey);
+      if (this.hasLocalStorage()) {
+        return localStorage.getItem(this.storageKey);
+      }
+      return false;
     },
 
     reset: function () {
-      localStorage.clear();
+      if (this.hasLocalStorage()) {
+        localStorage.clear();
+      }
     },
 
     render: function () {

@@ -5,7 +5,7 @@
   var paths = require('./_paths');
   var jshint = require('gulp-jshint');
   var stylish = require('jshint-stylish');
-  var filesToLint = paths.scripts.concat([
+  var filesToLint = paths.scripts.vis.concat([
     'gulpfile.js',
     'tasks/**/*.js',
     '!' + paths.vendor + '**/*.js'

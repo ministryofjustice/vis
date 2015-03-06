@@ -1,0 +1,40 @@
+language: python
+python:
+  - '2.7'
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+  - npm install npm
+  - node_modules/.bin/npm install
+  - node_modules/.bin/bower install
+  - gem install compass
+script:
+  - python manage.py test --traceback
+before_script:
+  - node_modules/.bin/gulp build:prod
+  - python manage.py collectstatic --noinput
+before_deploy:
+  - echo "cleaning up"
+  - rm -rf node_modules/
+  - rm -rf .sass-cache/
+  - rm -rf vis/assets-src/
+  - rm -rf vis/assets/
+  - rm -rf docker/
+  - rm -rf conf/
+env:
+  global:
+  - DJANGO_SETTINGS_MODULE=vis.settings.heroku
+branches:
+  only:
+  - master
+  - develop
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  buildpack: python
+  api_key:
+    secure: AJbj995sfvDFW2cJl3sXSWphtTYITMg2XlNjF68Q7zbZ5+jSFvByj2qDYngwl7ZTk7NWp8smgSA6yi/Lc92DUeAA5KWaSLGIRYpeoRT0cFSRt8RFkbELwWWN1dDkX8a7SgGTQZ5AQA4mKloh4ePiqwRy8v2zzZb5TnakoEjRUFk=
+  app:
+    develop: vis-staging
+    master: vis-prod
+  run: python manage.py migrate --noinput

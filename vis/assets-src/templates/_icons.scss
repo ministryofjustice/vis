@@ -17,7 +17,8 @@
   font-variant: normal;
   text-transform: none;
   speak: none;
-  font-size: 16px;
+  font-size: 1em;
+  line-height: 1;
   text-decoration: inherit;
   vertical-align: middle;
   /* Better Font Rendering =========== */
@@ -39,6 +40,14 @@ $icons: (
   &:after {
     @extend %icon-base-styles;
     margin-left: 10px;
+  }
+}
+.<%= className %>--compact {
+  &:before {
+    margin-right: 0;
+  }
+  &:after {
+    margin-left: 0;
   }
 }
 
