@@ -33,21 +33,21 @@ $icons: (
 .<%= className %> {
   &:before {
     @extend %icon-base-styles;
-    margin-right: 10px;
+    padding-right: 10px;
   }
 }
 .<%= className %>Rtl {
   &:after {
     @extend %icon-base-styles;
-    margin-left: 10px;
+    padding-left: 10px;
   }
 }
 .<%= className %>--compact {
   &:before {
-    margin-right: 0;
+    padding-right: 0;
   }
   &:after {
-    margin-left: 0;
+    padding-left: 0;
   }
 }
 
