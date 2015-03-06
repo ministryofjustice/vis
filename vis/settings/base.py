@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-
+    'core.middleware.MaxAgeMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -153,6 +153,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CACHE_CONTROL_MAX_AGE = 0
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
