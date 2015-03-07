@@ -23,7 +23,7 @@ simplifications['west-mercia'] = "0.015"
 
 
 MAPBOX_URL = ("http://api.tiles.mapbox.com/v4/{map_id}/geojson({geojson})/"
-              "{lon},{lat},6/{png_width}x{png_height}.png"
+              "{lon},{lat},6/{png_width}x{png_height}{format}"
               "?access_token={api_key}")
 
 
@@ -98,19 +98,21 @@ class Command(DocOptCommand):
             # minify geoJSON as mapbox URLs can be 4096 chars max
             url_geojson = minify_json.json_minify(json.dumps(geojson))
 
-            png_url = MAPBOX_URL.format(**{
-                "map_id": args['<mapbox_map_id>'],
-                "geojson": urllib.quote(url_geojson),
-                "png_width": args['<png_width>'],
-                "png_height": args['<png_height>'],
-                "api_key": args['<mapbox_api_key>'],
-                "lon": lon,
-                "lat": lat
-            })
+            for fmt in ('.png', '@2x.png'):
+                png_url = MAPBOX_URL.format(**{
+                    "map_id": args['<mapbox_map_id>'],
+                    "geojson": urllib.quote(url_geojson),
+                    "png_width": args['<png_width>'],
+                    "png_height": args['<png_height>'],
+                    "api_key": args['<mapbox_api_key>'],
+                    "lon": lon,
+                    "lat": lat,
+                    "format": fmt
+                })
 
-            png_path = os.path.join(output_dir, "%s.png" % basename)
-            print "Saving %s..." % png_path
+                png_path = os.path.join(output_dir, "%s%s" % (basename, fmt))
+                print "Saving %s..." % png_path
 
-            response = requests.get(png_url, stream=True)
-            with open(png_path, 'wb') as out:
-                shutil.copyfileobj(response.raw, out)
+                response = requests.get(png_url, stream=True)
+                with open(png_path, 'wb') as out:
+                    shutil.copyfileobj(response.raw, out)
