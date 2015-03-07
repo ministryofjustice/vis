@@ -36,9 +36,10 @@ a.SiteHeader-menuToggle {
   color: $secondary-colour;
   text-decoration: none;
   display: block;
+  float: left;
   position: relative;
   padding-left: 45px;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 
   @include media(desktop) {
     display: none;
@@ -65,28 +66,30 @@ a.SiteHeader-menuToggle {
 
   // active state
   &.is-open span {
+    // @include rotate(360deg);
     background-color: transparent;
-    // transform: rotate(360deg);
 
     &:before {
+      @include rotate(45deg);
       top: 0;
-      transform: rotate(45deg);
     }
     &:after {
+      @include rotate(-45deg);
       top: 0;
-      transform: rotate(-45deg);
     }
   }
 }
 .SiteHeader-menu {
   @extend %outdent-to-full-width;
   background-color: $black;
+  clear: left;
 
   @include media(desktop) {
     background-color: transparent;
     float: right;
     margin-left: 0;
     margin-right: 0;
+    clear: none;
   }
 
   .js-enabled & {
@@ -113,6 +116,10 @@ a.SiteHeader-menuToggle {
     font-weight: 500;
     padding: 7px 0;
     margin: 0;
+
+    @include ie-lte(8) {
+      min-width: 1%;
+    }
   }
 }
 .SiteHeader-menuItem {

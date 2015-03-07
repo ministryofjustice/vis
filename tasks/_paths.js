@@ -10,7 +10,10 @@
     images: [],
     fonts: [],
     styles: [],
-    scripts: []
+    scripts: {
+      ie: [],
+      vis: []
+    }
   };
 
   // styles
@@ -22,11 +25,13 @@
   // images
   paths.images.push(paths.src + 'images/**/*');
   // scripts
-  paths.scripts.push(paths.vendor + 'lodash/lodash.js');
-  paths.scripts.push(paths.vendor + 'jquery/dist/jquery.js');
-  paths.scripts.push(paths.src + 'javascripts/vis.js');
-  paths.scripts.push(paths.src + 'javascripts/modules/**.*js');
-  paths.scripts.push(paths.src + 'javascripts/app.js');
+  paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv.js');
+  paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv-printshiv.js');
+  paths.scripts.vis.push(paths.vendor + 'lodash/lodash.js');
+  paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
+  paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
+  paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');
+  paths.scripts.vis.push(paths.src + 'javascripts/app.js');
 
   module.exports = paths;
 })();
