@@ -49,15 +49,12 @@ class Command(DocOptCommand):
     """
 
     def handle_docopt(self, args):
-        print args
         input_dir = args['<kml_input_directory>']
         output_dir = args['<png_output_directory>']
 
         for f in glob.glob("%s/%s" % (input_dir, "*.kml")):
             basename = f.split('/')[-1].replace('.kml', '')
             geojson_path = os.path.join(output_dir, "%s.geojson" % basename)
-
-            # print basename, simplifications[basename]
 
             ogr2ogr.main([
                 "",

@@ -4,6 +4,9 @@ from wagtail.wagtailcore.models import Site
 
 from pages.models import PCCPage
 
+from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.conf import settings
+
 
 register = template.Library()
 
@@ -54,3 +57,13 @@ def get_base_url():
 @register.filter
 def is_pcc_page(page):
     return isinstance(page.specific, PCCPage)
+
+
+# Template tag alternative to static to append
+# .min suffix in production
+@register.simple_tag
+def staticmin(name):
+    parts = name.split('.')
+    if not settings.DEBUG:
+        parts.insert(-1, 'min')
+    return static('.'.join(parts))

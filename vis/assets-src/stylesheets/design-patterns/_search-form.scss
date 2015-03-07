@@ -57,7 +57,7 @@
 
   @include media(desktop) {
     .SearchForm--block & {
-      position: inherit;
+      position: relative;
       left: auto;
     }
   }
@@ -75,18 +75,17 @@
   @include media(desktop) {
     @include core-16;
     text-transform: uppercase;
-    padding-top: 0.250em;
-    padding-bottom: 0.250em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     margin: 0;
 
     .SearchForm--block & {
       @include core-19;
       text-transform: uppercase;
       text-align: center;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding: 0.605em 0;
       margin: 1.25em auto;
-      width: 200px;
+      width: 258px;
     }
   }
 
@@ -104,25 +103,27 @@
   }
 }
 .SearchForm-submit {
+  @extend .IconRtl;
+  @extend .Icon--search;
+  @extend .Icon--compact;
   @include border-radius(3px);
-  background: url(../images/icons/search-small.svg) no-repeat center center $primary-colour;
-  text-indent: -1000px;
-  font-size: 16px;
-  overflow: hidden;
+  @include core-24;
   cursor: pointer;
   border: 0;
-  height: 3.125em;
-  width: 3.125em;
+  height: 2.778em;
+  width: 2.778em;
   margin: 0;
   padding: 0;
   float: right;
+  text-align: center;
 
   @include media(tablet) {
-    height: 3.750em;
-    width: 3.750em;
+    height: 2.5em;
+    width: 2.5em;
   }
 
   @include media(desktop) {
+    @include core-16;
     width: 1.875em;
     height: 1.875em;
 
@@ -132,9 +133,24 @@
       text-indent: 0;
       float: none;
       height: auto;
-      width: auto;
+      width: 260px;
       color: $white;
-      padding: 0.65em 1em;
+      padding: 0.658em 1em;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+.SearchForm-submitText {
+  @extend .visuallyhidden;
+
+  @include media(desktop) {
+    .SearchForm--block & {
+      position: relative;
+      left: auto;
+      display: block;
     }
   }
 }
