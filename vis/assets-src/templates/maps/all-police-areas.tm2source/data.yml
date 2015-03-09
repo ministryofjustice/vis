@@ -1,0 +1,48 @@
+_prefs: 
+  disabled: []
+  inspector: false
+  mapid: kerin.ddd26b86
+  rev: s-cc57abba
+  saveCenter: true
+attribution: ''
+center: 
+  - -0.23
+  - 51.501
+  - 10
+description: ''
+Layer: 
+  - id: data
+    Datasource: 
+      dbname: addressfinder
+      extent: -180,-85.0511,180,85.0511
+      geometry_field: geom
+      geometry_table: areas_area
+      host: ''
+      key_field: ''
+      max_size: 512
+      password: ''
+      port: ''
+      table: (select * from areas_area where name != 'Metropolitan' and name != 'City Of London') as area
+      type: postgis
+      user: kerin
+    description: police-areas-not-london
+    fields: 
+      id: Number
+      area_type: String
+      name: String
+    properties: 
+      "buffer-size": 26
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+  - id: london
+    Datasource: 
+      file: /Users/kerin/Desktop/london.geojson
+      layer: OGRGeoJSON
+      type: ogr
+    description: ''
+    fields: {}
+    properties: 
+      "buffer-size": 8
+    srs: +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+maxzoom: 15
+minzoom: 0
+name: police-areas-no-city-of-london

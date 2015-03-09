@@ -1,0 +1,26 @@
+_prefs: 
+  mapid: kerin.7fa92c0a
+  saveCenter: true
+_properties: {}
+attribution: ''
+bounds: 
+  - -180
+  - -85.0511
+  - 180
+  - 85.0511
+center: 
+  - -4.1528
+  - 52.683
+  - 7
+description: ''
+format: png24
+interactivity_layer: ''
+layers: null
+maxzoom: 22
+minzoom: 0
+name: england-wales-police-areas
+source: "mapbox:///kerin.ddd26b86"
+styles: 
+  - style.mss
+  - selected-pcc.mss
+template: ''
