@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#eaebf5">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
+  <Parameter name="center">-4.1528,52.683,7</Parameter>
+  <Parameter name="format">png24</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="name"><![CDATA[england-wales-police-areas]]></Parameter>
+  <Parameter name="source"><![CDATA[mapbox:///kerin.ddd26b86]]></Parameter>
+</Parameters>
+
+
+<Style name="data" filter-mode="first">
+  <Rule>
+    <Filter>([name] = 'Northern Ireland')</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#ffffff" smooth="1" />
+    <LineSymbolizer stroke-opacity="0" stroke-width="1.2" stroke="#354565" smooth="1" simplify="1" />
+    <RasterSymbolizer opacity="0" />
+  </Rule>
+  <Rule>
+    <Filter>([name] = 'City Of London')</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#ffffff" smooth="1" />
+    <LineSymbolizer stroke-opacity="0" stroke-width="1.2" stroke="#354565" smooth="1" simplify="1" />
+    <RasterSymbolizer opacity="0" />
+  </Rule>
+  <Rule>
+    <PolygonSymbolizer fill="#ffffff" smooth="1" />
+    <LineSymbolizer stroke-width="1.2" stroke="#354565" smooth="1" simplify="1" />
+  </Rule>
+</Style>
+<Layer name="data"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>data</StyleName>  </Layer>
+
+<Style name="london" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#ffffff" smooth="1" />
+    <LineSymbolizer stroke-width="1.2" stroke="#354565" smooth="1" simplify="1" />
+  </Rule>
+</Style>
+<Layer name="london"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>london</StyleName>  </Layer>
+
+</Map>
