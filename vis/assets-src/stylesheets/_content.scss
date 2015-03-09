@@ -12,7 +12,10 @@
 
 .Article {
   @extend %grid-row;
-  padding-top: 50px;
+
+  @include media(tablet) {
+    padding-top: 2em;
+  }
 }
 .Article-intro {
   @include grid-column( 1/1 );
