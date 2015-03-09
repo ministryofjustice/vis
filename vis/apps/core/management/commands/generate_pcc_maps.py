@@ -81,6 +81,12 @@ class Command(DocOptCommand):
                 geojson['geometry']['coordinates'][0]
             )
 
+            # Remove centre of Met. 'donut' caused by City Police
+            if basename == 'metropolitan':
+                geojson['geometry']['coordinates'] = [
+                    geojson['geometry']['coordinates'][0]
+                ]
+
             geojson['properties'] = {
                 "stroke-width": float(args['--stroke-width']),
                 "stroke": args['--stroke-color'],
