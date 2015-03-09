@@ -5,89 +5,56 @@
   padding: {
     top: 1.250em;
     bottom: 1.250em;
-  }
+    right: 4.063em;
+    left: 0;
+  };
 
-  &.SearchForm--block {
-    padding: {
-      left: 0;
-      right: 0;
-    }
+  @include media(tablet) {
+    padding-right: 4.688em;
   }
 
   @include media(desktop) {
+    width: auto;
+    float: none;
+    text-align: center;
+    margin: 0 auto;
     padding: {
-      top: 2.813em;
-      bottom: 0;
-    }
-
-    &.SearchForm--block {
-      padding: 2.5em 0;
-      margin: 0 auto;
-      width: auto;
-      float: none;
-      text-align: center;
+      top: 2.5em;
+      bottom: 2.5em;
     }
   }
 }
 .SearchForm-label {
-  display: block;
-  float: left;
-  width: 77%;
-  @include calc('width', '100% - 60px');
-
-  @include media(tablet) {
-    @include calc('width', '100% - 70px');
-  }
-
-  @include media(desktop) {
-    float: left;
-    width: 77%;
-    @include calc('width', '100% - 40px');
-
-    .SearchForm--block & {
-      @include core-24;
-      font-weight: 500;
-      color: $primary-colour;
-      float: none;
-      width: auto;
-    }
-  }
-}
-.SearchForm-labelText {
   @extend .visuallyhidden;
+  @include core-24;
+  font-weight: 500;
+  color: $primary-colour;
 
   @include media(desktop) {
-    .SearchForm--block & {
-      position: relative;
-      left: auto;
-    }
+    position: relative;
+    left: auto;
+    display: block;
+    padding-bottom: 0.833em;
   }
 }
 .SearchForm-query {
+  @include box-sizing(border-box);
   @include core-19;
   text-transform: uppercase;
   display: block;
   border: 1px solid $dark-grey;
-  padding: 0.875em 5px;
+  padding: 0.875em 0.625em;
   margin: 0;
-  width: 95%;
-  @include calc('width', '100% - 12px');
+  width: 100%;
 
   @include media(desktop) {
-    @include core-16;
-    text-transform: uppercase;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    margin: 0;
-
-    .SearchForm--block & {
-      @include core-19;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 0.605em 0;
-      margin: 1.25em auto;
-      width: 258px;
-    }
+    @include core-19;
+    padding: {
+      top: 0.605em;
+      bottom: 0.605em;
+    };
+    width: 258px;
+    float: left;
   }
 
   &::-webkit-input-placeholder {
@@ -101,6 +68,14 @@
   }
   &:-ms-input-placeholder {
     text-transform: none;
+  }
+}
+.SearchForm-wrap {
+  @extend %contain-floats;
+
+  @include media(desktop) {
+    margin: 0 auto;
+    width: 535px;
   }
 }
 .SearchForm-submit {
@@ -117,30 +92,30 @@
   padding: 0;
   float: right;
   text-align: center;
+  position: absolute;
+  top: 1.111em;
+  right: 0;
 
   @include media(tablet) {
     height: 2.5em;
     width: 2.5em;
+    top: 0.833em;
   }
 
   @include media(desktop) {
-    @include core-16;
-    width: 1.875em;
-    height: 1.875em;
+    @include bold-19;
+    float: left;
+    position: relative;
+    top: auto;
+    right: auto;
+    height: auto;
+    width: 260px;
+    color: $white;
+    padding: 0.658em 1em;
+    margin-left: 0.789em;
 
-    .SearchForm--block & {
-      @include bold-19;
-      background-image: none;
-      text-indent: 0;
-      float: none;
-      height: auto;
-      width: 260px;
-      color: $white;
-      padding: 0.658em 1em;
-
-      &:after {
-        display: none;
-      }
+    &:after {
+      display: none;
     }
   }
 }
@@ -148,10 +123,8 @@
   @extend .visuallyhidden;
 
   @include media(desktop) {
-    .SearchForm--block & {
-      position: relative;
-      left: auto;
-      display: block;
-    }
+    position: relative;
+    left: auto;
+    display: block;
   }
 }

@@ -6,15 +6,10 @@ block html_class
 block content
   section.PageHeader
     .Content
-      - include "includes/_local-search.jade" with modifier="block"
-  - for panel in self.lead_panels.all
-    - if forloop.counter|divisibleby:2
-      .ColourRow--grey
-        .Content
-          - include "includes/panels/_icon--fullWidth.jade"
-    - else
-      .Content
-        - include "includes/panels/_icon--fullWidth.jade"
+      - include "includes/_local-search.jade"
+  section.Content
+    - for panel in self.lead_panels.all
+      - include "includes/panels/_icon--fullWidth.jade"
   section
     .Content.js-RowReveal(data-row-selector=".Panel-row")
       h1.Panel-rowHeading What's happened to you?
