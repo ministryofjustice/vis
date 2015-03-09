@@ -4,9 +4,8 @@ block html_class
   | v-home
 
 block content
-  section.LeadHeader
+  section.PageHeader
     .Content
-      h1.LeadHeader-title Victims' Information Service
       - include "includes/_local-search.jade" with modifier="block"
   - for panel in self.lead_panels.all
     - if forloop.counter|divisibleby:2
