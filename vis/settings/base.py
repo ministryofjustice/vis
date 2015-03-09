@@ -58,6 +58,8 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
+    
+    'zendesk',
 
     'info',
     'core',
@@ -187,6 +189,12 @@ ADDRESSFINDER_API_HOST = os.environ.get('ADDRESSFINDER_API_HOST',
     'http://127.0.0.1:8003')
 ADDRESSFINDER_API_TOKEN = os.environ.get('ADDRESSFINDER_API_TOKEN', '')
 
+
+ZENDESK_API_USERNAME = os.environ.get('ZENDESK_API_USERNAME', '')
+ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
+ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
+ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
+ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
 
 try:
     from .local import *

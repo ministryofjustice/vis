@@ -1,0 +1,11 @@
+--- Comments -----------------
+
+{{ comments|safe }}
+
+
+
+--- Additional information ---
+
+Username:   {{ user.username }}
+URL:        {{ url }}
+Browser:    {{ user_agent }}
