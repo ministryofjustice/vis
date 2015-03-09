@@ -1,7 +1,8 @@
-article.Panel.Panel--icon
-  h1.Panel-heading= panel.title
-  .Panel-content.Icon(class="Icon--#{panel.icon_classname}")
+article.Panel.Panel--icon.Icon(class="Icon--#{panel.icon_classname}")
+  h1.Panel-heading
+    if panel.link_page
+      a(href="#{panel.link_page.url}") #{panel.title}
+    else
+      =panel.title
+  .Panel-content
     p=panel.content
-    - if panel.link_page
-      p
-        a(href="#{panel.link_page.url}") #{panel.link_text|default:panel.link_page}
