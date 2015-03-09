@@ -6,6 +6,7 @@ block content
     article
       header.PageHeader
         .Content
+          - include "includes/_breadcrumb.jade"
           h1.PageHeader-title= self.title
           h2.PageHeader-subTitle Support services
       .Content
@@ -28,12 +29,13 @@ block content
             h3 Browse all support for your area online
             p
               | Visit the&nbsp;
-              a(href="http://lighthousevictimcare.org/") Lighthouse Victim Care
+              a(href="http://lighthousevictimcare.org/", rel="external") Lighthouse Victim Care
               | &nbsp;website to search for support and help.
             p Lighthouse Victims Care gives access to over 40 local organisations to browse at your convenience.
           .Article-meta
-            img.u-border(src="{% static 'images/pcc-maps/metropolitan.png' %}")
-            img.u-border(src="{% static 'images/pcc-screens/metropolitan.png' %}")
+            img.u-border(src="{% static 'images/pcc-maps/sussex.png' %}")
+            a(href="http://lighthousevictimcare.org/")
+              img.u-border(src="{% static 'images/pcc-screens/metropolitan.png' %}")
           .Article-intro
             h2 Court and Witness Information
             p If you need to know the status of a case, your Investigating Officer can give you an update. They can also refer you to the Witness Care Unit if needed.
