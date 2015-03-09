@@ -1,0 +1,7 @@
+- if self.get_ancestors|length > 1
+  ul.Breadcrumb
+    - for page in self.get_ancestors
+      - if page.is_root == False
+        li.Breadcrumb-item
+          a(href="#{page.url}")= page.title
+    li.Breadcrumb-item.is-active= self.title
