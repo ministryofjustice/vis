@@ -1,24 +1,15 @@
 .PageHeader {
-  @extend %contain-floats;
   background-color: $secondary-colour;
-}
-.PageHeader-row {
-  @extend %grid-row;
 }
 .PageHeader-title {
   @include bold-60;
-  @include grid-column(2/3, desktop);
   display: block;
   color: $primary-colour;
+  padding-top: 0.5em;
   padding-bottom: 0.5em;
-
-  @include media(desktop) {
-    padding-top: 0.5em;
-  }
 }
 .PageHeader-subTitle {
   @include bold-36;
-  @include grid-column(2/3, desktop);
   font-weight: 500;
   color: $primary-colour;
   margin-top: -0.5em;
