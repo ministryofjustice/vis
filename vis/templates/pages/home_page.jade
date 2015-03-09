@@ -10,15 +10,17 @@ block content
   section.Content
     - for panel in self.lead_panels.all
       - include "includes/panels/_icon--fullWidth.jade"
-  section
-    .Content.js-RowReveal(data-row-selector=".Panel-row")
-      h1.Panel-rowHeading What's happened to you?
-      .Panel-row
-        - for panel in self.panels.all
-          - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
-            </div><div class="Panel-row">
-          - include "includes/panels/_text.jade"
   section.ColourRow--grey
+    .Content
+      h1.Panel-rowHeading What's happened to you?
+      ul.ColumnList
+        - for panel in self.panels.all
+          li.ColumnList-item(class="{% if forloop.counter0|divisibleby:3 and forloop.counter0 > 0 %}is-rowStart{% endif %}")
+            if panel.link_page
+              a(href="#{panel.link_page.url}") #{panel.title}
+            else
+              #{panel.title}
+  section
     .Content
       .Panel-row
         - for panel in self.promo_panels.all
