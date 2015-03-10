@@ -6,6 +6,6 @@
     - for item in items
       - with item.glossary_item as item
         dt
-          a(href="{% slugurl 'glossary' %}{{ '#'|add:item.slug }}")= item.name
+          = item.name
         dd= item.description
   a(href="{% slugurl 'glossary' %}") See the full glossary
