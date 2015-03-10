@@ -22,6 +22,8 @@ generated/
 
 # auto generated icon font
 vis/assets-src/stylesheets/_icons.scss
+# auto generated js templates
+vis/assets-src/javascripts/templates/compiled.js
 
 # intellij
 vis.iws

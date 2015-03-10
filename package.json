@@ -27,6 +27,7 @@
     "merge-stream": "^0.1.7",
     "require-dir": "0.1.0",
     "run-sequence": "0.3.6",
+    "templatizer": "^1.2.1",
     "yargs": "3.0.4",
     "yuglify": "0.1.4"
   }

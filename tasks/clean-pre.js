@@ -10,7 +10,8 @@
     del([
       paths.dest,
       paths.tmp,
-      paths.src + 'stylesheets/_icons.scss' // generated icon font
+      paths.src + 'stylesheets/_icons.scss', // generated icon font
+      paths.templates + 'compiled.js' // generated js templates
     ], cb);
   });
 })();

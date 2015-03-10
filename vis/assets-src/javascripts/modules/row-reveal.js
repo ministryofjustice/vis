@@ -3,7 +3,7 @@
 
   vis.Modules.rowReveal = {
     selector: '.js-RowReveal',
-    template: '<p class="u-center"><a class="Button u-center js-RowReveal-expand">See all cases where you might be a victim</a></p>',
+    template: vis.templatizer.RowReveal.expandButton(),
 
     init: function () {
       _.bindAll(this, 'render', 'expandClick');
@@ -28,8 +28,10 @@
     },
 
     render: function () {
-      this.$rows.filter(':gt(0)').hide();
-      this.$container.append(this.template);
+      if (this.$rows.length > 1) {
+        this.$rows.filter(':gt(0)').hide();
+        this.$container.append(this.template);
+      }
     }
   };
 

@@ -6,6 +6,10 @@
   var del = require('del');
 
   gulp.task('clean:post', function (cb) {
-    del(paths.tmp, cb);
+    del([
+      paths.tmp,
+      paths.src + 'stylesheets/_icons.scss', // generated icon font
+      paths.templates + 'compiled.js' // generated js templates
+    ], cb);
   });
 })();

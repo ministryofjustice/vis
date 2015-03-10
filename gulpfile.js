@@ -14,7 +14,6 @@
   gulp.task('build:dev', ['clean:pre'], function (cb) {
     runSequence(
       ['copy-fonts', 'images', 'lint', 'sass', 'scripts'],
-      'clean:post',
       cb
     );
   });
