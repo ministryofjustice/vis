@@ -7,30 +7,25 @@
     errorTemplate: '<p class="Error">There was an error submitting the form, please try again.</p>',
 
     init: function () {
-      _.bindAll(this, 'submit', 'feedbackSuccess', 'feedbackFail');
+      _.bindAll(this, 'render', 'submit', 'feedbackSuccess', 'feedbackFail');
       this.cacheEls();
       this.bindEvents();
     },
 
     cacheEls: function () {
       this.$form = $(this.selector);
+      this.$submitBtn = this.$form.find('button[type="submit"]');
     },
 
     bindEvents: function () {
       this.$form.on('submit', this.submit);
+      vis.Events.on('render', this.render);
     },
 
-    sendFeedback: function (formData) {
-      var jqXHR = $.ajax({
-        method: 'POST',
-        url: this.$form.attr('action'),
-        data: formData,
-        processData: false,
-        contentType: false,
-        headers: {'X-Requested-With': 'XMLHttpRequest'}
-      })
-      .done(this.feedbackSuccess)
-      .error(this.feedbackFail);
+    sendFeedback: function (data) {
+      $.post(this.$form.attr('action'), data)
+        .done(this.feedbackSuccess)
+        .error(this.feedbackFail);
     },
 
     feedbackSuccess: function (resp) {
@@ -40,16 +35,27 @@
     feedbackFail: function (resp) {
       this.$form.find('.Error').remove();
       this.$form.prepend(this.errorTemplate);
+      this.$submitBtn.prop('disabled', false);
     },
 
-    submit: function(evt){
+    submit: function (evt) {
       evt.preventDefault();
+      this.$submitBtn.prop('disabled', true);
+      this.sendFeedback(this.$form.serialize());
+    },
 
-      var formData = new FormData(this.$form[0]);
-      formData.append('user_agent', window.navigator.userAgent);
-      formData.append('url', window.location.href);
+    render: function () {
+      $('<input/>', {
+        name: 'user_agent',
+        type: 'hidden',
+        value: navigator.userAgent
+      }).prependTo(this.$form);
 
-      this.sendFeedback(formData);
+      $('<input/>', {
+        name: 'url',
+        type: 'hidden',
+        value: window.location.href
+      }).prependTo(this.$form);
     }
   };
 
