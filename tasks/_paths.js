@@ -29,6 +29,7 @@
   paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv-printshiv.js');
   paths.scripts.vis.push(paths.vendor + 'lodash/lodash.js');
   paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
+  paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
   paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');
   paths.scripts.vis.push(paths.src + 'javascripts/app.js');
