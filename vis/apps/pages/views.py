@@ -26,8 +26,9 @@ def pcc_search(request):
     )
 
 
-class Handler500(TemplateView):
-    template_name = '500.html'
+class ErrorHandler(TemplateView):
+    template_name = None
+    status = None
 
     @classmethod
     def as_error_view(cls):
@@ -43,4 +44,14 @@ class Handler500(TemplateView):
     # must also override this method to ensure the 500 status code is set
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        return self.render_to_response(context, status=500)
+        return self.render_to_response(context, status=self.status)
+
+
+class Handler500(ErrorHandler):
+    template_name = '500.jade'
+    status = 500
+
+
+class Handler404(ErrorHandler):
+    template_name = '404.jade'
+    status = 404

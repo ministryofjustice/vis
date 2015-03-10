@@ -11,7 +11,7 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.contrib.wagtailsitemaps.views import sitemap
 
-from pages.views import Handler500
+from pages.views import Handler500, Handler404
 
 admin.autodiscover()
 
@@ -29,8 +29,9 @@ urlpatterns = patterns(
     url('^sitemap\.xml$', sitemap),
     )
 
-# 500 page handler
+# error handlers
 handler500 = Handler500.as_error_view()
+handler404 = Handler404.as_error_view()
 
 
 if settings.DEBUG:
