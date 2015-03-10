@@ -2,14 +2,15 @@
   'use strict';
 
   var paths = {
-    tmp: '.gulptmp/',
-    dest: 'vis/assets/',
-    src: 'vis/assets-src/',
-    vendor: 'vis/assets-src/vendor/',
+    tmp: './.gulptmp/',
+    dest: './vis/assets/',
+    src: './vis/assets-src/',
+    vendor: './vis/assets-src/vendor/',
     icons: [],
     images: [],
     fonts: [],
     styles: [],
+    templates: [],
     scripts: {
       ie: [],
       vis: []
@@ -24,6 +25,8 @@
   paths.fonts.push(paths.src + 'fonts/*.{eot,svg,ttf,woff}');
   // images
   paths.images.push(paths.src + 'images/**/*');
+  // templates
+  paths.templates.push(paths.src + 'javascripts/templates/');
   // scripts
   paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv.js');
   paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv-printshiv.js');
@@ -31,6 +34,7 @@
   paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
   paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
+  paths.scripts.vis.push(paths.tmp + 'javascripts/templates.js'); // auto generated in templates task
   paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');
   paths.scripts.vis.push(paths.src + 'javascripts/app.js');
 
