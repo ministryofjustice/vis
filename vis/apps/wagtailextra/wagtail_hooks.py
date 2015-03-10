@@ -22,7 +22,8 @@ def editor_js():
     return js_includes + format_html(
         """
         <script>
-            window.chooserUrls.anchoredPageChooser = '%s',
+            window.chooserUrls.anchoredPageChooser = '%s';
+            delete halloPlugins['hallowagtaillink'];
             registerHalloPlugin('anchoredwagtaillink');
         </script>
         """ % reverse('wagtailextra_chooser')
@@ -57,7 +58,9 @@ class AnchoredPageLinkHandler(object):
 
             url = page.url
             if 'anchor' in attrs:
-                url += '#%s' % attrs['anchor']
+                anchor = attrs['anchor']
+                url += '#%s' % anchor
+                editor_attrs += 'data-anchor="%s"' % anchor
             return '<a %shref="%s">' % (editor_attrs, escape(url))
         except Page.DoesNotExist:
             return "<a>"
