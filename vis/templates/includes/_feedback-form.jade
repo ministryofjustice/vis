@@ -1,0 +1,8 @@
+.Feedback
+  details
+    summary Is there anything wrong with this page?
+    form.Feedback-form.js-Zendesk(action="{% url 'zendesk' %}", method="post")
+      | {% csrf_token %}
+      label.Feedback-label(for="comments") Did you have a problem with this page? Tell us why.
+      textarea.Feedback-textarea(cols="10", rows="3", id="comments", name="comments", required)
+      button.Button.Feedback-submit(type="submit") Send feedback

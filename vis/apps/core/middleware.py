@@ -6,7 +6,7 @@ MAX_AGE = getattr(settings, 'CACHE_CONTROL_MAX_AGE', 2592000)
 
 class MaxAgeMiddleware(object):
     def process_response(self, request, response):
-        if not request.user or request.user.is_authenticated():
+        if not hasattr(request, 'user') or request.user.is_authenticated():
             return response
         if request.method not in ('GET', 'HEAD'):
             return response
