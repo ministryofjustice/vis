@@ -8,7 +8,7 @@
   var rename = require('gulp-rename');
   var stylesDir = paths.dest + 'stylesheets/';
 
-  gulp.task('minify-styles', ['sass'], function() {
+  gulp.task('minify:styles', ['sass'], function() {
     gulp.src(stylesDir + '**/*.css')
       .pipe(ignore.exclude('**/*.min.css'))
       .pipe(minifyCss({

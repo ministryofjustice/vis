@@ -6,7 +6,7 @@
   var paths = require('./_paths');
 
   // copy fonts
-  gulp.task('copy-fonts', function() {
+  gulp.task('copyfonts', function() {
     // all static fonts
     var staticFonts = gulp.src(paths.fonts)
       .pipe(gulp.dest(paths.dest + 'fonts/'));
