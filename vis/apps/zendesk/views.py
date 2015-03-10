@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 "Zendesk"
 from django.http import JsonResponse
-from django.shortcuts import redirect, render
-from django.views.decorators.csrf import csrf_exempt
+from django.http.response import Http404
+from django.shortcuts import redirect
 from django.views.decorators.vary import vary_on_headers
 from django.views.generic.base import View
-
+from wagtail.wagtailcore.models import Page
 from zendesk.client import ZendeskClient
 
 
@@ -16,9 +16,6 @@ def get_user_agent_from_request(request):
     return request.META.get('HTTP_USER_AGENT')
 
 class ZendeskView(View):
-
-    def get(self, request):
-        return render(request, 'zendesk/confirm.jade')
 
     @vary_on_headers('HTTP_X_REQUESTED_WITH')
     def post(self, request):
@@ -35,4 +32,7 @@ class ZendeskView(View):
         if request.is_ajax():
             return JsonResponse(response['json'], status=response['status'])
         else:
-            return redirect('zendesk')
+            confirm_page = Page.objects.filter(slug='feedback-confirm').first()
+            if not confirm_page:
+                raise Http404()
+            return redirect(confirm_page.url)
