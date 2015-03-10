@@ -2,10 +2,10 @@
   'use strict';
 
   var paths = {
-    tmp: '.gulptmp/',
-    dest: 'vis/assets/',
-    src: 'vis/assets-src/',
-    vendor: 'vis/assets-src/vendor/',
+    tmp: './.gulptmp/',
+    dest: './vis/assets/',
+    src: './vis/assets-src/',
+    vendor: './vis/assets-src/vendor/',
     icons: [],
     images: [],
     fonts: [],
@@ -34,7 +34,7 @@
   paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
   paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
-  paths.scripts.vis.push(paths.src + 'javascripts/templates/compiled.js'); // auto generated in templates task
+  paths.scripts.vis.push(paths.tmp + 'javascripts/templates.js'); // auto generated in templates task
   paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');
   paths.scripts.vis.push(paths.src + 'javascripts/app.js');
 
