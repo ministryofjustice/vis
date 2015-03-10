@@ -20,8 +20,8 @@
         button.hallobutton({
           uuid: this.options.uuid,
           editable: this.options.editable,
-          label: 'Links',
-          icon: 'icon-link',
+          label: 'Internal Links',
+          icon: 'icon-site',
           command: null,
           queryState: function(event) {
             return button.hallobutton('checked', !!getEnclosingLink());

@@ -23,7 +23,6 @@ def editor_js():
         """
         <script>
             window.chooserUrls.anchoredPageChooser = '%s';
-            delete halloPlugins['hallowagtaillink'];
             registerHalloPlugin('anchoredwagtaillink');
         </script>
         """ % reverse('wagtailextra_chooser')

@@ -9,7 +9,9 @@
 {% include "wagtailadmin/shared/header.html" with title=choose_str subtitle=subtitle search_url="wagtailextra_chooser" query_parameters="page_type="|add:page_type_string icon="doc-empty-inverse" %}
 
 <div class="nice-padding">
-    {% include 'wagtailadmin/chooser/_link_types.html' with current='internal' %}
+    <p class="link-types">
+          <b>{% trans "Internal link with anchor" %}</b>
+    </p>
 
     <div class="page-results">
         {% include 'wagtailextra/anchoredchooser/_search_results.html' %}
