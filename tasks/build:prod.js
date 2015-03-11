@@ -7,6 +7,7 @@
   gulp.task('build:prod', ['clean:pre'], function (cb) {
     runSequence(
       ['copyfonts', 'images', 'lint', 'sass', 'scripts', 'minify:styles', 'minify:scripts'],
+      'revall',
       'clean:post',
       cb
     );
