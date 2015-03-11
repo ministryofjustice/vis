@@ -8,7 +8,7 @@
   var uglify = require('gulp-uglify');
   var rename = require('gulp-rename');
 
-  gulp.task('scripts', function() {
+  gulp.task('scripts', ['templates'], function() {
     // main scripts
     var main = gulp.src(paths.scripts.vis)
       .pipe(concat('vis.js'))

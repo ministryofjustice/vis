@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'info',
     'core',
     'pages',
+    'wagtailextra',
 )
 
 MIDDLEWARE_CLASSES = (

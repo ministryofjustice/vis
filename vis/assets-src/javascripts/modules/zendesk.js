@@ -3,8 +3,8 @@
 
   vis.Modules.zendesk = {
     selector: '.js-Zendesk',
-    successTemplate: '<div class="Feedback-success"><h2>Thank you for your help.</h2><p>Your feedback has been sent and will be picked up by one of our team.</p></div>',
-    errorTemplate: '<p class="Error">There was an error submitting the form, please try again.</p>',
+    successTemplate: vis.templatizer.Zendesk.success(),
+    errorTemplate: vis.templatizer.Zendesk.error(),
 
     init: function () {
       _.bindAll(this, 'render', 'submit', 'feedbackSuccess', 'feedbackFail');
