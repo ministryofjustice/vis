@@ -56,6 +56,17 @@ if 'EMAIL_HOST_USER' in os.environ and 'EMAIL_HOST_PASSWORD' in os.environ:
 
 CACHE_CONTROL_MAX_AGE = 60*60
 
+
+# MEDUSA
+
+INSTALLED_APPS += (
+    'django_medusa',
+)
+
+MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
+MEDUSA_DEPLOY_DIR = os.path.join(PROJECT_DIR, '_static_site')
+
+
 # LOGGING
 LOGGING = {
     'version': 1,
