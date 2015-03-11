@@ -1,4 +1,10 @@
-- extends "base.jade"
+- extends "article.jade"
 
-block content
-	p Page not found
+block article_title
+  | Page not found
+
+block article_content
+  p The page you requested could not be found.
+  p
+    | Go to&nbsp;
+    a(href="/") homepage
