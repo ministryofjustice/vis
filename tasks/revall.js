@@ -4,7 +4,7 @@
   var revall = require('gulp-rev-all');
   var paths = require('./_paths');
 
-  gulp.task('revall', function () {
+  gulp.task('revall', ['minify:styles', 'minify:scripts'], function () {
     // by default, gulp would pick `assets/css` as the base,
     // so we need to set it explicitly:
     return gulp.src(paths.dest + '**')
