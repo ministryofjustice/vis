@@ -35,6 +35,10 @@
   p, ul, ol {
     @include font-18;
   }
+
+  &.Article-content--full {
+    @include grid-column( 1/1 );
+  }
 }
 .Article-meta {
   @include grid-column( 1/3 );

@@ -22,7 +22,6 @@ $is-print: false !default;
 @mixin _core-font-generator($font-size: 18px, $font-size-640: 16px, $font-size-print: 14pt, $line-height: 25/18, $line-height-640: 20/16, $font-weight: 400) {
   font-family: $fira-sans;
   font-weight: $font-weight;
-  text-transform: none;
 
   @if $is-print == true {
     font-family: $print-reset;
