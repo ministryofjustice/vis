@@ -1,3 +1,19 @@
+h1 {
+  @include font-61(700);
+}
+h2 {
+  @include font-41(500);
+}
+h3 {
+  @include font-27(500);
+}
+h4 {
+  @include font-18(700);
+}
+p, ul, ol {
+  @include font-18;
+}
+
 .Content {
   @extend %site-width-container;
 }
@@ -19,22 +35,6 @@
 }
 .Article-content {
   @include grid-column( 2/3 );
-
-  h1 {
-    @include font-61(700);
-  }
-  h2 {
-    @include font-41(500);
-  }
-  h3 {
-    @include font-27(500);
-  }
-  h4 {
-    @include font-18(700);
-  }
-  p, ul, ol {
-    @include font-18;
-  }
 
   &.Article-content--full {
     @include grid-column( 1/1 );
