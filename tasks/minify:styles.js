@@ -7,9 +7,10 @@
   var minifyCss = require('gulp-minify-css');
   var rename = require('gulp-rename');
   var stylesDir = paths.dest + 'stylesheets/';
+  var print = require('gulp-print');
 
   gulp.task('minify:styles', ['sass'], function() {
-    gulp.src(stylesDir + '**/*.css')
+    return gulp.src(stylesDir + '**/*.css')
       .pipe(ignore.exclude('**/*.min.css'))
       .pipe(minifyCss({
         roundingPrecision: 3
@@ -17,6 +18,7 @@
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(gulp.dest(stylesDir));
+      .pipe(gulp.dest(stylesDir))
+      .pipe(print());
   });
 })();
