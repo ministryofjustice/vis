@@ -9,7 +9,7 @@
   var jsDir = paths.dest + 'javascripts/';
 
   gulp.task('minify:scripts', ['scripts'], function() {
-    gulp.src(jsDir + '**/*.js')
+    return gulp.src(jsDir + '**/*.js')
       .pipe(ignore.exclude('**/*.min.js'))
       .pipe(uglify({
         mangle: false,

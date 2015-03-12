@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ['*']
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'core.storage.GulpManifestStaticFilesStorage'
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
