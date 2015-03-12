@@ -20,6 +20,9 @@ class GlossaryItem(models.Model):
     def natural_key(self):
         return self.slug
 
+    def get_letter(self):
+        return self.name[0].lower()
+
     panels = [
         FieldPanel('name', classname="full title"),
         FieldPanel('description', classname="full"),
