@@ -2,9 +2,8 @@
   @extend %grid-row;
 }
 .Panel-rowHeading {
-  @include core-36;
+  @include font-41(700);
   color: $primary-colour;
-  font-weight: 500;
   margin: 0.833em 0 0;
   padding: 0;
   overflow: visible;
@@ -14,7 +13,7 @@
   }
 }
 .Panel {
-  margin: 1.875em 0;
+  margin: 3.125em 0;
 
   &.Panel--icon {
     text-align: center;
@@ -66,8 +65,7 @@
   }
 }
 .Panel-heading {
-  @include core-36;
-  font-weight: 500;
+  @include font-41(700);
   color: $primary-colour;
 
   .Panel--icon & {
@@ -85,7 +83,7 @@
 
     @include media(tablet) {
       margin: {
-        left: 2.778em;
+        left: 2.439em;
         bottom: 0;
       };
       padding-top: 0.125em;
@@ -100,12 +98,13 @@
   }
 
   .Panel--1-3 & {
-    @include core-27;
-    font-weight: 500;
+    @include font-27(500);
     margin-left: 0;
   }
 }
 .Panel-content {
+  @include font-18;
+
   p {
     margin: 0;
     padding: 0.5em 0;
@@ -117,7 +116,7 @@
 
   .Panel--icon & {
     @include media(tablet) {
-      margin-left: 6.250em;
+      margin-left: 5.556em;
     }
   }
 

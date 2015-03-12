@@ -1,0 +1,55 @@
+@import 'font-stack';
+@import 'govuk_frontend_toolkit/stylesheets/conditionals';
+@import 'govuk_frontend_toolkit/stylesheets/device-pixels';
+@import 'govuk_frontend_toolkit/stylesheets/url-helpers';
+
+// Initially a port from the govuk toolkit
+
+//  typography palettes
+
+//  ANATOMY OF A TYPE STYLE
+//  -----------------------
+//  These are a collection of graphic styles. They are deliberately
+//  abstracted from semantic HTML context to enable flexible re-use.
+//  Although there is a lot of duplication within this file, as long
+//  as you GZIP your CSS it shouldnt cause any bloat.
+
+
+// CORE FONTS
+
+$is-print: false !default;
+
+@mixin _core-font-generator($font-size: 18px, $font-size-640: 16px, $font-size-print: 14pt, $line-height: 25/18, $line-height-640: 20/16, $font-weight: 400) {
+  font-family: $fira-sans;
+  font-weight: $font-weight;
+  text-transform: none;
+
+  @if $is-print == true {
+    font-family: $print-reset;
+    font-size: $font-size-print;
+  } @else {
+    font-size: $font-size-640;
+    line-height: $line-height-640;
+
+    @include media(tablet) {
+      font-size: $font-size;
+      line-height: $line-height;
+    }
+  }
+}
+
+@mixin font-61($font-weight: 400) {
+  @include _core-font-generator(61px, 36px, 32pt, 75px, 46px, $font-weight);
+}
+
+@mixin font-41($font-weight: 400) {
+  @include _core-font-generator(41px, 25px, 22pt, 50px, 36px, $font-weight);
+}
+
+@mixin font-27($font-weight: 400) {
+  @include _core-font-generator(27px, 22px, 20pt, 37px, 28px, $font-weight);
+}
+
+@mixin font-18($font-weight: 400) {
+  @include _core-font-generator(18px, 16px, 14pt, 25px, 23px, $font-weight);
+}

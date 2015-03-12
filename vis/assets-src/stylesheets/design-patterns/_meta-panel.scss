@@ -1,10 +1,10 @@
 .MetaPanel {
+  @include font-18;
   background-color: $grey;
   padding: 0.938em;
   margin-bottom: 1.250em;
 }
 .MetaPanel-title {
-  @include core-27;
-  font-weight: 500;
+  @include font-27(500);
   color: $primary-colour;
 }
