@@ -78,8 +78,10 @@ def fill_alphabet_blanks(groups):
     for key in string.ascii_lowercase:
         if not key in group_keys:
             groups.append({
-                          'grouper': key,
-                          'list': []
-                          })
+                'grouper': key,
+                'list': []
+            })
+
     groups.sort(key=lambda x: x['grouper'])
+
     return groups
