@@ -6,6 +6,7 @@
 }
 .SubNavigation-menu {
   @extend %contain-floats;
+  @include font-18;
   padding: 0 0 0 25px;
   margin: 0;
 }

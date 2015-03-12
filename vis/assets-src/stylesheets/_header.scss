@@ -18,7 +18,7 @@
   @extend %contain-floats;
 }
 .SiteHeader-title {
-  @include bold-24;
+  @include font-27(700);
   padding: 0 0 15px;
   margin: 0;
   color: $white;
@@ -33,6 +33,7 @@
   }
 }
 a.SiteHeader-menuToggle {
+  @include font-18;
   color: $secondary-colour;
   text-decoration: none;
   display: block;
@@ -107,12 +108,12 @@ a.SiteHeader-menuToggle {
 .SiteHeader-menuList {
   @extend %contain-floats;
   @extend %site-width-container;
+  @include font-18;
   padding: 12px 0;
   list-style: none;
   font-weight: 500;
 
   @include media(desktop) {
-    @include core-14;
     font-weight: 500;
     padding: 7px 0;
     margin: 0;

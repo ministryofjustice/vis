@@ -8,12 +8,12 @@
   }
 }
 .Feedback-label {
-  @include core-16;
+  @include font-18;
   display: block;
   margin: 1em 0;
 }
 .Feedback-textarea {
-  @include core-16;
+  @include font-18;
   @include box-sizing(border-box);
   border: 1px solid $dark-grey;
   display: block;
@@ -21,7 +21,7 @@
   padding: 0.25em;
 }
 .Feedback-submit {
-  @include core-16;
+  @include font-18;
   margin-top: 1em;
 }
 .Feedback-success {

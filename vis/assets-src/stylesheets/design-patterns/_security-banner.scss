@@ -38,12 +38,11 @@
   }
 }
 .SecurityBanner-title {
-  @include bold-27;
+  @include font-27(700);
   color: $white;
 }
 .SecurityBanner-content {
-  @include core-19;
-  font-size: 18px;
+  @include font-18;
   margin: 2px 0 0;
 
   @include media(desktop) {
@@ -52,7 +51,7 @@
   }
 }
 .SecurityBanner-options {
-  @include bold-19;
+  @include font-18(700);
   margin: 15px -5px 10px;
 
   @include media(desktop) {

@@ -3,6 +3,7 @@
 }
 .Pagination-menu {
   @extend %contain-floats;
+  @include font-18;
   padding: 0;
   margin: 0;
   list-style: none;

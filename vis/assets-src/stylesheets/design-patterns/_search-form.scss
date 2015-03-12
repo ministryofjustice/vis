@@ -21,13 +21,13 @@
     padding: {
       top: 2.5em;
       bottom: 2.5em;
+      right: 0;
     }
   }
 }
 .SearchForm-label {
   @extend .visuallyhidden;
-  @include core-24;
-  font-weight: 500;
+  @include font-27(500);
   color: $primary-colour;
 
   @include media(desktop) {
@@ -39,19 +39,26 @@
 }
 .SearchForm-query {
   @include box-sizing(border-box);
-  @include core-19;
+  @include font-18;
   text-transform: uppercase;
   display: block;
   border: 1px solid $dark-grey;
-  padding: 0.875em 0.625em;
+  padding: 0.719em 0.625em;
   margin: 0;
   width: 100%;
 
-  @include media(desktop) {
-    @include core-19;
+  @include media(tablet) {
     padding: {
-      top: 0.605em;
-      bottom: 0.605em;
+      top: 0.917em;
+      bottom: 0.917em;
+    };
+  }
+
+  @include media(desktop) {
+    // @include font-18;
+    padding: {
+      top: 0.639em;
+      bottom: 0.639em;
     };
     width: 258px;
     float: left;
@@ -83,27 +90,26 @@
   @extend .Icon--search;
   @extend .Icon--compact;
   @include border-radius(3px);
-  @include core-24;
+  @include font-27;
   cursor: pointer;
   border: 0;
-  height: 2.778em;
-  width: 2.778em;
+  height: 2.273em;
+  width: 2.273em;
   margin: 0;
   padding: 0;
   float: right;
   text-align: center;
   position: absolute;
-  top: 1.111em;
+  top: 20px;
   right: 0;
 
   @include media(tablet) {
-    height: 2.5em;
-    width: 2.5em;
-    top: 0.833em;
+    height: 2.222em;
+    width: 2.222em;
   }
 
   @include media(desktop) {
-    @include bold-19;
+    @include font-18(700);
     float: left;
     position: relative;
     top: auto;
@@ -111,7 +117,7 @@
     height: auto;
     width: 260px;
     color: $white;
-    padding: 0.658em 1em;
+    padding: 0.694em 1em;
     margin-left: 0.789em;
 
     &:after {
