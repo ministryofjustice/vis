@@ -53,4 +53,4 @@ class Command(NoArgsCommand):
         self.create_export_folder_if_necessary()
         self.download_site()
         self.zip_site()
-        # self.email_zip()
+        self.email_zip()
