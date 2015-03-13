@@ -34,6 +34,10 @@
     "EMAIL_HOST_PASSWORD": {
       "required": false,
       "description": "Email host password"
+    },
+    "EXPORT_RECIPIENTS": {
+      "required": false,
+      "description": "List of email addresses to receive data export comma separated"
     }
   },
   "scripts": {

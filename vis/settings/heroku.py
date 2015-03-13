@@ -54,7 +54,10 @@ if 'EMAIL_HOST_USER' in os.environ and 'EMAIL_HOST_PASSWORD' in os.environ:
     EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 
+EXPORT_RECIPIENTS = os.environ.get('EXPORT_RECIPIENTS', '').split(',')
+
 CACHE_CONTROL_MAX_AGE = 60*60
+
 
 # LOGGING
 LOGGING = {
