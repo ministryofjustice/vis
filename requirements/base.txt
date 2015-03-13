@@ -14,4 +14,3 @@ whitenoise==1.0.6
 django-redis-cache==0.13.0
 redis==2.10.3
 newrelic==2.44.0.36
-django-medusa==0.3.0

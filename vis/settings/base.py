@@ -198,6 +198,15 @@ ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
 ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
 ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
 
+
+# EXPORT
+
+EXPORT_ZIP_NAME = 'vis-export'
+EXPORT_EMAIL_SUBJECT = 'VIS - Export'
+EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
+EXPORT_RECIPIENTS = []
+
+
 try:
     from .local import *
 except ImportError:
