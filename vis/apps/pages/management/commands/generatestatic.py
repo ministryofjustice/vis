@@ -32,7 +32,9 @@ class Command(NoArgsCommand):
 
     def download_site(self):
         site = Site.objects.all()[0]
-        domain = '%s:%s' % (site.hostname, site.port)
+        domain = site.hostname
+        if site.port != 80:
+            domain += ':%s' % site.port
         run('cd %s && wget --quiet http://%s/sitemap.xml --output-document - | egrep -o "http://%s[^<]+" | wget -k -x -p -H -e robots=off -i -' % (
             self.EXPORT_DIR, domain, domain
         ))
