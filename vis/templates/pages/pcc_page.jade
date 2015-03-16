@@ -35,7 +35,7 @@ block content
           .Article-meta
             img.u-border(src="{% static 'images/pcc-maps/sussex.png' %}")
             a(href="http://lighthousevictimcare.org/")
-              img.u-border(src="{% static 'images/pcc-screens/metropolitan.png' %}")
+              img.u-border(src="{{self.get_screenshot_url}}")
           .Article-intro
             h2 Court and Witness Information
             p If you need to know the status of a case, your Investigating Officer can give you an update. They can also refer you to the Witness Care Unit if needed.

@@ -1,5 +1,7 @@
+from cloudinary import CloudinaryImage
 from django.db import models
 from django.shortcuts import redirect
+from django.utils.functional import cached_property
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, MultiFieldPanel
@@ -54,8 +56,20 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
 
 class PCCPage(JadePageMixin, Page):
     content = RichTextField()
+    browsershot_url = models.URLField(blank=True, max_length=2000)
+
     subpage_types = []
 
+
+    @cached_property
+    def get_screenshot_url(self):
+        if self.browsershot_url:
+            raw =  CloudinaryImage(self.browsershot_url, type='url2png')
+            return raw.build_url(crop='fill',
+                      width=300,
+                      height=200,
+                      gravity="north",
+                      sign_url=True)
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
@@ -167,7 +181,8 @@ HomePage.content_panels = [
 
 PCCPage.content_panels = [
     FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full")
+    FieldPanel('content', classname="full"),
+    FieldPanel('browsershot_url', classname="full")
 ]
 
 
