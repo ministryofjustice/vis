@@ -110,6 +110,8 @@ The maps used on the police pages are generated using [Mapbox](https://www.mapbo
 
 Make sure you have [GDAL](http://www.gdal.org/) installed (if brew: `brew install gdal`).
 
+Download the latest police area KML data from the [police data downloads site](http://data.police.uk/data/kmls/).
+
 Run the following command, replacing the items in brackets:
 
 ```
