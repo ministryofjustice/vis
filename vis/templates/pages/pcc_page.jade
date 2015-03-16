@@ -3,43 +3,60 @@
 
 block content
   main(role="main")
-    article
-      header.PageHeader
-        .Content
-          - include "includes/_breadcrumb.jade"
-          h1.PageHeader-title= self.title
-          h2.PageHeader-subTitle Support services
+    header.PageHeader
       .Content
-        .Article
-          .Article-intro
-            #{ self.content|richtext }
-          .Article-content
-            h2 Lighthouse Victim Care
-            p Lighthouse is the portal to a wide range of victims services from your area. They can also provide additional information on the justice process.
-            h3 Phone for help and support with your problem
-            p 0800 564 9987
+        - include "includes/_breadcrumb.jade"
+        h1.PageHeader-title= self.title
+        h2.PageHeader-subTitle Support services
+    .Content
+      article.Article
+        .Map
+          h2.Map-text
+            | Victims services for&nbsp;
+            strong N1 rHA
+          img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.slug }}.png")
+        //-
+        .Article-content
+          #{ self.content|richtext }
+          - if self.website
+            p
+              a(href="") Visit the website
+              | &nbsp;to find a full list of victim services in your area and get the emotional and practical support you need.
+          - if self.phone
+            p or call #{self.phone}
+          - if self.opening_hours
             p
               | Opening hours:
               br
-              | 09:00 - 17:00 Mon-Fri
-            p
-              strong Remember:
-              | If you are in immediate danger or a crime is happening now, call 999.
-              | For an update on an active investigation call 101 and ask for the investigating officer.
-            h3 Browse all support for your area online
-            p
-              | Visit the&nbsp;
-              a(href="http://lighthousevictimcare.org/", rel="external") Lighthouse Victim Care
-              | &nbsp;website to search for support and help.
-            p Lighthouse Victims Care gives access to over 40 local organisations to browse at your convenience.
-          .Article-meta
-            img.u-border(src="{% static 'images/pcc-maps/sussex.png' %}")
-            a(href="http://lighthousevictimcare.org/")
-              img.u-border(src="{{self.get_screenshot_url}}")
-          .Article-intro
-            h2 Court and Witness Information
-            p If you need to know the status of a case, your Investigating Officer can give you an update. They can also refer you to the Witness Care Unit if needed.
-            p
-              | For contact details and facilities at court use the&nbsp;
-              a(href="https://courttribunalfinder.service.gov.uk/search/", rel="external") Court finder
-              | &nbsp;service.
+              | #{self.opening_hours}
+
+
+
+          //- h2 Lighthouse Victim Care
+          //- p Lighthouse is the portal to a wide range of victims services from your area. They can also provide additional information on the justice process.
+          //- h3 Phone for help and support with your problem
+          //- p 0800 564 9987
+          //- p
+          //-   | Opening hours:
+          //-   br
+          //-   | 09:00 - 17:00 Mon-Fri
+          //- p
+          //-   strong Remember:
+          //-   | If you are in immediate danger or a crime is happening now, call 999.
+          //-   | For an update on an active investigation call 101 and ask for the investigating officer.
+          //- h3 Browse all support for your area online
+          //- p
+          //-   | Visit the&nbsp;
+          //-   a(href="http://lighthousevictimcare.org/", rel="external") Lighthouse Victim Care
+          //-   | &nbsp;website to search for support and help.
+          //- p Lighthouse Victims Care gives access to over 40 local organisations to browse at your convenience.
+        aside.Article-meta
+          a(href="http://lighthousevictimcare.org/")
+            img.u-border(src="{{ self.get_screenshot_url }}")
+        .Article-content.Article-content--full
+          h2 Court and Witness Information
+          p If you need to know the status of a case, your Investigating Officer can give you an update. They can also refer you to the Witness Care Unit if needed.
+          p
+            | For contact details and facilities at court use the&nbsp;
+            a(href="https://courttribunalfinder.service.gov.uk/search/", rel="external") Court finder
+            | &nbsp;service.
