@@ -1,8 +1,6 @@
-article.Panel.Panel--icon.Icon(class="Icon--#{panel.icon_classname}")
-  h1.Panel-heading
-    if panel.link_page
-      a(href="#{panel.link_page.url}") #{panel.title}
-    else
-      =panel.title
+article.Panel.Panel--fullWidth.Panel--icon
+  a.Icon(href="#{panel.link_page.url}", class="Icon--#{panel.icon_classname}")
+  h1.Panel-heading.Panel-heading--chevron
+   a(href="#{panel.link_page.url}") #{panel.title}
   .Panel-content
-    p=panel.content
+    p= panel.content
