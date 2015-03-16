@@ -67,11 +67,11 @@ class PCCPage(JadePageMixin, Page):
 
     @cached_property
     def get_screenshot_url(self):
-        if self.service_url:
-            raw =  CloudinaryImage(self.service_url, type='url2png')
+        if self.service_website_url:
+            raw =  CloudinaryImage(self.service_website_url, type='url2png')
             return raw.build_url(crop='fill',
                       width=300,
-                      height=200,
+                      height=350,
                       gravity="north",
                       sign_url=True)
         else:
