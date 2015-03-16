@@ -102,6 +102,20 @@ It will automatically run `gulp build` and then create a [browsersync](http://ww
 gulp watch --port=8001
 ```
 
+### Police area maps
+
+The maps used on the police pages are generated using [Mapbox](https://www.mapbox.com/). The images are currently kept in `vis/assets-src/images/pcc-maps/`. 
+
+#### Generate maps
+
+Make sure you have [GDAL](http://www.gdal.org/) installed (if brew: `brew install gdal`).
+
+Run the following command, replacing the items in brackets:
+
+```
+./manage.py generate_pcc_maps <mapbox_api_key> <mapbox_map_id> <png_width> <png_height> <kml_input_directory> <png_output_directory> --stroke-width=1.5 --stroke-color="#0E1010" --fill-color="#BCDBDC"
+```
+
 ## Docker Installation
 
 ### Install
