@@ -21,6 +21,7 @@ def pcc_search(request):
 
     return render(request, 'pages/result_list.jade', {
             'q': q,
+            'title': 'Search results',
             'errors': errors
         }
     )
