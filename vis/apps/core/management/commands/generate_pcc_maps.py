@@ -95,7 +95,8 @@ class Command(DocOptCommand):
                 "fill-opacity": float(args['--fill-opacity'])
             }
 
-            lon = geojson['geometry']['coordinates'][0][0][0]
+            # lon = geojson['geometry']['coordinates'][0][0][0]
+            lon = -4
             lat = geojson['geometry']['coordinates'][0][0][1]
 
             # minify geoJSON as mapbox URLs can be 4096 chars max
