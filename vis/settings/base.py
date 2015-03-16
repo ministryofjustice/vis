@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
-    
+
     'zendesk',
 
     'info',
@@ -200,6 +200,8 @@ ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
 
 
 # EXPORT
+
+DEFAULT_FROM_EMAIL = 'noreply@digital.justice.gov.uk'
 
 EXPORT_ZIP_NAME = 'vis-export'
 EXPORT_EMAIL_SUBJECT = 'VIS - Export'
