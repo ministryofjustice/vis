@@ -70,6 +70,8 @@ class PCCPage(JadePageMixin, Page):
                       height=200,
                       gravity="north",
                       sign_url=True)
+        else:
+            return ''
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
