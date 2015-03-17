@@ -1,19 +1,21 @@
 - extends "base.jade"
 - load wagtailcore_tags helplines staticfiles
 
+block head
+  link(rel="canonical", href=self.url)
+
 block content
   main(role="main")
     header.PageHeader
       - include "includes/_breadcrumb.jade"
       h1.PageHeader-title= self.title
-      h2.PageHeader-subTitle Support services
     .Content
       article.Article
         .Map
-          - if self.postcode
+          - if postcode
             h2.Map-text
-              | Victims services for&nbsp;
-              strong #{self.postcode}
+              strong.Map-searchTerm #{postcode}
+              | &nbsp;is covered by the #{self.title} support team
           img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.slug }}.png")
         .Article-content
           h2 #{self.service_name}

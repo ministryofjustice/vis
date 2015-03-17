@@ -55,7 +55,6 @@
   }
 
   @include media(desktop) {
-    // @include font-18;
     padding: {
       top: 0.639em;
       bottom: 0.639em;
@@ -82,7 +81,7 @@
 
   @include media(desktop) {
     margin: 0 auto;
-    width: 535px;
+    width: 545px;
   }
 }
 .SearchForm-submit {
@@ -115,7 +114,7 @@
     top: auto;
     right: auto;
     height: auto;
-    width: 260px;
+    width: 270px;
     color: $white;
     padding: 0.694em 1em;
     margin-left: 0.789em;
