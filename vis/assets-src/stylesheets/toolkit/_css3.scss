@@ -7,3 +7,11 @@
        -o-transform: rotate($degrees); // Opera 10.5 to 12.0
           transform: rotate($degrees);
 }
+
+@mixin columns($columns) {
+  -webkit-columns: $columns; // Still in use now, started at: Chrome 4.0, Safari 3.1, Mobile Safari 3.2, Android 2.1
+     -moz-columns: $columns; // Firefox 3.5 to 15.0
+      -ms-columns: $columns; // IE9 only
+       -o-columns: $columns; // Opera 10.5 to 12.0
+          columns: $columns;
+}

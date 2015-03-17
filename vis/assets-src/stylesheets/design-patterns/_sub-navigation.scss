@@ -1,18 +1,15 @@
-.SubNavigation {
-  @extend %grid-row;
-  margin: 0 0 20px;
-  padding: 0 0 20px;
-  border-bottom: 1px solid $grey;
-}
 .SubNavigation-menu {
   @extend %contain-floats;
+  @include columns(2);
   @include font-18;
-  padding: 0 0 0 25px;
-  margin: 0;
+  padding: 0 0 2.222em;
+  margin: 0 0 2.778em;
+  list-style-position: inside;
+  border-bottom: 1px solid $dark-grey;
 }
 
 .SubNavigation-menuItem {
-  @include grid-column( 1/2 );
+  padding-bottom: 0.444em;
 }
 
 .SubNavigation-itemLink {

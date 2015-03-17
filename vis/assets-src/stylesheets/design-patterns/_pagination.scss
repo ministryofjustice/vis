@@ -1,25 +1,56 @@
-.Pagination {
-  margin: 3em 0;
-}
 .Pagination-menu {
   @extend %contain-floats;
   @include font-18;
   padding: 0;
-  margin: 0;
+  margin: 2.778em 0 0;
   list-style: none;
 }
 .Pagination-menuItem {
-  a {
-    text-decoration: none;
-    span {
-      text-decoration: underline;
-    }
-  }
-
   &.Pagination-menuItem--prev {
     float: left;
   }
   &.Pagination-menuItem--next {
     float: right;
   }
+}
+.Pagination-link {
+  @extend .Icon;
+  @include font-27;
+  text-decoration: none;
+  position: relative;
+  display: block;
+
+  &:before {
+    font-size: 27px;
+    padding-right: 0;
+    position: absolute;
+    top: 4px;
+  }
+
+  .Pagination-menuItem--prev & {
+    @extend .Icon--arrowLeft;
+    padding-left: 40px;
+    padding-right: 1.389em;
+
+    &:before {
+      left: 0;
+    }
+  }
+  .Pagination-menuItem--next & {
+    @extend .Icon--arrowRight;
+    text-align: right;
+    padding-right: 40px;
+    padding-left: 1.389em;
+
+    &:before {
+      right: 0;
+    }
+  }
+}
+.Pagination-title {
+  @include font-18;
+  text-decoration: underline;
+  position: relative;
+  display: block;
+  top: -5px;
 }
