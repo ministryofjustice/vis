@@ -3,12 +3,15 @@ h1 {
 }
 h2 {
   @include font-41(500);
+  margin: 0 0 0.610em;
 }
 h3 {
   @include font-27(500);
+  margin: 0 0 0.926em;
 }
 h4 {
   @include font-18(700);
+  margin: 0 0 1.389em;
 }
 p, ul, ol {
   @include font-18;
