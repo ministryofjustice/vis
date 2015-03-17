@@ -12,17 +12,27 @@ h4 {
 }
 p, ul, ol {
   @include font-18;
+  margin: 0 0 1.389em;
 }
 
 .Content {
   @extend %site-width-container;
 }
-.ColourRow--grey {
-  background-color: $grey;
+.ColourRow {
   border: {
     style: solid;
     color: transparent;
     width: 1px 0;
+  }
+
+  &.ColourRow--primary {
+    background-color: $primary-colour;
+  }
+  &.ColourRow--secondary {
+    background-color: $secondary-colour;
+  }
+  &.ColourRow--grey {
+    background-color: $grey;
   }
 }
 

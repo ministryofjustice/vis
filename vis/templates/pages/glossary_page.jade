@@ -5,9 +5,8 @@ block content
   main(role="main")
     article
       header.PageHeader
-        .Content
-          - include "includes/_breadcrumb.jade"
-          h1.PageHeader-title= self.title
+        - include "includes/_breadcrumb.jade"
+        h1.PageHeader-title= self.title
       .Content
         .Article
           .Article-content.Article-content--full

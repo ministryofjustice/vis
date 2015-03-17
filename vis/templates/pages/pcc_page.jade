@@ -4,10 +4,9 @@
 block content
   main(role="main")
     header.PageHeader
-      .Content
-        - include "includes/_breadcrumb.jade"
-        h1.PageHeader-title= self.title
-        h2.PageHeader-subTitle Support services
+      - include "includes/_breadcrumb.jade"
+      h1.PageHeader-title= self.title
+      h2.PageHeader-subTitle Support services
     .Content
       article.Article
         .Map

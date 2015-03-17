@@ -4,13 +4,13 @@ block html_class
   | v-home
 
 block content
-  section.PageHeader
+  section.ColourRow.ColourRow--secondary
     .Content
       - include "includes/_local-search.jade"
   section.Content
     - for panel in self.lead_panels.all
       - include "includes/panels/_icon--fullWidth.jade"
-  section.ColourRow--grey
+  section.ColourRow.ColourRow--grey
     .Content
       h1.Panel-rowHeading What's happened to you?
       ul.ColumnList
