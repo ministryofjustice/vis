@@ -58,8 +58,12 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
 
 
 class PCCPage(RoutablePageMixin, JadePageMixin, Page):
-    content = RichTextField()
-    browsershot_url = models.URLField(blank=True, max_length=2000)
+    content = RichTextField(blank=True)
+    service_name = models.CharField(blank=True, max_length=2000)
+    service_website_url = models.URLField(blank=True, max_length=2000)
+    service_phone_number = models.CharField(blank=True, max_length=2000)
+    phoneline_cost = models.CharField(blank=True, max_length=2000)
+    service_opening_hours = models.CharField(blank=True, max_length=2000)
 
     subpage_types = []
 
@@ -70,11 +74,11 @@ class PCCPage(RoutablePageMixin, JadePageMixin, Page):
 
     @cached_property
     def get_screenshot_url(self):
-        if self.browsershot_url:
-            raw =  CloudinaryImage(self.browsershot_url, type='url2png')
+        if self.service_website_url:
+            raw =  CloudinaryImage(self.service_website_url, type='url2png')
             return raw.build_url(crop='fill',
                       width=300,
-                      height=200,
+                      height=350,
                       gravity="north",
                       sign_url=True)
         else:
@@ -203,8 +207,12 @@ HomePage.content_panels = [
 
 PCCPage.content_panels = [
     FieldPanel('title', classname="full title"),
+    FieldPanel('service_name', classname="full"),
     FieldPanel('content', classname="full"),
-    FieldPanel('browsershot_url', classname="full")
+    FieldPanel('service_website_url', classname="full"),
+    FieldPanel('service_phone_number', classname="full"),
+    FieldPanel('phoneline_cost', classname="full"),
+    FieldPanel('service_opening_hours', classname="full"),
 ]
 
 
