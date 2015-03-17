@@ -126,6 +126,7 @@ from django.conf import global_settings
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
+    'core.context_processors.globals',
 )
 
 
@@ -207,6 +208,8 @@ EXPORT_ZIP_NAME = 'vis-export'
 EXPORT_EMAIL_SUBJECT = 'VIS - Export'
 EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
 EXPORT_RECIPIENTS = []
+
+GA_ID = os.environ.get('GA_ID', '')
 
 
 try:
