@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from cloudinary import CloudinaryImage
 from django.db import models
 from django.shortcuts import redirect
@@ -38,6 +39,26 @@ class SimplePage(JadePageMixin, Page):
         if parent.specific_class == MultiPagePage:
             context['show_siblings'] = True
         return context
+
+    @cached_property
+    def live_siblings(self):
+        return [x for x in self.get_siblings() if x.live]
+
+    def get_prev_live_sibling(self):
+        siblings = self.live_siblings
+        od = OrderedDict([(x.pk,x) for x in siblings])
+        index = od.keys().index(self.pk)
+
+        if index > 0:
+            return siblings[index - 1]
+
+    def get_next_live_sibling(self):
+        siblings = self.live_siblings
+        od = OrderedDict([(x.pk,x) for x in siblings])
+        index = od.keys().index(self.pk)
+
+        if index + 1 < len(siblings):
+            return siblings[index + 1]
 
 
 class ObjectListMixin(object):
