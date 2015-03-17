@@ -52,6 +52,15 @@
   @include grid-column( 2/3 );
   @include font-18;
 }
+.SiteFooter-contact {
+  border-bottom: 1px solid $grey;
+  padding-bottom: 0.926em;
+  margin-bottom: 1.389em;
+}
+.SiteFooter-contactNum {
+  @include font-27(700);
+  display: block;
+}
 .SiteFooter-contentTitle {
   @include font-27(700);
 }
