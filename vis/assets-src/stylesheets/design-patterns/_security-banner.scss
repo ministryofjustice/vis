@@ -30,41 +30,31 @@
   }
 
   @include media(desktop) {
-    padding-left: 70px;
+    padding-left: 37px;
 
     &:before {
-      font-size: 50px;
+      font-size: 22px;
       top: 7px;
     }
   }
 }
-.SecurityBanner-title {
-  @include font-27(700);
-  color: $white;
-
-  @include media(desktop) {
-    float: left;
-    width: 66%;
-  }
-}
 .SecurityBanner-content {
   @include font-18;
-  margin: 2px 0 0;
+  margin: 0;
 
   @include media(desktop) {
     float: left;
     width: 66%;
+    margin-top: 7px;
   }
 }
 .SecurityBanner-options {
   @include font-18(500);
-  margin: 15px 0 10px;
+  margin: 15px 0 0;
 
   @include media(desktop) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px 0 0;
+    float: right;
+    margin: 0;
   }
 
   .Button {
