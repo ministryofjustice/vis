@@ -23,34 +23,15 @@
 
     closeClick: function (evt) {
       evt.preventDefault();
-      if (this.hasLocalStorage()) {
-        localStorage.setItem(this.storageKey, true);
-      }
+      $.cookie('vis', true, { path: '/' });
       this.$banner.remove();
     },
 
-    hasLocalStorage: function () {
-      var test = 'test';
-      try {
-        localStorage.setItem(test, test);
-        localStorage.removeItem(test);
-        return true;
-      } catch (e) {
-        return false;
-      }
-    },
-
     isDisabled: function () {
-      if (this.hasLocalStorage()) {
-        return localStorage.getItem(this.storageKey);
+      if ($.cookie('vis')) {
+        return true;
       }
       return false;
-    },
-
-    reset: function () {
-      if (this.hasLocalStorage()) {
-        localStorage.clear();
-      }
     },
 
     render: function () {
