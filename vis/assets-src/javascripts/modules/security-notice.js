@@ -23,7 +23,6 @@
 
     closeClick: function (evt) {
       evt.preventDefault();
-      $.cookie('vis', true, { path: '/' });
       this.$banner.remove();
     },
 
