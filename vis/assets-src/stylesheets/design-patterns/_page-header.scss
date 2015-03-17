@@ -1,16 +1,13 @@
 .PageHeader {
-  background-color: $secondary-colour;
+  @extend %site-width-container;
 }
 .PageHeader-title {
   @include font-61(700);
   display: block;
   color: $primary-colour;
   padding-top: 0.410em;
-  padding-bottom: 0.410em;
 }
 .PageHeader-subTitle {
   @include font-41(500);
   color: $primary-colour;
-  margin-top: -0.5em;
-  padding-bottom: 0.833em;
 }

@@ -3,9 +3,8 @@
   @include columns(2);
   @include font-18;
   padding: 0 0 2.222em;
-  margin: 0 0 2.778em;
+  margin: 0;
   list-style-position: inside;
-  border-bottom: 1px solid $dark-grey;
 }
 
 .SubNavigation-menuItem {

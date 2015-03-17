@@ -90,7 +90,14 @@ class PCCPage(RoutablePageMixin, JadePageMixin, Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super(PCCPage, self).get_context(request, *args, **kwargs)
-        context['postcode'] = kwargs.get('postcode', '')
+        postcode = kwargs.get('postcode', '')
+
+        if len(postcode) > 3:
+            postcode = list(postcode)
+            postcode.insert(-3, ' ')
+            postcode = ''.join(postcode)
+
+        context['postcode'] = postcode
         return context
 
     def pcc_view(self, request, *args, **kwargs):
