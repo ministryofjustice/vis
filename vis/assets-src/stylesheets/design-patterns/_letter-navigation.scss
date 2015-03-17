@@ -1,0 +1,20 @@
+.LetterNavigation {
+  @extend %contain-floats;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5em;
+}
+.LetterNavigation-listItem {
+  @include font-27;
+  display: block;
+  float: left;
+  color: $dark-grey;
+  text-transform: uppercase;
+  margin-right: 0.65em;
+}
+.LetterNavigation-letter {
+  @include font-27(500);
+  text-transform: uppercase;
+  border-bottom: 1px solid $grey;
+  margin-bottom: 0.5em;
+}

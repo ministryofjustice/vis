@@ -1,0 +1,24 @@
+.Map {
+  @include grid-column( 1/1 );
+  position: relative;
+  margin-bottom: 3.125em;
+}
+.Map-image {
+  @include box-sizing(border-box);
+  border: 1px solid $primary-colour;
+  width: 100%;
+  display: block;
+}
+.Map-text {
+  @include font-18;
+
+  @include media(tablet) {
+    position: absolute;
+    top: 1em;
+    left: 1.75em;
+    width: 30%;
+  }
+}
+.Map-searchTerm {
+  text-transform: uppercase;
+}

@@ -39,5 +39,6 @@ vis/apps/*/original_images/
 vis/settings/local.py
 
 static/*
+vis-export
 *.sublime-project
 *.sublime-workspace

@@ -1,12 +1,33 @@
-- extends "article.jade"
+- extends "base.jade"
+- load core_tags
 
-block article_title
-  = self.title
-
-block article_content
-  dl.DefinitionList
-    - for item in object_list
-      dt
-        a(name=item.slug)
-        #{item.name}
-      dd= item.description
+block content
+  main(role="main")
+    article
+      header.PageHeader
+        - include "includes/_breadcrumb.jade"
+        h1.PageHeader-title= self.title
+      .Content
+        .Article
+          .Article-content.Article-content--full
+            - regroup object_list by get_letter as letters
+            nav
+              a(name="alphabet")
+              ul.LetterNavigation
+                - for letter in letters|fill_alphabet_blanks
+                  li.LetterNavigation-listItem
+                    - if letter.list
+                      a(href="#letter-{{ letter.grouper }}") #{letter.grouper}
+                    - else
+                      #{letter.grouper}
+            dl.DefinitionList
+              - for letter in letters
+                h2.LetterNavigation-letter
+                  a(name="letter-{{ letter.grouper }}")
+                  | #{letter.grouper}
+                - for item in letter.list
+                  dt
+                    a(name=item.slug)
+                    #{item.name}
+                  dd= item.description
+          - include "includes/_feedback-form.jade"

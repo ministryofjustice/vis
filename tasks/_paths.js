@@ -33,6 +33,7 @@
   paths.scripts.vis.push(paths.vendor + 'lodash/lodash.js');
   paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
   paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
+  paths.scripts.vis.push(paths.vendor + 'jquery-cookie/jquery.cookie.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
   paths.scripts.vis.push(paths.tmp + 'javascripts/templates.js'); // auto generated in templates task
   paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');

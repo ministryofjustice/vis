@@ -5,9 +5,8 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="arrowRight" sketch:type="MSArtboardGroup">
-            <circle id="Oval-20" fill="#000000" sketch:type="MSShapeGroup" cx="256" cy="256" r="256"></circle>
-            <path d="M138.702942,117.347778 L437.314758,205.554993 L437.314758,304.332336 L138.702942,394.585693 L138.702942,303.853027 L369.886597,254.176208 L138.702942,202.383423 L138.702942,117.347778 Z" id="Path-194" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        <g id="arrowRight" sketch:type="MSArtboardGroup" fill="#000000">
+            <path d="M493,205.521127 L57.3104326,0 L20,84.1314554 L411.157761,256 L20,430.2723 L57.3104326,512 L493,306.478873 L493,205.521127 Z" id="Path" sketch:type="MSShapeGroup"></path>
         </g>
     </g>
 </svg>

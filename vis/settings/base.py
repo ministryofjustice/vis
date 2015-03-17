@@ -59,7 +59,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
-    
+
     'zendesk',
 
     'info',
@@ -126,6 +126,7 @@ from django.conf import global_settings
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
+    'core.context_processors.globals',
 )
 
 
@@ -197,6 +198,19 @@ ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
 ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
 ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
 ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
+
+
+# EXPORT
+
+DEFAULT_FROM_EMAIL = 'noreply@digital.justice.gov.uk'
+
+EXPORT_ZIP_NAME = 'vis-export'
+EXPORT_EMAIL_SUBJECT = 'VIS - Export'
+EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
+EXPORT_RECIPIENTS = []
+
+GA_ID = os.environ.get('GA_ID', '')
+
 
 try:
     from .local import *

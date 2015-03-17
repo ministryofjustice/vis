@@ -1,8 +1,13 @@
+from cloudinary import CloudinaryImage
 from django.db import models
 from django.shortcuts import redirect
+from django.utils.functional import cached_property
+from django.conf.urls import url
+from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, MultiFieldPanel
+from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
@@ -52,9 +57,55 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
     object_class = GlossaryItem
 
 
-class PCCPage(JadePageMixin, Page):
-    content = RichTextField()
+class PCCPage(RoutablePageMixin, JadePageMixin, Page):
+    content = RichTextField(blank=True)
+    service_name = models.CharField(blank=True, max_length=2000)
+    service_website_url = models.URLField(blank=True, max_length=2000)
+    service_phone_number = models.CharField(blank=True, max_length=2000)
+    phoneline_cost = models.CharField(blank=True, max_length=2000)
+    service_opening_hours = models.CharField(blank=True, max_length=2000)
+    pcc_slug = models.SlugField(
+        help_text="Unique pcc slug, please do not change it.",
+        editable=False
+    )
+
     subpage_types = []
+
+    subpage_urls = (
+        url(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', 'pcc_view', name='pcc_postcode_view'),
+        url(r'^$', 'pcc_view', name='pcc_page'),
+    )
+
+    @cached_property
+    def get_screenshot_url(self):
+        if self.service_website_url:
+            raw =  CloudinaryImage(self.service_website_url, type='url2png')
+            return raw.build_url(crop='fill',
+                      width=300,
+                      height=350,
+                      gravity="north",
+                      sign_url=True)
+        else:
+            return ''
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(PCCPage, self).get_context(request, *args, **kwargs)
+        postcode = kwargs.get('postcode', '')
+
+        if len(postcode) > 3:
+            postcode = list(postcode)
+            postcode.insert(-3, ' ')
+            postcode = ''.join(postcode)
+
+        context['postcode'] = postcode
+        return context
+
+    def pcc_view(self, request, *args, **kwargs):
+        return TemplateResponse(
+            request,
+            self.get_template(request, *args, **kwargs),
+            self.get_context(request, *args, **kwargs)
+        )
 
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
@@ -167,7 +218,12 @@ HomePage.content_panels = [
 
 PCCPage.content_panels = [
     FieldPanel('title', classname="full title"),
-    FieldPanel('content', classname="full")
+    FieldPanel('service_name', classname="full"),
+    FieldPanel('content', classname="full"),
+    FieldPanel('service_website_url', classname="full"),
+    FieldPanel('service_phone_number', classname="full"),
+    FieldPanel('phoneline_cost', classname="full"),
+    FieldPanel('service_opening_hours', classname="full"),
 ]
 
 

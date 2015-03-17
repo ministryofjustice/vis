@@ -7,20 +7,20 @@ from .forms import SearchForm
 
 
 def pcc_search(request):
-    q = request.POST.get('q')
-    errors = None
-    if request.method == 'POST':
-        form = SearchForm(data=request.POST)
+    q = request.GET.get('q')
+    errors = []
+    if q:
+        form = SearchForm(data=request.GET)
         if form.is_valid():
+            postcode = form.cleaned_data['q']
             pcc = form.cleaned_data['pcc']
-            return redirect(pcc.url)
+            return redirect(u'%s%s/' % (pcc.url, postcode))
         else:
             errors = list(itertools.chain.from_iterable(form.errors.values()))
-    else:
-        return redirect('/')
 
     return render(request, 'pages/result_list.jade', {
             'q': q,
+            'title': 'Search results',
             'errors': errors
         }
     )
