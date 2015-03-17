@@ -1,5 +1,5 @@
 - if show_siblings
-  - with prev=self.get_prev_sibling next=self.get_next_sibling
+  - with prev=self.get_prev_live_sibling next=self.get_next_live_sibling
     - if prev or next
       nav.Pagination(role="navigation", aria-label="Pagination")
         ul.Pagination-menu
