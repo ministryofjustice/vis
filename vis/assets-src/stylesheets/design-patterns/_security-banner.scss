@@ -16,24 +16,25 @@
 .SecurityBanner-icon {
   @extend %contain-floats;
   @extend .Icon;
-  @extend .Icon--lock;
+  @extend .Icon--alert;
   position: relative;
   padding-left: 30px;
 
   &:before {
-    margin-right: 0;
+    padding-right: 0;
     position: absolute;
     left: 0;
+    top: 3px;
     font-size: 20px;
-    line-height: inherit;
     color: $secondary-colour;
   }
 
   @include media(desktop) {
-    padding-left: 60px;
+    padding-left: 70px;
 
     &:before {
       font-size: 50px;
+      top: 7px;
     }
   }
 }
@@ -51,8 +52,8 @@
   }
 }
 .SecurityBanner-options {
-  @include font-18(700);
-  margin: 15px -5px 10px;
+  @include font-18(500);
+  margin: 15px 0 10px;
 
   @include media(desktop) {
     float: right;
@@ -60,9 +61,7 @@
   }
 
   .Button {
-    margin: {
-      left: 5px;
-      right: 5px;
-    };
+    @include font-18(700);
+    margin-right: 20px;
   }
 }
