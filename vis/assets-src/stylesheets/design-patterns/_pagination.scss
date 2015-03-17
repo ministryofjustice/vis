@@ -1,11 +1,8 @@
-.Pagination {
-  margin: 3em 0;
-}
 .Pagination-menu {
   @extend %contain-floats;
   @include font-18;
   padding: 0;
-  margin: 0;
+  margin: 2.778em 0 0;
   list-style: none;
 }
 .Pagination-menuItem {

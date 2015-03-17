@@ -1,10 +1,12 @@
 .DefinitionList {
   @include font-18;
+  margin: 1.389em 0 0;
+
   dt {
     font-weight: 700;
   }
   dd {
     margin-left: 0;
-    margin-bottom: 1.250em;
+    margin-bottom: 1.389em;
   }
 }

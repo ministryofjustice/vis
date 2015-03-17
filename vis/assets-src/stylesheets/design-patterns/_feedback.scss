@@ -1,16 +1,16 @@
 .Feedback {
   @include grid-column( 1/1 );
-  margin-top: 2em;
 
   details {
+    margin-top: 2.778em;
+    padding-top: 2.778em;
     border-top: 1px solid $dark-grey;
-    padding-top: 1em;
   }
 }
 .Feedback-label {
   @include font-18;
   display: block;
-  margin: 1em 0;
+  margin: 1.389em 0;
 }
 .Feedback-textarea {
   @include font-18;
@@ -22,8 +22,8 @@
 }
 .Feedback-submit {
   @include font-18;
-  margin-top: 1em;
+  margin-top: 1.389em;
 }
 .Feedback-success {
-  padding-top: 1.5em;
+  padding-top: 1.563em;
 }

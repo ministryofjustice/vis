@@ -1,8 +1,8 @@
 details {
+  @include font-18;
   display: block;
 
   summary {
-    @include font-18;
     display: block;
     color: $link-colour;
     cursor: pointer;
