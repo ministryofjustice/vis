@@ -81,7 +81,7 @@ class SearchForm(forms.Form):
         police_force = self._get_police_force(lat, lng)
 
         try:
-            return PCCPage.objects.get(slug=police_force)
+            return PCCPage.objects.get(pcc_slug=police_force)
         except PCCPage.DoesNotExist:
             pass
 

@@ -64,6 +64,10 @@ class PCCPage(RoutablePageMixin, JadePageMixin, Page):
     service_phone_number = models.CharField(blank=True, max_length=2000)
     phoneline_cost = models.CharField(blank=True, max_length=2000)
     service_opening_hours = models.CharField(blank=True, max_length=2000)
+    pcc_slug = models.SlugField(
+        help_text="Unique pcc slug, please do not change it.",
+        editable=False
+    )
 
     subpage_types = []
 
