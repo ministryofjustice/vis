@@ -29,6 +29,11 @@ class SearchForm(forms.Form):
     lat = forms.CharField(required=False)
     lng = forms.CharField(required=False)
 
+    def clean_q(self):
+        q = self.cleaned_data.get('q', '')
+        q = q.replace(" ", "")
+        return q
+
     def _clean_geo(self):
         lat = self.cleaned_data.get('lat')
         lng = self.cleaned_data.get('lng')

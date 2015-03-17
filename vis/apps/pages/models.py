@@ -2,9 +2,12 @@ from cloudinary import CloudinaryImage
 from django.db import models
 from django.shortcuts import redirect
 from django.utils.functional import cached_property
+from django.conf.urls import url
+from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, MultiFieldPanel
+from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
@@ -54,12 +57,16 @@ class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
     object_class = GlossaryItem
 
 
-class PCCPage(JadePageMixin, Page):
+class PCCPage(RoutablePageMixin, JadePageMixin, Page):
     content = RichTextField()
     browsershot_url = models.URLField(blank=True, max_length=2000)
 
     subpage_types = []
 
+    subpage_urls = (
+        url(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', 'pcc_view', name='pcc_postcode_view'),
+        url(r'^$', 'pcc_view', name='pcc_page'),
+    )
 
     @cached_property
     def get_screenshot_url(self):
@@ -72,6 +79,19 @@ class PCCPage(JadePageMixin, Page):
                       sign_url=True)
         else:
             return ''
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(PCCPage, self).get_context(request, *args, **kwargs)
+        context['postcode'] = kwargs.get('postcode', '')
+        return context
+
+    def pcc_view(self, request, *args, **kwargs):
+        return TemplateResponse(
+            request,
+            self.get_template(request, *args, **kwargs),
+            self.get_context(request, *args, **kwargs)
+        )
+
 
 class PCCListPage(ObjectListMixin, JadePageMixin, Page):
     object_class = PCCPage
