@@ -50,6 +50,22 @@
     @extend .visuallyhidden;
   }
 }
+.SearchForm-labelText {
+  @extend .visuallyhidden;
+
+  @include ie-lte(9) {
+    @include font-18(500);
+    color: $primary-colour;
+    text-align: left;
+    position: relative;
+    left: auto;
+    display: block;
+
+    .SearchForm--compact & {
+      color: $white;
+    }
+  }
+}
 .SearchForm-wrap {
   @extend %contain-floats;
 

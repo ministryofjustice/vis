@@ -1,6 +1,7 @@
 form.SearchForm(action="/police/search/", method="get", class="{% if modifier %}SearchForm--{{ modifier }}{% endif %}")
   label.SearchForm-label(for="q") If you've been a victim of crime, there is help and support near you
   .SearchForm-wrap
+    span.SearchForm-labelText Enter your postcode
     input.SearchForm-query(name="q", id="q", placeholder="Enter your postcode", type="text")
     button.Button.SearchForm-submit(type="submit")
       span.SearchForm-submitText Find your local care team
