@@ -1,6 +1,12 @@
 machine:
   environment:
     DJANGO_SETTINGS_MODULE: vis.settings.heroku
+    GIT_COMMITTER_NAME: circleci
+    GIT_AUTHOR_NAME: circleci
+    GIT_AUTHOR_EMAIL: circleci@example.com
+  post:
+    - git config --global user.email "circleci@exmaple.com"
+    - git config --global user.name "circleci"
 
 general:
   branches:
@@ -16,17 +22,19 @@ test:
   pre:
     - node_modules/.bin/gulp build:prod
     - python manage.py collectstatic --noinput
+  post:
+      - git add ./vis/assets/ ./static/ -f
+      - git commit -m "deploy"
 
 deployment:
   staging:
     branch: develop
     commands:
-      - git push git@heroku.com:vis-staging.git $CIRCLE_SHA1:master -f
+      - git push git@heroku.com:vis-staging.git HEAD:master -f
       - heroku run python manage.py migrate --noinput --app vis-staging
   production:
     branch: master
     commands:
-      - git add ./static/ -f
-      - git push git@heroku.com:vis-prod.git $CIRCLE_SHA1:master -f
+      - git push git@heroku.com:vis-prod.git HEAD:master -f
       - heroku run python manage.py migrate --noinput --app vis-prod
 
