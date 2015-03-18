@@ -1,0 +1,7 @@
+if errors
+  .Error-summary
+    h1.Error-heading There was a problem submitting the form
+    p Because of the following problems:
+    ol.Error-list
+      each error in errors
+        li.Error= error
