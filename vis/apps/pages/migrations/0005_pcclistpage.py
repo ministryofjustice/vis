@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import pages.mixins
+import wagtailextra.mixins
 import pages.models
 
 
@@ -22,6 +22,6 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
-            bases=(pages.models.ObjectListMixin, pages.mixins.JadePageMixin, 'wagtailcore.page'),
+            bases=(pages.models.ObjectListMixin, wagtailextra.mixins.JadePageMixin, 'wagtailcore.page'),
         ),
     ]
