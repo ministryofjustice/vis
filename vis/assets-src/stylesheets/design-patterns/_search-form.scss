@@ -83,7 +83,7 @@
     float: left;
 
     .SearchForm--compact & {
-      width: 205px;
+      width: 198px;
     }
   }
 
@@ -148,9 +148,17 @@
     &:after {
       display: none;
     }
+    &:active {
+      top: 2px;
+    }
+    &:focus {
+      position: relative;
+    }
 
     .SearchForm--compact & {
       width: auto;
+      padding-left: 0.667em;
+      padding-right: 0.667em;
     }
   }
 
