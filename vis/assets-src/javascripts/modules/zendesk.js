@@ -3,8 +3,9 @@
 
   vis.Modules.zendesk = {
     selector: '.js-Zendesk',
-    successTemplate: vis.templatizer.Zendesk.success(),
-    errorTemplate: vis.templatizer.Zendesk.error(),
+    successTemplate: vis.templatizer.Zendesk.success,
+    failTemplate: vis.templatizer.Zendesk.fail,
+    errorsTemplate: vis.templatizer.Zendesk.errors,
 
     init: function () {
       _.bindAll(this, 'render', 'submit', 'feedbackSuccess', 'feedbackFail');
@@ -14,6 +15,7 @@
 
     cacheEls: function () {
       this.$form = $(this.selector);
+      this.$feedback = this.$form.find('[name="comments"]');
       this.$submitBtn = this.$form.find('button[type="submit"]');
     },
 
@@ -29,19 +31,37 @@
     },
 
     feedbackSuccess: function (resp) {
-      this.$form.replaceWith(this.successTemplate);
+      this.$form.replaceWith(this.successTemplate());
     },
 
     feedbackFail: function (resp) {
-      this.$form.find('.Error').remove();
-      this.$form.prepend(this.errorTemplate);
+      this.setErrors(['There was an error submitting the form, please try again']);
+    },
+
+    setErrors: function (errors) {
+      this.$form.find('.Error-summary').remove();
+      this.$form.prepend(this.errorsTemplate({ errors: errors }));
       this.$submitBtn.prop('disabled', false);
+    },
+
+    isValid: function () {
+      if (this.$feedback.val() === '') {
+        this.setErrors(['Your comment cannot be blank']);
+        return false;
+      }
+      this.$form.find('.Error-summary').remove();
+      return true;
     },
 
     submit: function (evt) {
       evt.preventDefault();
       this.$submitBtn.prop('disabled', true);
-      this.sendFeedback(this.$form.serialize());
+
+      if (this.isValid()) {
+        this.sendFeedback(this.$form.serialize());
+      } else {
+        this.$submitBtn.prop('disabled', false);
+      }
     },
 
     render: function () {
