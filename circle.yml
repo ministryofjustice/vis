@@ -26,6 +26,7 @@ deployment:
   production:
     branch: master
     commands:
+      - git add ./static/ -f
       - git push git@heroku.com:vis-prod.git $CIRCLE_SHA1:master -f
       - heroku run python manage.py migrate --noinput --app vis-prod
 
