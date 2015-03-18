@@ -91,6 +91,11 @@ a.SiteHeader-menuToggle {
     margin-left: 0;
     margin-right: 0;
     clear: none;
+
+    @include ie-lte(8) {
+      min-width: 1%;
+      width: auto;
+    }
   }
 
   .js-enabled & {
@@ -108,18 +113,17 @@ a.SiteHeader-menuToggle {
 .SiteHeader-menuList {
   @extend %contain-floats;
   @extend %site-width-container;
-  @include font-18;
+  @include font-18(500);
   padding: 12px 0;
   list-style: none;
-  font-weight: 500;
 
   @include media(desktop) {
-    font-weight: 500;
     padding: 7px 0;
     margin: 0;
 
     @include ie-lte(8) {
       min-width: 1%;
+      width: auto;
     }
   }
 }
