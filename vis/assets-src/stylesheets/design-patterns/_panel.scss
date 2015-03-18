@@ -12,6 +12,17 @@
     text-align: center;
   }
 }
+.Panel-rowSubHeading {
+  @include font-18(500);
+  color: $primary-colour;
+  margin: 1.389em 0;
+  padding: 0;
+  overflow: visible;
+
+  @include media(tablet) {
+    text-align: center;
+  }
+}
 .Panel {
   @include font-18;
   margin: 2.778em 0;
