@@ -9,7 +9,8 @@
   gulp.task('sass', ['iconfont'], function() {
     return sass(paths.src + 'stylesheets/', {
         lineNumbers: true,
-        compass: true,
+        compass: false,
+        bundleExec: true,
         style: 'compact',
         loadPath: ['vis/assets-src/vendor/', 'node_modules/']
       })
