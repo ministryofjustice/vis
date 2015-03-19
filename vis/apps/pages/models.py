@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from cloudinary import CloudinaryImage
+
 from django.db import models
 from django.shortcuts import redirect
 from django.utils.functional import cached_property
@@ -7,28 +8,32 @@ from django.conf.urls import url
 from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
-    PageChooserPanel, MultiFieldPanel
+    PageChooserPanel
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailcore.models import Page, Orderable
-from django.utils.translation import ugettext_lazy
+from wagtail.wagtailcore.models import Orderable
+
+from wagtailextra.models import BaseVISPage
+from wagtailextra.mixins import ObjectListMixin
 
 from modelcluster.fields import ParentalKey
 
 from info.models import GlossaryItem
 
-from .mixins import JadePageMixin
 
+from .wagtail_constants import COMMON_PROMOTE_PANELS, \
+    SIMPLEPAGE_PROMOTE_PANELS
 
 # #### PAGES
 
-class HomePage(JadePageMixin, Page):
+
+class HomePage(BaseVISPage):
     pass
 
 
-class SimplePage(JadePageMixin, Page):
+class SimplePage(BaseVISPage):
     content = RichTextField()
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
     subpage_types = []
@@ -61,24 +66,11 @@ class SimplePage(JadePageMixin, Page):
             return siblings[index + 1]
 
 
-class ObjectListMixin(object):
-    object_class = None
-    subpage_types = []
-
-    def get_context(self, request, *args, **kwargs):
-        context = super(ObjectListMixin, self).get_context(
-            request, *args, **kwargs
-        )
-
-        context['object_list'] = self.object_class.objects.all()
-        return context
-
-
-class GlossaryPage(ObjectListMixin, JadePageMixin, Page):
+class GlossaryPage(ObjectListMixin, BaseVISPage):
     object_class = GlossaryItem
 
 
-class PCCPage(RoutablePageMixin, JadePageMixin, Page):
+class PCCPage(RoutablePageMixin, BaseVISPage):
     content = RichTextField(blank=True)
     service_name = models.CharField(blank=True, max_length=2000)
     service_website_url = models.URLField(blank=True, max_length=2000)
@@ -129,12 +121,12 @@ class PCCPage(RoutablePageMixin, JadePageMixin, Page):
         )
 
 
-class PCCListPage(ObjectListMixin, JadePageMixin, Page):
+class PCCListPage(ObjectListMixin, BaseVISPage):
     object_class = PCCPage
     subpage_types = []
 
 
-class MultiPagePage(JadePageMixin, Page):
+class MultiPagePage(BaseVISPage):
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)
     subpage_types = ['pages.SimplePage']
 
@@ -143,6 +135,7 @@ class MultiPagePage(JadePageMixin, Page):
         if len(children):
             return redirect(children[0].url)
         return super(MultiPagePage, self).serve(request, *args, **kwargs)
+
 
 # #### PAGE COMPONENTS
 
@@ -208,16 +201,6 @@ class SimplePageGlosseryItems(Orderable, models.Model):
 
 # #### PAGE ADMIN
 
-COMMON_PROMOTE_PANELS = [
-    MultiFieldPanel([
-        FieldPanel('slug'),
-        FieldPanel('seo_title'),
-        FieldPanel('show_in_menus'),
-        FieldPanel('menu_title'),
-        FieldPanel('search_description'),
-    ], ugettext_lazy('Common page configuration')),
-]
-
 
 SimplePage.content_panels = [
     FieldPanel('title', classname="full title"),
@@ -225,9 +208,7 @@ SimplePage.content_panels = [
 
     InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
 ]
-
-
-SimplePage.promote_panels = COMMON_PROMOTE_PANELS
+SimplePage.promote_panels = SIMPLEPAGE_PROMOTE_PANELS
 
 
 HomePage.content_panels = [
@@ -236,6 +217,8 @@ HomePage.content_panels = [
     InlinePanel(HomePage, 'panels', label="Panels"),
     InlinePanel(HomePage, 'promo_panels', label="Promo Panels"),
 ]
+HomePage.promote_panels = COMMON_PROMOTE_PANELS
+
 
 PCCPage.content_panels = [
     FieldPanel('title', classname="full title"),
@@ -246,9 +229,13 @@ PCCPage.content_panels = [
     FieldPanel('phoneline_cost', classname="full"),
     FieldPanel('service_opening_hours', classname="full"),
 ]
+PCCPage.promote_panels = COMMON_PROMOTE_PANELS
 
 
 MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS
+GlossaryPage.promote_panels = COMMON_PROMOTE_PANELS
+PCCListPage.promote_panels = COMMON_PROMOTE_PANELS
+
 
 # HOOKS
 

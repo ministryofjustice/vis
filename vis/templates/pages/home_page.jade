@@ -8,22 +8,27 @@ block content
     .Content
       - include "includes/_local-search.jade"
   section.Content
-    - for panel in self.lead_panels.all
+    for panel in self.lead_panels.all
       - include "includes/panels/_icon--fullWidth.jade"
   section.ColourRow.ColourRow--grey
     .Content
-      h1.Panel-rowHeading What's happened to you?
+      h1.Panel-rowHeading Getting specialist help after a crime
+      h2.Panel-rowSubHeading
+        | Everyone is entitled to support after a crime.
+        br
+        | In some situations you might need specialist support.
       ul.ColumnList
-        - for panel in self.panels.all
-          li.ColumnList-item(class="{% if forloop.counter0|divisibleby:3 and forloop.counter0 > 0 %}is-rowStart{% endif %}")
-            if panel.link_page
-              a(href="#{panel.link_page.url}") #{panel.title}
-            else
-              #{panel.title}
+        for panel in self.panels.all
+          if panel.link_page.live or not panel.link_page
+            li.ColumnList-item(class="{% if forloop.counter0|divisibleby:3 and forloop.counter0 > 0 %}is-rowStart{% endif %}")
+              if panel.link_page
+                a(href="#{panel.link_page.url}") #{panel.title}
+              else
+                #{panel.title}
   section
     .Content
       .Panel-row
-        - for panel in self.promo_panels.all
+        for panel in self.promo_panels.all
           - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
             </div><div class="Panel-row">
           - include "includes/panels/_icon.jade"
