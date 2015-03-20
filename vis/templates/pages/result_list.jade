@@ -3,9 +3,10 @@
 
 block content
   main(role="main")
+    - include "includes/_breadcrumb.jade"
     header.PageHeader
-      - include "includes/_breadcrumb.jade"
-      h1.PageHeader-title Sorry, we don't recognise that location
+      .PageHeader-row
+        h1.PageHeader-title Sorry, we don't recognise that location
     .Content
       article.Article
         .Article-content.Article-content--full

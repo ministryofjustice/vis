@@ -1,13 +1,14 @@
 h1 {
-  @include font-61(700);
+  @include font-43(700);
+  margin: 0 0 1.163em;
 }
 h2 {
-  @include font-41(500);
-  margin: 0 0 0.610em;
+  @include font-32(500);
+  margin: 0 0 0.781em;
 }
 h3 {
-  @include font-27(500);
-  margin: 0 0 0.926em;
+  @include font-24(500);
+  margin: 0 0 1.042em;
 }
 h4 {
   @include font-18(700);
@@ -41,7 +42,6 @@ p, ul, ol {
 
 .Article {
   @extend %grid-row;
-  padding-top: 3.125em;
 }
 .Article-content {
   @include grid-column( 2/3 );
