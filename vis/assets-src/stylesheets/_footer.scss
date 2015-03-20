@@ -63,11 +63,12 @@
   margin-bottom: 1.389em;
 }
 .SiteFooter-contactNum {
-  @include font-27(700);
+  @include font-24(700);
   display: block;
 }
 .SiteFooter-contentTitle {
-  @include font-27(700);
+  @include font-24(700);
+  margin-bottom: 1.042em;
 }
 .SiteFooter-nav {
   @include font-18;

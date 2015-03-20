@@ -3,14 +3,19 @@
 block content
   main(role="main")
     article
+      - include "includes/_breadcrumb.jade"
       header.PageHeader
-        - include "includes/_breadcrumb.jade"
-        h1.PageHeader-title
-          block article_title
-        block article_subtitle
+        .PageHeader-row
+          h1.PageHeader-title
+            block article_title
+          block article_subtitle
       .Content
         .Article
           section.Article-content
+            //- h1 Support after the crime and getting through the justice process
+            //- h2 Support after the crime and getting through the justice process
+            //- h3 Support after the crime and getting through the justice process
+            //- h4 Support after the crime and getting through the justice process
             - include "includes/_sub-navigation.jade"
             block article_content
             - include "includes/_pagination.jade"
