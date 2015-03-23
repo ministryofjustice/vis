@@ -15,6 +15,7 @@ def editor_js():
     js_files = [
         'wagtailextra/js/hallo-plugins/hallo-anchoredwagtaillink.js',
         'wagtailextra/js/hallo-plugins/hallo-disallowpastefromword.js',
+        'wagtailextra/js/page-editor.js',
     ]
     js_includes = format_html_join('\n', '<script src="{0}{1}"></script>',
         ((settings.STATIC_URL, filename) for filename in js_files)

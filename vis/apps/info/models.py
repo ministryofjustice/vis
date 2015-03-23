@@ -6,6 +6,8 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailsnippets.models import register_snippet
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
+from wagtailextra.edit_handlers import ConfigurableRichTextFieldPanel
+
 
 @register_snippet
 class GlossaryItem(models.Model):
@@ -25,7 +27,11 @@ class GlossaryItem(models.Model):
 
     panels = [
         FieldPanel('name', classname="full title"),
-        FieldPanel('description', classname="full"),
+        ConfigurableRichTextFieldPanel(
+            'description', """{
+                'hallowagtaillink': {}
+            }"""
+        ),
     ]
 
     class Meta:
