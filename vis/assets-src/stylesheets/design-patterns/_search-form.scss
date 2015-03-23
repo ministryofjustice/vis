@@ -36,14 +36,19 @@
 }
 .SearchForm-label {
   @extend .visuallyhidden;
-  @include font-27(500);
+  @include font-32(800);
   color: $primary-colour;
 
   @include media(desktop) {
     position: relative;
     left: auto;
+    line-height: 1;
+    margin: 0 auto;
     display: block;
-    padding-bottom: 0.833em;
+    width: 70%;
+    padding: {
+      bottom: 0.781em;
+    };
   }
 
   .SearchForm--compact & {
@@ -101,6 +106,11 @@
     .SearchForm--compact & {
       width: 198px;
     }
+  }
+
+  @include ie(7) {
+    height: 30px;
+    width: 235px;
   }
 
   &::-webkit-input-placeholder {

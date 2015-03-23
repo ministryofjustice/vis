@@ -7,4 +7,4 @@ register = template.Library()
 
 @register.assignment_tag
 def get_pcc_list():
-    return PCCPage.objects.all()
+    return PCCPage.objects.live()

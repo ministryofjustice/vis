@@ -125,6 +125,9 @@ class PCCListPage(ObjectListMixin, BaseVISPage):
     object_class = PCCPage
     subpage_types = []
 
+    def get_object_list_queryset(self):
+        return self.object_class.objects.live()
+
 
 class MultiPagePage(BaseVISPage):
     menu_title = models.CharField(max_length=255, help_text="Menu title", blank=True)

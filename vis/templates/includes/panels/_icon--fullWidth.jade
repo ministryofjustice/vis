@@ -1,7 +1,8 @@
 if panel.link_page.live or not panel.link_page
   article.Panel.Panel--fullWidth.Panel--icon
     a.Icon(href="#{panel.link_page.url}", class="Icon--#{panel.icon_classname}")
-    h1.Panel-heading.Panel-heading--chevron
-     a(href="#{panel.link_page.url}") #{panel.title}
+    h1.Panel-heading
+     a(href="#{panel.link_page.url}")
+      span.Panel-headingText #{panel.title}
     .Panel-content
       p= panel.content

@@ -3,11 +3,12 @@
 block content
   main(role="main")
     article
+      - include "includes/_breadcrumb.jade"
       header.PageHeader
-        - include "includes/_breadcrumb.jade"
-        h1.PageHeader-title
-          block article_title
-        block article_subtitle
+        .PageHeader-row
+          h1.PageHeader-title
+            block article_title
+          block article_subtitle
       .Content
         .Article
           section.Article-content

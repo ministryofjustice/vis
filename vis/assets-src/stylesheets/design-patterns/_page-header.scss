@@ -1,13 +1,21 @@
 .PageHeader {
   @extend %site-width-container;
 }
+.PageHeader-row {
+  @extend %grid-row;
+}
 .PageHeader-title {
-  @include font-61(700);
-  display: block;
+  @include grid-column( 2/3 );
+  @include font-43(800);
   color: $primary-colour;
-  padding-top: 0.410em;
+  margin-top: 0.581em;
+
+  // margins ignored when floated in IE7
+  @include ie(7) {
+    float: none;
+  }
 }
 .PageHeader-subTitle {
-  @include font-41(500);
+  @include font-32(500);
   color: $primary-colour;
 }

@@ -10,6 +10,7 @@
   }
 }
 .MetaPanel-title {
-  @include font-27(500);
+  @include font-24(500);
   color: $primary-colour;
+  margin-bottom: 1.042em;
 }

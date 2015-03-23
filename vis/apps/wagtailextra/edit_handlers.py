@@ -22,3 +22,19 @@ def CoreFieldPanel(field_name, classname=""):
         'field_name': field_name,
         'classname': classname,
     })
+
+
+class BaseConfigurableRichTextFieldPanel(BaseFieldPanel):
+    def render_js(self):
+        return mark_safe(
+            "makeAndConfigureRichTextEditable(fixPrefix('%s'), %s);" % (
+                self.bound_field.id_for_label, self.plugins
+            )
+        )
+
+
+def ConfigurableRichTextFieldPanel(field_name, plugins):
+    return type(str('_RichTextFieldPanel'), (BaseConfigurableRichTextFieldPanel,), {
+        'field_name': field_name,
+        'plugins': plugins
+    })

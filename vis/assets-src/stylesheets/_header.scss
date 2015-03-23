@@ -11,18 +11,22 @@
 
 .SiteHeader {
   background-color: $primary-colour;
-  padding-top: 15px;
+  // padding-top: 15px;
 }
 .SiteHeader-inner {
   @extend %site-width-container;
   @extend %contain-floats;
 }
 .SiteHeader-title {
-  @include font-27(700);
-  padding: 0 0 15px;
+  @include font-24(800);
+  font-size: 20px;
+  padding: 15px 0;
   margin: 0;
   color: $white;
 
+  @include media(tablet) {
+    font-size: 20px;
+  }
   @include media(desktop) {
     float: left;
   }
@@ -114,11 +118,11 @@ a.SiteHeader-menuToggle {
   @extend %contain-floats;
   @extend %site-width-container;
   @include font-18(500);
-  padding: 12px 0;
+  padding: 13px 0 12px;
   list-style: none;
 
   @include media(desktop) {
-    padding: 7px 0;
+    // padding: 7px 0;
     margin: 0;
 
     @include ie-lte(8) {

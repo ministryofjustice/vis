@@ -5,6 +5,11 @@
   padding: 2.778em 0;
   margin: 2.778em 0 0;
 
+  // hasLayout trigger
+  @include ie(7) {
+    zoom: 1;
+  }
+
   a {
     color: $white;
   }
@@ -63,11 +68,12 @@
   margin-bottom: 1.389em;
 }
 .SiteFooter-contactNum {
-  @include font-27(700);
+  @include font-24(700);
   display: block;
 }
 .SiteFooter-contentTitle {
-  @include font-27(700);
+  @include font-24(700);
+  margin-bottom: 1.042em;
 }
 .SiteFooter-nav {
   @include font-18;
