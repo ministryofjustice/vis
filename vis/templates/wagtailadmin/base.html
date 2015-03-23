@@ -1,7 +1,21 @@
 {% extends "wagtailadmin/admin_base.html" %}
 {% load i18n %}
-{% load wagtailadmin_tags wagtailcore_tags %}
+{% load wagtailadmin_tags wagtailcore_tags wagtailextra_tags %}
+
+{% block css %}{{ block.super }}
+  <style type="text/css">
+    .admin-notice {
+      background: #333;
+      color: #fff;
+      padding: 0.5em 1em;
+      margin: 0;
+      font-weight: bold;
+    }
+  </style>
+{% endblock %}
+
 {% block furniture %}
+
 <div class="nav-wrapper">
   <div class="inner">
     {% block branding_logo %}
@@ -36,6 +50,10 @@
     </div>
 
     <div id="nav-toggle" class="icon text-replace">{% trans "Menu" %}</div>
+
+    {% if user|is_pcc_user %}
+      <p class="admin-notice">This is a national government website. The local update facility is specifically and exclusively to allow Police and Crime Commissioners to input the best quality and up to date content on contacts for local support arrangements.</p>
+    {% endif %}
 
     {% block content %}{% endblock %}
   </div>
