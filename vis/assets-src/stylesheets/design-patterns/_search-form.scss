@@ -108,6 +108,11 @@
     }
   }
 
+  @include ie(7) {
+    height: 30px;
+    width: 235px;
+  }
+
   &::-webkit-input-placeholder {
     text-transform: none;
   }

@@ -5,6 +5,11 @@
   padding: 2.778em 0;
   margin: 2.778em 0 0;
 
+  // hasLayout trigger
+  @include ie(7) {
+    zoom: 1;
+  }
+
   a {
     color: $white;
   }
