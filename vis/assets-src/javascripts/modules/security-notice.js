@@ -6,9 +6,9 @@
     storageKey: 'securityDisabled',
 
     init: function () {
-      _.bindAll(this, 'render', 'closeClick');
-      this.cacheEls();
-      this.bindEvents();
+      // _.bindAll(this, 'render', 'closeClick');
+      // this.cacheEls();
+      // this.bindEvents();
     },
 
     cacheEls: function () {
