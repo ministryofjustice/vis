@@ -7,19 +7,18 @@ block head
 block content
   main(role="main")
     - include "includes/_breadcrumb.jade"
-    header.PageHeader
-      .PageHeader-row
-        h1.PageHeader-title= self.title
     .Content
       article.Article
         .Map
-          - if postcode
-            h2.Map-text
-              strong.Map-searchTerm #{postcode}
-              | &nbsp;is covered by the #{self.title} support team
-          img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.pcc_slug }}.png")
+          .Map-content
+            h1.Map-title= self.title
+            - if postcode
+              h2.Map-text
+                strong.Map-searchTerm #{postcode}
+                | &nbsp;is covered by the #{self.title} support team
+          img.Map-image(src="{% static '' %}images/pcc-maps/metropolitan.png")
         .Article-content
-          h2 #{self.service_name}
+          h2 Support in #{self.title}
           #{ self.content|richtext }
           - if self.service_website_url
             p
