@@ -13,10 +13,7 @@ block content
   section.ColourRow.ColourRow--grey
     .Content
       h1.Panel-rowHeading Getting specialist help after a crime
-      h2.Panel-rowSubHeading
-        | Everyone is entitled to support after a crime.
-        br
-        | In some situations you might need specialist support.
+      h2.Panel-rowSubHeading Everyone is entitled to support after a crime. In some situations you might need specialist support. Choose the crime that matches your situation.
       ul.ColumnList
         for panel in self.panels.all
           if panel.link_page.live or not panel.link_page

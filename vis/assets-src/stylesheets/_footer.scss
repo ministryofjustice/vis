@@ -64,8 +64,11 @@
 }
 .SiteFooter-contact {
   border-bottom: 1px solid $grey;
-  padding-bottom: 0.926em;
   margin-bottom: 1.389em;
+}
+.SiteFooter-contactTerms {
+  @include font-16;
+  margin-top: -1.389em;
 }
 .SiteFooter-contactNum {
   @include font-24(700);

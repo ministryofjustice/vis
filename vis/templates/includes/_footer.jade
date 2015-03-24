@@ -4,9 +4,11 @@ footer.SiteFooter(role="contentinfo")
     .SiteFooter-row
       .SiteFooter-content
         - include "includes/_local-search.jade" with modifier="compact"
-        p.SiteFooter-contact
-          | For advice, help and support call&nbsp;
-          strong.SiteFooter-contactNum 0808 138 9293
+        .SiteFooter-contact
+          p
+            | For information or if you're having problems with this site call&nbsp;
+            strong.SiteFooter-contactNum 0808 138 9293
+          p.SiteFooter-contactTerms It's free from a landline, but you may be charged if you call from a mobile
         h2.SiteFooter-contentTitle About Victims' Information Service
         p='about'|dynamic_content
         nav
