@@ -7,7 +7,7 @@ from django.conf.urls import url
 from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
-    PageChooserPanel
+    PageChooserPanel, PublishingPanel
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -82,6 +82,12 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
         help_text="Unique pcc slug, please do not change it.",
         editable=False
     )
+    show_generic_content = models.BooleanField(
+        default=False,
+        help_text="If ticked, it will render generic content instead.\
+            You would still be able to preview the edited content but it \
+            would not go live until this flag in unticked."
+    )
 
     subpage_types = []
 
@@ -101,6 +107,7 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
     def get_context(self, request, *args, **kwargs):
         context = super(PCCPage, self).get_context(request, *args, **kwargs)
         postcode = kwargs.get('postcode', '')
+        in_preview_mode = kwargs.get('in_preview_mode', False)
 
         if len(postcode) > 3:
             postcode = list(postcode)
@@ -108,7 +115,13 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
             postcode = ''.join(postcode)
 
         context['postcode'] = postcode
+        context['in_preview_mode'] = in_preview_mode
         return context
+
+    def serve_preview(self, request, mode_name):
+        view, args, kwargs = self.resolve_subpage('/')
+        kwargs['in_preview_mode'] = True
+        return view(request, *args, **kwargs)
 
     def pcc_view(self, request, *args, **kwargs):
         return TemplateResponse(
@@ -230,6 +243,10 @@ PCCPage.content_panels = [
     FieldPanel('service_opening_hours', classname="full"),
 ]
 PCCPage.promote_panels = COMMON_PROMOTE_PANELS
+PCCPage.settings_panels = [
+    PublishingPanel(),
+    FieldPanel('show_generic_content'),
+]
 
 
 MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS
