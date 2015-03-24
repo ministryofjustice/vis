@@ -21,6 +21,10 @@
 
   @include media(tablet) {
     text-align: center;
+    margin: {
+      left: 12%;
+      right: 12%;
+    };
   }
 }
 .Panel {
