@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from cloudinary import CloudinaryImage
 
 from django.db import models
 from django.shortcuts import redirect
@@ -19,6 +18,8 @@ from wagtailextra.models import BaseVISPage
 from wagtailextra.mixins import ObjectListMixin
 
 from modelcluster.fields import ParentalKey
+
+from core.url2png import Url2Png
 
 from info.models import GlossaryItem
 
@@ -92,12 +93,8 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
     @cached_property
     def get_screenshot_url(self):
         if self.service_website_url:
-            raw =  CloudinaryImage(self.service_website_url, type='url2png')
-            return raw.build_url(crop='fill',
-                      width=300,
-                      height=350,
-                      gravity="north",
-                      sign_url=True)
+            raw = Url2Png(self.service_website_url)
+            return raw.build_url()
         else:
             return ''
 

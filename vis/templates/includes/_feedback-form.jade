@@ -3,6 +3,9 @@
     summary Is there anything wrong with this page?
     form.Feedback-form.js-Zendesk(action="{% url 'zendesk' %}", method="post", novalidate)
       | {% csrf_token %}
-      label.Feedback-label(for="comments") Did you have a problem with this page? Tell us why.
+      label.Feedback-label(for="comments")
+        | Did you have a problem with this page? Tell us why.
+        br
+        | Please don't include any personal information, eg your email address.
       textarea.Feedback-textarea(cols="10", rows="3", id="comments", name="comments", required)
       button.Button.Feedback-submit(type="submit") Send feedback

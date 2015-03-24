@@ -200,6 +200,12 @@ ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 
 ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
 
 
+# URL2PNG
+
+URL2PNG_API_KEY = os.environ.get('URL2PNG_API_KEY', '')
+URL2PNG_SECRET_KEY = os.environ.get('URL2PNG_SECRET_KEY', '')
+
+
 # EXPORT
 
 DEFAULT_FROM_EMAIL = 'noreply@digital.justice.gov.uk'

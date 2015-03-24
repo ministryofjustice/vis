@@ -50,3 +50,7 @@ $is-print: false !default;
 @mixin font-18($font-weight: 400) {
   @include _core-font-generator(18px, 16px, 14pt, 25/18, 22/16, $font-weight);
 }
+
+@mixin font-16($font-weight: 400) {
+  @include _core-font-generator(16px, 14px, 12pt, 25/16, 22/14, $font-weight);
+}
