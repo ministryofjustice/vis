@@ -14,6 +14,7 @@
 }
 .SecurityBanner-heading {
   @include font-24(700);
+  color: $primary-colour;
   margin: 0;
 }
 .SecurityBanner-content {
