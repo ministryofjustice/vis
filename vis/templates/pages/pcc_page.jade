@@ -54,5 +54,6 @@ block content
           - elif self.service_website_url
             a(href=self.service_website_url)
               img.u-border(src="{% url2png self.service_website_url %}")
+          - include "includes/_security-banner.jade"
         - include "includes/_feedback-form.jade"
 
