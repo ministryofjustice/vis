@@ -1,11 +1,16 @@
 .LetterNavigation {
   @extend %contain-floats;
+  @include font-18;
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5em;
+  margin: 0 0 2.778em;
+
+  @include media(desktop) {
+    margin-bottom: 1.389em;
+  }
 }
 .LetterNavigation-listItem {
-  @include font-24;
+  @include font-24(500);
   display: block;
   float: left;
   color: $dark-grey;
@@ -13,8 +18,16 @@
   margin-right: 0.65em;
 }
 .LetterNavigation-letter {
+  @extend %contain-floats;
   @include font-24(500);
+  color: $primary-colour;
   text-transform: uppercase;
   border-bottom: 1px solid $grey;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.042em;
+  padding-bottom: 1px;
+}
+.LetterNavigation-topLink {
+  @include font-16;
+  text-transform: none;
+  float: right;
 }
