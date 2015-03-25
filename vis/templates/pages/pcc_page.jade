@@ -16,7 +16,7 @@ block content
               h2.Map-text
                 strong.Map-searchTerm #{postcode}
                 | &nbsp;is covered by the #{self.title} support team
-          img.Map-image(src="{% static '' %}images/pcc-maps/metropolitan.png")
+          img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.pcc_slug }}.png")
         .Article-content
           h2 Support in #{self.title}
           if self.show_generic_content
