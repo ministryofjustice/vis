@@ -12,6 +12,12 @@
 .u-border {
   border: 1px solid $primary-colour;
 }
+.u-line {
+  margin: 0;
+  border: 0;
+  height: 4px;
+  background: $grey;
+}
 
 // wagtail cms fix
 .responsive-object {

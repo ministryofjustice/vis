@@ -15,21 +15,24 @@ block content
             nav
               a(name="alphabet")
               ul.LetterNavigation
-                - for letter in letters|fill_alphabet_blanks
+                for letter in letters|fill_alphabet_blanks
                   li.LetterNavigation-listItem
-                    - if letter.list
-                      a(href="#letter-{{ letter.grouper }}") #{letter.grouper}
-                    - else
-                      #{letter.grouper}
+                    if letter.list
+                      a(href="#letter-{{ letter.grouper }}")= letter.grouper
+                    else
+                      = letter.grouper
+          .Article-content
             dl.DefinitionList
-              - for letter in letters
+              for letter in letters
                 h2.LetterNavigation-letter
                   a(name="letter-{{ letter.grouper }}")
-                  | #{letter.grouper}
-                - for item in letter.list
+                  = letter.grouper
+                  a.LetterNavigation-topLink(href="#alphabet") back to top
+                for item in letter.list
                   dt
                     a(name=item.slug)
-                    #{item.name}
-                  dd
-                    #{ item.description|richtext }
+                    = item.name
+                  dd #{ item.description|richtext }
+          aside.Article-meta
+            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"

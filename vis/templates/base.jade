@@ -30,7 +30,6 @@ html(lang="en", class="{% block html_class %}{% endblock %}")
   body
     script(type="text/javascript")
       document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-    - include "includes/_security-banner.jade"
     - include "includes/_site-header.jade"
     block content
     - include "includes/_footer.jade"
