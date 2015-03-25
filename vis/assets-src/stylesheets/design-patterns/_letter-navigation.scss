@@ -4,10 +4,6 @@
   list-style: none;
   padding: 0;
   margin: 0 0 2.778em;
-
-  @include media(desktop) {
-    margin-bottom: 1.389em;
-  }
 }
 .LetterNavigation-listItem {
   @include font-24(500);
