@@ -19,8 +19,6 @@ from wagtailextra.mixins import ObjectListMixin
 
 from modelcluster.fields import ParentalKey
 
-from core.url2png import Url2Png
-
 from info.models import GlossaryItem
 
 
@@ -95,14 +93,6 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
         url(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', 'pcc_view', name='pcc_postcode_view'),
         url(r'^$', 'pcc_view', name='pcc_page'),
     )
-
-    @cached_property
-    def get_screenshot_url(self):
-        if self.service_website_url:
-            raw = Url2Png(self.service_website_url)
-            return raw.build_url()
-        else:
-            return ''
 
     def get_context(self, request, *args, **kwargs):
         context = super(PCCPage, self).get_context(request, *args, **kwargs)
