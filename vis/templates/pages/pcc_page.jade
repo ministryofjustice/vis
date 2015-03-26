@@ -16,28 +16,29 @@ block content
               h2.Map-text
                 strong.Map-searchTerm #{postcode}
                 | &nbsp;is covered by the #{self.title} support team
+            p.Map-text
+              | Not right?&nbsp;
+              a(href="/") Search again
           img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.pcc_slug }}.png")
         .Article-content
-          h2 Support in #{self.title}
+          h3 Online information and help
           if self.show_generic_content
-            h3 Visit the Victim Support website
-            p It includes information about what to do if you've been a victim of crime. And you'll be able to find phone numbers and website links for emotional and practical support where you live.
             p
-              | Just&nbsp;
-              a(href="https://www.victimsupport.org.uk/", rel="external") go to the site
-              | &nbsp;and search for your area.
-            h3 Or call 0808 16 89 111
+              a(href="https://www.victimsupport.org.uk/", rel="external") Visit the Victim Support website
+            p This website includes information about what to do if you or someone you know has been a victim of crime. You'll be able to find phone numbers and website links for emotional and practical support where you live.
+            h3 Talk to someone on the phone
+            p Call 0845 450 3936
+            p You'll be able to get emotional support and information, and be put you in touch with other organisations that can help.
             p Lines are open Monday to Friday 8am to 8pm, weekends 9am to 7pm, and bank holidays 9am to 5pm.
             p It's free from a landline, but you may be charged if you call from a mobile.
           else
-            h3 Visit the #{self.service_name} website
-            #{ self.content|richtext }
             if self.service_website_url
               p
-                a(href=self.service_website_url, rel="external") Visit the website
-                | &nbsp;to find a full list of victim services in your area and get the emotional and practical support you need.
+                a(href=self.service_website_url, rel="external") Visit the #{self.service_name} website
+            #{self.content|richtext}
             if self.service_phone_number
-              h3 Or call #{self.service_phone_number}
+              h3 Talk to someone on the phone
+              p Call #{self.service_phone_number}
             if self.service_opening_hours
               p #{self.service_opening_hours}
             if self.phoneline_cost
