@@ -33,6 +33,15 @@ Update pip to the latest version:
 pip install -U pip
 ```
 
+If you want to install GDAL run:
+```
+brew install gdal
+```
+
+However, it might take a long time to install and it's optional.
+
+In case you want to skip that, just open requirements/dev.txt and comment out `GDAL==1.11.2`
+
 Install python dependencies:
 ```
 pip install -r requirements/dev.txt
@@ -76,8 +85,9 @@ npm install && bower install
 ```
 
 Compile assets:
+
 ```
-gulp build
+gulp build:dev  # gulp build:prod in production
 ```
 
 In the main tab, start the runserver:
@@ -97,7 +107,7 @@ To watch assets and rebuild them after every change use this command:
 gulp watch
 ```
 
-It will automatically run `gulp build` and then create a [browsersync](http://www.browsersync.io/) server which will run at [http://localhost:3000](http://localhost:3000). By default it will proxy the django app from [http://localhost:8000](http://localhost:8000). To change the port add a `port` argument to the `watch` command, eg:
+It will automatically run `gulp build:dev` and then create a [browsersync](http://www.browsersync.io/) server which will run at [http://localhost:3000](http://localhost:3000). By default it will proxy the django app from [http://localhost:8000](http://localhost:8000). To change the port add a `port` argument to the `watch` command, eg:
 ```
 gulp watch --port=8001
 ```
@@ -117,6 +127,36 @@ Run the following command, replacing the items in brackets:
 ```
 ./manage.py generate_pcc_maps <mapbox_api_key> <mapbox_map_id> <png_width> <png_height> <kml_input_directory> <png_output_directory> --stroke-width=1.5 --stroke-color="#0E1010" --fill-color="#BCDBDC"
 ```
+
+### Url2png
+
+The code uses [url2png](https://www.url2png.com/) to take screenshots of `pages.PCCPage.service_website_url`s.
+
+Check `settings.base.py` for settings.
+
+
+### Scheduling commands
+
+There are two jobs that should/could be run in production.
+
+1. `./manage.py publish_scheduled_pages` (every 10 mins). It uppdates the db when a page is published/unpublished
+
+2. `./manage.py generatestatic` which is optional. It downloads the whole website, zips it and sends it to the email addresses specified in the env variable `EXPORT_RECIPIENTS`.
+
+
+### Addressfinder
+
+If you want to use the search functionality, you need to have a running version of [addressfinder](https://github.com/ministryofjustice/addressfinder).
+
+Check `settings.base.py` for settings.
+
+
+### Zendesk
+
+Zendesk integration for content feedback is supported.
+
+Check `settings.base.py` for settings.
+
 
 ## Docker Installation
 
