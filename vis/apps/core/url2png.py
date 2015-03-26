@@ -4,7 +4,7 @@ import urllib
 from django.conf import settings
 
 
-API_URL = 'http://api.url2png.com/v6/{api_key}/{token}/png/?{options}'
+API_URL = '//api.url2png.com/v6/{api_key}/{token}/png/?{options}'
 
 
 DEFAULT_SETTINGS = getattr(settings, 'URL2PNG_DEFAULT_SETTINGS', {
