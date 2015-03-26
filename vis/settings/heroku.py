@@ -26,6 +26,8 @@ COMPRESS_OFFLINE = True
 
 STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
+SECURE_SSL_REDIRECT = True
+
 
 # REDIS
 if 'REDISTOGO_URL' in os.environ:
