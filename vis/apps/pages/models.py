@@ -76,6 +76,7 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
     service_phone_number = models.CharField(blank=True, max_length=2000)
     phoneline_cost = models.CharField(blank=True, max_length=2000)
     service_opening_hours = models.CharField(blank=True, max_length=2000)
+    trackmycrime_url = models.URLField(blank=True, max_length=2000)
     pcc_slug = models.SlugField(
         help_text="Unique pcc slug, please do not change it.",
         editable=False
@@ -231,6 +232,7 @@ PCCPage.content_panels = [
     FieldPanel('service_phone_number', classname="full"),
     FieldPanel('phoneline_cost', classname="full"),
     FieldPanel('service_opening_hours', classname="full"),
+    FieldPanel('trackmycrime_url', classname="full"),
 ]
 PCCPage.promote_panels = COMMON_PROMOTE_PANELS
 PCCPage.settings_panels = [
