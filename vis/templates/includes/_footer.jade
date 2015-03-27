@@ -5,7 +5,7 @@ footer.SiteFooter(role="contentinfo")
       .SiteFooter-content
         if maintenance != True
           - include "includes/_local-search.jade" with modifier="compact"
-        .SiteFooter-contact
+        //- .SiteFooter-contact
           p
             | For information or for help with this site call&nbsp;
             strong.SiteFooter-contactNum 0808 138 9293
@@ -16,7 +16,9 @@ footer.SiteFooter(role="contentinfo")
           nav
             ul.SiteFooter-nav
               li.SiteFooter-navItem
-                a(href="{% slugurl 'glossary' %}") Find the meaning of a legal term
+                a(href="{% slugurl 'glossary' %}") Find the meaning of a word or phrase
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'cookies' %}") Cookies
       .SiteFooter-aside
         p.SiteFooter-copyright
           a(href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright/crown-copyright/") &copy; Crown copyright
