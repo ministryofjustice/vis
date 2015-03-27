@@ -43,6 +43,11 @@ block content
               p #{self.service_opening_hours}
             if self.phoneline_cost
               p #{self.phoneline_cost}
+          if self.trackmycrime_url
+            h3 Find out about your case
+            p
+              a(href=self.trackmycrime_url, rel="external") Sign in to TrackMyCrime
+            p See what's happening with the investigation of your case.
           h3 Find a court or tribunal
           p
             | Get addresses and other details by using the&nbsp;
@@ -52,7 +57,7 @@ block content
           - if self.show_generic_content
             a(href="https://www.victimsupport.org.uk/")
               img.u-border(src="{% url2png 'https://www.victimsupport.org.uk/' %}")
-          - elif self.service_website_url
+          - elif self.service_website_url and self.show_service_website_thumb
             a(href=self.service_website_url)
               img.u-border(src="{% url2png self.service_website_url %}")
           - include "includes/_security-banner.jade"
