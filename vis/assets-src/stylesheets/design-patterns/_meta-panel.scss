@@ -1,10 +1,21 @@
 .MetaPanel {
+  @include font-18;
   background-color: $grey;
-  padding: 0.938em;
-  margin-bottom: 1.250em;
+  padding: 1.389em 1.111em;
+  margin-top: 2.778em;
+  margin-bottom: 2.778em;
+
+  @include media(tablet) {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 .MetaPanel-title {
-  @include core-27;
-  font-weight: 500;
+  @include font-24(700);
   color: $primary-colour;
+  margin-bottom: 1.042em;
 }

@@ -3,16 +3,20 @@
 block content
   main(role="main")
     article
+      - include "includes/_breadcrumb.jade"
       header.PageHeader
-        .Content
-          .PageHeader-row
-            - include "includes/_local-search.jade" with modifier="inline"
-            h1.PageHeader-title
-              block article_title
+        .PageHeader-row
+          h1.PageHeader-title
+            block article_title
+          block article_subtitle
       .Content
         .Article
           section.Article-content
             - include "includes/_sub-navigation.jade"
             block article_content
+            - include "includes/_pagination.jade"
           aside.Article-meta
             block article_aside
+            - include "includes/_security-banner.jade"
+          - include "includes/_feedback-form.jade"
+

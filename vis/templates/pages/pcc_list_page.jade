@@ -1,1 +1,7 @@
-- extends "pages/glossary_page.jade"
+- extends "article.jade"
+
+block article_title
+  = self.title
+
+block article_content
+  - include "includes/_pcc-list.jade"

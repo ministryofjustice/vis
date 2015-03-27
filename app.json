@@ -15,16 +15,19 @@
       "generator": "secret"
     },
     "ADDRESSFINDER_API_HOST": {
+      "required": false,
       "description": "Addressfinder API HOST."
     },
     "ADDRESSFINDER_API_TOKEN": {
-      "description": "Addressfinder API TOKEN."
+      "required": false,
+      "description": "Addressfinder API token."
     },
     "STATIC_URL": {
-      "description": "Django STATIC_URL (default '/static/')"
+      "description": "Django STATIC_URL (default '/static/')",
+      "value": "/static/"
     },
     "EMAIL_HOST": {
-      "value": "email-smtp.eu-west-1.amazonaws.com",
+      "required": false,
       "description": "Email host"
     },
     "EMAIL_HOST_USER": {
@@ -34,15 +37,40 @@
     "EMAIL_HOST_PASSWORD": {
       "required": false,
       "description": "Email host password"
+    },
+    "EXPORT_RECIPIENTS": {
+      "required": false,
+      "description": "List of email addresses to receive data export comma separated"
+    },
+    "GA_ID": {
+      "required": false,
+      "description": "Google analytics ID"
+    },
+    "URL2PNG_API_KEY": {
+      "required": false,
+      "description": "url2png API key"
+    },
+    "URL2PNG_SECRET_KEY": {
+      "required": false,
+      "description": "url2png secret key"
+    },
+    "ZENDESK_API_USERNAME": {
+      "required": false,
+      "description": "Zendesk API username"
+    },
+    "ZENDESK_API_TOKEN": {
+      "required": false,
+      "description": "Zendesk API token"
     }
   },
   "scripts": {
-    "postdeploy": "./manage.py migrate  --noinput && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin','', 'changeme')\" | ./manage.py shell && ./manage.py loaddata glossary helplines police test_pages vis/fixtures/test_users.json && ./manage.py fixpccpermissions"
+    "postdeploy": "./manage.py migrate  --noinput && echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin','', 'changeme')\" | ./manage.py shell && ./manage.py loaddata glossary helplines dynamic_content police test_pages vis/fixtures/test_users.json && ./manage.py fixpccpermissions && ./manage.py compress"
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
     "redistogo:nano",
-    "newrelic:stark"
+    "scheduler",
+    "papertrail:choklad"
   ],
-  "keywords": ["uk", "ministryofjustice", "legalaid", "python", "angularjs"]
+  "keywords": ["uk", "ministryofjustice", "victimsinformationservice", "python"]
 }

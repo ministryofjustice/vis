@@ -43,12 +43,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
 
+    'djangosecure',
+
     'markdown_deux',
     'pipeline',
 
     'taggit',
     'modelcluster',
     'compressor',
+    'django.contrib.staticfiles',
     'wagtail.wagtailcore',
     'wagtail.wagtailadmin',
     'wagtail.wagtailsnippets',
@@ -59,13 +62,16 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
     'wagtail.contrib.wagtailsitemaps',
 
+    'zendesk',
+
     'info',
     'core',
     'pages',
-    'django.contrib.staticfiles',
+    'wagtailextra',
 )
 
 MIDDLEWARE_CLASSES = (
+    'djangosecure.middleware.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,7 +82,7 @@ MIDDLEWARE_CLASSES = (
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-
+    'core.middleware.MaxAgeMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -123,6 +129,7 @@ from django.conf import global_settings
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
+    'core.context_processors.globals',
 )
 
 
@@ -153,6 +160,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CACHE_CONTROL_MAX_AGE = 0
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -186,6 +194,31 @@ WAGTAIL_SITE_NAME = 'VIS'
 ADDRESSFINDER_API_HOST = os.environ.get('ADDRESSFINDER_API_HOST',
     'http://127.0.0.1:8003')
 ADDRESSFINDER_API_TOKEN = os.environ.get('ADDRESSFINDER_API_TOKEN', '')
+
+
+ZENDESK_API_USERNAME = os.environ.get('ZENDESK_API_USERNAME', '')
+ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
+ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
+ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
+ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
+
+
+# URL2PNG
+
+URL2PNG_API_KEY = os.environ.get('URL2PNG_API_KEY', '')
+URL2PNG_SECRET_KEY = os.environ.get('URL2PNG_SECRET_KEY', '')
+
+
+# EXPORT
+
+DEFAULT_FROM_EMAIL = 'noreply@digital.justice.gov.uk'
+
+EXPORT_ZIP_NAME = 'vis-export'
+EXPORT_EMAIL_SUBJECT = 'VIS - Export'
+EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
+EXPORT_RECIPIENTS = []
+
+GA_ID = os.environ.get('GA_ID', '')
 
 
 try:

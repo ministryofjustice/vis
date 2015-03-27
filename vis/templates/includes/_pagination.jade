@@ -1,0 +1,17 @@
+- if show_siblings
+  - with prev=self.get_prev_live_sibling next=self.get_next_live_sibling
+    - if prev or next
+      nav.Pagination(role="navigation", aria-label="Pagination")
+        ul.Pagination-menu
+          - if prev
+            li.Pagination-menuItem.Pagination-menuItem--prev
+              a.Pagination-link(href="#{prev.url}", rel="prev", title="Navigate to previous part")
+                | Previous
+                span.visuallyhidden &nbsp;page:&nbsp;
+                span.Pagination-title= prev.simplepage.menu_title|default:prev.title
+          - if next
+            li.Pagination-menuItem.Pagination-menuItem--next
+              a.Pagination-link(href="#{next.url}", rel="prev", title="Navigate to next part")
+                | Next
+                span.visuallyhidden &nbsp;page:&nbsp;
+                span.Pagination-title= next.simplepage.menu_title|default:next.title

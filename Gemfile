@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'compass'
+gem 'sass', '3.4.11'

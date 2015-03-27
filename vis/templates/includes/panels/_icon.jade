@@ -1,14 +1,10 @@
-mixin contents
-  h1.Panel-heading=panel.title
-  .Panel-content
-    p=panel.content
-    - if panel.link_page
-      p
-        a(href="#{panel.link_page.url}") #{panel.link_text|default:panel.link_page}
-
-if panel.icon_classname
-  article(class="Panel Panel--icon Icon Icon--#{panel.icon_classname}")
-    +contents
-else
-  article.Panel.Panel--icon.Icon.Icon--empty
-    +contents
+if panel.link_page.live or not panel.link_page
+  article.Panel.Panel--1-3.Panel--icon
+    h1.Panel-heading
+      - if panel.link_page
+        a.Icon(href="#{panel.link_page.url}", class="Icon--#{panel.icon_classname}")
+          span.Panel-headingText #{panel.title}
+      - else
+        span.Icon(class="Icon--#{panel.icon_classname}") #{panel.title}
+    .Panel-content
+      p=panel.content

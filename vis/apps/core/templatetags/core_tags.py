@@ -4,6 +4,10 @@ from wagtail.wagtailcore.models import Site
 
 from pages.models import PCCPage
 
+from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.conf import settings
+
+import string
 
 register = template.Library()
 
@@ -54,3 +58,30 @@ def get_base_url():
 @register.filter
 def is_pcc_page(page):
     return isinstance(page.specific, PCCPage)
+
+
+# Template tag alternative to static to append
+# .min suffix in production
+@register.simple_tag
+def staticmin(name):
+    parts = name.split('.')
+    if not settings.DEBUG:
+        parts.insert(-1, 'min')
+    return static('.'.join(parts))
+
+
+@register.filter
+def fill_alphabet_blanks(groups):
+    groups = groups[:]
+    group_keys = [x['grouper'] for x in groups]
+
+    for key in string.ascii_lowercase:
+        if not key in group_keys:
+            groups.append({
+                'grouper': key,
+                'list': []
+            })
+
+    groups.sort(key=lambda x: x['grouper'])
+
+    return groups

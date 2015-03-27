@@ -1,0 +1,18 @@
+.Error-summary {
+  @include font-18;
+  margin: 1.389em 0;
+  padding: 1.389em 1.111em;
+  border: 3px solid $red;
+  background-color: lighten($red, 40%);
+}
+.Error-heading {
+  @include font-24(500);
+  margin-bottom: 0.926em;
+}
+.Error-list {
+  margin: 0;
+  padding: 0 0 0 1.389em;
+}
+.Error {
+  color: $red;
+}

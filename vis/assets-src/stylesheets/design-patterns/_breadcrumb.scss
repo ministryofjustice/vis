@@ -1,0 +1,25 @@
+.Breadcrumb {
+  @extend %site-width-container;
+  @extend %contain-floats;
+  @include font-18;
+  list-style: none;
+  padding: {
+    top: 1.389em;
+    left: 0;
+  };
+}
+.Breadcrumb-item {
+  float: left;
+  margin-right: 0.5em;
+
+  &:after {
+    content: ">";
+    padding-left: 0.25em;
+  }
+
+  &.is-active {
+    &:after {
+      display: none;
+    }
+  }
+}

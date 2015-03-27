@@ -1,0 +1,29 @@
+.Feedback {
+  @include grid-column( 1/1 );
+
+  details {
+    margin-top: 2.778em;
+    padding-top: 2.778em;
+    border-top: 1px solid $dark-grey;
+  }
+}
+.Feedback-label {
+  @include font-18;
+  display: block;
+  margin: 1.389em 0;
+}
+.Feedback-textarea {
+  @include font-18;
+  @include box-sizing(border-box);
+  border: 1px solid $dark-grey;
+  display: block;
+  width: 100%;
+  padding: 0.25em;
+}
+.Feedback-submit {
+  @include font-18;
+  margin-top: 1.389em;
+}
+.Feedback-success {
+  padding-top: 1.563em;
+}

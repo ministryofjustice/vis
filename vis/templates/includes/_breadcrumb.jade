@@ -1,0 +1,12 @@
+- if self.get_ancestors|length > 1
+  ol.Breadcrumb(role="breadcrumbs")
+    - if self.get_ancestors
+      - for page in self.get_ancestors
+        - if page.is_root == False
+          li.Breadcrumb-item
+            a(href="#{page.url}")= page.title
+    - else
+      li.Breadcrumb-item
+        a(href="/") Home
+    li.Breadcrumb-item.is-active
+      - firstof self.title title

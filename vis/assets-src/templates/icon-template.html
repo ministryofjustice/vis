@@ -7,10 +7,10 @@
 
     <base href="../" />
 
-    <!--[if gt IE 8]><!--><link href="stylesheets/styles.css" media="screen" rel="stylesheet"><!--<![endif]-->
-    <!--[if IE 6]><link href="stylesheets/styles-ie6.css" media="screen" rel="stylesheet"><![endif]-->
-    <!--[if IE 7]><link href="stylesheets/styles-ie7.css" media="screen" rel="stylesheet"><![endif]-->
-    <!--[if IE 8]><link href="stylesheets/styles-ie8.css" media="screen" rel="stylesheet"><![endif]-->
+    <!--[if gt IE 8]><!--><link href="stylesheets/vis.css" media="screen" rel="stylesheet"><!--<![endif]-->
+    <!--[if IE 6]><link href="stylesheets/vis-ie6.css" media="screen" rel="stylesheet"><![endif]-->
+    <!--[if IE 7]><link href="stylesheets/vis-ie7.css" media="screen" rel="stylesheet"><![endif]-->
+    <!--[if IE 8]><link href="stylesheets/vis-ie8.css" media="screen" rel="stylesheet"><![endif]-->
 
     <style>
       html, body { font-family: Gill Sans; text-align: center; background: #f7f7f7; }
@@ -28,7 +28,7 @@
     <h1><%= fontName %></h1>
     <ul class="glyph"><% _.each(glyphs, function(glyph) { %>
       <li>
-        <i class="<%= className %> <%= className %>--<%= glyph.name %> <%= className %>-4x"></i>
+        <i class="<%= className %> <%= className %>--<%= glyph.name %> <%= className %>--compact"></i>
         <span class="glyph-name"><%= glyph.name %></span>
         <span class="glyph-codepoint"><%= glyph.codepoint.toString(16).toUpperCase() %></span>
       </li><% }); %>

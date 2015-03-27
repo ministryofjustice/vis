@@ -1,6 +1,10 @@
 - if show_siblings
-  nav.SubNavigation
+  nav.SubNavigation(role="navigation", aria-label="parts to this guide")
     ol.SubNavigation-menu
-      - for page in self.get_siblings
-        li(class="SubNavigation-menuItem{% if page.active %} SubNavigation-menuItem--active{% endif %}")
-          a.SubNavigation-itemLink(href="#{page.url}")= page.simplepage.menu_title|default:page.title
+      - for sibling in self.live_siblings
+        - with sibling.simplepage.menu_title|default:sibling.title as title
+          li.SubNavigation-menuItem
+            - if sibling.specific == self
+              = title
+            - else
+              a.SubNavigation-itemLink(href="#{sibling.url}")= title

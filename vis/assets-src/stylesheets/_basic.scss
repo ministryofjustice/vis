@@ -85,8 +85,20 @@ a:active {
   color: $link-active-colour;
 }
 
-a[rel="external"] {
+a[rel="external"],
+.external-link {
+  @extend .IconRtl;
+  @extend .Icon--external;
+  position: relative;
+  padding-right: 17px;
 
+  &:after {
+    text-decoration: none;
+    position: absolute;
+    font-size: 12px;
+    right: 0;
+    top: 1px;
+  }
 }
 
 // adjustments to normalize.css
@@ -126,6 +138,8 @@ strong {
 
 img {
   border: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 @include ie-lte(7) {

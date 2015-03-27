@@ -1,11 +1,12 @@
 - load wagtailcore_tags
 
-.MetaPanel
-  h1.MetaPanel-title Glossary
-  dl.DefinitionList
-    - for item in items
-      - with item.glossary_item as item
-        dt
-          a(href="{% slugurl 'glossary' %}{{ '#'|add:item.slug }}")= item.name
-        dd= item.description
-  a(href="{% slugurl 'glossary' %}") See the full glossary
+if items
+  .MetaPanel
+    h1.MetaPanel-title Glossary
+    dl.DefinitionList
+      for item in items
+        - with item.glossary_item as item
+          dt= item.name
+          dd
+            #{ item.description|richtext }
+    a(href="{% slugurl 'glossary' %}") See the full glossary

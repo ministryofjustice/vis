@@ -11,18 +11,22 @@
 
 .SiteHeader {
   background-color: $primary-colour;
-  padding-top: 15px;
+  // padding-top: 15px;
 }
 .SiteHeader-inner {
   @extend %site-width-container;
   @extend %contain-floats;
 }
 .SiteHeader-title {
-  @include bold-24;
-  padding: 0 0 15px;
+  @include font-24(800);
+  font-size: 20px;
+  padding: 15px 0;
   margin: 0;
   color: $white;
 
+  @include media(tablet) {
+    font-size: 20px;
+  }
   @include media(desktop) {
     float: left;
   }
@@ -33,12 +37,14 @@
   }
 }
 a.SiteHeader-menuToggle {
+  @include font-18;
   color: $secondary-colour;
   text-decoration: none;
   display: block;
+  float: left;
   position: relative;
   padding-left: 45px;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 
   @include media(desktop) {
     display: none;
@@ -65,28 +71,35 @@ a.SiteHeader-menuToggle {
 
   // active state
   &.is-open span {
+    // @include rotate(360deg);
     background-color: transparent;
-    // transform: rotate(360deg);
 
     &:before {
+      @include rotate(45deg);
       top: 0;
-      transform: rotate(45deg);
     }
     &:after {
+      @include rotate(-45deg);
       top: 0;
-      transform: rotate(-45deg);
     }
   }
 }
 .SiteHeader-menu {
   @extend %outdent-to-full-width;
   background-color: $black;
+  clear: left;
 
   @include media(desktop) {
     background-color: transparent;
     float: right;
     margin-left: 0;
     margin-right: 0;
+    clear: none;
+
+    @include ie-lte(8) {
+      min-width: 1%;
+      width: auto;
+    }
   }
 
   .js-enabled & {
@@ -104,15 +117,18 @@ a.SiteHeader-menuToggle {
 .SiteHeader-menuList {
   @extend %contain-floats;
   @extend %site-width-container;
-  padding: 12px 0;
+  @include font-18(500);
+  padding: 13px 0 12px;
   list-style: none;
-  font-weight: 500;
 
   @include media(desktop) {
-    @include core-14;
-    font-weight: 500;
-    padding: 7px 0;
+    // padding: 7px 0;
     margin: 0;
+
+    @include ie-lte(8) {
+      min-width: 1%;
+      width: auto;
+    }
   }
 }
 .SiteHeader-menuItem {

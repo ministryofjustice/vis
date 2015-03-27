@@ -1,0 +1,11 @@
+{% extends "wagtailadmin/shared/field.html" %}
+
+
+{% block form_field %}
+  {% if is_core %}
+    {{ field.value }}
+    <input type="hidden" name="{{field.html_name}}" value="{{field.value}}">
+  {% else %}
+    {{ field }}
+  {% endif %}
+{% endblock %}

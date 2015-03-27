@@ -1,9 +1,9 @@
-form(action="/police/search/", method="post", class="SearchForm SearchForm--#{modifier}")
-  - csrf_token
-  input(type="hidden", name="lat")
-  input(type="hidden", name="lng")
-
-  label.SearchForm-label(for="q")
-    .SearchForm-labelText If you've been a victim of crime, there is help and support near you
-    input.SearchForm-query(name="q", id="q", placeholder="Enter your postcode", type="text")
-  input.Button.SearchForm-submit(type="submit", value="Find services in your area")
+form.SearchForm(action="/police/search/", method="get", class="{% if modifier %}SearchForm--{{ modifier }}{% endif %}")
+  label
+    span.SearchForm-heading Find local help and support
+    span.SearchForm-subHeading If you've been a victim of crime, your local support team can help.
+    span.SearchForm-wrap
+      span.SearchForm-labelText Enter your postcode
+      input.SearchForm-query(name="q", id="q", placeholder="Enter your postcode", type="text")
+      button.Button.SearchForm-submit(type="submit")
+        span.SearchForm-submitText Search

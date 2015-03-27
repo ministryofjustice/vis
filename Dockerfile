@@ -29,6 +29,7 @@ ADD ./conf/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD ./conf/nginx/sites-enabled /etc/nginx/sites-enabled
 ADD ./conf/supervisor /etc/supervisor
 
+ADD ./requirements  /app/requirements
 ADD ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 

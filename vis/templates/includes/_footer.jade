@@ -1,3 +1,28 @@
+- load filter wagtailcore_tags
 footer.SiteFooter(role="contentinfo")
-  .SiteFooter-inner
-    p.SiteFooter-content &copy; 2015, Victims' Information Service
+  .SiteFooter-container
+    .SiteFooter-row
+      .SiteFooter-content
+        if maintenance != True
+          - include "includes/_local-search.jade" with modifier="compact"
+        //- .SiteFooter-contact
+          p
+            | For information or for help with this site call&nbsp;
+            strong.SiteFooter-contactNum 0808 138 9293
+          p.SiteFooter-contactTerms It's free from a landline, but you may be charged if you call from a mobile
+        h2.SiteFooter-contentTitle About Victims' Information Service
+        p='about'|dynamic_content
+        if maintenance != True
+          nav
+            ul.SiteFooter-nav
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'glossary' %}") Find the meaning of a word or phrase
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'cookies' %}") Cookies
+      .SiteFooter-aside
+        p.SiteFooter-copyright
+          a(href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright/crown-copyright/") &copy; Crown copyright
+        p.SiteFooter-ogl
+          | All content is available under the&nbsp;
+          a(href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/") Open Government Licence v3.0
+          | , except where otherwise stated
