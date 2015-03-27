@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from cloudinary import CloudinaryImage
 
 from django.db import models
 from django.shortcuts import redirect
@@ -8,7 +7,7 @@ from django.conf.urls import url
 from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
-    PageChooserPanel
+    PageChooserPanel, PublishingPanel
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -77,9 +76,16 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
     service_phone_number = models.CharField(blank=True, max_length=2000)
     phoneline_cost = models.CharField(blank=True, max_length=2000)
     service_opening_hours = models.CharField(blank=True, max_length=2000)
+    trackmycrime_url = models.URLField(blank=True, max_length=2000)
     pcc_slug = models.SlugField(
         help_text="Unique pcc slug, please do not change it.",
         editable=False
+    )
+    show_generic_content = models.BooleanField(
+        default=False,
+        help_text="If ticked, it will render generic content instead.\
+            You would still be able to preview the edited content but it \
+            would not go live until this flag in unticked."
     )
 
     subpage_types = []
@@ -89,21 +95,10 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
         url(r'^$', 'pcc_view', name='pcc_page'),
     )
 
-    @cached_property
-    def get_screenshot_url(self):
-        if self.service_website_url:
-            raw =  CloudinaryImage(self.service_website_url, type='url2png')
-            return raw.build_url(crop='fill',
-                      width=300,
-                      height=350,
-                      gravity="north",
-                      sign_url=True)
-        else:
-            return ''
-
     def get_context(self, request, *args, **kwargs):
         context = super(PCCPage, self).get_context(request, *args, **kwargs)
         postcode = kwargs.get('postcode', '')
+        in_preview_mode = kwargs.get('in_preview_mode', False)
 
         if len(postcode) > 3:
             postcode = list(postcode)
@@ -111,7 +106,13 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
             postcode = ''.join(postcode)
 
         context['postcode'] = postcode
+        context['in_preview_mode'] = in_preview_mode
         return context
+
+    def serve_preview(self, request, mode_name):
+        view, args, kwargs = self.resolve_subpage('/')
+        kwargs['in_preview_mode'] = True
+        return view(request, *args, **kwargs)
 
     def pcc_view(self, request, *args, **kwargs):
         return TemplateResponse(
@@ -124,6 +125,9 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
 class PCCListPage(ObjectListMixin, BaseVISPage):
     object_class = PCCPage
     subpage_types = []
+
+    def get_object_list_queryset(self):
+        return self.object_class.objects.live()
 
 
 class MultiPagePage(BaseVISPage):
@@ -228,8 +232,13 @@ PCCPage.content_panels = [
     FieldPanel('service_phone_number', classname="full"),
     FieldPanel('phoneline_cost', classname="full"),
     FieldPanel('service_opening_hours', classname="full"),
+    FieldPanel('trackmycrime_url', classname="full"),
 ]
 PCCPage.promote_panels = COMMON_PROMOTE_PANELS
+PCCPage.settings_panels = [
+    PublishingPanel(),
+    FieldPanel('show_generic_content'),
+]
 
 
 MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS

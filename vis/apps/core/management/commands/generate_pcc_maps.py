@@ -96,7 +96,7 @@ class Command(DocOptCommand):
             }
 
             # lon = geojson['geometry']['coordinates'][0][0][0]
-            lon = -4
+            lon = -8
             lat = geojson['geometry']['coordinates'][0][0][1]
 
             # minify geoJSON as mapbox URLs can be 4096 chars max

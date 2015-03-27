@@ -1,9 +1,12 @@
 .Breadcrumb {
+  @extend %site-width-container;
   @extend %contain-floats;
   @include font-18;
   list-style: none;
-  margin: 0;
-  padding: 1.389em 0 0;
+  padding: {
+    top: 1.389em;
+    left: 0;
+  };
 }
 .Breadcrumb-item {
   float: left;

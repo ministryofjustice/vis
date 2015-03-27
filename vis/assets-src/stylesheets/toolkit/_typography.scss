@@ -1,7 +1,5 @@
 @import 'font-stack';
 @import 'govuk_frontend_toolkit/stylesheets/conditionals';
-@import 'govuk_frontend_toolkit/stylesheets/device-pixels';
-@import 'govuk_frontend_toolkit/stylesheets/url-helpers';
 
 // Initially a port from the govuk toolkit
 
@@ -37,18 +35,22 @@ $is-print: false !default;
   }
 }
 
-@mixin font-61($font-weight: 400) {
-  @include _core-font-generator(61px, 36px, 32pt, 75px, 46px, $font-weight);
+@mixin font-43($font-weight: 400) {
+  @include _core-font-generator(43px, 36px, 32pt, 50/43, 42/36, $font-weight);
 }
 
-@mixin font-41($font-weight: 400) {
-  @include _core-font-generator(41px, 25px, 22pt, 50px, 36px, $font-weight);
+@mixin font-32($font-weight: 400) {
+  @include _core-font-generator(32px, 26px, 22pt, 36/32, 28/26, $font-weight);
 }
 
-@mixin font-27($font-weight: 400) {
-  @include _core-font-generator(27px, 22px, 20pt, 37px, 28px, $font-weight);
+@mixin font-24($font-weight: 400) {
+  @include _core-font-generator(24px, 20px, 20pt, 25/24, 22/20, $font-weight);
 }
 
 @mixin font-18($font-weight: 400) {
-  @include _core-font-generator(18px, 16px, 14pt, 25px, 23px, $font-weight);
+  @include _core-font-generator(18px, 16px, 14pt, 25/18, 22/16, $font-weight);
+}
+
+@mixin font-16($font-weight: 400) {
+  @include _core-font-generator(16px, 14px, 12pt, 25/16, 22/14, $font-weight);
 }

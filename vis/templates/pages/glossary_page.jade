@@ -1,12 +1,13 @@
 - extends "base.jade"
-- load core_tags
+- load wagtailcore_tags core_tags
 
 block content
   main(role="main")
     article
+      - include "includes/_breadcrumb.jade"
       header.PageHeader
-        - include "includes/_breadcrumb.jade"
-        h1.PageHeader-title= self.title
+        .PageHeader-row
+          h1.PageHeader-title= self.title
       .Content
         .Article
           .Article-content.Article-content--full
@@ -14,20 +15,24 @@ block content
             nav
               a(name="alphabet")
               ul.LetterNavigation
-                - for letter in letters|fill_alphabet_blanks
+                for letter in letters|fill_alphabet_blanks
                   li.LetterNavigation-listItem
-                    - if letter.list
-                      a(href="#letter-{{ letter.grouper }}") #{letter.grouper}
-                    - else
-                      #{letter.grouper}
+                    if letter.list
+                      a(href="#letter-{{ letter.grouper }}")= letter.grouper
+                    else
+                      = letter.grouper
+          .Article-content
             dl.DefinitionList
-              - for letter in letters
+              for letter in letters
                 h2.LetterNavigation-letter
                   a(name="letter-{{ letter.grouper }}")
-                  | #{letter.grouper}
-                - for item in letter.list
+                  = letter.grouper
+                  a.LetterNavigation-topLink(href="#alphabet") back to top
+                for item in letter.list
                   dt
                     a(name=item.slug)
-                    #{item.name}
-                  dd= item.description
+                    = item.name
+                  dd #{ item.description|richtext }
+          aside.Article-meta
+            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"

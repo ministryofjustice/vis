@@ -34,20 +34,33 @@
     padding-top: 0;
   }
 }
-.SearchForm-label {
+.SearchForm-heading,
+.SearchForm-subHeading {
   @extend .visuallyhidden;
-  @include font-27(500);
   color: $primary-colour;
 
   @include media(desktop) {
     position: relative;
     left: auto;
+    line-height: 1;
+    margin: 0 auto;
     display: block;
-    padding-bottom: 0.833em;
+    width: 70%;
+    padding-bottom: 0.781em;
   }
 
   .SearchForm--compact & {
     @extend .visuallyhidden;
+  }
+}
+.SearchForm-heading {
+  @include font-32(800);
+}
+.SearchForm-subHeading {
+  @include font-18(800);
+
+  @include media(desktop) {
+    padding-bottom: 1.389em;
   }
 }
 .SearchForm-labelText {
@@ -68,10 +81,11 @@
 }
 .SearchForm-wrap {
   @extend %contain-floats;
+  display: block;
 
   @include media(desktop) {
     margin: 0 auto;
-    width: 545px;
+    width: 385px;
   }
 
   .SearchForm--compact & {
@@ -101,6 +115,11 @@
     .SearchForm--compact & {
       width: 198px;
     }
+  }
+
+  @include ie(7) {
+    height: 30px;
+    width: 235px;
   }
 
   &::-webkit-input-placeholder {
@@ -156,7 +175,7 @@
     top: auto;
     right: auto;
     height: auto;
-    width: 270px;
+    width: 110px;
     color: $white;
     padding: 0.694em 1em;
     margin-left: 0.789em;
@@ -173,8 +192,6 @@
 
     .SearchForm--compact & {
       width: auto;
-      padding-left: 0.667em;
-      padding-right: 0.667em;
     }
   }
 

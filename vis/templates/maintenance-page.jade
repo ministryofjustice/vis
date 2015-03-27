@@ -1,0 +1,27 @@
+- load pipeline core_tags
+!!! 5
+html(lang="en", class="{% block html_class %}{% endblock %}")
+  head
+    meta(http-equiv="content-type" content="text/html; charset=UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Victims' Information Service
+    script(type="text/javascript")
+      (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
+    <!--[if gt IE 8]><!--><link href="{% staticmin 'stylesheets/vis.css' %}" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+    <!--[if IE 6]><link href="{% staticmin 'stylesheets/vis-ie6.css' %}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="{% staticmin 'stylesheets/vis-ie7.css' %}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="{% staticmin 'stylesheets/vis-ie8.css' %}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 9]><link href="{% staticmin 'stylesheets/vis-ie9.css' %}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if lt IE 9]><script src="{% staticmin 'javascripts/ie.js' %}" type="text/javascript"></script><![endif]-->
+  body
+    - include "includes/_site-header.jade" with maintenance=True
+    main(role="main")
+      article
+        header.PageHeader
+          .PageHeader-row
+            h1.PageHeader-title This website is currently unavailable
+        .Content
+          .Article
+            section.Article-content
+              p Please call 0808 138 9293 for information.
+    - include "includes/_footer.jade" with maintenance=True

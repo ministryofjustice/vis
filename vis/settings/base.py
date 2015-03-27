@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
 
+    'djangosecure',
+
     'markdown_deux',
     'pipeline',
 
@@ -69,6 +71,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'djangosecure.middleware.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -198,6 +201,12 @@ ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
 ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
 ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
 ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
+
+
+# URL2PNG
+
+URL2PNG_API_KEY = os.environ.get('URL2PNG_API_KEY', '')
+URL2PNG_SECRET_KEY = os.environ.get('URL2PNG_SECRET_KEY', '')
 
 
 # EXPORT
