@@ -89,6 +89,7 @@ a[rel="external"],
 .external-link {
   @extend .IconRtl;
   @extend .Icon--external;
+  @include inline-block;
   position: relative;
   padding-right: 17px;
 
@@ -97,7 +98,7 @@ a[rel="external"],
     position: absolute;
     font-size: 12px;
     right: 0;
-    top: 1px;
+    top: 4px;
   }
 }
 
