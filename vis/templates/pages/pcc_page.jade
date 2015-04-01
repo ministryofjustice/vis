@@ -21,8 +21,8 @@ block content
               a(href="/") Search again
           img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.pcc_slug }}.png")
         .Article-content
-          h3 Online information and help
           if self.show_generic_content
+            h3 Online information and help
             p
               a(href="https://www.victimsupport.org.uk/", rel="external") Visit the Victim Support website
             p This website includes information about what to do if you or someone you know has been a victim of crime. You'll be able to find phone numbers and website links for emotional and practical support where you live.
@@ -33,9 +33,10 @@ block content
             p It's free from a landline, but you may be charged if you call from a mobile.
           else
             if self.service_website_url
+              h3 Online information and help
               p
                 a(href=self.service_website_url, rel="external") Visit the #{self.service_name} website
-            #{self.content|richtext}
+              #{self.content|richtext}
             if self.service_phone_number
               h3 Talk to someone on the phone
               p Call #{self.service_phone_number}
