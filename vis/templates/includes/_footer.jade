@@ -5,10 +5,10 @@ footer.SiteFooter(role="contentinfo")
       .SiteFooter-content
         if maintenance != True
           - include "includes/_local-search.jade" with modifier="compact"
-        //- .SiteFooter-contact
+        .SiteFooter-contact
           p
             | For information or for help with this site call&nbsp;
-            strong.SiteFooter-contactNum 0808 138 9293
+            strong.SiteFooter-contactNum 0808 168 9293
           p.SiteFooter-contactTerms It's free from a landline, but you may be charged if you call from a mobile
         h2.SiteFooter-contentTitle About Victims' Information Service
         p='about'|dynamic_content

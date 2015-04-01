@@ -35,8 +35,9 @@ class Command(NoArgsCommand):
         domain = site.hostname
         if site.port != 80:
             domain += ':%s' % site.port
-        run('cd %s && wget --quiet http://%s/sitemap.xml --output-document - | egrep -o "http://%s[^<]+" | wget -k -x -p -H -e robots=off -i -' % (
-            self.EXPORT_DIR, domain, domain
+        protocol = 'https' if site.port == 443 else 'http'
+        run('cd %s && wget --quiet %s://%s/sitemap.xml --output-document - | egrep -o "%s://%s[^<]+" | wget -k -x -p -H -e robots=off -i -' % (
+            self.EXPORT_DIR, protocol, domain, protocol, domain
         ))
 
     def zip_site(self):
