@@ -200,7 +200,10 @@ ZENDESK_API_USERNAME = os.environ.get('ZENDESK_API_USERNAME', '')
 ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
 ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
 ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
-ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
+ZENDESK_CUSTOM_FIELD_URL_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_URL_ID', '')
+ZENDESK_CUSTOM_FIELD_USERAGENT_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_USERAGENT_ID', '')
+ZENDESK_CUSTOM_FIELD_SERVICE_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_SERVICE_ID', '')
+ZENDESK_API_ENDPOINT = os.environ.get('ZENDESK_API_ENDPOINT', 'https://ministryofjustice.zendesk.com/api/v2/')
 
 
 # URL2PNG
