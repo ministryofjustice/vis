@@ -14,13 +14,9 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "ADDRESSFINDER_API_HOST": {
+    "BING_API_TOKEN": {
       "required": false,
-      "description": "Addressfinder API HOST."
-    },
-    "ADDRESSFINDER_API_TOKEN": {
-      "required": false,
-      "description": "Addressfinder API token."
+      "description": "Bing Maps API token."
     },
     "STATIC_URL": {
       "description": "Django STATIC_URL (default '/static/')",

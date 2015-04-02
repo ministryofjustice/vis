@@ -144,13 +144,6 @@ There are two jobs that should/could be run in production.
 2. `./manage.py generatestatic` which is optional. It downloads the whole website, zips it and sends it to the email addresses specified in the env variable `EXPORT_RECIPIENTS`.
 
 
-### Addressfinder
-
-If you want to use the search functionality, you need to have a running version of [addressfinder](https://github.com/ministryofjustice/addressfinder).
-
-Check `settings.base.py` for settings.
-
-
 ### Zendesk
 
 Zendesk integration for content feedback is supported.
