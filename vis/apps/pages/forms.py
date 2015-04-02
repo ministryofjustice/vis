@@ -3,10 +3,14 @@ import requests
 from django import forms
 from django.conf import settings
 
+from localflavor.gb.forms import GBPostcodeField
+
+from geopy.geocoders import Bing
+from geopy.exc import GeopyError
+
 from pages.models import PCCPage
 
 
-GEOCODE_URL = settings.ADDRESSFINDER_API_HOST + '/postcodes/%s'
 POLICE_URL = (
     'http://data.police.uk/api/locate-neighbourhood'
     '?q=%s,%s'
@@ -20,7 +24,7 @@ class UnexpectedException(Exception):
 
 
 class SearchForm(forms.Form):
-    q = forms.CharField(
+    q = GBPostcodeField(
         max_length=254,
         error_messages={
             'required': 'Please enter your postcode'
@@ -40,22 +44,14 @@ class SearchForm(forms.Form):
 
         if not lat or not lng:
             q = self.cleaned_data.get('q')
-            geo_resp = requests.get(
-                GEOCODE_URL % q,
-                headers={
-                    'Authorization': 'Token %s' % settings.ADDRESSFINDER_API_TOKEN
-                },
-                timeout=REQUEST_TIMEOUT
-            )
 
-            if geo_resp.status_code == 404:
-                raise forms.ValidationError("Invalid postcode")
-
-            if not geo_resp.ok:
+            try:
+                geocoder = Bing(settings.BING_API_TOKEN, '%s, UK')
+                geo_resp = geocoder.geocode(q)
+            except GeopyError:
                 raise UnexpectedException()
 
-            geo = geo_resp.json()
-            lat, lng = reversed(geo['coordinates'])
+            placename, (lat, lng) = geo_resp
 
             self.cleaned_data['lat'] = lat
             self.cleaned_data['lng'] = lng
