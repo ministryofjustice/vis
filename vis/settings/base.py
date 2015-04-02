@@ -190,11 +190,7 @@ LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 WAGTAIL_SITE_NAME = 'VIS'
 
-
-ADDRESSFINDER_API_HOST = os.environ.get('ADDRESSFINDER_API_HOST',
-    'http://127.0.0.1:8003')
-ADDRESSFINDER_API_TOKEN = os.environ.get('ADDRESSFINDER_API_TOKEN', '')
-
+BING_API_TOKEN = os.environ.get('BING_API_TOKEN', '')
 
 ZENDESK_API_USERNAME = os.environ.get('ZENDESK_API_USERNAME', '')
 ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
