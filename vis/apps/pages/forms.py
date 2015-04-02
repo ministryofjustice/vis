@@ -51,6 +51,9 @@ class SearchForm(forms.Form):
             except GeopyError:
                 raise UnexpectedException()
 
+            if not geo_resp:
+                raise UnexpectedException()
+
             placename, (lat, lng) = geo_resp
 
             self.cleaned_data['lat'] = lat
