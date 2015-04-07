@@ -1,9 +1,9 @@
-form.SearchForm(action="/police/search/", method="get", class="{% if modifier %}SearchForm--{{ modifier }}{% endif %}")
-  label
+form.SearchForm(action="/police/search/", method="get", name=name, class="js-PCCSearch{% if modifier %} SearchForm--{{ modifier }}{% endif %}")
+  label(for="q--{{ name }}")
     span.SearchForm-heading Find local help and support
     span.SearchForm-subHeading If you've been a victim of crime, your local support team can help.
     span.SearchForm-wrap
       span.SearchForm-labelText Enter your postcode
-      input.SearchForm-query(name="q", id="q", placeholder="Enter your postcode", type="text")
+      input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text")
       button.Button.SearchForm-submit(type="submit")
         span.SearchForm-submitText Search
