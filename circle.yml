@@ -24,6 +24,8 @@ test:
   pre:
     - node_modules/.bin/gulp build:prod
     - python manage.py collectstatic --noinput
+  override:
+    - python manage.py test
   post:
       - git add ./vis/assets/ ./static/ -f
       - git commit -m "deploy"
