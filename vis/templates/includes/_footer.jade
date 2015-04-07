@@ -4,7 +4,7 @@ footer.SiteFooter(role="contentinfo")
     .SiteFooter-row
       .SiteFooter-content
         if maintenance != True
-          - include "includes/_local-search.jade" with modifier="compact"
+          - include "includes/_local-search.jade" with modifier="compact" name="footer"
         .SiteFooter-contact
           p
             | For information or for help with this site call&nbsp;
