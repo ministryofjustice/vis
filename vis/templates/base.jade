@@ -14,6 +14,17 @@ html(lang="en", class="{% block html_class %}{% endblock %}")
         ga('require', 'linkid', 'linkid.js');
         ga('set', 'anonymizeIp', true);
         ga('send', 'pageview');
+    if PINGDOM_ID
+      script(type='text/javascript')
+        var _prum = [['id', '5523ef6aabe53df050f1f167'],
+                     ['mark', 'firstbyte', (new Date()).getTime()]];
+        (function() {
+            var s = document.getElementsByTagName('script')[0]
+              , p = document.createElement('script');
+            p.async = 'async';
+            p.src = '//rum-static.pingdom.net/prum.min.js';
+            s.parentNode.insertBefore(p, s);
+        })();
     title Victims' Information Service: {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}
     script(type="text/javascript")
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
