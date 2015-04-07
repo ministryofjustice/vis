@@ -218,7 +218,6 @@ EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
 EXPORT_RECIPIENTS = []
 
 GA_ID = os.environ.get('GA_ID', '')
-PINGDOM_ID = os.environ.get('PINGDOM_ID', '')
 
 
 try:
