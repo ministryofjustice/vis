@@ -31,7 +31,7 @@
     },
 
     feedbackSuccess: function (resp) {
-      if (typeof ga === "function") {
+      if (typeof ga === 'function') {
         ga('send', {
           'hitType': 'event',
           'eventCategory': 'feedback',

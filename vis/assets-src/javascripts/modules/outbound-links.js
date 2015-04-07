@@ -2,26 +2,24 @@
   'use strict';
 
   vis.Modules.outboundLinks = {
-    selector: 'a[rel="external"]',
+    selector: 'a[href]',
 
     init: function () {
-      _.bindAll(this, 'linkClick');
       this.cacheEls();
       this.bindEvents();
     },
 
     cacheEls: function () {
       this.$body = $('body');
-      // this.$externalLinks = $(this.selector);
     },
 
     bindEvents: function () {
-      this.$body.on('click', 'a[href]', this.linkClick);
+      this.$body.on('click.outboundLinks', this.selector, this.linkClick);
     },
 
     linkClick: function (evt) {
       // abandon if link already aborted or analytics is not available
-      if (evt.isDefaultPrevented() || typeof ga !== "function") {
+      if (evt.isDefaultPrevented() || typeof ga !== 'function') {
         return;
       }
 
@@ -37,6 +35,11 @@
       if (link.match(/^http/)) {
         // cancel event and record outbound link
         evt.preventDefault();
+
+        var loadPage = function () {
+          document.location = link;
+        };
+
         ga('send', {
           'hitType': 'event',
           'eventCategory': 'outbound',
@@ -47,11 +50,6 @@
 
         // redirect after one second if recording takes too long
         setTimeout(loadPage, 1000);
-
-        // redirect to outbound page
-        function loadPage() {
-          document.location = link;
-        }
       }
     }
   };
