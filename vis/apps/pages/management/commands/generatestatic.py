@@ -33,7 +33,7 @@ class Command(NoArgsCommand):
     def download_site(self):
         site = Site.objects.all()[0]
         domain = site.hostname
-        if site.port != 80:
+        if site.port != 80 and site.port != 443:
             domain += ':%s' % site.port
         protocol = 'https' if site.port == 443 else 'http'
         run('cd %s && wget --quiet %s://%s/sitemap.xml --output-document - | egrep -o "%s://%s[^<]+" | wget -k -x -p -H -e robots=off -i -' % (
