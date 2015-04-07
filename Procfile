@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT vis.wsgi:application
+web: newrelic-admin waitress-serve --port=$PORT vis.wsgi:application
