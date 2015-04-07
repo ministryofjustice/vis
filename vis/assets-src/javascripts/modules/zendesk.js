@@ -31,6 +31,13 @@
     },
 
     feedbackSuccess: function (resp) {
+      if (typeof ga === "function") {
+        ga('send', {
+          'hitType': 'event',
+          'eventCategory': 'feedback',
+          'eventAction': 'sent'
+        });
+      }
       this.$form.replaceWith(this.successTemplate());
     },
 
