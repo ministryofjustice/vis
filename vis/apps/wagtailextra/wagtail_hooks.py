@@ -6,14 +6,21 @@ from django.core.urlresolvers import reverse
 
 from wagtail.wagtailcore import hooks, rich_text
 from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore.whitelist import attribute_rule, check_url
 
 from . import urls
 
+def whitelister_element_rules():
+    return {
+        'a': attribute_rule({'href': check_url, 'rel': True}),
+    }
+hooks.register('construct_whitelister_element_rules', whitelister_element_rules)
 
 @hooks.register('insert_editor_js')
 def editor_js():
     js_files = [
         'wagtailextra/js/hallo-plugins/hallo-anchoredwagtaillink.js',
+        'wagtailextra/js/hallo-plugins/hallo-externallink.js',
         'wagtailextra/js/hallo-plugins/hallo-disallowpastefromword.js',
         'wagtailextra/js/page-editor.js',
     ]
@@ -26,6 +33,7 @@ def editor_js():
         <script>
             window.chooserUrls.anchoredPageChooser = '%s';
             registerHalloPlugin('anchoredwagtaillink');
+            registerHalloPlugin('externallink');
             registerHalloPlugin('disallowpastefromword');
         </script>
         """ % reverse('wagtailextra_chooser')
