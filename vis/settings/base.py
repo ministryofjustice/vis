@@ -47,6 +47,7 @@ INSTALLED_APPS = (
 
     'markdown_deux',
     'pipeline',
+    'wagtailextra',
 
     'taggit',
     'modelcluster',
@@ -67,7 +68,6 @@ INSTALLED_APPS = (
     'info',
     'core',
     'pages',
-    'wagtailextra',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -87,18 +87,14 @@ a:active {
 
 a[rel="external"],
 .external-link {
-  @extend .IconRtl;
+  @extend .IconRtlPadded;
+  @extend .Icon--compact;
   @extend .Icon--external;
-  @include inline-block;
-  position: relative;
-  padding-right: 17px;
 
   &:after {
+    vertical-align: baseline;
+    font-size: 13px;
     text-decoration: none;
-    position: absolute;
-    font-size: 12px;
-    right: 0;
-    top: 4px;
   }
 }
 
