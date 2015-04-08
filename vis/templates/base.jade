@@ -17,7 +17,8 @@ html(lang="en", class="{% block html_class %}{% endblock %}")
         ga('set', 'anonymizeIp', true);
         // check for canonical url to send
         if (document.getElementById('canonical')) {
-          ga('set', 'page', document.getElementById('canonical').href);
+          var page = document.getElementById('canonical').href.replace(/^.*\/\/[^\/]+/, '');
+          ga('set', 'page', page);
         }
         ga('send', 'pageview');
     title Victims' Information Service: {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}
