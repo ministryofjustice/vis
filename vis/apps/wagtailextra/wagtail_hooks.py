@@ -20,7 +20,6 @@ hooks.register('construct_whitelister_element_rules', whitelister_element_rules)
 def editor_js():
     js_files = [
         'wagtailextra/js/hallo-plugins/hallo-anchoredwagtaillink.js',
-        'wagtailextra/js/hallo-plugins/hallo-externallink.js',
         'wagtailextra/js/hallo-plugins/hallo-disallowpastefromword.js',
         'wagtailextra/js/page-editor.js',
     ]
@@ -33,7 +32,6 @@ def editor_js():
         <script>
             window.chooserUrls.anchoredPageChooser = '%s';
             registerHalloPlugin('anchoredwagtaillink');
-            registerHalloPlugin('externallink');
             registerHalloPlugin('disallowpastefromword');
         </script>
         """ % reverse('wagtailextra_chooser')
