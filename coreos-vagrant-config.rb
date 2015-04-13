@@ -1,3 +1,21 @@
+$new_discovery_url='https://discovery.etcd.io/new'
+
+# To automatically replace the discovery token on 'vagrant up', uncomment
+# the lines below:
+#
+if File.exists?('coreos-vagrant-user-data') && ARGV[0].eql?('up')
+ require 'open-uri'
+ require 'yaml'
+
+ token = open($new_discovery_url).read
+
+ data = YAML.load(IO.readlines('coreos-vagrant-user-data')[1..-1].join)
+ data['coreos']['etcd']['discovery'] = token
+
+ yaml = YAML.dump(data)
+ File.open('coreos-vagrant-user-data', 'w') { |file| file.write("#cloud-config\n\n#{yaml}") }
+end
+
 # coreos-vagrant is configured through a series of configuration
 # options (global ruby variables) which are detailed below. To modify
 # these options, first copy this file to "config.rb". Then simply
