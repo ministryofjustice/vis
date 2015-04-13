@@ -23,6 +23,8 @@ $update_channel='alpha'
 #   export DOCKER_HOST='tcp://127.0.0.1:2375'
 $expose_docker_tcp=2375
 
+$expose_fleet_tcp=4001
+
 # Setting for VirtualBox VMs
 #$vb_gui = false
 #$vb_memory = 1024
