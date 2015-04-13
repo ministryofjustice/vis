@@ -30,13 +30,15 @@ $icons: (
   <%= glyphs.map(function(glyph){ return glyph.name + ': "' + '\\' + glyph.codepoint.toString(16).toUpperCase() + '"' }).join(',\n  ') %>
 );
 
-.<%= className %> {
+.<%= className %>,
+.<%= className %>Padded {
   &:before {
     @extend %icon-base-styles;
     padding-right: 10px;
   }
 }
-.<%= className %>Rtl {
+.<%= className %>Rtl,
+.<%= className %>RtlPadded {
   &:after {
     @extend %icon-base-styles;
     padding-left: 10px;
@@ -53,14 +55,24 @@ $icons: (
 
 @each $name, $icon in $icons {
   .<%= className %>--#{$name}{
-    &.Icon {
+    &.<%= className %> {
       &:before {
         content: $icon;
       }
     }
-    &.IconRtl {
+    &.<%= className %>Rtl {
       &:after {
         content: $icon;
+      }
+    }
+    &.<%= className %>Padded {
+      &:before {
+        content: "#{$icon}\A0";
+      }
+    }
+    &.<%= className %>RtlPadded {
+      &:after {
+        content: "\A0#{$icon}";
       }
     }
   }

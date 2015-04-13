@@ -9,7 +9,7 @@ block content
         h1.PageHeader-title Sorry, we don't recognise that location
     .Content
       article.Article
-        .Article-content.Article-content--full
+        .Article-content
           h3 If you're in England or Wales
           p Please try again. Or choose your area from the list below.
           h3 If you're in another part of the UK or Channel Islands
@@ -18,7 +18,7 @@ block content
             li
               a(href="http://www.victimsofcrimeinscotland.org.uk/", rel="external") Scotland
             li
-              a(href="http://www.victimsupportni.co.uk/", rel="external") Northern
+              a(href="http://www.victimsupportni.co.uk/", rel="external") Northern Ireland
             li
               a(href="http://victimsupportjersey.co.uk", rel="external") Jersey
             li
@@ -31,4 +31,6 @@ block content
           h3 Find your area in England or Wales
           - get_pcc_list as object_list
           - include "includes/_pcc-list.jade"
+        aside.Article-meta
+          - include "includes/_security-banner.jade"
         - include "includes/_feedback-form.jade"

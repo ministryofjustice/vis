@@ -1,39 +1,67 @@
 - extends "base.jade"
-- load wagtailcore_tags helplines staticfiles
+- load wagtailcore_tags helplines staticfiles pages_tags
 
-block head
-  link(rel="canonical", href=self.url)
+block canonical
+  //- Must have the ID canonical to update GA tracking page event
+  link(id="canonical", rel="canonical", href=self.full_url)
 
 block content
   main(role="main")
     - include "includes/_breadcrumb.jade"
-    header.PageHeader
-      .PageHeader-row
-        h1.PageHeader-title= self.title
     .Content
       article.Article
         .Map
-          - if postcode
-            h2.Map-text
-              strong.Map-searchTerm #{postcode}
-              | &nbsp;is covered by the #{self.title} support team
+          .Map-content
+            h1.Map-title= self.title
+            if postcode
+              h2.Map-text
+                strong.Map-searchTerm #{postcode}
+                | &nbsp;is covered by the #{self.title} support team
+            p.Map-text
+              | Not right?&nbsp;
+              a(href="/") Search again
           img.Map-image(src="{% static '' %}images/pcc-maps/{{ self.pcc_slug }}.png")
         .Article-content
-          h2 #{self.service_name}
-          #{ self.content|richtext }
-          - if self.service_website_url
+          if self.show_generic_content
+            h3 Online information and help
             p
-              a(href=self.service_website_url) Visit the website
-              | &nbsp;to find a full list of victim services in your area and get the emotional and practical support you need.
-          - if self.service_phone_number
-            p or call #{self.service_phone_number}
-          - if self.service_opening_hours
+              a(href="https://www.victimsupport.org.uk/", rel="external") Visit the Victim Support website
+            p This website includes information about what to do if you or someone you know has been a victim of crime. You'll be able to find phone numbers and website links for emotional and practical support where you live.
+            h3 Talk to someone on the phone
+            p Call 0845 450 3936
+            p You'll be able to get emotional support and information, and be put you in touch with other organisations that can help.
+            p Lines are open Monday to Friday 8am to 8pm, weekends 9am to 7pm, and bank holidays 9am to 5pm.
+            p It's free from a landline, but you may be charged if you call from a mobile.
+          else
+            if self.service_website_url
+              h3 Online information and help
+              p
+                a(href=self.service_website_url, rel="external") Visit the #{self.service_name} website
+              #{self.content|richtext}
+            if self.service_phone_number
+              h3 Talk to someone on the phone
+              p Call #{self.service_phone_number}
+            if self.service_opening_hours
+              p #{self.service_opening_hours}
+            if self.phoneline_cost
+              p #{self.phoneline_cost}
+          if self.trackmycrime_url
+            h3 Find out about your case
             p
-              | Opening hours:
-              br
-              | #{self.service_opening_hours}
+              a(href=self.trackmycrime_url, rel="external") Sign in to TrackMyCrime
+            p See what's happening with the investigation of your case.
+          h3 Find a court or tribunal
+          p
+            | Get addresses and other details by using the&nbsp;
+            a(href="https://www.gov.uk/find-court-tribunal", rel="external") court and tribunal finder
+            |.
         aside.Article-meta
-          a(href=self.service_website_url)
-            img.u-border(src=self.get_screenshot_url)
+          - if self.show_generic_content
+            a(href="https://www.victimsupport.org.uk/")
+              img.u-border(src="{% url2png 'https://www.victimsupport.org.uk/' %}")
+          - elif self.service_website_url and self.show_service_website_thumb
+            a(href=self.service_website_url)
+              img.u-border(src="{% url2png self.service_website_url %}")
+          - include "includes/_security-banner.jade"
         - include "includes/_feedback-form.jade"
 

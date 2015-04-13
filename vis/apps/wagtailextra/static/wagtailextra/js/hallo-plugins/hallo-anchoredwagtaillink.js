@@ -21,7 +21,7 @@
           uuid: this.options.uuid,
           editable: this.options.editable,
           label: 'Internal Links',
-          icon: 'icon-site',
+          icon: 'icon-doc-empty',
           command: null,
           queryState: function(event) {
             return button.hallobutton('checked', !!getEnclosingLink());

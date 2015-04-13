@@ -12,14 +12,11 @@ block content
       .Content
         .Article
           section.Article-content
-            //- h1 Support after the crime and getting through the justice process
-            //- h2 Support after the crime and getting through the justice process
-            //- h3 Support after the crime and getting through the justice process
-            //- h4 Support after the crime and getting through the justice process
             - include "includes/_sub-navigation.jade"
             block article_content
             - include "includes/_pagination.jade"
           aside.Article-meta
             block article_aside
+            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"
 

@@ -4,9 +4,6 @@ from requests.exceptions import RequestException
 from django.conf import settings
 from django.template import loader, Context
 
-ZENDESK_CUSTOM_FIELD_URL = 23730083
-ZENDESK_CUSTOM_FIELD_USERAGENT = 23791776
-ZENDESK_CUSTOM_FIELD_SERVICE = 23757677
 REQUEST_TIMEOUT = 10
 
 
@@ -19,9 +16,9 @@ class ZendeskClient(object):
         custom_fields = []
         tags = ['feedback', feedback_type]
 
-        custom_fields.append({ 'id': ZENDESK_CUSTOM_FIELD_URL, 'value': feedback_data['url'] })
-        custom_fields.append({ 'id': ZENDESK_CUSTOM_FIELD_USERAGENT, 'value': feedback_data['user_agent'] })
-        custom_fields.append({ 'id': ZENDESK_CUSTOM_FIELD_SERVICE, 'value': 'vis' })
+        custom_fields.append({ 'id': settings.ZENDESK_CUSTOM_FIELD_URL_ID, 'value': feedback_data['url'] })
+        custom_fields.append({ 'id': settings.ZENDESK_CUSTOM_FIELD_USERAGENT_ID, 'value': feedback_data['user_agent'] })
+        custom_fields.append({ 'id': settings.ZENDESK_CUSTOM_FIELD_SERVICE_ID, 'value': 'vis' })
 
         return {
             'ticket': {

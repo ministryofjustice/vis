@@ -7,5 +7,6 @@ if items
       for item in items
         - with item.glossary_item as item
           dt= item.name
-          dd= item.description
+          dd
+            #{ item.description|richtext }
     a(href="{% slugurl 'glossary' %}") See the full glossary

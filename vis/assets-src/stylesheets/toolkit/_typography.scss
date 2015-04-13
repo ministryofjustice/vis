@@ -40,7 +40,7 @@ $is-print: false !default;
 }
 
 @mixin font-32($font-weight: 400) {
-  @include _core-font-generator(32px, 26px, 22pt, 25/32, 25/26, $font-weight);
+  @include _core-font-generator(32px, 26px, 22pt, 36/32, 28/26, $font-weight);
 }
 
 @mixin font-24($font-weight: 400) {
@@ -49,4 +49,8 @@ $is-print: false !default;
 
 @mixin font-18($font-weight: 400) {
   @include _core-font-generator(18px, 16px, 14pt, 25/18, 22/16, $font-weight);
+}
+
+@mixin font-16($font-weight: 400) {
+  @include _core-font-generator(16px, 14px, 12pt, 25/16, 22/14, $font-weight);
 }

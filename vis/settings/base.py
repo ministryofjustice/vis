@@ -43,8 +43,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
 
+    'djangosecure',
+
     'markdown_deux',
     'pipeline',
+    'wagtailextra',
 
     'taggit',
     'modelcluster',
@@ -65,10 +68,10 @@ INSTALLED_APPS = (
     'info',
     'core',
     'pages',
-    'wagtailextra',
 )
 
 MIDDLEWARE_CLASSES = (
+    'djangosecure.middleware.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -187,17 +190,22 @@ LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 WAGTAIL_SITE_NAME = 'VIS'
 
-
-ADDRESSFINDER_API_HOST = os.environ.get('ADDRESSFINDER_API_HOST',
-    'http://127.0.0.1:8003')
-ADDRESSFINDER_API_TOKEN = os.environ.get('ADDRESSFINDER_API_TOKEN', '')
-
+BING_API_TOKEN = os.environ.get('BING_API_TOKEN', '')
 
 ZENDESK_API_USERNAME = os.environ.get('ZENDESK_API_USERNAME', '')
 ZENDESK_API_TOKEN = os.environ.get('ZENDESK_API_TOKEN', '')
 ZENDESK_REQUESTER_ID = os.environ.get('ZENDESK_REQUESTER_ID', '')
 ZENDESK_GROUP_ID = os.environ.get('ZENDESK_GROUP_ID', '24622458') # Defaults to 'VIS' group
-ZENDESK_API_ENDPOINT = 'https://ministryofjustice.zendesk.com/api/v2/'
+ZENDESK_CUSTOM_FIELD_URL_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_URL_ID', '')
+ZENDESK_CUSTOM_FIELD_USERAGENT_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_USERAGENT_ID', '')
+ZENDESK_CUSTOM_FIELD_SERVICE_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_SERVICE_ID', '')
+ZENDESK_API_ENDPOINT = os.environ.get('ZENDESK_API_ENDPOINT', 'https://ministryofjustice.zendesk.com/api/v2/')
+
+
+# URL2PNG
+
+URL2PNG_API_KEY = os.environ.get('URL2PNG_API_KEY', '')
+URL2PNG_SECRET_KEY = os.environ.get('URL2PNG_SECRET_KEY', '')
 
 
 # EXPORT

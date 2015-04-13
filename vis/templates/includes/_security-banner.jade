@@ -1,13 +1,6 @@
 - load wagtailcore_tags
 section.SecurityBanner
-  .SecurityBanner-container
-    .SecurityBanner-icon
-      p.SecurityBanner-content
-        strong Cover your tracks:&nbsp;
-        a(href="{% slugurl 'online-safety' %}") read our guide
-        | &nbsp;to staying safe online
-      .SecurityBanner-options
-        a.Button(href="http://www.google.com/")
-          span.Icon.Icon--shield Quick exit
-        a.js-SecurityExit(href="#", data-banner=".SecurityBanner")
-          span Dismiss
+  h1.SecurityBanner-heading If you're worried about your safety online
+  p.SecurityBanner-content
+    a(href="{% slugurl 'online-safety' %}") Stop others seeing what you've done
+  a.SecurityBanner-action.Button(href="https://www.google.com/") Leave this site

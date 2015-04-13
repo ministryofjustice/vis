@@ -20,6 +20,7 @@ urlpatterns = patterns(
     '',
     # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
+    url(r'^maintenance/$', TemplateView.as_view(template_name='maintenance-page.jade')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
