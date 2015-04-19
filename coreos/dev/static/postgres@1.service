@@ -4,12 +4,12 @@ Description=PostgreSQL server service on port 5432
 # Requirements
 Requires=etcd.service
 Requires=docker.service
-Requires=postgres-discovery@%i.service
+Requires=postgres-discovery@1.service
 
 # Dependency ordering
 After=etcd.service
 After=docker.service
-Before=postgres-discovery@%i.service
+Before=postgres-discovery@1.service
 
 [Service]
 # Let processes take awhile to start up (for first run Docker containers)
@@ -24,17 +24,13 @@ EnvironmentFile=/etc/environment
 
 # Pre-start and Start
 ## Directives with "=-" are allowed to fail without consequence
-ExecStartPre=-/usr/bin/docker kill postgres.%i
-ExecStartPre=-/usr/bin/docker rm postgres.%i
+ExecStartPre=-/usr/bin/docker kill postgres.1
+ExecStartPre=-/usr/bin/docker rm postgres.1
 ExecStartPre=/usr/bin/docker pull kerin/postgres-vis:9.4
-ExecStart=/usr/bin/docker run --name postgres.%i \
+ExecStart=/usr/bin/docker run --name postgres.1 \
     -p ${COREOS_PUBLIC_IPV4}:5432:5432 \
     -e "POSTGRES_PASSWORD=" \
     kerin/postgres-vis:9.4
 
 # Stop
-ExecStop=/usr/bin/docker stop postgres.%i
-
-[X-Fleet]
-# Don't schedule on the same machine as other Postgres instances
-X-Conflicts=postgres@*.service
+ExecStop=/usr/bin/docker stop postgres.1
