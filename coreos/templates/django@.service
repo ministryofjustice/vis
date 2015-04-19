@@ -1,0 +1,42 @@
+[Unit]
+Description=VIS django service on port 8080
+
+# Requirements
+Requires=etcd.service
+Requires=docker.service
+#Requires=postgres-discovery@%i.service
+
+# Dependency ordering
+After=etcd.service
+After=docker.service
+#Before=postgres-discovery@%i.service
+
+[Service]
+# Let processes take awhile to start up (for first run Docker containers)
+TimeoutStartSec=0
+
+# Change killmode from "control-group" to "none" to let Docker remove
+# work correctly.
+KillMode=none
+
+# Get CoreOS environmental variables
+EnvironmentFile=/etc/environment
+
+# Pre-start and Start
+## Directives with "=-" are allowed to fail without consequence
+ExecStartPre=-/usr/bin/docker kill django.%i
+ExecStartPre=-/usr/bin/docker rm django.%i
+ExecStartPre=/usr/bin/docker build -t vis-django /home/core/share
+#ExecStartPre=/usr/bin/docker pull vis-django
+ExecStartPre=/usr/bin/echo ${COREOS_PRIVATE_IPV4}
+ExecStart=/usr/bin/docker run -v /home/core/share:/app --name django.%i \
+    -e "COREOS_PRIVATE_IPV4=${COREOS_PRIVATE_IPV4}" \
+    -p ${COREOS_PUBLIC_IPV4}:8080:80 \
+    -t vis-django
+
+# Stop
+ExecStop=/usr/bin/docker stop django.%i
+
+[X-Fleet]
+# Don't schedule on the same machine as other Postgres instances
+X-Conflicts=django@*.service

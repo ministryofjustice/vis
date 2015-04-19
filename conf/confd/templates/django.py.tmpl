@@ -1,0 +1,12 @@
+{{$db := json (getv "/services/postgres")}}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{{$db.database}}',
+        'USER': '{{$db.username}}',
+        'PASSWORD': '{{$db.password}}',
+        'HOST': '{{$db.ipv4_addr}}',
+        'PORT': '{{$db.port}}',
+    }
+}

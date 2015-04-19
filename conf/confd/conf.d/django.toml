@@ -1,0 +1,7 @@
+[template]
+src = "django.py.tmpl"
+dest = "/app/vis/settings/local.py"
+keys = [
+    "/services/postgres"
+]
+reload_cmd = "supervisorctl -c /etc/supervisor/supervisord.conf restart uwsgi-vis"
