@@ -42,3 +42,4 @@ static/*
 vis-export
 *.sublime-project
 *.sublime-workspace
+coreos-vagrant-user-data
