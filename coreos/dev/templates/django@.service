@@ -26,8 +26,8 @@ EnvironmentFile=/etc/environment
 ExecStartPre=-/usr/bin/docker kill django.%i
 ExecStartPre=-/usr/bin/docker rm django.%i
 ExecStartPre=/usr/bin/docker build -t vis-django /home/core/share
-#ExecStartPre=/usr/bin/docker pull vis-django
-ExecStartPre=/usr/bin/echo ${COREOS_PRIVATE_IPV4}
+ExecStartPre=/usr/bin/docker run -v /home/core/share:/app \
+    -t vis-django python manage.py migrate
 ExecStart=/usr/bin/docker run -v /home/core/share:/app --name django.%i \
     -e "COREOS_PRIVATE_IPV4=${COREOS_PRIVATE_IPV4}" \
     -p ${COREOS_PUBLIC_IPV4}:8080:80 \
