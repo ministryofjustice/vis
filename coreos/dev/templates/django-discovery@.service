@@ -1,0 +1,36 @@
+[Unit]
+Description=VIS django discovery service
+
+# Requirements
+Requires=etcd.service
+Requires=django@%i.service
+
+# Dependency ordering and binding
+After=etcd.service
+After=django@%i.service
+BindsTo=django@%i.service
+
+[Service]
+
+# Get CoreOS environmental variables
+EnvironmentFile=/etc/environment
+
+# Start
+## Test whether service is accessible and then register useful information
+ExecStart=/bin/bash -c '\
+  while true; do \
+    status=$(curl -s -o /dev/null -w "%{http_code}" http://${COREOS_PUBLIC_IPV4}:8080/); \
+    if [ $status -eq 200 ]; then \
+      etcdctl set /services/django/${COREOS_PUBLIC_IPV4} \'{"hostname": "%H", "ipv4_addr": "${COREOS_PUBLIC_IPV4}", "port": "8080"}\' --ttl 30; \
+    else \
+      etcdctl rm /services/django/${COREOS_PUBLIC_IPV4}; \
+    fi; \
+    sleep 20; \
+  done'
+
+# Stop
+ExecStop=/usr/bin/etcdctl rm /services/django/${COREOS_PUBLIC_IPV4}
+
+[X-Fleet]
+# Schedule on the same machine as the associated django service
+X-ConditionMachineOf=django@%i.service

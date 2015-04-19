@@ -4,11 +4,13 @@ Description=VIS django service on port 8080
 # Requirements
 Requires=etcd.service
 Requires=docker.service
+Requires=django-discovery@%i.service
 
 # Dependency ordering
 After=etcd.service
 After=docker.service
 After=postgres-discovery@1.service
+Before=django-discovery@%i.service
 
 [Service]
 # Let processes take awhile to start up (for first run Docker containers)
