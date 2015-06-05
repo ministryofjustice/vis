@@ -35,6 +35,7 @@ deployment:
     branch: develop
     commands:
       - git push git@heroku.com:vis-staging.git HEAD:master -f
+      - heroku config:add GIT_SHA=$CIRCLE_SHA1
       - heroku run python manage.py migrate --noinput --app vis-staging
   production:
     branch: master
