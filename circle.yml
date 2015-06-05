@@ -36,6 +36,7 @@ deployment:
     commands:
       - git push git@heroku.com:vis-staging.git HEAD:master -f
       - heroku config:add GIT_SHA=$CIRCLE_SHA1 --app vis-staging
+      - heroku config:add DEPLOY_DATETIME=`date -Is` --app vis-staging
       - heroku run python manage.py migrate --noinput --app vis-staging
   production:
     branch: master
