@@ -13,7 +13,7 @@ from wagtail.contrib.wagtailsitemaps.views import sitemap
 
 from pages.views import Handler500, Handler404
 from zendesk.views import ZendeskView
-from core.views import ping
+from core.views import ping, HealthCheckView
 
 admin.autodiscover()
 
@@ -22,6 +22,7 @@ urlpatterns = patterns(
     # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^ping.json$', ping),
+    url(r'^healthcheck.json$', HealthCheckView.as_view()),
     url(r'^maintenance/$', TemplateView.as_view(template_name='maintenance-page.jade')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
