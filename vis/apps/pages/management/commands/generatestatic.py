@@ -38,7 +38,7 @@ class Command(NoArgsCommand):
         if site.port != 80 and site.port != 443:
             domain += ':%s' % site.port
         protocol = 'https' if site.port == 443 else 'http'
-        run('cd %s && wget --quiet %s://%s/sitemap.xml --output-document - | egrep -o "%s://%s[^<]+" | wget -k -x -p -H -e robots=off --restrict-file-names=windows -i -' % (
+        run('cd %s && wget --quiet %s://%s/sitemap.xml --output-document - | egrep -o "%s://%s[^<]+" | wget -k -x -p -H -e robots=off --exclude-domains=api.url2png.com --restrict-file-names=windows -i -' % (
             self.EXPORT_DIR, protocol, domain, protocol, domain
         ))
 
