@@ -10,6 +10,8 @@ class MaxAgeMiddleware(object):
             return response
         if request.method not in ('GET', 'HEAD'):
             return response
+        if response.get('Content-Type', None) == 'application/json':
+            return response
 
         response['Cache-Control'] = 'max-age=%d' % MAX_AGE
         return response
