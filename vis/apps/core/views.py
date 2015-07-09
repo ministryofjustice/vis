@@ -15,7 +15,7 @@ from geopy.exc import GeopyError
 from pages.models import HomePage
 from core.url2png import Url2Png
 
-REQUEST_TIMEOUT = 5
+REQUEST_TIMEOUT = 10
 
 
 def ping(request):
