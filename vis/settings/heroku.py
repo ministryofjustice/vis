@@ -37,6 +37,10 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_FRAME_DENY = True
 
 
+S3_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
+S3_SECRET_ACCESS_KEY_ID = os.environ.get('S3_SECRET_ACCESS_KEY_ID')
+S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+
 # REDIS
 if 'REDISTOGO_URL' in os.environ:
     redis_url = urlparse.urlparse(os.environ['REDISTOGO_URL'])

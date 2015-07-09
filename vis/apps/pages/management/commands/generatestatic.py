@@ -5,7 +5,9 @@ import subprocess
 
 from django.conf import settings
 from django.core.management.base import NoArgsCommand
-from django.core.mail import EmailMessage
+
+from boto.s3.connection import S3Connection
+from boto.s3.key import Key
 
 from wagtail.wagtailcore.models import Site
 
@@ -43,17 +45,18 @@ class Command(NoArgsCommand):
     def zip_site(self):
         shutil.make_archive(self.EXPORT_DIR, 'zip', self.EXPORT_DIR)
 
-    def email_zip(self):
-        mail = EmailMessage(
-            subject=settings.EXPORT_EMAIL_SUBJECT,
-            body=settings.EXPORT_EMAIL_BODY,
-            to=settings.EXPORT_RECIPIENTS
-        )
-        mail.attach_file('%s.zip' % self.EXPORT_DIR)
-        mail.send()
+    def upload_zip(self):
+        conn = S3Connection(settings.S3_ACCESS_KEY_ID,
+                            settings.S3_SECRET_ACCESS_KEY_ID,
+                            host='s3-eu-west-1.amazonaws.com')
+        bucket = conn.get_bucket(settings.S3_BUCKET_NAME)
+
+        k = Key(bucket)
+        k.key = '%s.zip' % settings.EXPORT_ZIP_NAME
+        k.set_contents_from_filename('%s.zip' % self.EXPORT_DIR)
 
     def handle_noargs(self, **opts):
         self.create_export_folder_if_necessary()
         self.download_site()
         self.zip_site()
-        self.email_zip()
+        self.upload_zip()
