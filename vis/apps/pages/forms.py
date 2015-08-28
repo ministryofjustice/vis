@@ -56,6 +56,14 @@ class SearchForm(forms.Form):
 
             placename, (lat, lng) = geo_resp
 
+            # Bing Maps API turns a placename of "United Kingdom" for invalid
+            # postcodes that _look_ like a valid postcode - e.g. first text
+            # part (SW, SE) followed by regex-matching pattern. Along with the
+            # placename, it returns a lat/lon of the middle of the country,
+            # which is somewhere in Durham.
+            if placename == 'United Kingdom':
+                raise UnexpectedException()
+
             self.cleaned_data['lat'] = lat
             self.cleaned_data['lng'] = lng
 
