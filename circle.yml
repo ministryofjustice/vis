@@ -38,7 +38,7 @@ deployment:
       - heroku config:add GIT_SHA=$CIRCLE_SHA1 --app vis-staging
       - heroku config:add DEPLOY_DATETIME=`date -Is` --app vis-staging
       - heroku run python manage.py migrate --noinput --app vis-staging
-      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://vis-staging.herokuapp.com/healthcheck.json) = 200 ]'
+      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://origin-staging.victimsinformationservice.org.uk/healthcheck.json) = 200 ]'
   production:
     branch: master
     commands:
@@ -46,4 +46,4 @@ deployment:
       - heroku config:add GIT_SHA=$CIRCLE_SHA1 --app vis-prod
       - heroku config:add DEPLOY_DATETIME=`date -Is` --app vis-prod
       - heroku run python manage.py migrate --noinput --app vis-prod
-      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://www.victimsinformationservice.org.uk/healthcheck.json) = 200 ]'
+      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://origin.victimsinformationservice.org.uk/healthcheck.json) = 200 ]'

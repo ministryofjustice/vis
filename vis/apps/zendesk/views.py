@@ -3,6 +3,8 @@
 from django.http import JsonResponse
 from django.http.response import Http404
 from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.vary import vary_on_headers
 from django.views.generic.base import View
 from wagtail.wagtailcore.models import Page
@@ -16,6 +18,10 @@ def get_user_agent_from_request(request):
     return request.META.get('HTTP_USER_AGENT')
 
 class ZendeskView(View):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(ZendeskView, self).dispatch(*args, **kwargs)
 
     @vary_on_headers('HTTP_X_REQUESTED_WITH')
     def post(self, request):
