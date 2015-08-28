@@ -21,7 +21,7 @@ class ZendeskView(View):
 
     @method_decorator(csrf_exempt)
     def dispatch(self, *args, **kwargs):
-        super(ZendeskView, self).dispatch(*args, **kwargs)
+        return super(ZendeskView, self).dispatch(*args, **kwargs)
 
     @vary_on_headers('HTTP_X_REQUESTED_WITH')
     def post(self, request):
