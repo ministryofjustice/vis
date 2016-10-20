@@ -1,41 +1,25 @@
-FROM ubuntu:trusty
+FROM python:2.7-onbuild
 
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && \
-    apt-get install -y software-properties-common python-software-properties
-
-RUN add-apt-repository -y ppa:nginx/stable
-RUN add-apt-repository -y ppa:chris-lea/node.js 
-
-RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y software-properties-common python-software-properties \
         build-essential git python python-dev python-setuptools python-pip \
-        supervisor curl nginx libpq-dev ntp ruby ruby-dev nodejs
-RUN service nginx stop && rm /etc/init.d/nginx
+        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python
 
-# fix for broken pip package in ubuntu 14
-RUN easy_install -U pip
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN apt-get install -y nodejs && pip install --upgrade -r requirements.txt
 
 WORKDIR /app
 
-RUN gem update rdoc
-RUN gem install compass
-RUN npm install -g bower
+COPY . /app
 
-ADD ./conf/uwsgi /etc/uwsgi
-
-ADD ./conf/nginx/nginx.conf /etc/nginx/nginx.conf
-ADD ./conf/nginx/sites-enabled /etc/nginx/sites-enabled
-ADD ./conf/supervisor /etc/supervisor
-
-ADD ./requirements  /app/requirements
-ADD ./requirements.txt /app/requirements.txt
-RUN pip install -r requirements.txt
-
-ADD . /app
+RUN gem update rdoc compass
+RUN npm install -g bower gulp
 RUN bower install --allow-root
+RUN npm install
+RUN gulp build:prod
 
-EXPOSE 80
-EXPOSE 443
-CMD ["supervisord", "-n"]
+EXPOSE 8000
+RUN chmod +x ./run.sh
+ENTRYPOINT ["./run.sh"]
