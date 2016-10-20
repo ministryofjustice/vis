@@ -35,7 +35,6 @@ ADD ./conf/supervisor /etc/supervisor
 
 ADD ./requirements  /app/requirements
 ADD ./requirements.txt /app/requirements.txt
-RUN pip install -r requirements.txt
 
 ADD . /app
 RUN bower install --allow-root
