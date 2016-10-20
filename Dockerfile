@@ -13,6 +13,18 @@ RUN apt-get install -y nodejs && pip install --upgrade -r requirements.txt
 WORKDIR /app
 
 COPY . /app
+RUN gem update rdoc
+RUN gem install compass
+RUN npm install -g bower
+
+ADD ./conf/uwsgi /etc/uwsgi
+
+ADD ./conf/nginx/nginx.conf /etc/nginx/nginx.conf
+ADD ./conf/nginx/sites-enabled /etc/nginx/sites-enabled
+ADD ./conf/supervisor /etc/supervisor
+
+ADD ./requirements  /app/requirements
+ADD ./requirements.txt /app/requirements.txt
 
 RUN gem update rdoc compass
 RUN npm install -g bower gulp
