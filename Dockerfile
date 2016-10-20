@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.3.1-webapp-onbuild
+FROM ubuntu:trusty
 
 EXPOSE 3000 
 
@@ -6,12 +6,8 @@ ENV UNICORN_PORT 3000
 
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
-RUN apt-get update && apt-get install -y \
-    openjdk-7-jdk \ 
-    software-properties-common \
-    python-software-properties
-
-RUN mkdir /etc/service/vis
+RUN apt-get update && \
+    apt-get install -y software-properties-common python-software-properties
 
 RUN add-apt-repository -y ppa:nginx/stable
 RUN add-apt-repository -y ppa:chris-lea/node.js 
@@ -41,14 +37,8 @@ ADD ./requirements  /app/requirements
 ADD ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 
-
 ADD . /app
-
-ADD . /usr/src/app/log
-
-RUN cd /usr/src/app/log
 RUN bower install --allow-root
-
 EXPOSE $UNICORN_PORT
 CMD ["bundle", "exec", "unicorn", "-p", "3000"]
 
