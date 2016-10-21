@@ -41,4 +41,7 @@ RUN bower install --allow-root
 EXPOSE $UNICORN_PORT
 CMD ["bundle", "exec", "unicorn", "-p", "3000"]
 
+EXPOSE 22 80
+CMD ["/usr/bin/supervisord"]
+
 CMD ["supervisord", "-n"]
