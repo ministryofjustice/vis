@@ -1,5 +1,4 @@
 FROM python:2.7-onbuild
-
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && \
