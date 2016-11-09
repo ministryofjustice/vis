@@ -20,8 +20,8 @@ RUN npm install -g gulp
 
 ADD ./conf/uwsgi /etc/uwsgi
 
-ADD ./conf/supervisor /etc/supervisor
 
+ADD ./conf/supervisor /etc/supervisor
 ADD ./requirements  /app/requirements
 ADD ./requirements.txt /app/requirements.txt
 
