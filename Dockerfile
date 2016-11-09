@@ -8,7 +8,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y \
         build-essential git python python-dev python-setuptools python-pip \
-        sudo supervisor curl libpq-dev ntp ruby ruby-dev gdal-bin
+        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN apt-get install -y nodejs
@@ -26,8 +26,6 @@ RUN npm install -g gulp
 
 ADD ./conf/uwsgi /etc/uwsgi
 
-ADD ./conf/supervisor /etc/supervisor
-
 RUN bower install --allow-root
 
 RUN npm install 
@@ -35,6 +33,4 @@ RUN npm install
 RUN gulp build:prod
 
 EXPOSE 8000
-CMD ["/usr/bin/supervisord"]
-
-CMD ["supervisord", "-n"]
+ENTRYPOINT ["./run.sh"]
