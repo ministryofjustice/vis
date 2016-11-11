@@ -33,4 +33,5 @@ RUN npm install
 RUN gulp build:prod
 
 EXPOSE 8000
+RUN chmod +x ./run.sh
 ENTRYPOINT ["./run.sh"]
