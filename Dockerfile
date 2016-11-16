@@ -19,7 +19,7 @@ RUN npm install -g bower
 RUN npm install -g gulp
 
 RUN mkdir -p /etc/uwsgi
-ADD ./conf/uwsgi/vis.ini /etc/uwsgi/vis.ini
+ADD ./conf/uwsgi/* /etc/uwsgi/
 
 
 ADD ./conf/supervisor /etc/supervisor
