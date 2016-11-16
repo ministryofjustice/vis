@@ -25,7 +25,7 @@ RUN npm install -g bower
 RUN npm install -g gulp
 
 RUN mkdir -p /etc/uwsgi
-ADD ./conf/uwsgi/* /etc/uwsgi/
+COPY ./conf/uwsgi/* /etc/uwsgi/
 
 RUN bower install --allow-root
 
