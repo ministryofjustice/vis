@@ -18,8 +18,7 @@ RUN gem install compass
 RUN npm install -g bower
 RUN npm install -g gulp
 
-RUN mkdir -p /etc/uwsgi
-COPY ./conf/uwsgi/* /etc/uwsgi/
+COPY ./conf/uwsgi/vis.ini /app
 
 
 ADD ./conf/supervisor /etc/supervisor

@@ -13,4 +13,4 @@ migrate)
     ./manage migrate
     ;;
 esac
-uwsgi -c /etc/uwcgi/vis.ini
+uwsgi -ini ./vis.ini
