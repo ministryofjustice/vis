@@ -24,8 +24,6 @@ RUN gem install compass
 RUN npm install -g bower
 RUN npm install -g gulp
 
-#COPY ./conf/uwsgi/*.ini /app
-
 RUN bower install --allow-root
 
 RUN npm install 
