@@ -12,12 +12,13 @@ RUN apt-get install -y nodejs && pip install --upgrade -r requirements.txt
 WORKDIR /app
 
 COPY . /app
-
 RUN gem update rdoc
 RUN gem install compass
 RUN npm install -g bower
 RUN npm install -g gulp
 
+RUN gem update rdoc compass
+RUN npm install -g bower gulp
 RUN bower install --allow-root
 
 ADD ./conf/supervisor /etc/supervisor
@@ -27,6 +28,7 @@ ADD ./requirements.txt /app/requirements.txt
 RUN gem update rdoc compass
 RUN npm install -g bower gulp
 RUN bower install --allow-root
+
 RUN npm install
 RUN gulp build:prod
 
