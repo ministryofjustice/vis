@@ -1,4 +1,5 @@
 FROM python:2.7-onbuild
+
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && \
@@ -12,23 +13,10 @@ RUN apt-get install -y nodejs && pip install --upgrade -r requirements.txt
 WORKDIR /app
 
 COPY . /app
-RUN gem update rdoc
-RUN gem install compass
-RUN npm install -g bower
-RUN npm install -g gulp
 
 RUN gem update rdoc compass
 RUN npm install -g bower gulp
 RUN bower install --allow-root
-
-ADD ./conf/supervisor /etc/supervisor
-ADD ./requirements  /app/requirements
-ADD ./requirements.txt /app/requirements.txt
-
-RUN gem update rdoc compass
-RUN npm install -g bower gulp
-RUN bower install --allow-root
-
 RUN npm install
 RUN gulp build:prod
 
