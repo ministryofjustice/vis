@@ -20,7 +20,7 @@ RUN npm install -g bower gulp
 RUN bower install --allow-root
 RUN npm install && bundle install
 RUN gulp build:prod
-RUN sass --update vis/assets-src:vis/assets
+RUN sass --force --update vis/assets-src:vis/assets
 
 RUN chmod +x ./run.sh
 ENTRYPOINT ["./run.sh"]
