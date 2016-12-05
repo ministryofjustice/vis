@@ -14,7 +14,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN gem update rdoc compass
+RUN gem install rdoc compass bundler
 RUN npm install -g bower gulp
 RUN bower install --allow-root
 RUN npm install
