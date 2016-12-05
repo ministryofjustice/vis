@@ -8,7 +8,7 @@ RUN apt-get update && \
         sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-RUN apt-get install -y nodejs && pip install --upgrade -r requirements.txt
+RUN apt-get install -y nodejs && pip install -r requirements.txt
 
 WORKDIR /app
 
