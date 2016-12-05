@@ -2,16 +2,17 @@ FROM python:2.7-onbuild
 
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN apt-get update && \
     apt-get install -y software-properties-common python-software-properties \
         build-essential git python python-dev python-setuptools python-pip \
-        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python
+        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python \
+        nodejs && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-RUN apt-get install -y nodejs && pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 WORKDIR /app
-
 COPY . /app
 
 # I'm not certainly sure if following gems ( except of bundler are required )
