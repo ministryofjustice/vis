@@ -2,7 +2,7 @@ FROM python:2.7-onbuild
 
 RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive tzdata
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN apt-get update && \
     apt-get install -y software-properties-common python-software-properties \
         build-essential git python python-dev python-setuptools python-pip \
