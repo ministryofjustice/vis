@@ -6,10 +6,10 @@ RUN echo "Europe/London" > /etc/timezone  &&  dpkg-reconfigure -f noninteractive
 RUN apt-get update && \
     apt-get install -y software-properties-common python-software-properties \
         build-essential git python python-dev python-setuptools python-pip \
-        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python \
-        nodejs && \
+        sudo curl libpq-dev ntp ruby ruby-dev gdal-bin uwsgi-core uwsgi-plugin-python && \
     rm -rf /var/lib/apt/lists/*
 
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && apt-get install nodejs
 RUN pip install -r requirements.txt
 
 WORKDIR /app
