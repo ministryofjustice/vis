@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /app
+python manage.py collectstatic
 case ${DOCKER_STATE} in
 create)
     echo "Running create"
