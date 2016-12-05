@@ -17,7 +17,7 @@ COPY . /app
 
 # I'm not certainly sure if following gems ( except of bundler are required )
 RUN gem install rdoc compass bundler
-RUN npm install -g bower gulp
+RUN npm cache clear -f && npm install -g bower gulp
 RUN bower install --allow-root
 RUN npm install && bundle install
 RUN gulp build:prod
