@@ -10,6 +10,7 @@ RUN apt-get update && \
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && apt-get install nodejs
 
+RUN mkdir -p /app
 WORKDIR /app
 COPY requirements.txt /app
 
