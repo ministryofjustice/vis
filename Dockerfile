@@ -12,13 +12,10 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && apt-get in
 
 RUN mkdir -p /app
 WORKDIR /app
-COPY requirements.txt /app
-
-RUN pip install -r requirements.txt
-
 COPY . /app
 
 RUN rm -rf /app/node_modules
+RUN pip install -r requirements.txt
 
 # fix docker aufs / npm install issue "Error: EXDEV: cross-device link not permitted"
 RUN cd $(npm root -g)/npm  && npm install fs-extra && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
