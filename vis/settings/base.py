@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(PROJECT_DIR, 'vis/apps'))
 SECRET_KEY = 'dn@b!u!a^)g&61d^ec2!+fi$9g@%7^kh*@b$vby2^l+ra_ut0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 TEMPLATE_DEBUG = False
 

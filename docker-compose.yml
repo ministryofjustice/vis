@@ -13,8 +13,8 @@ django:
     - POSTGRES_PASSWORD=password
     - POSTGRES_PORT=5432
     - POSTGRES_DB=vis
-    #- DJANGO_SETTINGS_MODULE=settings.production
-  command: ./manage.py runserver 0.0.0.0:8000 --settings=vis.settings.production
+    - DEBUG=True
+  command: ./manage.py runserver 0.0.0.0:8000 --settings=vis.settings.base
   #volumes:
   #  - ./vis:/app
 postgres:

@@ -29,5 +29,3 @@ RUN gulp build:prod
 RUN chmod +x ./run.sh
 CMD ["./run.sh"]
 
-# Enforce "OK" exit code even if following command fails
-#RUN sass --force --update vis/assets-src:vis/assets || :
