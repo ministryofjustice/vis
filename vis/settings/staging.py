@@ -2,4 +2,4 @@ import os
 
 DEBUG = False
 
-ALLOWED_HOST = os.environ[ALLOWED_HOST]
+ALLOWED_HOSTS = os.environ["ALLOWED_HOSTS"]

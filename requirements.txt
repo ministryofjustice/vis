@@ -10,7 +10,6 @@ pyjade==4.0.0
 wagtail==1.0.0
 django-autoslug==1.7.2
 waitress==0.8.9
-whitenoise==1.0.6
 django-redis-cache==0.13.0
 redis==2.10.3
 newrelic==2.50.0.39
@@ -19,4 +18,5 @@ django-secure==1.0.1
 geopy==1.9.1
 django-localflavor==1.1
 boto==2.38.0
-uwsgi==2.0.14
+
+gunicorn
