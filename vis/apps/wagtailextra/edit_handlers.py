@@ -1,7 +1,7 @@
 from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 
-from wagtail.wagtailadmin.edit_handlers import BaseFieldPanel
+from wagtail.wagtailadmin.edit_handlers import BaseFieldPanel, FieldPanel
 
 
 class BaseCoreFieldPanel(BaseFieldPanel):
@@ -17,11 +17,19 @@ class BaseCoreFieldPanel(BaseFieldPanel):
         }))
 
 
-def CoreFieldPanel(field_name, classname=""):
-    return type(str('_CoreFieldPanel'), (BaseCoreFieldPanel,), {
-        'field_name': field_name,
-        'classname': classname,
-    })
+class CoreFieldPanel(object):
+    def __init__(self, field_name, classname=""):
+        self.field_name = field_name
+        self.classname = classname
+
+    def bind_to_model(self, model):
+        base = {
+            'model': model,
+            'field_name': self.field_name,
+            'classname': self.classname,
+        }
+
+        return type(str('_CoreFieldPanel'), (BaseCoreFieldPanel,), base)
 
 
 class BaseConfigurableRichTextFieldPanel(BaseFieldPanel):
