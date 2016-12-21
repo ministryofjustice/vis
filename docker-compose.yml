@@ -1,0 +1,25 @@
+# local dev env
+
+django:
+  build: .
+  ports:
+    - "8011:8000"
+  links:
+    - postgres:db
+  # local dev env variables which are kept out of version control
+  environment:
+    - POSTGRES_HOST=db
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=password
+    - POSTGRES_PORT=5432
+    - POSTGRES_DB=vis
+    - DEBUG=True
+  command: ./manage.py runserver 0.0.0.0:8000 --settings=vis.settings.base
+  volumes:
+    - .:/app
+postgres:
+  image: postgres:9.4
+  environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=password
+    - POSTGRES_DB=vis
