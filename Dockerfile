@@ -24,6 +24,7 @@ RUN npm update -g && npm install -g bower gulp && npm install
 RUN gem install bundler
 RUN bower install --allow-root && bundle install
 
+RUN mkdir -p /app/vis/assets
 RUN ./manage.py collectstatic --noinput
 
 RUN gulp build:prod
