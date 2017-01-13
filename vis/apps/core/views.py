@@ -20,8 +20,10 @@ REQUEST_TIMEOUT = 10
 
 def ping(request):
     return JsonResponse({
-        "commit_id": os.environ.get('GIT_SHA', ''),
-        "build_date": os.environ.get('DEPLOY_DATETIME', '')
+        "version_number": os.environ.get('APP_VERSION', ''),
+        "build_date": os.environ.get('APP_BUILD_DATE', ''),
+        "commit_id": os.environ.get('APP_GIT_COMMIT', ''),
+        "build_tag": os.environ.get('APP_BUILD_TAG', ''),
     })
 
 
