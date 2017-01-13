@@ -23,7 +23,7 @@ def ping(request):
         "version_number": os.environ.get('APP_VERSION', ''),
         "build_date": os.environ.get('APP_BUILD_DATE', ''),
         "commit_id": os.environ.get('APP_GIT_COMMIT', ''),
-        "build_tag": os.environ.get('APP_BUILD_TAG', ''),
+        "build_tag": os.environ.get('APP_BUILD_TAG', '')
     })
 
 
