@@ -24,9 +24,9 @@ RUN npm update -g && npm install -g bower gulp && npm install
 RUN gem install bundler
 RUN bower install --allow-root && bundle install
 
-RUN ./manage.py collectstatic --noinput
-
 RUN gulp build:prod
+
+RUN ./manage.py collectstatic --noinput
 
 RUN chmod +x ./run.sh
 CMD ["./run.sh"]
