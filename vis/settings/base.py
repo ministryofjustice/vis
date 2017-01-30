@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 import sys
 import dj_database_url
+import urlparse
 
 # PATH vars
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -218,6 +219,21 @@ EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
 EXPORT_RECIPIENTS = []
 
 GA_ID = os.environ.get('GA_ID', '')
+
+# REDIS
+if 'REDIS_URL' in os.environ:
+    redis_url = urlparse.urlparse(os.environ['REDIS_URL'])
+
+    CACHES = {
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+            'OPTIONS': {
+                'DB': 0,
+                'PASSWORD': redis_url.password,
+            }
+        }
+    }
 
 
 try:
