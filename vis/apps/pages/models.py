@@ -14,7 +14,7 @@ from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable
 
-from wagtailextra.models import BaseVISPage
+from wagtailextra.models import BaseVISPage, Page
 from wagtailextra.mixins import ObjectListMixin
 
 from modelcluster.fields import ParentalKey
@@ -142,6 +142,41 @@ class MultiPagePage(BaseVISPage):
         return super(MultiPagePage, self).serve(request, *args, **kwargs)
 
 
+class ExternalPage(Page):
+    """
+    Adds the ability to redirect to an external URL from the home page or elsewhere.
+    Combines the meta data and workflow of a page without actual content beyonsd a URL.
+    """
+
+    external_url = models.URLField(
+        help_text="The external link to redirect the user to, e.g. https://www.gov.uk/.",
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(ExternalPage, self).__init__(*args, **kwargs)
+        title = self._meta.get_field_by_name("title")[0]
+        title.help_text = (
+            "The name of the page in the admin page chooser and in the user's status bar on hover. "
+            "Once they click the link they will be redirected to the external_url."
+        )
+        slug = self._meta.get_field_by_name("slug")[0]
+        slug.help_text = (
+            "The name of the page as it will appear in the user's status bar "
+            "e.g http://domain.com/blog/[my-slug]/ when the use hovers over the link"
+        )
+        seo_title = self._meta.get_field_by_name("seo_title")[0]
+        seo_title.help_text = (
+            "Irrelevant when using external links. The page title is controled by the target page."
+        )
+        search_description = self._meta.get_field_by_name("search_description")[0]
+        search_description.help_text = (
+            "Seach does not work for external links because the content is not stored here"
+        )
+
+    def serve(self, request):
+        return redirect(self.external_url, permanent=False)
+
+
 # #### PAGE COMPONENTS
 
 
@@ -242,6 +277,17 @@ PCCPage.settings_panels = [
     FieldPanel('show_generic_content'),
 ]
 
+ExternalPage.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('external_url', classname="full"),
+]
+
+ExternalPage.promote_panels = [
+    FieldPanel('slug'),
+    FieldPanel('seo_title'),
+    FieldPanel('show_in_menus'),
+    FieldPanel('search_description'),
+]
 
 MultiPagePage.promote_panels = COMMON_PROMOTE_PANELS
 GlossaryPage.promote_panels = COMMON_PROMOTE_PANELS
