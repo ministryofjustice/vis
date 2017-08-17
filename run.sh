@@ -15,4 +15,4 @@ migrate)
     ;;
 esac
 
-gunicorn vis.wsgi --bind=0.0.0.0:8000
+${*:-waitress-serve --port=8000 vis.wsgi:application}
