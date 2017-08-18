@@ -11,20 +11,8 @@ if DJ_DATABASE_URL:
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '<not-used>')
 
-PIPELINE_COMPILERS = ()
-PIPELINE_ENABLED = True
-
-ALLOWED_HOSTS = ['*']
-
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
-
-STATICFILES_STORAGE = 'core.storage.GulpManifestStaticFilesStorage'
-
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-
-STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -36,10 +24,6 @@ SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_FRAME_DENY = True
 
-
-S3_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
-S3_SECRET_ACCESS_KEY_ID = os.environ.get('S3_SECRET_ACCESS_KEY_ID')
-S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 
 # REDIS
 if 'REDISTOGO_URL' in os.environ:
@@ -75,33 +59,3 @@ INSTALLED_APPS = INSTALLED_APPS + (
 EXPORT_RECIPIENTS = os.environ.get('EXPORT_RECIPIENTS', '').split(',')
 
 CACHE_CONTROL_MAX_AGE = 60*60
-
-
-# LOGGING
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'stream': sys.stdout,
-            }
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
-        'propagate': True,
-        },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'propagate': True,
-            'level': 'DEBUG',
-            },
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-            },
-    }
-}

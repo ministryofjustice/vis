@@ -13,10 +13,9 @@ django:
     - POSTGRES_PASSWORD=password
     - POSTGRES_PORT=5432
     - POSTGRES_DB=vis
-    - DEBUG=True
-  command: ./manage.py runserver 0.0.0.0:8000 --settings=vis.settings.base
-  volumes:
-    - .:/app
+    - DOCKER_STATE=create
+    - DJANGO_SETTINGS_MODULE=vis.settings.base
+    - DJANGO_DEBUG=False
 postgres:
   image: postgres:9.4
   environment:

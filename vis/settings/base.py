@@ -15,7 +15,7 @@ import dj_database_url
 
 # PATH vars
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(BASE_DIR, '../')
+PROJECT_DIR = os.path.dirname(BASE_DIR)
 sys.path.insert(0, os.path.join(PROJECT_DIR, 'vis/apps'))
 
 
@@ -26,11 +26,10 @@ sys.path.insert(0, os.path.join(PROJECT_DIR, 'vis/apps'))
 SECRET_KEY = 'dn@b!u!a^)g&61d^ec2!+fi$9g@%7^kh*@b$vby2^l+ra_ut0%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
+TEMPLATE_DEBUG = DEBUG
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
@@ -83,6 +82,8 @@ MIDDLEWARE_CLASSES = (
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
     'core.middleware.MaxAgeMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -102,7 +103,7 @@ TEMPLATE_LOADERS = (
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets-src/vendor'),
-    os.path.join(PROJECT_DIR, 'vis/assets'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 STATICFILES_FINDERS = (
@@ -115,10 +116,6 @@ STATICFILES_FINDERS = (
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
-
-
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-
 
 ROOT_URLCONF = 'vis.urls'
 
@@ -165,7 +162,15 @@ CACHE_CONTROL_MAX_AGE = 0
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+
+PIPELINE_COMPILERS = ()
+PIPELINE_ENABLED = True
 
 MARKDOWN_PROTECT_PREVIEW = True
 
@@ -202,6 +207,10 @@ ZENDESK_CUSTOM_FIELD_SERVICE_ID = os.environ.get('ZENDESK_CUSTOM_FIELD_SERVICE_I
 ZENDESK_API_ENDPOINT = os.environ.get('ZENDESK_API_ENDPOINT', 'https://ministryofjustice.zendesk.com/api/v2/')
 
 
+S3_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID')
+S3_SECRET_ACCESS_KEY_ID = os.environ.get('S3_SECRET_ACCESS_KEY_ID')
+S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+
 # URL2PNG
 
 URL2PNG_API_KEY = os.environ.get('URL2PNG_API_KEY', '')
@@ -218,6 +227,35 @@ EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
 EXPORT_RECIPIENTS = []
 
 GA_ID = os.environ.get('GA_ID', '')
+
+# LOGGING
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+            }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+        'propagate': True,
+        },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+            },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+            },
+    }
+}
 
 
 try:
