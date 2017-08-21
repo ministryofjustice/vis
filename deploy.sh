@@ -33,11 +33,23 @@ if ! git remote | grep "^heroku-$ENVIRONMENT$" > /dev/null; then
   exit 1
 fi
 
+echo ">>> Building static assets"
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
 
-docker cp $CONTAINER_ID:/app/static ./static
-docker cp $CONTAINER_ID:/app/vis/assets ./vis/assets
+# Different versions of docker cp treat directories differently
+# This approach works for old and new versions
+TMP_CP_DIR=$(mktemp -d /tmp/heroku-vis-static.XXXXXXX)
+trap "{ rm -rf $TMP_CP_DIR; }" EXIT
+
+rm -rf ./static ./vis/assets
+mkdir -p $TMP_CP_DIR/static $TMP_CP_DIR/assets
+
+docker cp $CONTAINER_ID:/app/static/ $TMP_CP_DIR/static
+docker cp $CONTAINER_ID:/app/vis/assets/ $TMP_CP_DIR/assets
+
+mv $TMP_CP_DIR/static/static ./static
+mv $TMP_CP_DIR/assets/assets ./vis/assets
 
 git add -f ./static ./vis/assets
 git commit -m 'deploy: add static assets'
