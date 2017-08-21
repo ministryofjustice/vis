@@ -12,23 +12,25 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && apt-get in
 
 RUN mkdir -p /app
 WORKDIR /app
-COPY . /app
 
-RUN rm -rf /app/node_modules
+COPY ./requirements.txt ./requirements.txt
+COPY ./requirements ./requirements/
 RUN pip install -r requirements.txt
 
 # fix docker aufs / npm install issue "Error: EXDEV: cross-device link not permitted"
-RUN cd $(npm root -g)/npm  && npm install fs-extra && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
+RUN cd $(npm root -g)/npm && npm install fs-extra && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
 
-RUN npm update -g && npm install -g bower gulp && npm install
-RUN gem install bundler
-RUN bower install --allow-root && bundle install
+COPY ./package.json ./package.json
+COPY ./Gemfile ./Gemfile
+COPY ./Gemfile.lock ./Gemfile.lock
+RUN npm install \
+  && gem install bundler && bundle install
 
-RUN mkdir -p /app/vis/assets
-RUN ./manage.py collectstatic --noinput
+COPY . .
+RUN mkdir -p ./vis/assets && mkdir -p ./assets
+RUN node_modules/.bin/bower install --allow-root \
+  && node_modules/.bin/gulp build:prod \
+  && ./manage.py collectstatic --noinput
 
-RUN gulp build:prod
-
-RUN chmod +x ./run.sh
 CMD ["./run.sh"]
 

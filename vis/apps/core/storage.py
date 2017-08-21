@@ -1,4 +1,5 @@
 import json
+import os
 from urlparse import urldefrag, urlsplit, urlunsplit, unquote
 from django.contrib.staticfiles.storage import ManifestStaticFilesStorage, \
     HashedFilesMixin
@@ -8,7 +9,7 @@ from collections import OrderedDict
 
 class GulpManifestStaticFilesStorage(ManifestStaticFilesStorage):
 
-    manifest_name = settings.PROJECT_DIR + 'static/manifest.json'
+    manifest_name = os.path.join(settings.PROJECT_DIR, 'static/manifest.json')
 
     def post_process(self, *args, **kwargs):
         return []
