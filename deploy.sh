@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 if [ $# -ne 1 ]; then
   >&2 echo "Usage: ./deploy.sh environment"
