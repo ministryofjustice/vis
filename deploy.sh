@@ -13,8 +13,8 @@ HEROKU_PATH="${HEROKU_PATH:-$(which heroku)}"
 
 # Check we're deploying the right branch to the right environment
 if [ "$ENVIRONMENT" = "staging" ]; then
-  if [ "$BRANCH_NAME" != "develop" ]; then
-    >&2 echo "Can only deploy 'develop' to staging, you are on '${BRANCH_NAME}'"
+  if [ "$BRANCH_NAME" != "rob-develop-test" ]; then
+    >&2 echo "Can only deploy 'rob-develop-test' to staging, you are on '${BRANCH_NAME}'"
     exit 1
   fi
 elif [ "$ENVIRONMENT" = "prod" ]; then
