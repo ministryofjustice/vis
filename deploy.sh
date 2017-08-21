@@ -36,8 +36,8 @@ fi
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
 
-docker cp $CONTAINER_ID:/app/static/ ./static
-docker cp $CONTAINER_ID:/app/vis/assets/ ./vis/assets
+docker cp $CONTAINER_ID:/app/static/ ./static/
+docker cp $CONTAINER_ID:/app/vis/assets/ ./vis/assets/
 
 git add -f ./static ./vis/assets
 git commit -m 'deploy: add static assets'
@@ -46,3 +46,15 @@ git push heroku-${ENVIRONMENT} HEAD:master -f
 $HEROKU_PATH config:add GIT_SHA=$GIT_SHA --app vis-${ENVIRONMENT}
 $HEROKU_PATH config:add DEPLOY_DATETIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --app vis-${ENVIRONMENT}
 git reset --hard HEAD^
+
+function current_version {
+  url="https://vis-$1.herokuapp.com/ping.json"
+
+  curl -k $url | sed 's/.*commit_id": "\([^"]*\)".*/\1/g'
+}
+
+while [ "$(current_version $ENVIRONMENT)" != "$GIT_SHA" ]; do
+  sleep 2
+done
+
+curl -kq https://vis-staging.herokuapp.com
