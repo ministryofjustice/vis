@@ -39,7 +39,7 @@ docker cp $CONTAINER_ID:/app/static ./static
 docker cp $CONTAINER_ID:/app/vis/assets ./vis/assets
 
 git add -f ./static ./vis/assets
-git cm -m 'deploy: add static assets'
+git commit -m 'deploy: add static assets'
 
 git push heroku-${ENVIRONMENT} HEAD:master -f
 $HEROKU_PATH config:add GIT_SHA=$GIT_SHA --app vis-${ENVIRONMENT}
