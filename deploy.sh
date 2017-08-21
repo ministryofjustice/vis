@@ -6,6 +6,9 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
+rm -rf ./static ./vis/assets
+mkdir -p ./static ./vis/assets
+
 ENVIRONMENT=$1
 GIT_SHA=$(git rev-parse HEAD)
 BRANCH_NAME="${BRANCH_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
@@ -35,9 +38,6 @@ fi
 
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
-
-rm -rf ./static ./vis/assets
-mkdir -p ./static ./vis/assets
 
 docker cp $CONTAINER_ID:/app/static ./static
 docker cp $CONTAINER_ID:/app/vis/assets ./vis/assets
