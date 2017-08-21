@@ -36,8 +36,13 @@ fi
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
 
-docker cp $CONTAINER_ID:/app/static/ ./static/
-docker cp $CONTAINER_ID:/app/vis/assets/ ./vis/assets/
+rm -rf ./static ./vis/assets
+mkdir -p ./static ./vis/assets
+
+docker cp $CONTAINER_ID:/app/static ./static
+docker cp $CONTAINER_ID:/app/vis/assets ./vis/assets
+
+exit 2
 
 git add -f ./static ./vis/assets
 git commit -m 'deploy: add static assets'
