@@ -7,7 +7,7 @@ fi
 
 ENVIRONMENT=$1
 GIT_SHA=$(git rev-parse HEAD)
-BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+BRANCH_NAME="${BRANCH_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
 HEROKU_PATH="${HEROKU_PATH:-$(which heroku)}"
 
 # Check we're deploying the right branch to the right environment
