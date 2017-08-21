@@ -6,9 +6,6 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-rm -rf ./static ./vis/assets
-mkdir -p ./static ./vis/assets
-
 ENVIRONMENT=$1
 GIT_SHA=$(git rev-parse HEAD)
 BRANCH_NAME="${BRANCH_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
@@ -39,10 +36,17 @@ fi
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
 
-docker cp $CONTAINER_ID:/app/static/ ./static
-docker cp $CONTAINER_ID:/app/vis/assets/ ./vis/assets
+rm -rf ./static ./vis/assets
+TMP_CP_DIR=$(mktemp -d /tmp/heroku-vis-static.XXXXXXX)
+trap "{ rm -rf $TMP_CP_DIR; }" EXIT
 
-exit 2
+mkdir -p $TMP_CP_DIR/static $TMP_CP_DIR/assets
+
+docker cp $CONTAINER_ID:/app/static/ $TMP_CP_DIR/static
+docker cp $CONTAINER_ID:/app/vis/assets/ $TMP_CP_DIR/assets
+
+mv $TMP_CP_DIR/static/static ./static
+mv $TMP_CP_DIR/assets/assets ./vis/assets
 
 git add -f ./static ./vis/assets
 git commit -m 'deploy: add static assets'
