@@ -39,8 +39,8 @@ fi
 docker build -t moj-vis .
 CONTAINER_ID=$(docker run -d moj-vis)
 
-docker cp $CONTAINER_ID:/app/static ./static
-docker cp $CONTAINER_ID:/app/vis/assets ./vis/assets
+docker cp $CONTAINER_ID:/app/static/ ./static
+docker cp $CONTAINER_ID:/app/vis/assets/ ./vis/assets
 
 exit 2
 
