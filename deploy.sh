@@ -56,14 +56,19 @@ $HEROKU_PATH config:add GIT_SHA=$GIT_SHA --app vis-${ENVIRONMENT}
 $HEROKU_PATH config:add DEPLOY_DATETIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --app vis-${ENVIRONMENT}
 git reset --hard HEAD^
 
-function current_version {
-  url="https://vis-$1.herokuapp.com/ping.json"
+function get_url {
+  echo "https://vis-$1.herokuapp.com"
+}
 
-  curl -k $url | sed 's/.*commit_id": "\([^"]*\)".*/\1/g'
+function current_version {
+  curl -k $(get_url $1)/ping.json | sed 's/.*commit_id": "\([^"]*\)".*/\1/g'
 }
 
 while [ "$(current_version $ENVIRONMENT)" != "$GIT_SHA" ]; do
   sleep 2
 done
 
-curl -kq https://vis-staging.herokuapp.com
+curl -Lfsk $(get_url $ENVIRONMENT) > /dev/null || {
+  >&2 echo "Failed loading $(get_url $ENVIRONMENT)"
+  exit 2
+}
