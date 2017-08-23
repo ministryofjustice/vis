@@ -42,3 +42,6 @@ static/*
 vis-export
 *.sublime-project
 *.sublime-workspace
+
+# Vi
+*.sw[a-z]
