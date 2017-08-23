@@ -12,17 +12,12 @@ BRANCH_NAME="${BRANCH_NAME:-$(git rev-parse --abbrev-ref HEAD)}"
 HEROKU_PATH="${HEROKU_PATH:-$(which heroku)}"
 
 # Check we're deploying the right branch to the right environment
-if [ "$ENVIRONMENT" = "staging" ]; then
-  if [ "$BRANCH_NAME" != "develop" ]; then
-    >&2 echo "Can only deploy 'develop' to staging, you are on '${BRANCH_NAME}'"
-    exit 1
-  fi
-elif [ "$ENVIRONMENT" = "prod" ]; then
+if [ "$ENVIRONMENT" = "prod" ]; then
   if [ "$BRANCH_NAME" != "master" ]; then
     >&2 echo "Can only deploy 'master' to prod, you are on '${BRANCH_NAME}'"
     exit 1
   fi
-else
+elif [ "$ENVIRONMENT" != "staging" ]; then
   >&2 echo "Unknown environment '${ENVIRONMENT}'. Can be prod or staging."
   exit 1
 fi
