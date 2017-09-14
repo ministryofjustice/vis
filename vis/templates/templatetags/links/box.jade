@@ -1,0 +1,10 @@
+- load wagtailcore_tags
+
+if l_items
+  .MetaPanel
+    h1.MetaPanel-title Useful Links
+    dl.DefinitionList
+      for item in l_items
+        - with item.link_item as l_item
+          dd
+            a(href="#{ l_item.url }")= l_item.name
