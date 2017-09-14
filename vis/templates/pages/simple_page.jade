@@ -8,5 +8,7 @@ block article_content
   #{self.content|richtext}
 
 block article_aside
+  - with self.link_items.all as l_items
+    - include "templatetags/links/box.jade"
   - with self.glossary_items.all as items
     - include "templatetags/glossary/box.jade"

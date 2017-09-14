@@ -39,6 +39,31 @@ class GlossaryItem(models.Model):
 
 
 @register_snippet
+class ExternalLink(models.Model):
+    name = models.CharField(max_length=255)
+    slug = AutoSlugField(
+        populate_from='name', unique=True, editable=False, max_length=255)
+    url = models.URLField()
+
+    def __unicode__(self):
+        return self.name
+
+    def natural_key(self):
+        return self.slug
+
+    def get_letter(self):
+        return self.name[0].lower()
+
+    panels = [
+        FieldPanel('name', classname="full title"),
+        FieldPanel('url', classname="full"),
+    ]
+
+    class Meta:
+        ordering = ['name']
+
+
+@register_snippet
 class Helpline(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = AutoSlugField(

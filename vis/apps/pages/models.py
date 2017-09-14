@@ -19,7 +19,7 @@ from wagtailextra.mixins import ObjectListMixin
 
 from modelcluster.fields import ParentalKey
 
-from info.models import GlossaryItem
+from info.models import GlossaryItem, ExternalLink
 
 
 from .wagtail_constants import COMMON_PROMOTE_PANELS, \
@@ -239,6 +239,14 @@ class SimplePageGlosseryItems(Orderable, models.Model):
     ]
 
 
+class SimplePageLinkItems(Orderable, models.Model):
+    page = ParentalKey('pages.SimplePage', related_name='link_items')
+    link_item = models.ForeignKey(ExternalLink, related_name='+')
+
+    panels = [
+        SnippetChooserPanel('link_item', ExternalLink)
+    ]
+
 # #### PAGE ADMIN
 
 
@@ -246,6 +254,7 @@ SimplePage.content_panels = [
     FieldPanel('title', classname="full title"),
     FieldPanel('content', classname="full"),
 
+    InlinePanel(SimplePage, 'link_items', label='Link items'),
     InlinePanel(SimplePage, 'glossary_items', label='Glossary items'),
 ]
 SimplePage.promote_panels = SIMPLEPAGE_PROMOTE_PANELS
