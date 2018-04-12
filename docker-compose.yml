@@ -1,24 +1,28 @@
 # local dev env
-
-django:
-  build: .
-  ports:
-    - "8011:8000"
-  links:
-    - postgres:db
-  # local dev env variables which are kept out of version control
-  environment:
-    - POSTGRES_HOST=db
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=password
-    - POSTGRES_PORT=5432
-    - POSTGRES_DB=vis
-    - DOCKER_STATE=create
-    - DJANGO_SETTINGS_MODULE=vis.settings.base
-    - DJANGO_DEBUG=False
-postgres:
-  image: postgres:9.4
-  environment:
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=password
-    - POSTGRES_DB=vis
+version: '3'
+services:
+  django:
+    build: .
+    image: django
+    ports:
+      - "8011:8000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    # local dev env variables which are kept out of version control
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=vis
+      - DOCKER_STATE=create
+      - DJANGO_SETTINGS_MODULE=vis.settings.base
+      - DJANGO_DEBUG=False
+  postgres:
+    image: postgres:9.6.8
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=vis
