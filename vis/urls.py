@@ -21,6 +21,7 @@ urlpatterns = patterns(
     '',
     # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
+    url(r'^googledb1b9241d561d1b0.html$', TemplateView.as_view(template_name='googledb1b9241d561d1b0.html')),
     url(r'^ping.json$', ping),
     url(r'^healthcheck.json$', HealthCheckView.as_view()),
     url(r'^maintenance/$', TemplateView.as_view(template_name='maintenance-page.jade')),
