@@ -1,6 +1,4 @@
 machine:
-  ruby:
-    version: 2.1.5
   environment:
     DJANGO_SETTINGS_MODULE: vis.settings.heroku
     GIT_COMMITTER_NAME: circleci

@@ -7,7 +7,6 @@ Victims' Information Service
 - [Python 2.7](http://www.python.org/) (Can be installed using `brew`)
 - [Postgres 9.3+](http://www.postgresql.org/)
 - [nodejs.org](http://nodejs.org/)
-- [Sass](http://sass-lang.com/) (Ruby version - minimum v3.4)
 - [gulp.js](http://gulpjs.com/) (Installed globally using `npm install -g gulp`)
 - [Bower](http://bower.io/) (Installed globally using `npm install -g bower`)
 
@@ -114,7 +113,7 @@ gulp watch --port=8001
 
 ### Police area maps
 
-The maps used on the police pages are generated using [Mapbox](https://www.mapbox.com/). The images are currently kept in `vis/assets-src/images/pcc-maps/`. 
+The maps used on the police pages are generated using [Mapbox](https://www.mapbox.com/). The images are currently kept in `vis/assets-src/images/pcc-maps/`.
 
 #### Generate maps
 
@@ -185,7 +184,7 @@ Build the Docker images with Fig:
 $ fig build
 ```
 
-If you get the error: 
+If you get the error:
 
 ```
 SSL error: hostname '192.168.59.103' doesn't match 'boot2docker'

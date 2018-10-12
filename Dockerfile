@@ -21,10 +21,7 @@ RUN pip install -r requirements.txt
 RUN cd $(npm root -g)/npm && npm install fs-extra && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
 
 COPY ./package.json ./package.json
-COPY ./Gemfile ./Gemfile
-COPY ./Gemfile.lock ./Gemfile.lock
-RUN npm install \
-  && gem install bundler && bundle install
+RUN npm install
 
 COPY . .
 RUN mkdir -p ./vis/assets && mkdir -p ./assets
