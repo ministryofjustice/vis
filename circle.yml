@@ -1,6 +1,0 @@
-machine:
-  environment:
-    DJANGO_SETTINGS_MODULE: vis.settings.heroku
-test:
-  override:
-    - python manage.py test
