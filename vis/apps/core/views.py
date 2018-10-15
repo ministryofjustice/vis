@@ -20,8 +20,8 @@ REQUEST_TIMEOUT = 10
 
 def ping(request):
     return JsonResponse({
-        "commit_id": os.environ.get('GIT_SHA', ''),
-        "build_date": os.environ.get('DEPLOY_DATETIME', '')
+        "commit_id": os.environ.get('HEROKU_SLUG_COMMIT', ''),
+        "build_date": os.environ.get('HEROKU_RELEASE_CREATED_AT', '')
     })
 
 
