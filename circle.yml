@@ -1,47 +1,6 @@
 machine:
   environment:
     DJANGO_SETTINGS_MODULE: vis.settings.heroku
-    GIT_COMMITTER_NAME: circleci
-    GIT_AUTHOR_NAME: circleci
-    GIT_AUTHOR_EMAIL: circleci@example.com
-  post:
-    - git config --global user.email "circleci@exmaple.com"
-    - git config --global user.name "circleci"
-
-general:
-  branches:
-    only:
-    - master
-    - develop
-
-dependencies:
-  post:
-    - bower install
-
 test:
-  pre:
-    - node_modules/.bin/gulp build:prod
-    - python manage.py collectstatic --noinput
   override:
     - python manage.py test
-  post:
-      - git add ./vis/assets/ ./static/ -f
-      - git commit -m "deploy"
-
-deployment:
-  staging:
-    branch: develop
-    commands:
-      - git push git@heroku.com:vis-staging.git HEAD:master -f
-      - heroku config:add GIT_SHA=$CIRCLE_SHA1 --app vis-staging
-      - heroku config:add DEPLOY_DATETIME=`date -Is` --app vis-staging
-      - heroku run python manage.py migrate --noinput --app vis-staging
-      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://origin-staging.victimsinformationservice.org.uk/healthcheck.json) = 200 ]'
-  production:
-    branch: master
-    commands:
-      - git push git@heroku.com:vis-prod.git HEAD:master -f
-      - heroku config:add GIT_SHA=$CIRCLE_SHA1 --app vis-prod
-      - heroku config:add DEPLOY_DATETIME=`date -Is` --app vis-prod
-      - heroku run python manage.py migrate --noinput --app vis-prod
-      - '[ $(curl -s -o /dev/null -w "%{http_code}" https://origin.victimsinformationservice.org.uk/healthcheck.json) = 200 ]'
