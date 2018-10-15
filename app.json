@@ -3,8 +3,15 @@
   "description": "The UK's VIS website",
   "repository": "https://github.com/ministryofjustice/vis",
   "success_url": "/admin/",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
   "env": {
-    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git",
     "DJANGO_SETTINGS_MODULE": {
       "required": true,
       "description": "the settings file you'd like to use. In most cases just set this to vis.settings.heroku",
