@@ -1,5 +1,6 @@
 {
   "name": "Victims' Information Service",
+  "stack": "heroku-18",
   "description": "The UK's VIS website",
   "repository": "https://github.com/ministryofjustice/vis",
   "success_url": "/admin/",
