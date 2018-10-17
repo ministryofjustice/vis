@@ -12,6 +12,17 @@
     }
   ],
   "env": {
+    "ADDRESSFINDER_API_HOST": {
+      "required": false,
+      "description": "Hostname of address finder application"
+    },
+    "ADDRESSFINDER_API_TOKEN": {
+      "required": false,
+      "description": "Address finder API token"
+    },
+    "CLOUDINARY_URL": {
+      "required": false
+    },
     "DJANGO_SETTINGS_MODULE": {
       "required": true,
       "description": "the settings file you'd like to use. In most cases just set this to vis.settings.heroku",
@@ -23,11 +34,7 @@
     },
     "BING_API_TOKEN": {
       "required": false,
-      "description": "Bing Maps API token."
-    },
-    "STATIC_URL": {
-      "description": "Django STATIC_URL (default '/static/')",
-      "value": "/static/"
+      "description": "Bing Maps API token"
     },
     "EMAIL_HOST": {
       "required": false,
@@ -56,6 +63,18 @@
     "URL2PNG_SECRET_KEY": {
       "required": false,
       "description": "url2png secret key"
+    },
+    "S3_ACCESS_KEY_ID": {
+      "required": false
+    },
+    "S3_BUCKET_NAME": {
+      "required": false
+    },
+    "S3_SECRET_ACCESS_KEY_ID": {
+      "required": false
+    },
+    "SENTRY_DSN": {
+      "required": false
     },
     "ZENDESK_API_USERNAME": {
       "required": false,
