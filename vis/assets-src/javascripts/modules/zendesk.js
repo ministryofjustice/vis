@@ -15,6 +15,7 @@
 
     cacheEls: function () {
       this.$form = $(this.selector);
+      this.$subject = this.$form.find('[name="subject"]');
       this.$feedback = this.$form.find('[name="comments"]');
       this.$submitBtn = this.$form.find('button[type="submit"]');
     },
@@ -52,12 +53,23 @@
     },
 
     isValid: function () {
+      var errors = []
+
       if (this.$feedback.val() === '') {
-        this.setErrors(['Your comment cannot be blank']);
+        errors.push('Your comment cannot be blank');
+      }
+
+      if (this.$subject.val() !== '') {
+        errors.push('Subject must be blank. We use this to prevent spam.');
+      }
+
+      if (errors.length === 0) {
+        this.$form.find('.Error-summary').remove();
+        return true;
+      } else {
+        this.setErrors(errors);
         return false;
       }
-      this.$form.find('.Error-summary').remove();
-      return true;
     },
 
     submit: function (evt) {
