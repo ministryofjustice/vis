@@ -2,6 +2,7 @@
   details
     summary Is there anything wrong with this page?
     form.Feedback-form.js-Zendesk(action="{% url 'zendesk' %}", method="post", novalidate)
+      input.hidden(type="text", id="subject", name="subject")
       label.Feedback-label(for="comments")
         | Did you have a problem with this page? Tell us why.
         br
