@@ -1,66 +1,58 @@
 .SearchForm {
   @extend %contain-floats;
   @include font-18;
-  @include grid-column(1/3, $full-width: desktop, $float: right);
   position: relative;
-  padding: {
-    top: 1.389em;
-    bottom: 1.389em;
-    right: 4.063em;
-    left: 0;
-  };
-
-  @include media(tablet) {
-    padding-right: 3.611em;
-  }
+  padding-left: 0;
+  padding-right: 0;
+  margin: 1.389em 0;
 
   @include media(desktop) {
-    width: auto;
-    float: none;
-    text-align: center;
-    margin: 0 auto;
-    padding: {
-      top: 2.778em;
-      bottom: 2.778em;
-      right: 0;
-    }
-
-    &.SearchForm--compact {
-      padding-bottom: 1.389em;
-    }
-  }
-
-  &.SearchForm--compact {
-    padding-top: 0;
+    margin: 0;
   }
 }
+.SearchForm--compact {
+  margin-top: 0;
+}
+
+.SearchForm--hero {
+  @include media(desktop) {
+    background: url(../images/homepage-background.png) left top no-repeat;
+    min-height: 350px;
+
+    .SearchForm-inner {
+      float: right;
+      margin-right: 30px;
+      margin-top: 60px;
+      max-width: 360px;
+    }
+  }
+}
+
 .SearchForm-heading,
 .SearchForm-subHeading {
-  @extend .visuallyhidden;
-  color: $primary-colour;
+  color: $black;
+  display: block;
+  font-family: $merriweather;
+  padding-bottom: 15px;
 
   @include media(desktop) {
-    position: relative;
-    left: auto;
-    line-height: 1;
-    margin: 0 auto;
-    display: block;
-    width: 70%;
-    padding-bottom: 0.781em;
-  }
-
-  .SearchForm--compact & {
-    @extend .visuallyhidden;
+    padding-bottom: 30px;
   }
 }
 .SearchForm-heading {
   @include font-32(800);
+
+  .SearchForm--compact & {
+    @include font-24(800);
+    color: $white;
+    padding-bottom: 10px;
+  }
 }
 .SearchForm-subHeading {
-  @include font-18(800);
+  @include font-18(500);
 
-  @include media(desktop) {
-    padding-bottom: 1.389em;
+  .SearchForm--compact & {
+    @extend .visuallyhidden;
   }
 }
 .SearchForm-labelText {
@@ -81,17 +73,6 @@
 }
 .SearchForm-wrap {
   @extend %contain-floats;
-  display: block;
-
-  @include media(desktop) {
-    margin: 0 auto;
-    width: 385px;
-  }
-
-  .SearchForm--compact & {
-    width: auto;
-    margin: 0;
-  }
 }
 .SearchForm-query {
   @include box-sizing(border-box);
@@ -109,12 +90,8 @@
       top: 0.639em;
       bottom: 0.639em;
     };
-    width: 258px;
     float: left;
-
-    .SearchForm--compact & {
-      width: 198px;
-    }
+    width: 220px;
   }
 
   @include ie(7) {
@@ -136,79 +113,20 @@
   }
 }
 .SearchForm-submit {
-  @extend .IconRtl;
-  @extend .Icon--search;
-  @extend .Icon--compact;
-  @include border-radius(3px);
-  font-size: 24px;
-  cursor: pointer;
-  border: 0;
-  height: 50px;
-  width: 50px;
-  margin: 0;
-  padding: 0;
-  float: right;
-  text-align: center;
-  position: absolute;
-  top: 22px;
-  right: 0;
-
-  &:focus {
-    position: absolute;
-  }
-  &:active {
-    top: 24px;
-  }
-
-  @include media(tablet) {
-    top: 25px;
-
-    &:active {
-      top: 27px;
-    }
-  }
+  @include font-18(700);
+  color: $white;
+  padding: 0.694em 1em;
+  margin-top: 0.694em;
+  width: 100%;
 
   @include media(desktop) {
-    @include font-18(700);
     float: left;
-    position: relative;
-    top: auto;
-    right: auto;
-    height: auto;
-    width: 110px;
-    color: $white;
-    padding: 0.694em 1em;
+    width: auto;
     margin-left: 0.789em;
+    margin-top: 0;
 
     &:after {
       display: none;
     }
-    &:active {
-      top: 2px;
-    }
-    &:focus {
-      position: relative;
-    }
-
-    .SearchForm--compact & {
-      width: auto;
-    }
-  }
-
-  .SearchForm--compact & {
-    top: 0;
-
-    &:active {
-      top: 2px;
-    }
-  }
-}
-.SearchForm-submitText {
-  @extend .visuallyhidden;
-
-  @include media(desktop) {
-    position: relative;
-    left: auto;
-    display: block;
   }
 }
