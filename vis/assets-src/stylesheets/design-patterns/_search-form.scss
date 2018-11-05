@@ -15,15 +15,36 @@
 }
 
 .SearchForm--hero {
-  @include media(desktop) {
-    background: url(../images/homepage-background.png) left top no-repeat;
-    min-height: 350px;
+  margin-top: 0;
 
-    .SearchForm-inner {
-      float: right;
-      margin-right: 30px;
-      margin-top: 60px;
-      max-width: 360px;
+  @include media(desktop) {
+    border-bottom: 6px solid $grey;
+  }
+}
+
+.SearchForm-img {
+  .SearchForm--hero & {
+    border-bottom: 6px solid $grey;
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+
+    @include media(desktop) {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.SearchForm-content {
+  .SearchForm--hero & {
+    @include media(desktop) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 50px;
+      margin-top: 70px;
+      max-width: 380px;
     }
   }
 }
@@ -41,6 +62,10 @@
 }
 .SearchForm-heading {
   @include font-32(800);
+
+  @include media(desktop) {
+    @include font-43(800);
+  }
 
   .SearchForm--compact & {
     @include font-24(800);
