@@ -1,6 +1,6 @@
 if panel.link_page.live or not panel.link_page
-  article.Panel.Panel--fullWidth.Panel--icon
-    a.Icon(href="#{panel.link_page.url}", class="Icon--#{panel.icon_classname}")
+  article.Panel.Panel--fullWidth.Panel--keyline
+    a(href="#{panel.link_page.url}")
     h1.Panel-heading
      a(href="#{panel.link_page.url}")
       span.Panel-headingText #{panel.title}

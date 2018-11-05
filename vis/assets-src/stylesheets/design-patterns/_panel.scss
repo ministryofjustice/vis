@@ -7,6 +7,10 @@
   padding: 0;
   overflow: visible;
 
+  .ColourRow-inner & {
+    margin-top: 0;
+  }
+
   @include media(tablet) {
     text-align: center;
   }
@@ -64,6 +68,15 @@
     }
   }
 
+  &.Panel--keyline {
+    border-left: 6px solid $grey;
+    padding-left: 20px;
+
+    @include media(tablet) {
+      padding-left: 30px;
+    }
+  }
+
   &.Panel--fullWidth {
     a {
       display: block;
@@ -98,16 +111,6 @@
       text-decoration: none;
     }
   }
-
-  .Panel--fullWidth & {
-    @include media(tablet) {
-      padding-top: 0.208em;
-      margin-left: 4.167em;
-    }
-    @include ie(7) {
-      margin-left: 0;
-    }
-  }
 }
 .Panel-headingText {
   text-decoration: underline;
@@ -118,14 +121,5 @@
   p {
     margin: 0;
     padding: 0.833em 0 0;
-  }
-
-  .Panel--fullWidth & {
-    @include media(tablet) {
-      margin-left: 5.556em;
-    }
-    @include ie(7) {
-      margin-left: 0;
-    }
   }
 }

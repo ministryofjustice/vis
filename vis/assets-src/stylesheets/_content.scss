@@ -51,6 +51,9 @@ ul, ol {
     width: 1px 0;
   }
 }
+.ColourRow-inner {
+  padding: 1.563em 1.111em 1px;
+}
 .ColourRow--secondary {
   background-color: $secondary-colour;
 }
