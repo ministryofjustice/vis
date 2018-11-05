@@ -1,101 +1,102 @@
-%burger-line {
-  @include border-radius(5px);
-  // @include transition(all, 200ms, ease-in-out);
-  height: 5px;
-  width: 35px;
-  background: $secondary-colour;
-  position: absolute;
-  display: block;
-  content: '';
-}
-
 .SiteHeader {
-  background-color: $primary-colour;
-  // padding-top: 15px;
+  background-color: $black;
 }
 .SiteHeader-inner {
   @extend %site-width-container;
   @extend %contain-floats;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 .SiteHeader-title {
-  @include font-24(800);
-  font-size: 20px;
-  padding: 15px 0;
+  @include font-16(800);
+  float: left;
+  font-size: 16px;
   margin: 0;
   color: $white;
 
-  @include media(tablet) {
-    font-size: 20px;
-  }
   @include media(desktop) {
     float: left;
   }
 
   a {
+    @extend %contain-floats;
     color: $white;
+    display: block;
     text-decoration: none;
   }
 }
-a.SiteHeader-menuToggle {
-  @include font-18;
-  color: $secondary-colour;
-  text-decoration: none;
+.SiteHeader-logo {
+  border-right: 1px solid $white;
   display: block;
   float: left;
+  padding-right: 15px;
+  margin-right: 15px;
+  width: 63px;
+  height: 55px;
+  background: url("../images/ministry-of-justice-logo--mobile.png") top left no-repeat;
+  text-indent: -9999px;
+
+  @include device-pixel-ratio() {
+    background-image: url(../images/ministry-of-justice-logo--mobile@2x.png);
+    background-size: 63px 55px;
+  }
+
+  @include media(desktop) {
+    background-image: url("../images/ministry-of-justice-logo.png");
+    height: 32px;
+    width: 199px;
+    padding-right: 20px;
+    margin-right: 20px;
+
+    @include device-pixel-ratio() {
+      background-image: url(../images/ministry-of-justice-logo@2x.png);
+      background-size: 199px 32px;
+    }
+  }
+}
+.SiteHeader-sitename {
+  display: block;
+  float: left;
+  line-height: 1.1em;
+  padding-top: 23px;
+  width: 160px;
+
+  @include media(desktop) {
+    line-height: 32px;
+    padding-top: 0;
+    width: auto;
+  }
+}
+
+a.SiteHeader-menuToggle {
+  @include font-18;
+  font-size: 16px;
+  display: table;
+  float: right;
   position: relative;
-  padding-left: 45px;
-  margin-bottom: 15px;
+  width: 60px;
+  height: 50px;
+  margin-top: 2px;
+  border: 2px solid $white;
+  border-radius: 8px;
+  color: $white;
+  line-height: 1em;
+  text-decoration: none;
+  text-align: center;
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
 
   @include media(desktop) {
     display: none;
   }
-
-  span{
-    @extend %burger-line;
-    position: absolute;
-    top: 9px;
-    left: 0;
-
-    &:before,
-    &:after {
-      @extend %burger-line;
-    }
-
-    &:before {
-      top: -10px;
-    }
-    &:after {
-      bottom: -10px;
-    }
-  }
-
-  // active state
-  &.is-open span {
-    // @include rotate(360deg);
-    background-color: transparent;
-
-    &:before {
-      @include rotate(45deg);
-      top: 0;
-    }
-    &:after {
-      @include rotate(-45deg);
-      top: 0;
-    }
-  }
 }
 .SiteHeader-menu {
-  @extend %outdent-to-full-width;
-  background-color: $black;
-  clear: left;
+  background-color: $grey;
 
   @include media(desktop) {
-    background-color: transparent;
-    float: right;
-    margin-left: 0;
-    margin-right: 0;
-    clear: none;
-
     @include ie-lte(8) {
       min-width: 1%;
       width: auto;
@@ -118,12 +119,14 @@ a.SiteHeader-menuToggle {
   @extend %contain-floats;
   @extend %site-width-container;
   @include font-18(500);
-  padding: 13px 0 12px;
+  font-family: $merriweather;
   list-style: none;
+  padding: 0;
 
   @include media(desktop) {
-    // padding: 7px 0;
-    margin: 0;
+    border-top: 0;
+    font-size: 16px;
+    padding: 0 0 15px;
 
     @include ie-lte(8) {
       min-width: 1%;
@@ -132,25 +135,56 @@ a.SiteHeader-menuToggle {
   }
 }
 .SiteHeader-menuItem {
-  padding: 1px 0;
+  border-bottom: 1px solid;
   display: block;
+  margin-bottom: 0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
 
   @include media(desktop) {
     float: left;
-    padding: 0 0 0 30px;
+    border-right: 1px solid $black;
+    border-bottom: 0;
+    line-height: 1em;
+    margin: 15px 15px 0 0;
+    padding: 0 15px 0 0;
 
-    &:first-child {
-      padding-left: 0;
+    &:last-child {
+      border: 0;
+      margin-right: 0;
+      padding-right: 0;
     }
   }
 
   a {
-    color: $secondary-colour;
+    color: $black;
     text-decoration: none;
     display: block;
+    padding: 19px 0 16px;
 
-    &:hover {
-      color: $white;
+    @include media(desktop) {
+      padding: 0;
     }
+  }
+
+  span {
+    position: relative;
+
+    &:after {
+      content: "";
+      display: none;
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      width: 100%;
+      background-color: $primary-colour;
+    }
+  }
+
+  a:hover span:after,
+  &.is-active span:after {
+    display: block;
   }
 }

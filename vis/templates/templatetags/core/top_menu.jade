@@ -1,5 +1,6 @@
 nav.SiteHeader-menu
   ul.SiteHeader-menuList
     - for menuitem in menuitems
-      li(class='SiteHeader-menuItem{% if menuitem.active %} SiteHeader-menuItem--active{% endif %}')
-        a(href='#{menuitem.url}')= menuitem.specific.menu_title|default:menuitem.title
+      li(class='SiteHeader-menuItem{% if menuitem.active %} is-active{% endif %}')
+        a(href='#{menuitem.url}')
+          span= menuitem.specific.menu_title|default:menuitem.title
