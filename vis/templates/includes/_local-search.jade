@@ -1,5 +1,9 @@
+- load staticfiles core_tags
+
 form.SearchForm(action="/find-local-help/", method="get", id="{{ name }}-search", name=name, class="js-PCCSearch{% if modifier %} SearchForm--{{ modifier }}{% endif %}")
-  .SearchForm-inner
+  if modifier == 'hero'
+    img.SearchForm-img(src="{% static 'images/homepage-background.png' %}", srcset="{% static 'images/homepage-background@2x.png' %} 2x")
+  .SearchForm-content
     label(for="q--{{ name }}")
       if not hideHeading
         span.SearchForm-heading Find local help
