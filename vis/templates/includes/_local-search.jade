@@ -1,10 +1,11 @@
 form.SearchForm(action="/find-local-support/", method="get", id="{{ name }}-search", name=name, class="js-PCCSearch{% if modifier %} SearchForm--{{ modifier }}{% endif %}")
-  label(for="q--{{ name }}")
-    if not hideHeading
-      span.SearchForm-heading Find local help and support
-      span.SearchForm-subHeading If you’ve been a victim of crime, your local support team can help.
-    span.SearchForm-wrap
-      span.SearchForm-labelText Enter your postcode
-      input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text", value="#{ query if query else '' }")
-      button.Button.SearchForm-submit(type="submit")
-        span.SearchForm-submitText Find
+  .SearchForm-inner
+    label(for="q--{{ name }}")
+      if not hideHeading
+        span.SearchForm-heading Find local help
+        span.SearchForm-subHeading Get support to help you cope, recover and seek justice after a crime.
+      span.SearchForm-wrap
+        span.SearchForm-labelText Enter your postcode
+        input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text", value="#{ query if query else '' }")
+        button.Button.SearchForm-submit(type="submit")
+          span.SearchForm-submitText Find
