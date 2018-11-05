@@ -1,3 +1,4 @@
+/* Fira Sans font definition */
 @font-face{
     font-family: 'Fira Sans';
     src: url('../fonts/Fira/eot/FiraSans-Light.eot');
@@ -108,8 +109,64 @@
     font-style: normal;
 }
 
+/* Merriweather font definition */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Merriweather-Regular.eot'); /* IE9 Compat Modes */
+  src: local('Merriweather Regular'), local('Merriweather-Regular'),
+       url('../fonts/Merriweather-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Merriweather-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Merriweather-Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Merriweather-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Merriweather-Regular.svg#Merriweather') format('svg'); /* Legacy iOS */
+}
+/* merriweatherRegularItalic - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/Merriweather-RegularItalic.eot'); /* IE9 Compat Modes */
+  src: local('Merriweather Italic'), local('MerriweatherRegularItalic'),
+       url('../fonts/Merriweather-RegularItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Merriweather-RegularItalic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Merriweather-RegularItalic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Merriweather-RegularItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Merriweather-RegularItalic.svg#Merriweather') format('svg'); /* Legacy iOS */
+}
+/* merriweatherBold - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Merriweather-Bold.eot'); /* IE9 Compat Modes */
+  src: local('Merriweather Bold'), local('Merriweather-Bold'),
+       url('../fonts/Merriweather-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Merriweather-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Merriweather-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Merriweather-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Merriweather-Bold.svg#Merriweather') format('svg'); /* Legacy iOS */
+}
+/* merriweatherBoldItalic latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/Merriweather-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: local('Merriweather Bold Italic'), local('Merriweather-BoldItalic'),
+       url('../fonts/Merriweather-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Merriweather-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Merriweather-BoldItalic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Merriweather-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Merriweather-BoldItalic.svg#Merriweather') format('svg'); /* Legacy iOS */
+}
+
 // basic body font
 $fira-sans: 'Fira sans', Helvetica, sans-serif;
+
+// heading font
+$merriweather: 'Merriweather', Georgia, serif;
 
 // Font reset for print
 $print-reset: sans-serif;
