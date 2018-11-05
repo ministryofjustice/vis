@@ -85,19 +85,6 @@ a:active {
   color: $link-active-colour;
 }
 
-a[rel="external"],
-.external-link {
-  @extend .IconRtlPadded;
-  @extend .Icon--compact;
-  @extend .Icon--external;
-
-  &:after {
-    vertical-align: baseline;
-    font-size: 13px;
-    text-decoration: none;
-  }
-}
-
 // adjustments to normalize.css
 
 /*
