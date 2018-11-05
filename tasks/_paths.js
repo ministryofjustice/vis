@@ -10,7 +10,7 @@
     node_modules: './node_modules/',
     icons: [],
     images: [],
-    fonts: [],
+    fonts: ['./vis/assets-src/fonts/merriweather/**/*'],
     styles: [],
     templates: [],
     scripts: {
