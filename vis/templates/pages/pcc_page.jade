@@ -57,11 +57,11 @@ block content
             |.
         aside.Article-meta
           - if self.show_generic_content
-            a(href="https://www.victimsupport.org.uk/")
-              img.u-border(src="{% url2png 'https://www.victimsupport.org.uk/' %}")
+            a.u-border(href="https://www.victimsupport.org.uk/")
+              img(src="{% url2png 'https://www.victimsupport.org.uk/' %}")
           - elif self.service_website_url and self.show_service_website_thumb
-            a(href=self.service_website_url)
-              img.u-border(src="{% url2png self.service_website_url %}")
+            a.u-border(href=self.service_website_url)
+              img(src="{% url2png self.service_website_url %}")
           - include "includes/_security-banner.jade"
         - include "includes/_feedback-form.jade"
 

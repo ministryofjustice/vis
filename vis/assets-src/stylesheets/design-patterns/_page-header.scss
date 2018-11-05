@@ -7,7 +7,6 @@
 .PageHeader-title {
   @include grid-column( 2/3 );
   @include font-43(800);
-  color: $primary-colour;
   margin-top: 0.581em;
 
   // margins ignored when floated in IE7

@@ -15,7 +15,7 @@ $Placeholder-Selectors: ();
 // }
 
 
-@mixin button($colour: $button-colour, $border-colour: $colour, $radius: 3px, $extend: true) {
+@mixin button($colour: $button-colour, $border-colour: $colour, $radius: 0, $extend: true) {
   @include button-static($extend);
 
   // border
