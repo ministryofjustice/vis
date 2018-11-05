@@ -1,8 +1,9 @@
 .ColumnList {
-  @extend %grid-row;
+  @extend %contain-floats;
   @include font-18;
   list-style: none;
-  padding-bottom: 1.389em;
+  margin-bottom: 0;
+  padding-bottom: 0;
   padding-left: 0;
 }
 .ColumnList-item {

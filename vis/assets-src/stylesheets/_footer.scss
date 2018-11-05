@@ -2,7 +2,7 @@
   @include font-18;
   background-color: $black;
   color: $white;
-  padding: 2.778em 0;
+  padding: 1.389em 0 2.778em 0;
   margin: 2.778em 0 0;
 
   // hasLayout trigger
@@ -65,14 +65,15 @@
 .SiteFooter-contact {
   border-bottom: 1px solid $grey;
   margin-bottom: 1.389em;
+  margin-top: 1.389em;
 }
 .SiteFooter-contactTerms {
-  @include font-16;
   margin-top: -1.389em;
 }
 .SiteFooter-contactNum {
   @include font-24(700);
   display: block;
+  margin-bottom: 1.389em;
 }
 .SiteFooter-contentTitle {
   @include font-24(700);
