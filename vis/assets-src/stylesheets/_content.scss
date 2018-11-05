@@ -1,22 +1,38 @@
+h1, h2, h3, h4, h5 {
+  font-family: $merriweather;
+}
 h1 {
   @include font-43(700);
-  margin: 0 0 1.163em;
+  margin-bottom: 1.163em;
 }
 h2 {
   @include font-32(700);
-  margin: 0 0 0.781em;
+  margin-bottom: 0.781em;
+
+  * + & {
+    margin-top: 1.333em;
+  }
 }
 h3 {
   @include font-24(700);
-  margin: 0 0 1.042em;
+  margin-bottom: 1.042em;
+
+  * + & {
+    margin-top: 1.875em;
+  }
 }
 h4 {
   @include font-18(700);
-  margin: 0 0 1.389em;
+  margin-bottom: 1.389em;
+
+  * + & {
+    margin-top: 2.500em;
+  }
 }
 p, ul, ol {
   @include font-18;
-  margin: 0 0 1.389em;
+  margin-bottom: 1.389em;
+  margin-top: 0;
 }
 
 ul, ol {
