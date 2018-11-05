@@ -10,7 +10,15 @@
   padding-left: 0;
 }
 .u-border {
-  border: 1px solid $primary-colour;
+  border: 1px solid $grey;
+}
+a.u-border {
+  border: 6px solid $grey;
+  display: block;
+
+  &:hover {
+    border-color: $dark-grey;
+  }
 }
 .u-line {
   margin: 0;
