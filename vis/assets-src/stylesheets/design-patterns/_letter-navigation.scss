@@ -3,27 +3,39 @@
   @include font-18;
   list-style: none;
   padding: 0;
-  margin: 0 0 2.778em;
+  margin: 0 0 1.944em;
 }
 .LetterNavigation-listItem {
-  @include font-24(500);
+  @include font-32(400);
   display: block;
   float: left;
   color: $dark-grey;
   text-transform: uppercase;
-  margin-right: 0.65em;
+  margin-bottom: 1em;
+  margin-right: 1em;
+
+  @include media (desktop) {
+    font-size: 24px;
+    margin-bottom: 0.65em;
+    margin-right: 0.65em;
+  }
 }
 .LetterNavigation-letter {
   @extend %contain-floats;
-  @include font-24(500);
-  color: $primary-colour;
+  @include font-32(400);
   text-transform: uppercase;
-  border-bottom: 1px solid $grey;
-  margin-bottom: 1.042em;
-  padding-bottom: 1px;
+  border-bottom: 2px solid $grey;
+  margin-bottom: 0.781em;
+  padding-bottom: 4px;
+
+  * + & {
+    margin-top: 1.250em;
+  }
 }
 .LetterNavigation-topLink {
   @include font-16;
+  font-family: $fira-sans;
   text-transform: none;
   float: right;
+  padding-top: 10px;
 }

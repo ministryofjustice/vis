@@ -14,6 +14,7 @@ block content
             - regroup object_list by get_letter as letters
             nav
               a(name="alphabet")
+              p Select the first letter of the word or phrase you’re looking for.
               ul.LetterNavigation
                 for letter in letters|fill_alphabet_blanks
                   li.LetterNavigation-listItem
