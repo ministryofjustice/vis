@@ -1,4 +1,5 @@
 .button,
 .Button {
   @include button($primary-colour, transparent);
+  @include font-18(700, 18px);
 }
