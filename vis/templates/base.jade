@@ -21,7 +21,7 @@ html(lang="en", class="{% block html_class %}{% endblock %}")
           ga('set', 'page', page);
         }
         ga('send', 'pageview');
-    title {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %} - Victims’ Information Service
+    title {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %} - Victims and Witness Information
     script(type="text/javascript")
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
     <!--[if gt IE 8]><!--><link href="{% staticmin 'stylesheets/vis.css' %}" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
