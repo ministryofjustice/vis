@@ -28,8 +28,7 @@ block content
                   #{panel.title}
       section
         hr.u-line
-        .Panel-row
-          for panel in self.promo_panels.all
-            - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
-              </div><div class="Panel-row">
-            - include "includes/panels/_icon.jade"
+        for panel in self.promo_panels.all
+          - if forloop.counter0|divisibleby:3 and forloop.counter0 > 0
+            </div><div class="Panel-row">
+          - include "includes/panels/_image.jade"
