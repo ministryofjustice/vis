@@ -105,6 +105,16 @@
   color: $primary-colour;
   margin: 0;
 
+  // .Panel--image & {
+  //   @include media(tablet) {
+  //     min-height: 4.167em
+  //   }
+
+  //   @include media(desktop) {
+  //     min-height: 2.750em;
+  //   }
+  // }
+
   .Panel--icon & {
     a {
       display: block;
@@ -114,6 +124,22 @@
 }
 .Panel-headingText {
   text-decoration: underline;
+}
+.Panel-image {
+  @include box-sizing(border-box);
+  border: 6px solid $grey;
+  display: block;
+  margin-top: 0.833em;
+  width: 100%;
+
+  &:hover {
+    border-color: $dark-grey;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 .Panel-content {
   @include font-18;
