@@ -53,7 +53,7 @@
     },
 
     isValid: function () {
-      var errors = []
+      var errors = [];
 
       if (this.$feedback.val() === '') {
         errors.push('Your comment cannot be blank');
