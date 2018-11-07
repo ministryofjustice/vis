@@ -1,0 +1,20 @@
+- load staticfiles core_tags
+
+if panel.link_page.live or not panel.link_page
+  article.Panel.Panel--image
+    .Panel-content
+      h1.Panel-heading
+        - if panel.link_page
+          a(href="#{panel.link_page.url}")
+            span.Panel-headingText #{panel.title}
+        - else
+          span #{panel.title}
+      p=panel.content
+    //- TODO - replace with Wagtail image component - currently using existing icon classname field for image src
+    - if panel.icon_classname
+      - var imagePath = 'images/panels/' + panel.icon_classname + '.png'
+      - if panel.link_page
+        a.Panel-image(href="#{panel.link_page.url}")
+          img(src="{% static imagePath %}")
+      - else
+        img.Panel-image(src="{% staticmin imagePath %}")
