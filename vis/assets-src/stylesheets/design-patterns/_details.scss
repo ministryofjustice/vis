@@ -3,13 +3,13 @@ details {
   display: block;
 
   summary {
-    display: block;
+    display: inline;
     color: $link-colour;
     cursor: pointer;
     text-decoration: underline;
 
     &:focus {
-      outline: none;
+      outline: 3px solid $focus-colour;
     }
     &:hover {
       color: $link-hover-colour;
