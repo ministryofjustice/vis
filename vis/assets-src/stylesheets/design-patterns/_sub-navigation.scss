@@ -1,10 +1,14 @@
 .SubNavigation-menu {
   @extend %contain-floats;
-  @include columns(2);
   @include font-18;
-  padding: 0 0 2.222em;
+  padding: 0 0 2.222em 1.25em;
   margin: 0;
-  list-style-position: inside;
+
+  @include media(desktop) {
+    @include columns(2);
+    list-style-position: inside;
+    padding-left: 0;
+  }
 }
 
 .SubNavigation-itemLink {
