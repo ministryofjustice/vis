@@ -7,10 +7,6 @@
   list-style-position: inside;
 }
 
-.SubNavigation-menuItem {
-  padding-bottom: 0.444em;
-}
-
 .SubNavigation-itemLink {
   .SubNavigation-menuItem--active & {
     color: $secondary-colour;
