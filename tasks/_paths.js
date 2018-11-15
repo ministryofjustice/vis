@@ -33,7 +33,7 @@
   paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv.js');
   paths.scripts.ie.push(paths.vendor + 'html5shiv/dist/html5shiv-printshiv.js');
   paths.scripts.vis.push(paths.node_modules + 'lodash/index.js');
-  paths.scripts.vis.push(paths.vendor + 'jquery/dist/jquery.js');
+  paths.scripts.vis.push(paths.node_modules + 'jquery/dist/jquery.js');
   paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
   paths.scripts.vis.push(paths.vendor + 'jquery-cookie/jquery.cookie.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
