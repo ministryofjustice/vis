@@ -9,9 +9,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "jquery": "~1.11.2",
-    "jquery-details": "~0.1.0",
-    "jquery-cookie": "~1.4.1"
-  }
+  "dependencies": {}
 }

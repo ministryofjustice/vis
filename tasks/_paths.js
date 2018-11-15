@@ -34,8 +34,8 @@
   paths.scripts.ie.push(paths.node_modules + 'html5shiv/dist/html5shiv-printshiv.js');
   paths.scripts.vis.push(paths.node_modules + 'lodash/index.js');
   paths.scripts.vis.push(paths.node_modules + 'jquery/dist/jquery.js');
-  paths.scripts.vis.push(paths.vendor + 'jquery-details/jquery.details.js');
-  paths.scripts.vis.push(paths.vendor + 'jquery-cookie/jquery.cookie.js');
+  paths.scripts.vis.push(paths.node_modules + 'jquery.cookie/jquery.cookie.js');
+  paths.scripts.vis.push(paths.node_modules + 'details-element-polyfill/dist/details-element-polyfill.js');
   paths.scripts.vis.push(paths.src + 'javascripts/vis.js');
   paths.scripts.vis.push(paths.tmp + 'javascripts/templates.js'); // auto generated in templates task
   paths.scripts.vis.push(paths.src + 'javascripts/modules/**.*js');

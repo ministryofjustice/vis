@@ -1,6 +1,7 @@
 .Feedback
-  details
-    summary Is there anything wrong with this page?
+  details.Details
+    summary
+      span.Details-summaryLabel Is there anything wrong with this page?
     form.Feedback-form.js-Zendesk(action="{% url 'zendesk' %}", method="post", novalidate)
       input.hidden(type="text", id="subject", name="subject")
       label.Feedback-label(for="comments")
