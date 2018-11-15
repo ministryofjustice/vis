@@ -12,8 +12,8 @@
       .pipe(gulp.dest(paths.dest + 'fonts/'));
 
     // specific paths for Fira font
-    var fira = gulp.src(paths.src + 'vendor/fira/**/*.{eot,svg,ttf,woff}')
-      .pipe(gulp.dest(paths.dest + 'stylesheets/'));
+    var fira = gulp.src(paths.node_modules + 'mozilla-fira-pack/**/*.{eot,svg,ttf,woff,woff2}')
+      .pipe(gulp.dest(paths.dest + 'fonts/'));
 
     return merge(staticFonts, fira);
   });

@@ -2,10 +2,12 @@
   'use strict';
 
   var paths = {
+    root: './',
     tmp: './.gulptmp/',
     dest: './vis/assets/',
     src: './vis/assets-src/',
     vendor: './vis/assets-src/vendor/',
+    node_modules: './node_modules/',
     icons: [],
     images: [],
     fonts: [],

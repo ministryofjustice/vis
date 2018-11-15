@@ -10,7 +10,6 @@
     "tests"
   ],
   "dependencies": {
-    "fira": "~0.1.0",
     "lodash": "~3.10.1",
     "jquery": "~1.11.2",
     "html5shiv": "~3.7.2",

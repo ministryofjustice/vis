@@ -8,7 +8,8 @@
   var filesToLint = paths.scripts.vis.concat([
     'gulpfile.js',
     'tasks/**/*.js',
-    '!' + paths.vendor + '**/*.js'
+    '!' + paths.vendor + '**/*.js',
+    '!' + paths.node_modules + '**/*.js'
   ]);
 
   // lint js code
