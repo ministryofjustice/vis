@@ -1,11 +1,11 @@
 - extends 'article.jade'
-- load glossary wagtailcore_tags
+- load glossary wagtailcore_tags wagtailextra_tags
 
 block article_title
   = self.title
 
 block article_content
-  #{self.content|richtext}
+  #{self.content|heading_ids|richtext}
 
 block article_aside
   - with self.link_items.all as l_items
