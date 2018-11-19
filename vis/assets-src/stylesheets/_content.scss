@@ -19,6 +19,12 @@ p, ul, ol {
   margin: 0 0 1.389em;
 }
 
+ul, ol {
+  li {
+    margin-bottom: 0.444em;
+  }
+}
+
 .Content {
   @extend %site-width-container;
 }
