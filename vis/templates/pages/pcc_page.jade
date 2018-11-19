@@ -1,5 +1,5 @@
 - extends "base.jade"
-- load wagtailcore_tags helplines staticfiles pages_tags
+- load wagtailcore_tags wagtailextra_tags helplines staticfiles pages_tags
 
 block canonical
   //- Must have the ID canonical to update GA tracking page event
@@ -37,7 +37,7 @@ block content
               h3 Online information and help
               p
                 a(href=self.service_website_url, rel="external") Visit the #{self.service_name} website
-              #{self.content|richtext}
+              #{self.content|heading_ids|richtext}
             if self.service_phone_number
               h3 Talk to someone on the phone
               p Call #{self.service_phone_number}
