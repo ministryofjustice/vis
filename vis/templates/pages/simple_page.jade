@@ -5,7 +5,7 @@ block article_title
   = self.title
 
 block article_content
-  #{self.content|heading_ids|richtext}
+  #{self.content|richtext|heading_ids}
 
 block article_aside
   - with self.link_items.all as l_items

@@ -25,4 +25,4 @@ def heading_ids(value):
     soup.html.unwrap()
     soup.head.unwrap()
     soup.body.unwrap()
-    return mark_safe(soup.prettify())
+    return mark_safe(str(soup))
