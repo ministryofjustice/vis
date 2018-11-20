@@ -5,7 +5,6 @@
     selector: '.locate-me',
 
     init: function () {
-      _.bindAll(this, 'toggleClick');
       this.cacheEls();
       this.bindEvents();
     },
@@ -15,7 +14,7 @@
     },
 
     bindEvents: function () {
-      this.$toggle.on('click', this.toggleClick);
+      this.$toggle.on('click', this.toggleClick.bind(this));
     },
 
     toggleClick: function (evt) {

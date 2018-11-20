@@ -5,7 +5,6 @@
     selector: '.js-PCCSearch',
 
     init: function () {
-      _.bindAll(this, 'formSubmit');
       this.cacheEls();
       this.bindEvents();
     },

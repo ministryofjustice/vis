@@ -102,7 +102,6 @@ TEMPLATE_LOADERS = (
 )
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets-src/vendor'),
     os.path.join(BASE_DIR, 'assets'),
 )
 

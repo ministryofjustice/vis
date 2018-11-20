@@ -25,8 +25,7 @@ RUN npm install
 
 COPY . .
 RUN mkdir -p ./vis/assets && mkdir -p ./assets
-RUN node_modules/.bin/bower install --allow-root \
-  && node_modules/.bin/gulp build:prod \
+RUN node_modules/.bin/gulp build:prod \
   && ./manage.py collectstatic --noinput
 
 CMD ["./run.sh"]

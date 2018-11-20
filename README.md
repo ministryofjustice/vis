@@ -8,7 +8,6 @@ Victims' Information Service
 - [Postgres 9.3+](http://www.postgresql.org/)
 - [nodejs.org](http://nodejs.org/)
 - [gulp.js](http://gulpjs.com/) (Installed globally using `npm install -g gulp`)
-- [Bower](http://bower.io/) (Installed globally using `npm install -g bower`)
 
 ## Installation
 
@@ -75,12 +74,12 @@ Fix PCC Page Permissions such that each PPC Page is owned by the corresponding u
 
 Install Frontend dependencies libraries:
 ```
-npm install -g bower gulp
+npm install -g gulp
 ```
 
 Install frontend packages:
 ```
-npm install && bower install
+npm install
 ```
 
 Compile assets:
@@ -194,10 +193,9 @@ Then add `192.168.59.103 boot2docker` to `/etc/hosts` and run `export DOCKER_HOS
 
 ### Start
 
-Bower frontend components and Django fixtures require setup on the **first run only**:
+Django fixtures require setup on the **first run only**:
 
 ```
-$ fig run django bower install --allow-root
 $ fig run django python manage.py loaddata vis/fixtures/test_users glossary helplines police test_pages vis/fixtures/test_users
 ```
 
