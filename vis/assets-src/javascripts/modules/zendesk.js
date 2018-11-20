@@ -8,7 +8,6 @@
     errorsTemplate: vis.templatizer.Zendesk.errors,
 
     init: function () {
-      _.bindAll(this, 'render', 'submit', 'feedbackSuccess', 'feedbackFail');
       this.cacheEls();
       this.bindEvents();
     },
@@ -21,8 +20,8 @@
     },
 
     bindEvents: function () {
-      this.$form.on('submit', this.submit);
-      vis.Events.on('render', this.render);
+      this.$form.on('submit', this.submit.bind(this));
+      vis.Events.on('render', this.render.bind(this));
     },
 
     sendFeedback: function (data) {
