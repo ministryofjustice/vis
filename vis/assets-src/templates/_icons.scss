@@ -27,7 +27,7 @@
 }
 
 $icons: (
-  <%= glyphs.map(function(glyph){ return glyph.name + ': "' + '\\' + glyph.codepoint.toString(16).toUpperCase() + '"' }).join(',\n  ') %>
+  <%= glyphs.map(function(glyph){ return glyph.name + ': "' + '\\' + glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() + '"' }).join(',\n  ') %>
 );
 
 .<%= className %>,
