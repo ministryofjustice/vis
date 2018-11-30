@@ -30,7 +30,7 @@
       <li>
         <i class="<%= className %> <%= className %>--<%= glyph.name %> <%= className %>--compact"></i>
         <span class="glyph-name"><%= glyph.name %></span>
-        <span class="glyph-codepoint"><%= glyph.codepoint.toString(16).toUpperCase() %></span>
+        <span class="glyph-codepoint"><%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %></span>
       </li><% }); %>
     </ul>
   </body>

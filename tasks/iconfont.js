@@ -8,16 +8,18 @@
   var rename = require('gulp-rename');
 
   gulp.task('iconfont', function (cb) {
-    var fontName = 'vis-icons';
+    var runTimestamp = Math.round(Date.now() / 1000);
 
     return gulp.src(paths.icons)
       .pipe(iconfont({
-        fontName: fontName
+        fontName: 'vis-icons',
+        formats: ['ttf', 'eot', 'woff', 'svg'],
+        timestamp: runTimestamp,
       }))
-      .on('codepoints', function(codepoints) {
+      .on('glyphs', function(glyphs, options) {
         var templateOptions = {
-          glyphs: codepoints,
-          fontName: fontName,
+          glyphs: glyphs,
+          fontName: options.fontName,
           fontPath: '../fonts/',
           className: 'Icon'
         };
@@ -30,7 +32,7 @@
         // create template containing all fonts
         gulp.src(paths.src + 'templates/icon-template.html')
           .pipe(consolidate('lodash', templateOptions))
-          .pipe(rename({ basename: fontName }))
+          .pipe(rename({ basename: options.fontName }))
           .pipe(gulp.dest(paths.dest + 'fonts/'));
       })
       .pipe(gulp.dest(paths.dest + 'fonts/'));
