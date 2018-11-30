@@ -1,7 +1,9 @@
 {
+  "name": "vis",
+  "license": "MIT",
   "engines": {
-    "node": "0.10.x",
-    "npm": "2.5.x"
+    "node": "~10.13.0",
+    "npm": "~6.4.1"
   },
   "repository": {
     "type": "git"
@@ -10,7 +12,6 @@
     "heroku-postbuild": "gulp build:prod"
   },
   "dependencies": {
-    "browser-sync": "2.1.6",
     "del": "^1.1.1",
     "details-element-polyfill": "^2.1.1",
     "govuk_frontend_toolkit": "^3.1.0",
@@ -35,10 +36,13 @@
     "merge-stream": "^0.1.7",
     "mkdirp": "^0.5.0",
     "mozilla-fira-pack": "0.0.1",
-    "require-dir": "0.1.0",
+    "require-dir": "1.1.0",
     "run-sequence": "2.2.1",
     "templatizer": "^1.2.1",
-    "yargs": "3.0.4",
     "yuglify": "0.1.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "yargs": "3.0.4"
   }
 }
