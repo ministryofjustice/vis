@@ -1,16 +1,33 @@
-(function() {
-  'use strict';
-  var gulp = require('gulp');
-  var revall = require('gulp-rev-all');
-  var paths = require('./_paths');
+'use strict';
 
-  gulp.task('revall', ['minify:styles', 'minify:scripts'], function () {
-    // by default, gulp would pick `assets/css` as the base,
-    // so we need to set it explicitly:
-    return gulp.src(paths.dest + '**')
-      .pipe(revall())
-      .pipe(gulp.dest(paths.dest))  // write rev'd assets to build dir
-      .pipe(revall.manifest({fileName: 'manifest.json', prefix: '/static'})) // create manifest (`fileName` is optional)
-      .pipe(gulp.dest(paths.dest)); // write manifest to build dir
-  });
-})();
+var gulp = require('gulp');
+var RevAll = require('gulp-rev-all');
+var paths = require('./_paths');
+
+function revisionAssets() {
+  var revOptions = {
+    fileNameManifest: 'manifest.json',
+      includeFilesInManifest: [
+        '.eot',
+        '.ttf',
+        '.woff',
+        '.woff2',
+        '.svg',
+        '.png',
+        '.gif',
+        '.jpg',
+        '.jpeg',
+        '.ico',
+        '.js',
+        '.css',
+      ],
+  };
+
+  return gulp.src(paths.dest + '**')
+    .pipe(RevAll.revision(revOptions))
+    .pipe(gulp.dest(paths.dest))
+    .pipe(RevAll.manifestFile())
+    .pipe(gulp.dest(paths.dest));
+}
+
+gulp.task('revision', revisionAssets);

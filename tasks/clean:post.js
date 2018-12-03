@@ -1,14 +1,14 @@
-(function(){
-  'use strict';
+'use strict';
 
-  var gulp = require('gulp');
-  var paths = require('./_paths');
-  var del = require('del');
+var gulp = require('gulp');
+var paths = require('./_paths');
+var del = require('del');
 
-  gulp.task('clean:post', function (cb) {
-    del([
-      paths.tmp,
-      paths.src + 'stylesheets/_icons.scss' // generated icon font
-    ], cb);
-  });
-})();
+function postClean (cb) {
+  del([
+    paths.tmp,
+    paths.src + 'stylesheets/_icons.scss' // generated icon font
+  ], cb);
+}
+
+gulp.task('clean:post', postClean);
