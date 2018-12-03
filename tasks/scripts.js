@@ -4,27 +4,39 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var paths = require('./_paths');
 var mkdirp = require('mkdirp');
-var templatizer = require('templatizer');
+var template = require('gulp-template-compile');
 var ignore = require('gulp-ignore');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
+
 var jsDir = paths.dest + 'javascripts/';
+var tempJsDir = paths.tmp + 'javascripts/';
+
+function createTempDir (cb) {
+  mkdirp(tempJsDir, function (err) {
+    if (err) {
+      cb(err);
+    } else {
+      cb();
+    }
+  });
+}
 
 // compile js templates
-function templates (cb) {
-  var dir = paths.tmp + 'javascripts/';
+function templates () {
+  return gulp.src(paths.templates + '**/*.html')
+    .pipe(template({
+      namespace: 'vis.templates',
+      name: function (file) {
+        var paths = file.relative.replace('.html', '');
+        var parts = paths.split('/');
 
-  mkdirp(dir, function (err) {
-    if (err) {
-      console.error(err);
-    } else {
-      templatizer(paths.templates, dir + 'templates.js', {
-        namespace: 'vis'
-      });
-    }
-    cb();
-  });
+        return parts.join('.');
+      },
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest(tempJsDir));
 }
 
 function buildMainScripts () {
@@ -52,6 +64,6 @@ function minifyScripts () {
     .pipe(gulp.dest(jsDir));
 }
 
-gulp.task('templates', templates);
+gulp.task('templates', gulp.series(createTempDir, templates));
 gulp.task('scripts', gulp.series('templates', gulp.parallel(buildMainScripts, buildIeScripts)));
 gulp.task('scripts:minify', gulp.series('scripts', minifyScripts));

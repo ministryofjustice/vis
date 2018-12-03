@@ -1,0 +1,10 @@
+<div class="Error-summary">
+  <h1 class="Error-heading">There was a problem submitting the form</h1>
+  <p>Because of the following problems:</p>
+  <ol class="Error-list">
+    <% errors.forEach(function(error) { %>
+      <li class="Error"><%= error %></li>
+    <% }); %>
+  </ol>
+</div>
+
