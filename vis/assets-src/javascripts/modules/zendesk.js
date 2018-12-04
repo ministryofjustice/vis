@@ -3,9 +3,8 @@
 
   vis.Modules.zendesk = {
     selector: '.js-Zendesk',
-    successTemplate: vis.templatizer.Zendesk.success,
-    failTemplate: vis.templatizer.Zendesk.fail,
-    errorsTemplate: vis.templatizer.Zendesk.errors,
+    successTemplate: vis.templates['Zendesk.success'],
+    errorsTemplate: vis.templates['Zendesk.errors'],
 
     init: function () {
       this.cacheEls();
