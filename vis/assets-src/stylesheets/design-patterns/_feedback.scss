@@ -1,9 +1,12 @@
 .Feedback {
   @include grid-column( 1/1 );
-  border-top: 1px solid $dark-grey;
   display: block;
   margin-top: 2.778em;
-  padding: 2.778em 0 0;
+
+  details {
+    border-top: 1px solid $dark-grey;
+    padding-top: 2.778em;
+  }
 }
 .Feedback-label {
   @include font-18;
