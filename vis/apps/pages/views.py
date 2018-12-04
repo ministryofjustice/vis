@@ -7,9 +7,11 @@ from .forms import SearchForm
 
 
 def pcc_search(request):
+    template = 'pages/pcc_search.jade'
     q = request.GET.get('q')
     errors = []
     if q:
+        template = 'pages/pcc_no_results.jade'
         form = SearchForm(data=request.GET)
         if form.is_valid():
             postcode = form.cleaned_data['q']
@@ -18,9 +20,9 @@ def pcc_search(request):
         else:
             errors = list(itertools.chain.from_iterable(form.errors.values()))
 
-    return render(request, 'pages/result_list.jade', {
+    return render(request, template, {
             'q': q,
-            'title': 'Search results',
+            'title': 'Find local help',
             'errors': errors
         }
     )
