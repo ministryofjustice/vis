@@ -11,8 +11,8 @@ block content
           block article_subtitle
       .Content
         .Article
+          - include "includes/_sub-navigation.jade"
           section.Article-content
-            - include "includes/_sub-navigation.jade"
             block article_content
             - include "includes/_pagination.jade"
           aside.Article-meta

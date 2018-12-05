@@ -1,5 +1,6 @@
 - if show_siblings
   nav.SubNavigation(role="navigation", aria-label="parts to this guide")
+    p.SubNavigation-heading Contents
     ol.SubNavigation-menu
       - for sibling in self.live_siblings
         - with sibling.simplepage.menu_title|default:sibling.title as title
