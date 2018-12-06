@@ -7,7 +7,6 @@ Victims' Information Service
 - [Python 2.7](http://www.python.org/) (Can be installed using `brew`)
 - [Postgres 9.3+](http://www.postgresql.org/)
 - [nodejs.org](http://nodejs.org/)
-- [gulp.js](http://gulpjs.com/) (Installed globally using `npm install -g gulp`)
 
 ## Installation
 
@@ -72,11 +71,6 @@ Fix PCC Page Permissions such that each PPC Page is owned by the corresponding u
 ./manage.py fixpccpermissions
 ```
 
-Install Frontend dependencies libraries:
-```
-npm install -g gulp
-```
-
 Install frontend packages:
 ```
 npm install
@@ -85,7 +79,7 @@ npm install
 Compile assets:
 
 ```
-gulp build:dev  # gulp build:prod in production
+npm run build:dev  # gulp build:prod in production
 ```
 
 In the main tab, start the runserver:
