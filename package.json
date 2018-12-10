@@ -9,8 +9,10 @@
     "type": "git"
   },
   "scripts": {
-    "heroku-postbuild": "gulp build:prod",
-    "build:dev": "gulp build:dev"
+    "heroku-postbuild": "npm run build:prod",
+    "build:dev": "gulp build:dev",
+    "watch": "gulp build:dev watch",
+    "build:prod": "gulp build:prod"
   },
   "dependencies": {
     "del": "^1.1.1",

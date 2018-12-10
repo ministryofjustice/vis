@@ -96,7 +96,7 @@ Gulp tasks are split into individual task files in `tasks/`.
 To watch assets and rebuild them after every change use this command:
 
 ```
-gulp watch
+npm run watch
 ```
 
 It will automatically run `gulp build:dev` and then create a [browsersync](http://www.browsersync.io/) server which will run at [http://localhost:3000](http://localhost:3000). By default it will proxy the django app from [http://localhost:8000](http://localhost:8000). To change the port add a `port` argument to the `watch` command, eg:
