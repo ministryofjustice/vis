@@ -1,8 +1,8 @@
 from django import template
 
-from wagtail.wagtailcore.models import Site
+from wagtail.wagtailcore.models import Site, Page
 
-from pages.models import PCCPage
+from pages.models import PCCPage, HomePage
 
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.conf import settings
@@ -29,14 +29,25 @@ def has_menu_children(page):
 @register.inclusion_tag('templatetags/core/top_menu.jade', takes_context=True)
 def top_menu(context, parent, calling_page=None):
     request = context['request']
-    menuitems = parent.get_children().live().in_menu()
+    menuitems = Page.objects.live().in_menu().not_type(PCCPage).not_type(HomePage)
     for menuitem in menuitems:
-        menuitem.show_dropdown = has_menu_children(menuitem)
         # We don't directly check if calling_page is None since the template
         # engine can pass an empty string to calling_page
         # if the variable passed as calling_page does not exist.
         menuitem.active = (calling_page.url.startswith(menuitem.url)
                            if calling_page else False)
+
+    # assumes menu is only called with parent=site_root and is live + ignores `in_menu` field on homepage
+    home_page = parent
+    home_page.show_dropdown = False
+    home_page.active = (
+        # must match urls exactly as all URLs will start with homepage URL
+        (calling_page.url == home_page.url) if calling_page else False
+    )
+    # append the home page (site_root) to the start of the menuitems
+    # menuitems is actually a queryset so we need to force it into a list
+    menuitems = [home_page] + list(menuitems)
+
     return {
         'calling_page': calling_page,
         'menuitems': menuitems,
