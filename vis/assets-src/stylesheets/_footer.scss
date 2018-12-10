@@ -64,8 +64,10 @@
 }
 .SiteFooter-contact {
   border-bottom: 1px solid $grey;
+  border-top: 1px solid $grey;
   margin-bottom: 1.389em;
   margin-top: 1.389em;
+  padding-top: 1.389em;
 }
 .SiteFooter-contactTerms {
   margin-top: -1.389em;

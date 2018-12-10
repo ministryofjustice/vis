@@ -4,7 +4,14 @@ footer.SiteFooter(role="contentinfo")
     .SiteFooter-row
       .SiteFooter-content
         if maintenance != True
-          - include "includes/_local-search.jade" with modifier="compact" name="footer"
+          nav
+            ul.SiteFooter-nav
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'online-safety' %}") Stop others seeing which websites you are visiting
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'glossary' %}") Find the meaning of a word or phrase
+              li.SiteFooter-navItem
+                a(href="{% slugurl 'cookies' %}") Cookies
         .SiteFooter-contact
           p
             | For information or for help with this site call&nbsp;
@@ -12,13 +19,6 @@ footer.SiteFooter(role="contentinfo")
           p.SiteFooter-contactTerms It’s free from a landline, but you may be charged if you call from a mobile
         h2.SiteFooter-contentTitle About Victim and Witness Information
         p='about'|dynamic_content
-        if maintenance != True
-          nav
-            ul.SiteFooter-nav
-              li.SiteFooter-navItem
-                a(href="{% slugurl 'glossary' %}") Find the meaning of a word or phrase
-              li.SiteFooter-navItem
-                a(href="{% slugurl 'cookies' %}") Cookies
       .SiteFooter-aside
         p.SiteFooter-copyright
           a(href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright/crown-copyright/") &copy; Crown copyright
