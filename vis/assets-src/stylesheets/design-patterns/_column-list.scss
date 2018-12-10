@@ -2,12 +2,13 @@
   @extend %contain-floats;
   @include font-18(500);
   list-style: none;
-  margin-bottom: 0;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
   padding-bottom: 0;
   padding-left: 0;
 }
 .ColumnList-item {
-  margin-bottom: 1.389em;
+  margin-bottom: 0.5em;
 
   @include media(tablet) {
     @include grid-column( 1/3, $full-width: tablet );

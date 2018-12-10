@@ -17,18 +17,17 @@ block content
           - include "includes/_security-banner.jade"
       section.Grid-row
         .Grid-col--1-1
-          .ColourRow--grey
-            .ColourRow-inner
-              h1.Panel-rowHeading Getting specialist help after a crime
-              h2.Panel-rowSubHeading Everyone is entitled to support after a crime. In some situations you might need specialist support.
-              ul.ColumnList
-                for panel in self.panels.all
-                  if panel.link_page.live or not panel.link_page
-                    li.ColumnList-item(class="{% if forloop.counter0|divisibleby:3 and forloop.counter0 > 0 %}is-rowStart{% endif %}")
-                      if panel.link_page
-                        a(href="#{panel.link_page.url}") #{panel.title}
-                      else
-                        #{panel.title}
+          .ColourRow-inner
+            h1.Panel-rowHeading Getting specialist help after a crime
+            h2.Panel-rowSubHeading Everyone is entitled to support after a crime. In some situations you might need specialist support.
+            ul.ColumnList
+              for panel in self.panels.all
+                if panel.link_page.live or not panel.link_page
+                  li.ColumnList-item(class="{% if forloop.counter0|divisibleby:3 and forloop.counter0 > 0 %}is-rowStart{% endif %}")
+                    if panel.link_page
+                      a(href="#{panel.link_page.url}") #{panel.title}
+                    else
+                      #{panel.title}
       section
         hr.u-line
         .Panel-row
