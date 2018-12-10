@@ -5,7 +5,6 @@
   margin: 0;
 
   @include media(desktop) {
-    @include columns(2);
     list-style-position: inside;
     padding-left: 0;
   }
