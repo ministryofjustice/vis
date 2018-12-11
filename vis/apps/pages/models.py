@@ -69,6 +69,10 @@ class GlossaryPage(ObjectListMixin, BaseVISPage):
     object_class = GlossaryItem
 
 
+class PCCSearchPage(BaseVISPage):
+    pass
+
+
 class PCCPage(RoutablePageMixin, BaseVISPage):
     content = RichTextField(blank=True)
     service_name = models.CharField(blank=True, max_length=2000)

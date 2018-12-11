@@ -7,7 +7,7 @@ from .forms import SearchForm
 
 
 def pcc_search(request):
-    template = 'pages/pcc_search.jade'
+    template = 'pages/pcc_search_page.jade'
     q = request.GET.get('q')
     errors = []
     if q:
