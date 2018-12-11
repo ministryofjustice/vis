@@ -2,7 +2,7 @@
 - load wagtailcore_tags helplines staticfiles pages_tags
 
 block title
-  | Find local help and support
+  = self.title
 
 block content
   main(role="main")
@@ -12,6 +12,7 @@ block content
         .PageHeader-row
           h1.PageHeader-title
             block pageHeading
+              = title
       .Content
         article.Article
           .Article-content

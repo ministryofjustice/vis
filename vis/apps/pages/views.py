@@ -22,7 +22,7 @@ def pcc_search(request):
 
     return render(request, template, {
             'q': q,
-            'title': 'Find local help',
+            'title': 'Find local support',
             'errors': errors
         }
     )
