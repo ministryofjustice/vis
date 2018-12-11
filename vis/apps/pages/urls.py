@@ -1,9 +1,5 @@
-from django.conf.urls import patterns, url
-
-from .views import pcc_search
-
+from django.conf.urls import patterns
 
 urlpatterns = patterns(
     '',
-    url(r'^find-local-support/$', pcc_search),
 )

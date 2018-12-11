@@ -11,14 +11,14 @@ block content
         .PageHeader-row
           h1.PageHeader-title
             block pageHeading
-              = title
+              = self.title
       .Content
         article.Article
           .Article-content
             block search
               block searchText
               p Your local support team is there to help you cope and recover if you’ve been affected by a crime, even if it hasn’t been reported it to the police.
-              - include "includes/_local-search.jade" with modifier="compact" hideHeading="true" query=q
+              - include "includes/_local-search.jade" with modifier="compact" hideHeading="true" query=q name="landing-page"
               block nonEnglandWales
                 details.Details
                   summary
