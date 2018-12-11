@@ -17,7 +17,7 @@
 .PageHeader-subTitle {
   @include grid-column( 2/3 );
   @include font-24;
-  color: $primary-colour;
+  // color: $primary-colour;
   margin-bottom: 2.083em;
 
   .PageHeader-title + & {
