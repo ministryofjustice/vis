@@ -17,25 +17,28 @@ block content
         article.Article
           .Article-content
             block search
-              h3 If you’re in England or Wales
               block searchText
+              p Your local support team is there to help you cope and recover if you’ve been affected by a crime, even if it hasn’t been reported it to the police.
               - include "includes/_local-search.jade" with modifier="compact" hideHeading="true" query=q
-            block nonEnglandWales
-              h3 If you’re not in England or Wales
-              p You can find support in:
-              ul
-                li
-                  a(href="https://www.mygov.scot/victim-witness-support/", rel="external") Scotland
-                li
-                  a(href="http://www.victimsupportni.co.uk/", rel="external") Northern Ireland
-                li
-                  a(href="https://www.gov.je/crimejustice/victimswitnessescrime/pages/index.aspx", rel="external") Jersey
-                li
-                  a(href="https://www.gov.gg/victim-support-witness-service", rel="external") Guernsey
-              p
-                | If a crime’s happened overseas and you’re still abroad you can find advice on&nbsp;
-                a(href="https://www.gov.uk/victim-crime-abroad", rel="external") GOV.UK
-                | . You can also get support from your local services when you return home.
+              block nonEnglandWales
+                details.Details
+                  summary
+                    span.Details-summaryLabel If you’re not in England or Wales
+                  div.Details-content
+                    p You can find support in:
+                    ul
+                      li
+                        a(href="https://www.mygov.scot/victim-witness-support/", rel="external") Scotland
+                      li
+                        a(href="http://www.victimsupportni.co.uk/", rel="external") Northern Ireland
+                      li
+                        a(href="https://www.gov.je/crimejustice/victimswitnessescrime/pages/index.aspx", rel="external") Jersey
+                      li
+                        a(href="https://www.gov.gg/victim-support-witness-service", rel="external") Guernsey
+                    p
+                      | If a crime’s happened overseas and you’re still abroad you can find advice on&nbsp;
+                      a(href="https://www.gov.uk/victim-crime-abroad", rel="external") GOV.UK
+                      | . You can also get support from your local services when you return home.
             block pccList
               h3#area-list Choose your area in England and Wales
               - get_pcc_list as object_list
