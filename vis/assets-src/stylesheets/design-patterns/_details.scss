@@ -21,8 +21,26 @@ summary {
   }
 }
 
+.Details + * {
+  margin-top: 1.389em;
+}
+
 .Details-summaryLabel {
   display: inline-block;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.Details-content {
+  border-left: 5px solid $dark-grey;
+  padding: 0.695em 0 0.695em 1.389em;
+  margin: 0.695em 0 0;
+
+  * + * {
+    margin: 1.389em 0 0;
+  }
+
+  li + li {
+    margin-top: 0.444em;
+  }
 }
