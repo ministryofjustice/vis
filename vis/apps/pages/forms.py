@@ -8,8 +8,6 @@ from localflavor.gb.forms import GBPostcodeField
 from geopy.geocoders import Bing
 from geopy.exc import GeopyError
 
-from pages.models import PCCPage
-
 
 POLICE_URL = (
     'http://data.police.uk/api/locate-neighbourhood'
@@ -84,6 +82,8 @@ class SearchForm(forms.Form):
         return police['force']
 
     def get_pcc(self):
+        from pages.models import PCCPage
+
         lat, lng = self._clean_geo()
         police_force = self._get_police_force(lat, lng)
 

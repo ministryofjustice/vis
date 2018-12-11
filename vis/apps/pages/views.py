@@ -1,31 +1,4 @@
-import itertools
-
-from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-
-from .forms import SearchForm
-
-
-def pcc_search(request):
-    template = 'pages/pcc_search.jade'
-    q = request.GET.get('q')
-    errors = []
-    if q:
-        template = 'pages/pcc_no_results.jade'
-        form = SearchForm(data=request.GET)
-        if form.is_valid():
-            postcode = form.cleaned_data['q']
-            pcc = form.cleaned_data['pcc']
-            return redirect(u'%s%s/' % (pcc.url, postcode))
-        else:
-            errors = list(itertools.chain.from_iterable(form.errors.values()))
-
-    return render(request, template, {
-            'q': q,
-            'title': 'Find local support',
-            'errors': errors
-        }
-    )
 
 
 class ErrorHandler(TemplateView):
