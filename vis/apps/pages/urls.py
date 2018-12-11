@@ -5,5 +5,5 @@ from .views import pcc_search
 
 urlpatterns = patterns(
     '',
-    url(r'^find-local-help/$', pcc_search),
+    url(r'^find-local-support/$', pcc_search),
 )
