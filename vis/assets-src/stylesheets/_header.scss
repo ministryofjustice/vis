@@ -60,6 +60,7 @@
   line-height: 1.1em;
   padding-top: 23px;
   width: 160px;
+  font-family: $merriweather;
 
   @include media(desktop) {
     line-height: 32px;

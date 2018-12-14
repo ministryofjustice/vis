@@ -3,7 +3,7 @@
 if panel.link_page.live or not panel.link_page
   article.Panel.Panel--image
     .Panel-content
-      h1.Panel-heading
+      h2.Panel-heading
         - if panel.link_page
           a(href="#{panel.link_page.url}")
             span.Panel-headingText #{panel.title}
