@@ -20,7 +20,7 @@ block content
       .Content
         .Article
           section.Article-content
-            h3 Talk to someone on the phone
+            h2 Talk to someone on the phone
             if self.show_generic_content
               p
                 | Call&nbsp;
@@ -37,7 +37,7 @@ block content
                 p #{self.service_opening_hours}
               if self.phoneline_cost
                 p #{self.phoneline_cost}
-            h3 Get information online
+            h2 Get information online
             if self.show_generic_content
               p
                 a(href="https://www.victimsupport.org.uk/", rel="external") Visit the Victim Support website
@@ -47,7 +47,7 @@ block content
                 p
                   a(href=self.service_website_url, rel="external") Visit the #{self.service_name} website
                 #{self.content|richtext|heading_ids}
-            h3 How the team can help
+            h2 How the team can help
             p The support team can help you get your life back on track by offering you personal support and advice on issues including:
             ul
               li mental and physical health

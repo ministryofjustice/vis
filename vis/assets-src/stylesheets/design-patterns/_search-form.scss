@@ -55,6 +55,7 @@
   display: block;
   font-family: $merriweather;
   padding-bottom: 15px;
+  margin-bottom: 0;
 
   @include media(desktop) {
     padding-bottom: 30px;
