@@ -173,19 +173,34 @@ a.SiteHeader-menuToggle {
   span {
     position: relative;
 
-    &:after {
-      content: "";
-      display: none;
-      position: absolute;
-      bottom: -5px;
-      height: 2px;
-      width: 100%;
-      background-color: $primary-colour;
+    @include media(desktop) {
+      &:after {
+        content: "";
+        display: none;
+        position: absolute;
+        bottom: -5px;
+        height: 2px;
+        width: 100%;
+        background-color: $primary-colour;
+      }
+    }
+  }
+
+  &.is-active span {
+    border-bottom: 2px solid $primary-colour;
+    padding-bottom: 3px;
+
+    @include media(desktop) {
+      border-bottom: 0;
+      display: block;
+      padding-bottom: 0;
     }
   }
 
   a:hover span:after,
   &.is-active span:after {
-    display: block;
+    @include media(desktop) {
+      display: block;
+    }
   }
 }
