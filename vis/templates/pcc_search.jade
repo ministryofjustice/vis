@@ -6,20 +6,20 @@ block title
 
 block content
   main(role="main")
-    - include "includes/_breadcrumb.jade"
     #content
       header.PageHeader
         .PageHeader-row
           h1.PageHeader-title
             block pageHeading
-              = title
+              = self.title
       .Content
         article.Article
           .Article-content
             block search
               block searchText
-              p Your local support team is there to help you cope and recover if you’ve been affected by a crime, even if it hasn’t been reported it to the police.
-              - include "includes/_local-search.jade" with modifier="compact" hideHeading="true" query=q
+                p There are support teams across England and Wales who help victims and witnesses recover after a crime.
+                p Local support is free, even if the crime hasn’t been reported to the police.
+              - include "includes/_local-search.jade" with modifier="compact" hideHeading="true" query=q name="landing-page"
               block nonEnglandWales
                 details.Details
                   summary
@@ -39,10 +39,23 @@ block content
                       | If a crime’s happened overseas and you’re still abroad you can find advice on&nbsp;
                       a(href="https://www.gov.uk/victim-crime-abroad", rel="external") GOV.UK
                       | . You can also get support from your local services when you return home.
+              block supportDefinition
+                h2 How the team can help
+                p Your local team can help you get your life back on track by offering you personal support and advice on issues including:
+                ul
+                  li mental and physical health
+                  li drug or alcohol problems
+                  li finances, benefits and supporting your family
+                  li shelter and accommodation
+                  li education, skills and employment
+                p If needed, they can arrange for you to have:
+                ul
+                  li emotional support
+                  li counselling
+                  li somewhere safe to stay
+                  li someone to represent you, who’ll make sure you get all the help you need
             block pccList
               h3#area-list Choose your area in England and Wales
               - get_pcc_list as object_list
               - include "includes/_pcc-list.jade"
-          aside.Article-meta
-            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"

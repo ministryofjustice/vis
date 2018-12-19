@@ -15,12 +15,18 @@ $Placeholder-Selectors: ();
 // }
 
 
-@mixin button($colour: $button-colour, $border-colour: $colour, $radius: 3px, $extend: true) {
+@mixin button($colour: $button-colour, $border-colour: $colour, $radius: 0, $extend: true) {
   @include button-static($extend);
 
   // border
   border: 1px solid $border-colour;
   @include border-radius($radius);
+
+  // Bottom edge effect
+  @include box-shadow(0 2px 0 darken($colour, 15%));
+  @include ie-lte(8) {
+    border-bottom: 2px solid darken($colour, 15%);
+  }
 
   // Colour
   background-color: $colour;
@@ -73,7 +79,7 @@ $Placeholder-Selectors: ();
     // Size and shape
     position: relative;
     @include inline-block;
-    padding: #{(4.1 / 14)}em #{(10 / 14)}em;
+    padding: #{(4.1 / 14)}em #{(10 / 14)}em #{(1.5 / 14)}em;
     -webkit-appearance: none;
 
     // Support button class on anchor elements - moz only

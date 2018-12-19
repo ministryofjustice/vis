@@ -3,7 +3,6 @@
 
 block content
   main(role="main")
-    - include "includes/_breadcrumb.jade"
     article#content
       header.PageHeader
         .PageHeader-row
@@ -34,6 +33,4 @@ block content
                     a(name=item.slug)
                     = item.name
                   dd #{ item.description|richtext }
-          aside.Article-meta
-            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"

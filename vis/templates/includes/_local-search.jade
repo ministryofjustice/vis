@@ -1,10 +1,17 @@
-form.SearchForm(action="/find-local-support/", method="get", id="{{ name }}-search", name=name, class="js-PCCSearch{% if modifier %} SearchForm--{{ modifier }}{% endif %}")
-  label(for="q--{{ name }}")
+- load staticfiles core_tags
+
+.SearchForm.js-PCCSearch(class="{% if modifier %}SearchForm--{{ modifier }}{% endif %}")
+  if modifier == 'hero'
+    img.SearchForm-img(src="{% static 'images/homepage-background.png' %}", srcset="{% static 'images/homepage-background@2x.png' %} 2x")
+  .SearchForm-content
     if not hideHeading
-      span.SearchForm-heading Find local help and support
-      span.SearchForm-subHeading If you’ve been a victim of crime, your local support team can help.
-    span.SearchForm-wrap
-      span.SearchForm-labelText Enter your postcode
-      input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text", value="#{ query if query else '' }")
-      button.Button.SearchForm-submit(type="submit")
-        span.SearchForm-submitText Find
+      h2.SearchForm-heading Get free support in your area
+      p.SearchForm-subHeading Your local support team will help you cope and recover after a crime.
+    form(action="/find-local-support/", method="get", id="{{ name }}-search", name=name)
+      label(for="q--{{ name }}")
+        span.SearchForm-labelText Enter your postcode
+        span.SearchForm-wrap
+          input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text", value="#{ query if query else '' }")
+          button.Button.SearchForm-submit(type="submit")
+            span.SearchForm-submitText Find
+

@@ -3,7 +3,6 @@
 }
 .Panel-rowHeading {
   @include font-32(800);
-  color: $primary-colour;
   margin: 1.563em 0 0;
   padding: 0;
   overflow: visible;
@@ -14,7 +13,6 @@
 }
 .Panel-rowSubHeading {
   @include font-18(500);
-  color: $primary-colour;
   margin: 1.389em 0;
   padding: 0;
   overflow: visible;
@@ -29,8 +27,13 @@
 }
 .Panel {
   @extend %contain-floats;
+  @include grid-column( 1/1 );
   @include font-18;
-  margin: 2.778em 0;
+  margin: 30px 0;
+
+  @include media(desktop) {
+    margin: 50px 0;
+  }
 
   &.Panel--icon {
     text-align: center;
@@ -51,10 +54,6 @@
       padding: 0;
       margin: 0 auto 20px;
       text-align: center;
-
-      .ColourRow--grey & {
-        background-color: $white;
-      }
 
       @include media(desktop) {
         font-size: 50px;
@@ -78,36 +77,43 @@
       }
     }
   }
-
-  &.Panel--1-3 {
-    @include grid-column( 1/3 );
-    text-align: center;
-  }
 }
 .Panel-heading {
   @include font-24(800);
   color: $primary-colour;
   margin: 0;
-
-  .Panel--icon & {
-    a {
-      display: block;
-      text-decoration: none;
-    }
-  }
-
-  .Panel--fullWidth & {
-    @include media(tablet) {
-      padding-top: 0.208em;
-      margin-left: 4.167em;
-    }
-    @include ie(7) {
-      margin-left: 0;
-    }
-  }
 }
 .Panel-headingText {
   text-decoration: underline;
+}
+.Panel-image {
+  @include box-sizing(border-box);
+  display: block;
+  margin-top: 0.833em;
+  width: 100%;
+
+  @include media(tablet) {
+    padding-right: 1.389em;
+  }
+
+  &:hover {
+    border-color: $dark-grey;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    border: 6px solid $grey;
+    box-sizing: border-box;
+  }
+
+  .Panel--image & {
+    @include media(tablet) {
+      float: left;
+      width: 30%;
+      margin-top: 0;
+    }
+  }
 }
 .Panel-content {
   @include font-18;
@@ -117,12 +123,10 @@
     padding: 0.833em 0 0;
   }
 
-  .Panel--fullWidth & {
+  .Panel--image & {
     @include media(tablet) {
-      margin-left: 5.556em;
-    }
-    @include ie(7) {
-      margin-left: 0;
+      display: inline-block;
+      width: 66.6%;
     }
   }
 }

@@ -1,26 +1,33 @@
 .SecurityBanner {
-  @extend .MetaPanel;
+  @include grid-column( 1/1 );
+  border: 3px solid lighten($black, 15%);
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: lighten($black, 15%);
+  color: $white;
+  z-index: 100;
 
-  .v-home & {
-    @include media(tablet) {
-      &:first-child {
-        margin-top: 2.778em;
-      }
-      &:last-child {
-        margin-bottom: 2.778em;
-      }
-    }
+  &:link,
+  &:visited,
+  &:active {
+    color: $white;
   }
-}
-.SecurityBanner-heading {
-  @include font-24(700);
-  color: $primary-colour;
-  margin: 0;
-}
-.SecurityBanner-content {
-  @include font-18;
-  margin-top: 1.389em;
-}
-.SecurityBanner-action {
-  @include font-18(700);
+
+  &:focus {
+    border-color: $focus-colour;
+    outline: none;
+    position: fixed;
+  }
+
+  @include media(desktop) {
+    bottom: auto;
+    left: auto;
+    top: 0;
+    width: auto;
+  }
 }

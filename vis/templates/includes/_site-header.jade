@@ -6,12 +6,16 @@
 
 header.SiteHeader(role="banner")
   .SiteHeader-inner
-    h1.SiteHeader-title
+    .SiteHeader-title
       if maintenance != True
-        a(href='/') Victims’ Information Service
+        a(href='/')
+          span.SiteHeader-logo Ministry of Justice
+          span.SiteHeader-sitename Victim and Witness Information
       else
-        | Victims’ Information Service
+        span.SiteHeader-logo Ministry of Justice
+        span.SiteHeader-sitename Victim and Witness Information
     if maintenance != True
-      a.SiteHeader-menuToggle.js-mobileMenuToggle(href="#", data-target=".SiteHeader-menu") Menu
-        span
-      - top_menu parent=site_root calling_page=self
+      a.SiteHeader-menuToggle.js-mobileMenuToggle(href="#", data-target=".SiteHeader-menu", data-open-text="Close menu")
+        span.js-mobileMenuToggleText Menu
+  if maintenance != True
+    - top_menu parent=site_root calling_page=self

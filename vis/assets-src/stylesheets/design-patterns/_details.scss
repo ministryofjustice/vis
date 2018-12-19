@@ -21,13 +21,16 @@ summary {
   }
 }
 
+* + .Details,
 .Details + * {
   margin-top: 1.389em;
 }
 
 .Details-summaryLabel {
+  @include font-18;
   display: inline-block;
   cursor: pointer;
+  margin-bottom: 0;
   text-decoration: underline;
 }
 

@@ -2,7 +2,6 @@
 
 block content
   main(role="main")
-    - include "includes/_breadcrumb.jade"
     article#content
       header.PageHeader
         .PageHeader-row
@@ -12,11 +11,9 @@ block content
       .Content
         .Article
           section.Article-content
-            - include "includes/_sub-navigation.jade"
             block article_content
             - include "includes/_pagination.jade"
           aside.Article-meta
             block article_aside
-            - include "includes/_security-banner.jade"
           - include "includes/_feedback-form.jade"
 

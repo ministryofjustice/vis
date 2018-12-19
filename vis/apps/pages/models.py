@@ -21,6 +21,7 @@ from modelcluster.fields import ParentalKey
 
 from info.models import GlossaryItem, ExternalLink
 
+from .forms import SearchForm
 
 from .wagtail_constants import COMMON_PROMOTE_PANELS, \
     SIMPLEPAGE_PROMOTE_PANELS
@@ -67,6 +68,30 @@ class SimplePage(BaseVISPage):
 
 class GlossaryPage(ObjectListMixin, BaseVISPage):
     object_class = GlossaryItem
+
+
+class PCCSearchPage(BaseVISPage):
+    def get_template(self, request):
+        if "q" in request.GET:
+            return "pages/pcc_no_results.jade"
+        return "pages/pcc_search_page.jade"
+
+    def get_context(self, request):
+        context = super(BaseVISPage, self).get_context(request)
+        context["q"] = request.GET.get("q")
+        return context
+
+    def serve(self, request):
+        q = request.GET.get("q")
+
+        if q:
+            form = SearchForm(data=request.GET)
+            if form.is_valid():
+                postcode = form.cleaned_data["q"]
+                pcc = form.cleaned_data["pcc"]
+
+                return redirect(u'%s%s/' % (pcc.url, postcode))
+        return super(BaseVISPage, self).serve(request)
 
 
 class PCCPage(RoutablePageMixin, BaseVISPage):
