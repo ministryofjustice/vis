@@ -1,6 +1,13 @@
 - extends "base.jade"
 - load wagtailcore_tags helplines staticfiles pages_tags
 
+block canonical
+  //- Must have the ID canonical to update GA tracking page event
+  - if q
+    link(id="canonical", rel="canonical", href=self.full_url + "not-found")
+  - else
+    link(id="canonical", rel="canonical", href=self.full_url)
+
 block title
   = self.title
 
