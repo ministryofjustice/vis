@@ -4,7 +4,7 @@ from django.http import Http404
 from django.contrib.auth.decorators import permission_required
 
 from wagtail.wagtailadmin.modal_workflow import render_modal_workflow
-from wagtail.wagtailadmin.views.chooser import get_querystring
+# from wagtail.wagtailadmin.views.chooser import get_querystring
 from wagtail.wagtailadmin.forms import SearchForm
 
 from wagtail.wagtailcore.models import Page
@@ -57,7 +57,7 @@ def chooser(request, parent_page_id=None):
 
     if is_searching:
         return render(request, 'wagtailextra/anchoredchooser/_search_results.html', {
-            'querystring': get_querystring(request),
+            'querystring': request.GET,
             'searchform': search_form,
             'pages': shown_pages,
             'is_searching': is_searching,
@@ -69,7 +69,7 @@ def chooser(request, parent_page_id=None):
     return render_modal_workflow(request, 'wagtailextra/anchoredchooser/browse.html', 'wagtailextra/anchoredchooser/browse.js', {
         'allow_external_link': request.GET.get('allow_external_link'),
         'allow_email_link': request.GET.get('allow_email_link'),
-        'querystring': get_querystring(request),
+        'querystring': request.GET,
         'parent_page': parent_page,
         'pages': shown_pages,
         'search_form': search_form,

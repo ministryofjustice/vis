@@ -4,7 +4,7 @@ import time
 from django.http import JsonResponse
 from django.views.generic import View
 from django.db import OperationalError
-from django.core.cache import get_cache
+from django.core.cache import caches
 from django.conf import settings
 
 from redis.exceptions import ConnectionError
@@ -76,7 +76,7 @@ class HealthCheckView(View):
             return False
 
     def is_cache_ok(self):
-        cache = get_cache('default')
+        cache = caches['default']
         timestamp = int(time.time())
 
         try:
