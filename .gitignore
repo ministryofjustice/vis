@@ -6,6 +6,10 @@ bower_components
 vis/assets/
 vis/static/
 
+# wagtailimages directories
+images/
+original_images/
+
 .DS_Store
 
 # node

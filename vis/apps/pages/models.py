@@ -8,6 +8,7 @@ from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, PublishingPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
@@ -214,13 +215,11 @@ class Panel(models.Model):
         blank=True,
         related_name='+'
     )
-    link_text = models.CharField(max_length=255, help_text="Link Text", blank=True)
 
     panels = [
         FieldPanel('title'),
         FieldPanel('content', classname="full"),
         PageChooserPanel('link_page'),
-        FieldPanel('link_text'),
     ]
 
     class Meta:
@@ -228,17 +227,23 @@ class Panel(models.Model):
 
 
 class PromoPanel(Panel):
-    icon_classname = models.CharField(max_length=255, help_text="Icon class name")
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
 
     panels = [
-        FieldPanel('icon_classname'),
+        ImageChooserPanel('image'),
     ] + Panel.panels
 
     class Meta:
         abstract = True
 
 
-class LeadPanel(PromoPanel):
+class LeadPanel(Panel):
     class Meta:
         abstract = True
 
