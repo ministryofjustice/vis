@@ -5,10 +5,11 @@
   padding-left: 0;
   padding-right: 0;
   margin: 1.389em 0;
-
+  
   @include media(desktop) {
     margin: 0;
   }
+  
 }
 .SearchForm--compact {
   margin-top: 0;
@@ -16,23 +17,32 @@
 
 .SearchForm--hero {
   margin-top: 0;
-
-  @include media(desktop) {
-    border-bottom: 6px solid $grey;
+  border-bottom: 6px solid $grey;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background: url('../images/homepage-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 0;
+  padding-top: 30.34%; /* (img-height / img-width * container-width) */
+  /* (853 / 1280 * 100) */
+  overflow: hidden;
+  
+  @include device-pixel-ratio() {
+    background-image: url('../images/homepage-background@2x.png');
+    background-size: 100% auto;
   }
-}
-
-.SearchForm-img {
-  .SearchForm--hero & {
+  
+  @include media(desktop) {
+    border-bottom: 0;
+    margin-bottom: 0;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: right;
+    height: 366px;
+    padding-top: 0;
     border-bottom: 6px solid $grey;
-    display: block;
-    margin-bottom: 15px;
-    width: 100%;
-
-    @include media(desktop) {
-      border-bottom: 0;
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -42,7 +52,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      margin-right: 12%;
+      margin-right: 150px;
       margin-top: 40px;
       max-width: 380px;
     }
