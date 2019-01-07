@@ -8,7 +8,8 @@ from django.template.response import TemplateResponse
 
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, \
     PageChooserPanel, PublishingPanel
-from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 from wagtail.wagtailadmin.views.home import SiteSummaryPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailcore.fields import RichTextField
@@ -116,10 +117,10 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
 
     subpage_types = []
 
-    subpage_urls = (
-        url(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', 'pcc_view', name='pcc_postcode_view'),
-        url(r'^$', 'pcc_view', name='pcc_page'),
-    )
+    # subpage_urls = (
+    #     url(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', pcc_view, name='pcc_postcode_view'),
+    #     url(r'^$', pcc_view, name='pcc_page'),
+    # )
 
     def get_context(self, request, *args, **kwargs):
         context = super(PCCPage, self).get_context(request, *args, **kwargs)
@@ -140,6 +141,8 @@ class PCCPage(RoutablePageMixin, BaseVISPage):
         kwargs['in_preview_mode'] = True
         return view(request, *args, **kwargs)
 
+    @route(r'(?i)(?P<postcode>(G[I1]R\s*[0O]AA)|([A-PR-UWYZ01][A-Z01]?)([0-9IO][0-9A-HJKMNPR-YIO]?)([0-9IO])([ABD-HJLNPQ-Z10]{2}))/$', name='pcc_postcode_view')
+    @route(r'^$', name='pcc_page')
     def pcc_view(self, request, *args, **kwargs):
         return TemplateResponse(
             request,
@@ -214,13 +217,11 @@ class Panel(models.Model):
         blank=True,
         related_name='+'
     )
-    link_text = models.CharField(max_length=255, help_text="Link Text", blank=True)
 
     panels = [
         FieldPanel('title'),
         FieldPanel('content', classname="full"),
         PageChooserPanel('link_page'),
-        FieldPanel('link_text'),
     ]
 
     class Meta:
@@ -228,17 +229,23 @@ class Panel(models.Model):
 
 
 class PromoPanel(Panel):
-    icon_classname = models.CharField(max_length=255, help_text="Icon class name")
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
 
     panels = [
-        FieldPanel('icon_classname'),
+        ImageChooserPanel('image'),
     ] + Panel.panels
 
     class Meta:
         abstract = True
 
 
-class LeadPanel(PromoPanel):
+class LeadPanel(Panel):
     class Meta:
         abstract = True
 
@@ -260,7 +267,7 @@ class SimplePageGlosseryItems(Orderable, models.Model):
     glossary_item = models.ForeignKey(GlossaryItem, related_name='+')
 
     panels = [
-        SnippetChooserPanel('glossary_item', GlossaryItem)
+        SnippetChooserPanel('glossary_item')
     ]
 
 
@@ -269,7 +276,7 @@ class SimplePageLinkItems(Orderable, models.Model):
     link_item = models.ForeignKey(ExternalLink, related_name='+')
 
     panels = [
-        SnippetChooserPanel('link_item', ExternalLink)
+        SnippetChooserPanel('link_item')
     ]
 
 # #### PAGE ADMIN

@@ -1,5 +1,5 @@
 import os
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
 from django.conf import settings
@@ -7,7 +7,7 @@ from django.contrib import admin
 
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailsearch import urls as wagtailsearch_urls
-from wagtail.wagtaildocs import urls as wagtaildocs_urls
+# from wagtail.wagtaildocs import urls as wagtaildocs_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.contrib.wagtailsitemaps.views import sitemap
 
@@ -17,7 +17,7 @@ from core.views import ping, HealthCheckView
 
 admin.autodiscover()
 
-urlpatterns = patterns(
+urlpatterns = [
     '',
     # url(r'^$', TemplateView.as_view(template_name='homepage.jade')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
@@ -25,16 +25,16 @@ urlpatterns = patterns(
     url(r'^ping.json$', ping),
     url(r'^healthcheck.json$', HealthCheckView.as_view()),
     url(r'^maintenance/$', TemplateView.as_view(template_name='maintenance-page.jade')),
-    url(r'^markdown/', include('django_markdown.urls')),
+    # url(r'^markdown/', include('django_markdown.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     url(r'^admin/', include(wagtailadmin_urls)),
     #url(r'^search/', include(wagtailsearch_urls)),
-    #url(r'^documents/', include(wagtaildocs_urls)),
+    # url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^zendesk/$', ZendeskView.as_view(), name='zendesk'),
     url(r'', include('pages.urls')),
     url(r'', include(wagtail_urls)),
     url('^sitemap\.xml$', sitemap),
-    )
+]
 
 # error handlers
 handler500 = Handler500.as_error_view()
