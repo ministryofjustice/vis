@@ -71,6 +71,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'djangosecure.middleware.SecurityMiddleware',
+    'core.middleware.DomainRedirect',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -226,6 +227,8 @@ EXPORT_EMAIL_BODY = 'Find attached the VIS website.'
 EXPORT_RECIPIENTS = []
 
 GA_ID = os.environ.get('GA_ID', '')
+
+PRIMARY_DOMAIN = os.environ.get('PRIMARY_DOMAIN')
 
 # LOGGING
 LOGGING = {
