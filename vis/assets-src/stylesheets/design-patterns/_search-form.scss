@@ -5,14 +5,11 @@
   padding-left: 0;
   padding-right: 0;
   margin: 1.389em 0;
-  
+
   @include media(desktop) {
     margin: 0;
   }
-  
-}
-.SearchForm--compact {
-  margin-top: 0;
+
 }
 
 .SearchForm--hero {
@@ -28,12 +25,12 @@
   padding-top: 30.34%; /* (img-height / img-width * container-width) */
   /* (853 / 1280 * 100) */
   overflow: hidden;
-  
+
   @include device-pixel-ratio() {
     background-image: url('../images/homepage-background@2x.png');
     background-size: 100% auto;
   }
-  
+
   @include media(desktop) {
     border-bottom: 0;
     margin-bottom: 0;
@@ -68,7 +65,7 @@
   margin-bottom: 0;
 
   @include media(desktop) {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 }
 .SearchForm-heading {
@@ -77,39 +74,18 @@
   @include media(desktop) {
     @include font-43(800);
   }
-
-  .SearchForm--compact & {
-    @include font-24(800);
-    color: $white;
-    padding-bottom: 10px;
-  }
 }
 .SearchForm-subHeading {
   @include font-18(500);
-
-  .SearchForm--compact & {
-    @extend .visuallyhidden;
-  }
 
   @include media(desktop) {
     padding-right: 60px;
   }
 }
 .SearchForm-labelText {
-  @extend .visuallyhidden;
-
-  @include ie-lte(9) {
-    @include font-18(500);
-    color: $primary-colour;
-    text-align: left;
-    position: relative;
-    left: auto;
-    display: block;
-
-    .SearchForm--compact & {
-      color: inherit;
-    }
-  }
+  @include font-18(500);
+  display: block;
+  margin-bottom: 8px;
 }
 .SearchForm-wrap {
   @extend %contain-floats;
@@ -131,12 +107,12 @@
       bottom: 0.639em;
     };
     float: left;
-    width: 220px;
+    width: 115px;
   }
 
   @include ie(7) {
     height: 30px;
-    width: 235px;
+    width: 130px;
   }
 
   &::-webkit-input-placeholder {

@@ -7,9 +7,9 @@
       p.SearchForm-subHeading Your local support team will help you cope and recover after a crime.
     form(action="/find-local-support/", method="get", id="{{ name }}-search", name=name)
       label(for="q--{{ name }}")
-        span.SearchForm-labelText Enter your postcode
+        span.SearchForm-labelText Enter your full postcode
         span.SearchForm-wrap
-          input.SearchForm-query(name="q", id="q--{{ name }}", placeholder="Enter your postcode", type="text", value="#{ query if query else '' }")
+          input.SearchForm-query(name="q", id="q--{{ name }}", type="text", value="#{ query if query else '' }")
           button.Button.SearchForm-submit(type="submit")
             span.SearchForm-submitText Find
 
