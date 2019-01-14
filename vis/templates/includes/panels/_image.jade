@@ -12,9 +12,9 @@ if panel.link_page.live or not panel.link_page
       p=panel.content
     //- TODO - replace with Wagtail image component - currently using existing icon classname field for image src
     - if panel.icon_classname
-      - var imagePath = 'images/panels/' + panel.icon_classname + '.png'
+      - var imagePath = 'images/panels/' + panel.icon_classname + '.jpg'
       - if panel.link_page
         a.Panel-image(href="#{panel.link_page.url}")
           img(src="{% static imagePath %}")
       - else
-        img.Panel-image(src="{% staticmin imagePath %}")
+        img.Panel-image(src="{% static imagePath %}")
