@@ -25,7 +25,7 @@
 
     sendFeedback: function (data) {
       $.post(this.$form.attr('action'), data)
-        .done(this.feedbackSuccess)
+        .done(this.feedbackSuccess.bind(this))
         .fail(this.feedbackFail.bind(this));
     },
 
