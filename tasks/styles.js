@@ -8,7 +8,7 @@ var iconfont = require('gulp-iconfont');
 var consolidate = require('gulp-consolidate');
 var rename = require('gulp-rename');
 var ignore = require('gulp-ignore');
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 
 function buildIcons (cb) {
@@ -57,9 +57,7 @@ function minifyStyles () {
 
   return gulp.src(stylesDir + '**/*.css')
     .pipe(ignore.exclude('**/*.min.css'))
-    .pipe(minifyCss({
-      roundingPrecision: 3
-    }))
+    .pipe(minifyCss())
     .pipe(rename({
       suffix: '.min'
     }))
