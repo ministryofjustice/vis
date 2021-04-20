@@ -7,7 +7,7 @@ psycopg2==2.7.5
 requests==2.5.1
 dj-database-url==0.3.0
 pyjade==3.0.0
-wagtail==0.8.5
+wagtail==2.11.6
 waitress==0.8.9
 django-autoslug==1.7.2
 django-redis-cache==0.13.0
