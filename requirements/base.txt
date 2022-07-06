@@ -22,4 +22,4 @@ django-compressor>=1.4,<2.0
 django-modelcluster==1.1
 whitenoise==3.3.0
 beautifulsoup4==4.6.3
-html5lib==0.999
+html5lib==0.999999999
